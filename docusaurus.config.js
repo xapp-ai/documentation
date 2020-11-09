@@ -6,7 +6,7 @@ module.exports = {
   onBrokenLinks: "throw",
   favicon: "img/favicon.ico",
   organizationName: "xapp-ai", // Usually your GitHub org/user name.
-  projectName: "oc", // Usually your repo name.
+  projectName: "documentation", // Usually your repo name.
   themeConfig: {
     navbar: {
       title: "My Site",
@@ -71,12 +71,12 @@ module.exports = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/xapp-ai",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} XAPP AI, Inc.`,
     },
   },
   presets: [
@@ -87,7 +87,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
+            "https://github.com/xapp-ai/documentation/edit/main/website/",
         },
         blog: {
           showReadingTime: true,
