@@ -1,5 +1,4 @@
 ---
-id: lex-channel
 title: AWS Lex Channel
 sidebar_label: AWS Lex Channel
 slug: /channels/aws-lex

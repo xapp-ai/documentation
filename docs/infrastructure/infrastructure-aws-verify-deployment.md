@@ -1,0 +1,27 @@
+---
+title: Verify your AWS Application Deployment
+---
+
+## AWS Lambda
+
+Test Payload
+
+```json
+{
+  "messageVersion": "1.0",
+  "invocationSource": "FulfillmentCodeHook",
+  "userId": "userId",
+  "sessionAttributes": {},
+  "bot": {
+    "name": "Test Bot",
+    "alias": "$LATEST",
+    "version": "$LATEST"
+  },
+  "outputDialogMode": "Text",
+  "currentIntent": {
+    "name": "LaunchRequest",
+    "slots": {},
+    "confirmationStatus": "None"
+  }
+}
+```

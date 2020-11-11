@@ -1,7 +1,7 @@
 module.exports = {
-  title: "XAPP AI Support",
-  tagline: "Help for the Optimal Conversation Studio",
-  url: "https://support.xapp.ai",
+  title: "Documentation",
+  tagline: "Documentation for Optimal Conversation Studio",
+  url: "https://documentation.xapp.ai",
   baseUrl: "/",
   onBrokenLinks: "throw",
   favicon: "img/favicon.ico",
@@ -9,22 +9,28 @@ module.exports = {
   projectName: "documentation", // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: "My Site",
+      title: "Documentation",
       logo: {
-        alt: "My Site Logo",
+        alt: "XAPP AI",
         src: "img/logo.svg",
       },
       items: [
         {
-          to: "docs/",
+          to: "docs/getting-started",
           activeBasePath: "docs",
-          label: "Docs",
+          label: "Getting Started",
           position: "left",
         },
-        { to: "blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
-          label: "GitHub",
+          to:
+            "docs/conversational-self-service-for-contact-center-intelligence",
+          activeBasePath: "docs",
+          label: "CSS4CCI",
+          position: "left",
+        },
+        {
+          to: "https://studio.xapp.ai/",
+          label: "Login",
           position: "right",
         },
       ],
@@ -40,38 +46,8 @@ module.exports = {
               to: "docs/",
             },
             {
-              label: "Second Doc",
+              label: "Overview",
               to: "docs/doc2/",
-            },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Blog",
-              to: "blog",
-            },
-            {
-              label: "GitHub",
-              href: "https://github.com/xapp-ai",
             },
           ],
         },
@@ -86,14 +62,12 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/xapp-ai/documentation/edit/main/website/",
+          editUrl: "https://github.com/xapp-ai/documentation/edit/main/docs/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/blog/",
+          editUrl: "https://github.com/xapp-ai/documentation/edit/main/blog/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
