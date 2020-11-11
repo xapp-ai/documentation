@@ -63,7 +63,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/xapp-ai/documentation/edit/main/docs/",
+          editUrl: "https://github.com/xapp-ai/documentation/edit/main/",
         },
         blog: {
           showReadingTime: true,
