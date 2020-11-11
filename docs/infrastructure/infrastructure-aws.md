@@ -1,6 +1,6 @@
 ---
 title: Amazon Web Services (AWS)
-sidebar_label: AWS
+sidebar_label: Run on AWS
 ---
 
 :::important

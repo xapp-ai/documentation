@@ -3,4 +3,6 @@ title: Getting Started
 slug: /getting-started
 ---
 
-Getting started
+:::important
+This site is under construction.
+:::

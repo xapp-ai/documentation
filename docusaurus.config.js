@@ -39,15 +39,16 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Documentation",
           items: [
             {
-              label: "Style Guide",
-              to: "docs/",
+              label: "Getting Started",
+              to: "docs/getting-started",
             },
             {
-              label: "Overview",
-              to: "docs/doc2/",
+              label: "CSS4CCI",
+              to:
+                "docs/conversational-self-service-for-contact-center-intelligence",
             },
           ],
         },

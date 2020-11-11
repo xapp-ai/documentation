@@ -1,7 +1,6 @@
 ---
-title: Genesys PureCloud Integration
-sidebar_label: Genesys Integration
-slug: /integrations/genesys
+title: Genesys Integration
+sidebar_label: Genesys
 ---
 
 :::important
