@@ -1,6 +1,6 @@
 module.exports = {
-  title: "Documentation",
-  tagline: "Documentation for Optimal Conversation Studio",
+  title: "XAPP AI",
+  tagline: "Documentation for XAPP AI's Optimal Conversation Studio",
   url: "https://documentation.xapp.ai",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -9,13 +9,13 @@ module.exports = {
   projectName: "documentation", // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: "Documentation",
+      title: "XAPP AI",
       logo: {
         alt: "XAPP AI",
         src: "img/logo.svg",
       },
       items: [
-        {
+        /* {
           to: "docs/getting-started",
           activeBasePath: "docs",
           label: "Getting Started",
@@ -27,7 +27,7 @@ module.exports = {
           activeBasePath: "docs",
           label: "CSS4CCI",
           position: "left",
-        },
+        }, */
         {
           to: "https://studio.xapp.ai/",
           label: "Login",
@@ -39,16 +39,15 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Documentation",
+          title: "External Links",
           items: [
             {
-              label: "Getting Started",
-              to: "docs/getting-started",
+              label: "XAPP AI",
+              to: "https://xapp.ai",
             },
             {
-              label: "CSS4CCI",
-              to:
-                "docs/conversational-self-service-for-contact-center-intelligence",
+              label: "Github",
+              to: "https://github.com/xapp-ai",
             },
           ],
         },
