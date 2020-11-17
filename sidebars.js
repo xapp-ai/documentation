@@ -1,7 +1,7 @@
 module.exports = {
-  someSidebar: {
+  docs: {
+    ["Getting Started"]: ["getting-started"],
     Basics: [
-      "getting-started",
       "basics/basics-intents",
       "basics/basics-entities",
       "basics/basics-handlers",
@@ -22,5 +22,13 @@ module.exports = {
       "integrations/integration-aws-connect",
       "integrations/integration-genesys",
     ], */
+  },
+  aws: {
+    ["AWS"]: [
+      "infrastructure/aws/secrets-manager-setup",
+      "infrastructure/aws/description-of-services",
+      "infrastructure/aws/iam-roles",
+      "infrastructure/aws/verify-deployment",
+    ],
   },
 };

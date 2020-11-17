@@ -3,9 +3,9 @@ title: Amazon Web Services
 sidebar_label: Run on AWS
 ---
 
-Amazon Web Services (AWS) provides a robust set of services you can run your virtual agent on.
+Amazon Web Services (AWS) provides a robust set of services and AI/ML suite you can run your virtual agent on.
 
-## Application Architecture
+## Architecture
 
 <div style={{textAlign: 'center'}}>
 
@@ -13,31 +13,13 @@ Amazon Web Services (AWS) provides a robust set of services you can run your vir
 
 </div>
 
-Your application will leverage the following AWS Services:
+OC Studio leverages an architecture where the runtime environment is controlled by the customer. While this architecture doesn't let us take full advantage of typical SaaS features, we believe the pros outweigh the cons.
 
-### Amazon Lex
+Advantages:
 
-[Lex](https://aws.amazon.com/lex/) provides a conversational interface for applications. It provides automatic speech recognition (ASR), natural language understanding (NLU), and an application programming interface (API) to integration with different channels.
-
-### Amazon Kendra
-
-[Kendra](https://aws.amazon.com/kendra/) is a natural language search engine powered by machine learning. It will serve as the knowledge base for you application.
-
-### AWS S3
-
-[S3](https://aws.amazon.com/s3/) is an object store that is used to securely store your training documents that are fed into Kendra.
-
-### AWS Lambda
-
-[Lambda](https://aws.amazon.com/lambda/) is a function as a service that is cost-effective, scalable, easy to maintain. It is the primary compute engine for you application.
-
-### AWS DynamoDB
-
-[DynamoDB](https://aws.amazon.com/dynamodb/) is a NoSQL database. It will be used as storage for your users.
-
-### AWS Secrets Manager
-
-[Secrets Manager](https://aws.amazon.com/secrets-manager/) is used to securely store your OC Studio API token that authenticates deployment and all application runtime communication.
+- **Security** You are in 100% control of your runtime environment and subsequently your customer's data.
+- **Access** With full control, you also get access to the underlying services leveraged, like Lex & Kendra, which allow you to directly take advantage of their additional features
+- **Independence** We can guarantee zero-vendor lock-in. If you cancel your subscription to OC Studio, your application will continue running.
 
 ## AWS Marketplace
 
@@ -47,14 +29,30 @@ You must have an existing AWS account and we **highly recommend** setting up a n
 
 ## Securing your Application
 
-Before you can deploy your application to an AWS account, you must setup a new secret in AWS Secrets Manager. You can find detailed step by step instructions [here](infrastructure-aws-secrets-manager-setup).
+Before you can deploy your application to an AWS account, you must setup a new secret in AWS Secrets Manager. The secret will ensure you have the authority to deploy the application and secures content retrieval and event posting at runtime.
+
+You can find detailed step by step instructions [here](secrets-manager-setup).
 
 ## Deploying to AWS
 
-The deployment to your AWS account leverages a CloudFormation script with a custom provisioning lambda. The CloudFormation script will deploy the individual resources while the provisioning lambda will help make the connections between the resources as they are built.
+The deployment to your AWS account leverages a CloudFormation script with a custom provisioning lambda.
 
-Also during deployment, the necessary IAM roles will be setup that are required for the services to connect and establishing a connection between your infrastructure and OC Studio.
+### Provisioning Lambda
 
-The deployment will take between 15 to 40 minutes, with setting up Kendra typically taking the longest and has the most variance.
+One of the first tasks for the CloudFormation script is to deploy a lambda that will help coordinate deployment. It will move crawled web pages to your account and setup a Kendra Data Source, help establish the connection between Kendra and Lex, and kick off an initial build of your Lex bot for immediate use.
 
-- [Verifying your AWS deployment](infrastructure-aws-verify-deployment)
+### Deployed Resources
+
+The CLoudFormation script also deploys the necessary compute, storage, AI/ML, and security resources for your application.
+
+You can find a detailed description of all the services [here](aws/description-of-services)
+
+The deployment will take between 15 to 40 minutes, with setting up Kendra typically taking the longest and has the most variance. Another variable contributing to the deployment is the amount of web pages crawled.
+
+### Read More
+
+- [Secrets Manager Setup](aws/secrets-manager-setup)
+- [Services Deploy](aws/description-of-services)
+- [IAM Roles](aws/iam-roles)
+- [Common Errors in AWS Deployment](aws/common-errors-in-stack-deployment)
+- [Verifying your AWS deployment](aws/verify-deployment)

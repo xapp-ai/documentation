@@ -74,7 +74,7 @@ function Home() {
                 "button button--outline button--secondary button--lg",
                 styles.getStarted
               )}
-              to={useBaseUrl("docs/getting-started")}
+              to={useBaseUrl("/docs/getting-started")}
             >
               Get Started
             </Link>
