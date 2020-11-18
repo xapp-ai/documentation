@@ -33,9 +33,10 @@ slug: /pricing
 | OC Studio Subscription / month  |    $ 3,999         |       Custom      |
 | Estimated AWS Fees / month      |  $6000\*\*         |       Custom      |
 | Estimated Monthly Total / month | **$9,999\*\***     |       Custom      |
+| Estimated Cost per Contact      |   $0.22            |       Custom      |
 | 30 Free Trial Available         |     ✅              |  ✅  (Through Pro) |
 
-\*\* Based on 45,000 contacts / month and Kendra Enterprise Edition
+\*\* Conservative estimate based on 45,000 contacts / month and Kendra Enterprise Edition
 
 ## Definitions
 
