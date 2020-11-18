@@ -29,6 +29,7 @@ module.exports = {
       "infrastructure/aws/secrets-manager-setup",
       "infrastructure/aws/description-of-services",
       "infrastructure/aws/iam-roles",
+      "infrastructure/aws/common-errors-in-stack-deployment",
       "infrastructure/aws/verify-deployment",
     ],
   },

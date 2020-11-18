@@ -17,7 +17,7 @@ slug: /pricing
 | Intents                 | Unlimited | Unlimited  |
 | Entities                | Unlimited | Unlimited  |
 
-\* This only covers the cost of OC Studio, there will be [external platform costs](pricing#external-platform-costs) associated with these features.
+\* There will be [external platform costs](pricing#external-platform-costs) associated with these features.
 
 ## Support
 
@@ -30,13 +30,15 @@ slug: /pricing
 
 |                                 |      Pro           | Enterprise        |
 | :------------------------------ | :----------------: | :---------------: |
-| OC Studio Subscription / month  |    $ 3,999         |       Custom      |
-| Estimated AWS Fees / month      |  $6000\*\*         |       Custom      |
-| Estimated Monthly Total / month | **$9,999\*\***     |       Custom      |
-| Estimated Cost per Contact      |   $0.22            |       Custom      |
+| OC Studio Subscription / month  |    $ 3,999\*\*         |       Custom      |
+| Estimated AWS Fees / month      |  $6000\*\*\*         |       Custom      |
+| Estimated Monthly Total / month | **$9,999\*\*\***     |       Custom      |
+| Estimated Cost per Contact      |   $0.22\*\*\*        |       Custom      |
 | 30 Free Trial Available         |     ✅              |  ✅  (Through Pro) |
 
-\*\* Conservative estimate based on 45,000 contacts / month and Kendra Enterprise Edition
+\*\* Billed annually.  Monthly price for monthly billing is $4799
+
+\*\*\* Conservative estimate based on 45,000 contacts / month and Kendra Enterprise Edition
 
 ## Definitions
 

@@ -1,5 +1,5 @@
 ---
-title: Amazon Web Services
+title: Deploying on Amazon Web Services
 sidebar_label: Run on AWS
 ---
 
@@ -8,8 +8,8 @@ Amazon Web Services (AWS) provides a robust set of services and AI/ML suite you 
 ### Quick Links
 
 - [Free Trial on AWS](aws/free-trial)
-- [Deployment: Services](aws/description-of-services)
-- [Deployment: IAM Roles](aws/iam-roles)
+- [Deployed Services](aws/description-of-services)
+- [Deployed IAM Roles](aws/iam-roles)
 
 ## Architecture
 
