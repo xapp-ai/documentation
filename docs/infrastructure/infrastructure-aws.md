@@ -5,6 +5,12 @@ sidebar_label: Run on AWS
 
 Amazon Web Services (AWS) provides a robust set of services and AI/ML suite you can run your virtual agent on.
 
+### Quick Links
+
+- [Free Trial on AWS](aws/free-trial)
+- [Deployment: Services](aws/description-of-services)
+- [Deployment: IAM Roles](aws/iam-roles)
+
 ## Architecture
 
 <div style={{textAlign: 'center'}}>
@@ -27,11 +33,13 @@ Existing AWS customers can easily pay and deploy their application & infrastruct
 
 You must have an existing AWS account and we **highly recommend** setting up a new account under an [AWS Organization](https://aws.amazon.com/organizations/). This will isolate the installation from other resources you manage.
 
+- [Free Trial on AWS](aws/free-trial)
+
 ## Securing your Application
 
 Before you can deploy your application to an AWS account, you must setup a new secret in AWS Secrets Manager. The secret will ensure you have the authority to deploy the application and secures content retrieval and event posting at runtime.
 
-You can find detailed step by step instructions [here](secrets-manager-setup).
+You can find detailed step by step instructions [here](aws/secrets-manager-setup).
 
 ## Deploying to AWS
 
@@ -49,10 +57,10 @@ You can find a detailed description of all the services [here](aws/description-o
 
 The deployment will take between 15 to 40 minutes, with setting up Kendra typically taking the longest and has the most variance. Another variable contributing to the deployment is the amount of web pages crawled.
 
-### Read More
+## Additional Resources
 
 - [Secrets Manager Setup](aws/secrets-manager-setup)
-- [Services Deploy](aws/description-of-services)
-- [IAM Roles](aws/iam-roles)
+- [Deployment: Services](aws/description-of-services)
+- [Deployment: IAM Roles](aws/iam-roles)
 - [Common Errors in AWS Deployment](aws/common-errors-in-stack-deployment)
 - [Verifying your AWS deployment](aws/verify-deployment)

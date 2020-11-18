@@ -29,6 +29,11 @@ module.exports = {
           position: "left",
         }, */
         {
+          to: "docs/pricing",
+          label: "Pricing",
+          position: "right",
+        },
+        {
           to: "https://studio.xapp.ai/",
           label: "Login",
           position: "right",
