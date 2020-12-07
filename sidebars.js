@@ -25,6 +25,7 @@ module.exports = {
   },
   aws: {
     ["AWS"]: [
+      "infrastructure/aws/usage-instructions",
       "infrastructure/aws/free-trial",
       "infrastructure/aws/secrets-manager-setup",
       "infrastructure/aws/description-of-services",

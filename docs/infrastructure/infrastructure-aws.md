@@ -7,6 +7,7 @@ Amazon Web Services (AWS) provides a robust set of services and AI/ML suite you 
 
 ### Quick Links
 
+- [AWS Usage Instructions](aws/usage-instructions)
 - [Free Trial on AWS](aws/free-trial)
 - [Deployed Services](aws/description-of-services)
 - [Deployed IAM Roles](aws/iam-roles)

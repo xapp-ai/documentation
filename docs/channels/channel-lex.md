@@ -11,7 +11,6 @@ The AWS Lex Channel
 ## Requirements
 
 - AWS Account
--
 
 ## Limitations
 
