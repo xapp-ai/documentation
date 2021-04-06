@@ -23,4 +23,11 @@ But not:
 
 ## Picking a Good Starting Page
 
-Given how the crawler works, you want to find a starting URL that has links on the page to other subdirectories and pages.
+Given how the crawler works, you want to find a starting URL that has links on the page to other subdirectories and pages. For example:
+
+- **`https://support.example.com`** A subdirectory to the main website that contains all the desired content.
+- **`https://example.com/help`** A path off the main website that contains all the desired content.
+
+## Support for Schema.org FAQPage
+
+If the crawler finds embedded schema.org [FAQPage](https://schema.org/FAQPage) type, it will parse it and automatically add the FAQs to the Answers content.

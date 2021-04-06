@@ -1,7 +1,9 @@
 ---
-title: Intent Basics
-sidebar_label: Intent
+title: Intents
+sidebar_label: Intents
 ---
+
+## What is an intent?
 
 An intent is a set of utterances that a user may say that all describe a single action. It is a fundamental component of natural language understanding. In the context of conversational AI, one you have what the user has typed in or spoken in text form, it is then classified into a specific intent. For example "yes" and "sure" have the same meaning and can be part of an named `Yes` or `AffirmativeConfirmation`.
 

@@ -1,0 +1,45 @@
+---
+title: Model Basics
+sidebar_label: Model
+---
+
+import { ChatMessageBubble } from "@xapp/chat-widget";
+
+## What is the model?
+
+The model, sometimes referred to as the interaction model, is the set of intents and entities that categorize what the user says to that it can then be used within the applications, specifically the dialog manager.
+
+The primary building blocks of a model are as follows:
+
+- **Intent** A set of similar utterances, or things the user can say, that individually communicate the same intent
+- **Slot** A defined variable on an utterance within an intent used to capture data from the user
+- **Entity** Help take unstructured data and add structure, either through lists or parsing text to dates or time.
+
+To illustrate how these components work together to build a model for a particular application, let's look at our virtual barista example. The virtual barista will leverage the built-in intents for the common utterances of "yes", "no", "cancel", which are provided by the NLUs. It also needs custom intents & entities specifically for taking coffee orders. Let's look at a typical coffee order:
+
+<ChatMessageBubble owner="mine" hasTail>
+  May I have a large cafe au lait?
+</ChatMessageBubble>
+<br/>
+
+The important parts of the request are:
+
+
+| Word         | Meaning |
+| ------------ | ------- |
+| large        | Size    |
+| cafe au lait | Drink   |
+
+These are the start of two custom entities that will be used throughout your model. Insert slots for these entities in the example above and you have the first sample utterance of a custom Drink Order intent.
+
+<ChatMessageBubble owner="mine" hasTail>
+  {"May I have a ${size} ${drink}?"}
+</ChatMessageBubble>
+<br />
+
+:::important
+The `${}` notion is used in the above example to define the slot in
+the utterance where the value inside is the name of the slot. This notation will
+be used frequently throughout OC Studio to define slots and variables in the assistant's
+responses.
+:::

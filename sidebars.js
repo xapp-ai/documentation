@@ -2,22 +2,34 @@ module.exports = {
   docs: {
     ["Getting Started"]: ["getting-started"],
     Basics: [
-      "basics/basics-intents",
-      "basics/basics-entities",
-      "basics/basics-handlers",
-      "basics/basics-crawler",
-      // "basics/basics-documents",
-      // "basics/basics-faqs",
+      "basics/basics-conversational-ai",
+      "basics/basics-model",
+      "basics/basics-content",
     ],
+    ["Dialog Management"]: [
+      "dialog-manager/overview",
+      "dialog-manager/conditions",
+    ],
+    Model: ["model/intents", "model/slots", "model/entities"],
+    Content: [
+      "content/handlers",
+      "content/ssml",
+      // "content/documents",
+      //  "content/answers",
+      "content/crawler",
+    ],
+    /*
+    Channels: [
+      "channels/channels",
+      "channels/channel-lex",
+      "channels/channel-alexa",
+      "channels/channel-dialogflow",
+    ], */
     Infrastructure: [
       "infrastructure/infrastructure-architecture",
       "infrastructure/infrastructure-aws",
     ],
-    /* Channels: [
-      "channels/channel-lex",
-      "channels/channel-alexa",
-      "channels/channel-dialogflow",
-    ],
+    /*
     Integrations: [
       "integrations/integration-aws-connect",
       "integrations/integration-genesys",
