@@ -75,12 +75,14 @@ module.exports = {
           editUrl: "https://github.com/xapp-ai/documentation/edit/main/blog/",
         },
         theme: {
-          customCss: [
-            require.resolve("./src/css/custom.css"),
-            require.resolve("./node_modules/@xapp/chat-widget/dist/index.css"),
-          ],
+          customCss: [require.resolve("./src/css/custom.css")],
         },
       },
     ],
+  ],
+  clientModules: [
+    require.resolve(
+      "./node_modules/@xapp/chat-widget-components/dist/index.css"
+    ),
   ],
 };

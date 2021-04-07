@@ -20,7 +20,7 @@ This secret will secure the creation of the stack and secures the communication 
 
 4. Leave the encryption key as DefaultEncryptionKey and select Next
 
-5. On the next page, for the secret name use `OCStudio`. Add the optional description and tags for reference. Click Next.
+5. On the next page, for the secret name use your application's appId. Add the optional description and tags for reference. Click Next.
 
 ![Name is OCStudio](../../../static/img/infrastructure/aws-secrets-manager-name.png)
 
