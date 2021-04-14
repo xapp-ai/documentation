@@ -4,6 +4,8 @@ title: Style Guide
 sidebar_label: Style Guide
 ---
 
+import { ChatMessageBubble } from "@xapp/chat-widget-components";
+
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
 
 ## Markdown Syntax
@@ -200,3 +202,26 @@ This is a caution
 This is a warning
 
 :::
+
+## Importing React
+
+Notice the import statement at the top of this source file. It looks like this:
+
+```ts
+import { ChatMessageBubble } from "@xapp/chat-widget";
+```
+
+It allows you to use react components, either from an external libary or defined in this project.
+
+<ChatMessageBubble owner="mine" hasTail>
+  This is cool!
+</ChatMessageBubble>
+
+<ChatMessageBubble owner="others" hasTail>
+  I know! React in markdown files!
+</ChatMessageBubble>
+
+<ChatMessageBubble owner="mine" hasTail>
+  The future...
+</ChatMessageBubble>
+

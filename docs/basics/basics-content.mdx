@@ -1,0 +1,79 @@
+---
+title: Content Basics
+sidebar_label: Content
+---
+
+import { ChatMessageBubble } from "@xapp/chat-widget-components";
+
+## What is content?
+
+Content deals with how we respond to the user. There are three main types of content found in OC Studio:
+
+- **Handlers** Defined responses and when they are used for a specific part of the conversation
+- **Answers** Fine tuned answers that surface from frequently asked questions (FAQs)
+- **Documents** Aggregated documents from the web used for answering questions without necessarily defining an answer
+
+## Handlers
+
+Handlers encompass a particular workflow for the IVA. It contains both the responses and the logic for when these responses will be presented to the user. For example, when you great somebody in the welcoming handler, you will want to give different responses to returning users who are already familiar with the assistant and a different response to a user that you haven't seen in a while or is brand new.
+
+Looking at the virtual barista example, for a user that orders their coffee every morning:
+
+<ChatMessageBubble owner="others" hasTail>
+  Hello, what can I get you?
+</ChatMessageBubble>
+<br />
+
+Or if you they continually get the same thing, you can even ask:
+
+<ChatMessageBubble owner="others" hasTail>
+  Hi, would you like the usual?
+</ChatMessageBubble>
+<br />
+
+For a new user or for one you haven't seen in awhile you can offer a little more help in the welcome to remind them what they can do:
+
+<ChatMessageBubble owner="others" hasTail>
+  Welcome, I can take your order and try to answer any questions you may have about the menu.  What would you like?
+</ChatMessageBubble>
+<br />
+
+## Documents 
+
+:::note
+In order to leverage the documents in your virtual assistant, you need leverage our CSS4CCI product and stack deployment that includes AWS Kendra.
+:::
+
+Documents are used for training the virtual assistant, providing it with a knowledgebase of material it can then search for the answers to user's questions.  This knowledgebase acts as a fallback source of material when either an intent or answer is not defined to answer the user's query.  Information surfaced from documents may not always be 100% accurate so they are communicated to the user in a manner that allows them to make the final judgement.
+
+<ChatMessageBubble owner="mine" hasTail>
+How do I store coffee?
+</ChatMessageBubble>
+<br />
+<ChatMessageBubble owner="others" hasTail>
+  Here is what I found...
+  "Coffee beans must be isolated from air and moisture. Probably the best storage containers are made from glass or glazed ceramic, which have the added benefit of being easily cleaned."
+</ChatMessageBubble>
+
+From [The Coffee FAQ - How to Store](http://www.thecoffeefaq.com/4storingcleaning.html#howtostore)
+
+The documents are gathered by the crawler from publically available websites that you own and control the content on.  For our barista assistant, you want to crawl documents that you own that include not just general knowledge about coffee but also detailed information about your menu items. 
+
+## Answers 
+
+:::note
+In order to leverage the documents in your virtual assistant, you need leverage our CSS4CCI product and stack deployment that includes AWS Kendra.
+:::
+
+Answers are defined FAQs that focus on the answer and allow you to add many possible questions that will lead to that answer.  These are treated as high confidence responses, assumed to have gone through a review process (as opposed to answers determined from Documents).
+
+<ChatMessageBubble owner="mine" hasTail>
+What is a cafe au lait?
+</ChatMessageBubble>
+<br />
+<ChatMessageBubble owner="others" hasTail>
+  A cafe au lait is coffee with steamed milk added.  It is similar to a cafe latte except it is coffee instead of espresso as the base.  A medium is $3.50.  
+</ChatMessageBubble>
+
+Notice the prefix of "Here is what I found..." is not needed because this question already has a known answer.
+ 

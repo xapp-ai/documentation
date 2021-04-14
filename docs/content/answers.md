@@ -1,6 +1,6 @@
 ---
-title: FAQs Basics
-sidebar_label: FAQs
+title: Answers Basics
+sidebar_label: Answers
 ---
 
 :::important

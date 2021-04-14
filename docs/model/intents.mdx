@@ -1,7 +1,11 @@
 ---
-title: Intent Basics
-sidebar_label: Intent
+title: Intents
+sidebar_label: Intents
 ---
+
+import { ChatMessageBubble } from "@xapp/chat-widget-components";
+
+## What is an intent?
 
 An intent is a set of utterances that a user may say that all describe a single action. It is a fundamental component of natural language understanding. In the context of conversational AI, one you have what the user has typed in or spoken in text form, it is then classified into a specific intent. For example "yes" and "sure" have the same meaning and can be part of an named `Yes` or `AffirmativeConfirmation`.
 
@@ -30,3 +34,30 @@ Some natural language understanding (NLU) services like Amazon Lex & Microsoft L
 ## Special Intents
 
 Another feature of NLU services are special (or pseudo) intents that do not necessarily match with an utterance. A common special intent it the `Input Unknown` or `No Match` intents that is used when a natural language input cannot be matched with a set of known intents. Other special intents can be channel specific, such as the [`AMAZON.KendraSearchIntent`](https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-kendra-search.html) which uses the natural language input to search an Amazon Kendra index.
+
+## Utterance Expansion Notation
+
+Utterance expansion notation allows you to more efficiently build out the sample utterances of your intent.  You can quickly account for variations in carrier phrases, contractions, and other optional words like "please" or "ok".
+
+To elaborate, Alexa [recommends](https://developer.amazon.com/en-US/docs/alexa/custom-skills/best-practices-for-sample-utterances-and-custom-slot-type-values.html#sample-utterance-phrasing) you think about all the possible variations of a sample utterance and add them to your intent.  In their example for a horoscope skill, they suggest you add a sample of "what's" to account for "what is".   This means you need to go from one sample utterance:
+
+<ChatMessageBubble owner="mine" hasTail>
+what is the horoscope
+</ChatMessageBubble>
+<br />
+to two: 
+
+<ChatMessageBubble owner="mine" hasTail>
+what is the horoscope
+</ChatMessageBubble>
+<br />
+<ChatMessageBubble owner="mine" hasTail>
+what's the horoscope
+</ChatMessageBubble>
+<br />
+
+The only difference in these two utterances is the first part, while the rest is the same.  You can leverage this pattern by using expansion notation:
+```
+{what is|what's} the horoscope
+```
+The sample is expanded into the above examples.  The expansion notation is bookended with `{` and `}` while each expansion is then separated by `|`. 

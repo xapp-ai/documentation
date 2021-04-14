@@ -29,7 +29,7 @@ module.exports = {
           position: "left",
         }, */
         {
-          to: "docs/pricing",
+          to: "/docs/pricing",
           label: "Pricing",
           position: "right",
         },
@@ -75,9 +75,14 @@ module.exports = {
           editUrl: "https://github.com/xapp-ai/documentation/edit/main/blog/",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: [require.resolve("./src/css/custom.css")],
         },
       },
     ],
+  ],
+  clientModules: [
+    require.resolve(
+      "./node_modules/@xapp/chat-widget-components/dist/index.css"
+    ),
   ],
 };

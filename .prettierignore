@@ -1,2 +1,3 @@
-docs/pricing.md
-docs/infrastructure/aws/free-trial.md
+## Prettier formats then it messes with the styling
+docs/**/*.md
+docs/**/*.mdx

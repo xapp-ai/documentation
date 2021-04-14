@@ -1,5 +1,7 @@
 import React from "react";
 import clsx from "clsx";
+
+import Head from "@docusaurus/Head";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
@@ -62,6 +64,12 @@ function Home() {
       title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
+      <Head>
+        <script
+          id="xapp-js"
+          src="https://widget.xapp.ai/xapp-chat-widget.js?key=34640850-c650-4e85-b244-1fb600469c63"
+        ></script>
+      </Head>
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{"CSS4CCI"}</h1>
