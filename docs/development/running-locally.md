@@ -6,6 +6,10 @@ It is often helpful during development to run the application locally and have r
 
 If you are using Lex, you can setup a lambda that is a proxy to your local machine that is running NGROK
 
+'''important
+This example uses [NGROK](https://ngrok.com/) to setup a proxy to your local development environment.  Other similar tools can be used but not all of the below steps will apply.
+'''
+
 1. Setup [NGROK](https://ngrok.com/), optional if you already have NGROK (or similar) installed
     - NGROK allows you to expose your local development environment as a public URL
 
@@ -139,6 +143,9 @@ If you are using Lex, you can setup a lambda that is a proxy to your local machi
     - Download the credentials, add them to your `.aws/credentials` file as a profile.
     - Run `export AWS_PROFILE=profile-name` before you start your local server.
 
+1. Start your local server for your application
+    - If you are using one of the provided templates or starter projects, run `yarn start` from the root of the project
+
 1. Make sure you have the correct settings in your .env file at the root of the project you are running:
 
     ```env
@@ -146,4 +153,19 @@ If you are using Lex, you can setup a lambda that is a proxy to your local machi
     STUDIO_APP_ID={{APP_ID}}
     STUDIO_TOKEN={{TOKEN_FROM_STUDIO_SPECIFIC_TO_APP_ID}}
     USER_STORAGE_TABLE=studio-{{APP_ID}}
+    ```
+
+1. Validate everything is working by sending a sample payload with a POST to your localhost
+    - A tool like Postman will allow you to do this easily.
+
+    ```json
+    {
+        "type": "LAUNCH_REQUEST",
+        "sessionId": "stentor-widget-session-86c2f7b3-9318-651f-b6ee-5b9bcf26bd8f",
+        "userId": "stentor-widget-user-cbf4f5ad-c3fc-6562-835d-afff7eeaab77",
+        "isNewSession": true,
+        "intentId": "LaunchRequest",
+        "platform": "stentor-platform",
+        "channel": "widget"
+    }
     ```

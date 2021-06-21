@@ -11,6 +11,8 @@ Environment variables provide a way to configure the runtime without needing to 
 | STUDIO_SECRET_NAME |  Optional, name of the secret within AWS Secrets Manager to use     |    The name of the secret, see below for more information |
 | STUDIO_APP_ID | The application ID within studio | String |
 | STUDIO_BASE_URL | Configure the Studio Service to point to another environment | Defaults to "https://api.xapp.ai" |
+| STENTOR_LOG_PII | For development, no redaction of PII (such as phone numbers) will be performed | Defaults to "false" |
+| STENTOR_LOG_PII_MASK_PARTIAL | Similar to STENTOR_LOG_PII, this instead will only do a partial mask of PII | Defaults to "false" |
 
 ## Using AWS Secrets Manager
 

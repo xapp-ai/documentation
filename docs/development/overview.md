@@ -33,7 +33,11 @@ At a high-level, development will require you to:
 
 ## Custom Handlers
 
-The [handler](/docs/content/handlers) defines a single state of the [dialog manager](/docs/dialog-manager/overview).  You will need to define a new file, `CustomHandler.ts` and then tell 
+The [handler](/docs/content/handlers) defines a single state of the [dialog manager](/docs/dialog-manager/overview).  The dialog manger will take care of selecting it and instantiating it for you, you just need to focus on the custom logic and integrations within the handler.  
+
+:::important
+You must both 1. tell the assistant application about the handler and 2. update the handler type within OC Studio with your class name in order to leverage it.
+:::
 
 Example Custom Handler File
 
@@ -86,7 +90,7 @@ export class CustomHandler extends AbstractHandler {
 
 You then must register the custom handler with the dialog manager in the application builder:
 
-```
+```ts
 export const handler = new Assistant()
     .withHandlers({
         CustomHandler
@@ -104,3 +108,5 @@ If you are using a minifier that changes the class names then instead of using t
     })
 ```
 :::
+
+Once you have registered it with the application, you must 
