@@ -28,13 +28,13 @@ slug: /pricing
 
 ## Price
 
-|                                 |      Pro           | Enterprise        |
-| :------------------------------ | :----------------: | :---------------: |
-| OC Studio Subscription / month  |    $ 3,999\*\*         |       Custom      |
-| Estimated AWS Fees / month      |  $6000\*\*\*         |       Custom      |
-| Estimated Monthly Total / month | **$9,999\*\*\***     |       Custom      |
-| Estimated Cost per Contact      |   $0.22\*\*\*        |       Custom      |
-| 30 Free Trial Available         |     ✅              |  ✅  (Through Pro) |
+|                                 |      Pro           |  Enterprise        |
+| :------------------------------ | :----------------: | :----------------: |
+| OC Studio Subscription / month  |    $ 3,999\*\*     |        Custom      |
+| Estimated AWS Fees / month      |    $2,000\*\*\*     |        Custom      |
+| Estimated Monthly Total / month |  **$5,999\*\*\***  |        Custom      |
+| Estimated Cost per Contact      |    $0.13\*\*\*     |        Custom      |
+| 30 Free Trial Available         |      ✅            |  ✅  (Through Pro) |
 
 \*\* Billed annually.  Monthly price for monthly billing is $4799
 
@@ -42,11 +42,11 @@ slug: /pricing
 
 ## Definitions
 
-- **Contact:** A contact is any instance where the end user contacts the application and includes all subsequent requests that follow the initial contact.  It is counted by the number of unique session IDs, where the session ID is provided by the integrated channel.  
+- **Contact** - A contact is any instance where the end user contacts the application and includes all subsequent requests that follow the initial contact.  It is counted by the number of unique session IDs, where the session ID is provided by the integrated channel.  
 
-- **Page Crawl:** A page crawl accessing, reading, analyzing, and storage of derived metadata for a single unique URL.  It does not include additional crawls for URLs found while analyzing the content of the page, those would be additional crawls.     
+- **Page Crawl** - A page crawl accessing, reading, analyzing, and storage of derived metadata for a single unique URL.  It does not include additional crawls for URLs found while analyzing the content of the page, those would be additional crawls.     
 
-- **Utterance Test Execution:** A test execution consists of a single execution where a test case utterance is used to call the external NLU and the results of which are then compared to the expected results of the test case.  
+- **Utterance Test Execution** - A test execution consists of a single execution where a test case utterance is used to call the external NLU and the results of which are then compared to the expected results of the test case.  
 
 ## External Platform Costs
 

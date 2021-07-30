@@ -71,6 +71,21 @@ false || 3 === 3; // returns true
 
 Some common macros are also provided to make common tasks like slot comparisons or date comparisons easier. For more information see [Provided Macros](#provided-macros)
 
+### Required condition and one of two possibilities
+
+You may need to set one required condition with two other possibilities. All logical JavaScript operators are supported so the pattern is:
+
+```js
+REQUIRED && (OPTION_1 || OPTION_2);
+```
+
+To then translate this to an actual use case, you have scheduled content that can be accessed through two possible slot values, like a sporting event.
+
+```ts
+fitsSchedule("2019-09-11T18:40", "YYYY-MM-DDTmm:ss", 210, "minutes") && ( slotEquals("team", "one") || slotEquals("team", "two")
+```
+
+
 ## Provided Macros
 
 ### What are conditional macros?
@@ -193,19 +208,32 @@ isRequestID(["FooIntent", "BarIntent"]);
 
 which will return true for either of the two IDs provided.
 
-### Required condition and one of two possibilities
+## Accessing the Request & Context Directly
 
-You may need to set one required condition with two other possibilities. All logical JavaScript operators are supported so the pattern is:
+You can add conditional statements beyond what is provided with the macros by accessing the context or request directly.  The request has information about the specific request from the user and the context has information about the user that is both session specific and historical.  Let's look at some examples:
 
-```js
-REQUIRED && (OPTION_1 || OPTION_2);
-```
-
-To then translate this to an actual use case, you have scheduled content that can be accessed through two possible slot values, like a sporting event.
-
+Accessing the session storage:
 ```ts
-fitsSchedule("2019-09-11T18:40", "YYYY-MM-DDTmm:ss", 210, "minutes") && ( slotEquals("team", "one") || slotEquals("team", "two")
+"${$.context.storage.sessionStore.data.some_boolean_value}" === "true"
 ```
+
+Accessing information on the request:
+```ts
+"${$.request.rawQuery}".startsWith("no")
+```
+
+## Syntax & Evaluation
+
+The syntax is a mix of JavaScript's [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) and JSONPath.  The outer `${}` is the template literal and the internal `$.request.rawQuery` is [JSONPath](https://goessner.net/articles/JsonPath/).
+
+First the JSONPath is evaluated and then the template literal is evaluated.  For the JSONPath evaluation, an object with the request and context are passed in:
+```json
+{
+    "request": {...the request },
+    "context": {...the context }
+}
+```
+The starting `$` means the root element.  Then you can follow through from the root to access the context `$.context.` and on the request `$.request.`
 
 ## On the object model
 
@@ -220,7 +248,3 @@ When modifying the object model directly through JSON, the key on paths and resp
 :::important
 You will need to escape quotes to keep the JSON valid, see the example above.
 :::
-
-```
-
-```

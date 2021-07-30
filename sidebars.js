@@ -34,12 +34,12 @@ module.exports = {
       "integrations/integration-aws-connect",
       "integrations/integration-genesys",
     ], */
-
     Development: [
       "development/overview",
       "development/running-locally",
       "development/runtime-environment-variables",
     ],
+    Data: ["data/analytics-basics"],
   },
   aws: {
     ["AWS"]: [
