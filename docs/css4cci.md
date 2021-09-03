@@ -5,4 +5,4 @@ slug: /conversational-self-service-for-contact-center-intelligence
 
 ## Overview
 
-Conversational Self Service for Contact Center Intelligence (CSS4CCI) provides
+Conversational Self Service for Contact Center Intelligence (CSS 4 CCI) provides
