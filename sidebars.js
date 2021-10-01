@@ -34,6 +34,12 @@ module.exports = {
       "integrations/integration-aws-connect",
       "integrations/integration-genesys",
     ], */
+    Data: ["data/types-of-data", "data/analytics-basics"],
+    Development: [
+      "development/overview",
+      "development/running-locally",
+      "development/runtime-environment-variables",
+    ],
   },
   aws: {
     ["AWS"]: [
@@ -44,6 +50,7 @@ module.exports = {
       "infrastructure/aws/iam-roles",
       "infrastructure/aws/common-errors-in-stack-deployment",
       "infrastructure/aws/verify-deployment",
+      "infrastructure/aws/iam-policy-for-deployment",
     ],
   },
 };

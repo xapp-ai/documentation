@@ -9,4 +9,5 @@ It provides machine teaching automated workflow that allows you continuously opt
 
 ## What is CSS4CCI?
 
-Conversational Self Service for Contact Center Intelligence (CSS4CCI) is a packaged solution built on top of OC Studio for building conversational virtual agents to help provide a better user experience to your customers when they are searching for answers about your product.
+Conversational Self Service for Contact Center Intelligence (CSS 4 CCI) is a packaged solution built on top of OC Studio for building conversational virtual agents to help provide a better user experience to your customers when they are searching for answers about your product.
+
