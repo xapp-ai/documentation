@@ -70,23 +70,6 @@ Where `${team}` and `${team_two}` both have the same entity value which is a lis
 
 ## Types of Built-In Entity (Slot Types)
 
-OC Studio provides a set of built-in slots that are the based on the built-ins from the major NLUs.  
-
-| Built-In         | Example | Amazon Lex | Amazon Alexa | Dialogflow ES | 
-| ------------ | ------- |  ------- |  ------- |  ------- |
-| COLOR        | "blue"    | AMAZON.Color* | AMAZON.Color | @sys.color |
-| TIME | "noon" "twelve o'clock" | AMAZON.TIME | AMAZON.TIME | @sys.time |
-| DATE | "april fifth" | AMAZON.DATE | AMAZON.DATE| @sys.date |
-| DATE_TIME | "noon" "april fifth at two"   | AMAZON.DATE & AMAZON.TIME** | AMAZON.DATE & AMAZON.TIME** | @sys.date-time |
-| DURATION | "2 months" "4 seconds" | AMAZON.DURATION | AMAZON.DURATION | @sys.duration |
-| NUMBER | "two" | AMAZON.NUMBER | AMAZON.NUMBER | @sys.cardinal |
-| ORDINAL | "first" | AMAZON.Ordinal | AMAZON.Ordinal | @sys.ordinal |
-| PHONE_NUMBER | "eight oh four..." | AMAZON.PhoneNumber | AMAZON.PhoneNumber | @sys.phone-number | 
-| SEARCH_QUERY*** | Returns the raw query | AMAZON.SearchQuery | Not Supported | @sys.any |
-
-*  *en-US language support only
-* **Synthetically built with AMAZON.DATE & AMAZON.TIME 
-* *** Use sparingly, limited support and requires special considerations
 
 ## Slot Best Practices
 
