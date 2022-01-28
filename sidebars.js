@@ -37,6 +37,7 @@ module.exports = {
     Data: ["data/types-of-data", "data/analytics-basics"],
     Development: [
       "development/overview",
+      "development/custom-handlers",
       "development/running-locally",
       "development/runtime-environment-variables",
     ],

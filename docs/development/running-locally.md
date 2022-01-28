@@ -6,9 +6,9 @@ It is often helpful during development to run the application locally and have r
 
 If you are using Lex, you can setup a lambda that is a proxy to your local machine that is running NGROK
 
-'''important
+:::important
 This example uses [NGROK](https://ngrok.com/) to setup a proxy to your local development environment.  Other similar tools can be used but not all of the below steps will apply.
-'''
+:::
 
 1. Setup [NGROK](https://ngrok.com/), optional if you already have NGROK (or similar) installed
     - NGROK allows you to expose your local development environment as a public URL
