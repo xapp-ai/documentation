@@ -16,5 +16,5 @@ While all channels support the most basic user experience of user request and ap
 From a user experience design perspective, there are many things to consider. While all channels support basic user request, application response interactions, from a design perspective there are many things to consider. On text based channels users tend to be more terse and leverage emojis so make sure you account for these in your model. Depending on the text based channel, adding rich responses with GUI elements and suggestion chips will enhance the user experience. On voice based channels,
 
 :::note
-Not all NLUs support emoji
+Not all NLUs support emoji ☹️
 :::

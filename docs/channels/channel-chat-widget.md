@@ -5,7 +5,9 @@ sidebar_label: Chat Widget
 
 ## What is the chat widget channel?
 
-The chat widget is a channel provided by OC Studio that you can customize and embed on your website.
+The chat widget is a channel provided by OC Studio that you can customize and embed on your website.  It is built to work alongside other text based input channels with built-in components such as cards, vertical lists, horizontal lists and suggestion chips.  Unique to OC Studio, it also has support for autocomplete suggestions.
+
+You can configure nearly every aspect of the widget, including the styles, without needing a developer and is extensible to allow you to add your own custom components.
 
 ## Connecting to a Backend
 
@@ -52,4 +54,47 @@ The script itself does not make any blocking network calls and does not depend o
 The script is hosted on a CDN however when making configuration updates, the first time loading the widget after a save will be slower than all subsequent calls as the cached scripted is invalidated and the cache updated.  
 :::
 
+### Embedding in a React Application
+
+It is also possible to embed the widget in a React based web application, this will provide you with a more integrated look and feel however requires you to build and inject your own configuration.
+
+#### Installation
+
+```bash
+npm i @xapp/chat-widget redux-thunk redux react-redux --production
+```
+
+```jsx
+import { ChatWidget, WidgetEnv } from "@xapp/chat-widget";
+import "@xapp/chat-widget/dist/index.css";
+
+const config: WidgetEnv = {
+    connection: {
+        serverUrl: "",
+        type: "direct"
+    },
+};
+
+function RenderWidget() {
+    return <ChatWidget config={config} mode={"docked"} />;
+}
+```
+
+The config has all the same parameters configured on the chat widget channel page however without the GUI for setting them.  
+
+When in `docked` mode the widget will fill the space, height & width, given to it and be responsive to changes in dimensions.
+
 ## Configuring the Widget
+
+Leverage the split column view with the settings on the left and the widget preview on the right to make changes to parts of the widget and see it updated immediately before saving it.  Saving it will then update the configuration and you can 
+
+## Share the Widget
+
+The preview link, found in the header of your chat widget channel configuration page, can be used to share the widget externally without requiring a login.  
+
+## Disabling your Widget
+
+You can disable the widget from being displayed after installation or when shared through the preview link by clicking the power button in the header of your chat widget channel configuration page.  
+
+
+
