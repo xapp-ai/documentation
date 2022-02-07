@@ -18,16 +18,17 @@ module.exports = {
       //  "content/answers",
       "content/crawler",
     ],
-    /*
-    Channels: [
-      "channels/channels",
-      "channels/channel-lex",
-      "channels/channel-alexa",
-      "channels/channel-dialogflow",
-    ], */
     Infrastructure: [
       "infrastructure/infrastructure-architecture",
       "infrastructure/infrastructure-aws",
+    ],
+    Channels: [
+      "channels/channels",
+      /*"channels/channel-lex",
+      "channels/channel-alexa",
+      "channels/channel-dialogflow", */
+      "channels/channel-chat-widget",
+      "channels/slack-through-lex",
     ],
     /*
     Integrations: [
@@ -35,9 +36,12 @@ module.exports = {
       "integrations/integration-genesys",
     ], */
     Data: ["data/types-of-data", "data/analytics-basics"],
+
     Development: [
       "development/overview",
+      "development/custom-application",
       "development/custom-handlers",
+
       "development/running-locally",
       "development/runtime-environment-variables",
     ],
