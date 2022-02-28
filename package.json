@@ -11,9 +11,9 @@
     "serve": "docusaurus serve"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.15",
-    "@docusaurus/module-type-aliases": "2.0.0-beta.15",
-    "@docusaurus/preset-classic": "2.0.0-beta.15",
+    "@docusaurus/core": "2.0.0-beta.16",
+    "@docusaurus/module-type-aliases": "2.0.0-beta.16",
+    "@docusaurus/preset-classic": "2.0.0-beta.16",
     "@mdx-js/react": "2.0.0",
     "@tsconfig/docusaurus": "1.0.4",
     "@types/react": "17.0.39",
