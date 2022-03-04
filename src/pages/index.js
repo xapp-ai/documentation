@@ -14,7 +14,7 @@ const features = [
     imageUrl: "img/features/undraw_in_no_time_6igu.svg",
     description: (
       <>
-        With CSS4CCI, you can have a conversational virtual agent in less than
+        With OC Studio, you can have a conversational virtual agent in less than
         60 minutes.
       </>
     ),
@@ -34,8 +34,8 @@ const features = [
     imageUrl: "img/features/undraw_starry_window_ppm0.svg",
     description: (
       <>
-        CSS4CCI is built on OC Studio, which provides infinite scalability with
-        no code and low code methods of extension.
+        OC Studio provides infinite scalability with no code and low code
+        methods of extension.
       </>
     ),
   },
@@ -72,10 +72,8 @@ function Home() {
       </Head>
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{"CSS4CCI"}</h1>
-          <p className="hero__subtitle">
-            {"Conversational Virtual Agent built on OC Studio"}
-          </p>
+          <h1 className="hero__title">{"Optimal Conversation Studio"}</h1>
+          <p className="hero__subtitle">{"Conversational AI Platform"}</p>
           <div className={styles.buttons}>
             <Link
               className={clsx(
