@@ -10,7 +10,12 @@ module.exports = {
       "dialog-manager/overview",
       "dialog-manager/conditions",
     ],
-    Model: ["model/intents", "model/slots", "model/entities"],
+    Model: [
+      "model/intents",
+      "model/slots",
+      "model/entities",
+      "model/model-best-practices",
+    ],
     Content: [
       "content/handlers",
       "content/ssml",
