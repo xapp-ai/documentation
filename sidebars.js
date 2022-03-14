@@ -50,6 +50,10 @@ module.exports = {
       "development/running-locally",
       "development/runtime-environment-variables",
     ],
+    Studio: [
+      "studio/organizations-applications-members",
+      "studio/architectures",
+    ],
   },
   aws: {
     ["AWS"]: [
