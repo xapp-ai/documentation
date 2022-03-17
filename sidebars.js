@@ -46,13 +46,15 @@ module.exports = {
       "development/overview",
       "development/custom-application",
       "development/custom-handlers",
-
       "development/running-locally",
       "development/runtime-environment-variables",
+      "development/cli",
+      "development/api",
     ],
     Studio: [
       "studio/organizations-applications-members",
       "studio/architectures",
+      "studio/governance",
     ],
   },
   aws: {
