@@ -10,7 +10,12 @@ module.exports = {
       "dialog-manager/overview",
       "dialog-manager/conditions",
     ],
-    Model: ["model/intents", "model/slots", "model/entities"],
+    Model: [
+      "model/intents",
+      "model/slots",
+      "model/entities",
+      "model/model-best-practices",
+    ],
     Content: [
       "content/handlers",
       "content/ssml",
@@ -41,9 +46,15 @@ module.exports = {
       "development/overview",
       "development/custom-application",
       "development/custom-handlers",
-
       "development/running-locally",
       "development/runtime-environment-variables",
+      "development/cli",
+      "development/api",
+    ],
+    Studio: [
+      "studio/organizations-applications-members",
+      "studio/architectures",
+      "studio/governance",
     ],
   },
   aws: {

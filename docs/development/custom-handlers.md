@@ -92,3 +92,35 @@ Once you have registered it with the application, you must set the type in Studi
 ![img](../../static/img/set-custom-type.gif)
 
 
+## Redirects and Forwards
+
+In addition to defining the content that is returned, you can also programmatically control [redirect and forwarding](/docs/content/handlers#redirects--forwards) paths.
+
+Add the either or both of the following to your custom handler.
+
+```ts
+    public async redirectingPathForRequest(request: Request, context: Context<Storage>): Promise<ExecutablePath> {
+
+        if (true /* replace with your logic to dermine need to redirect */) {
+            return {
+                type: "START",
+                intentId: "NewIntentId"
+            };
+        }
+
+        return super.redirectingPathForRequest(request, context);
+    }
+
+    public async forwardingPathForRequest(request: Request, context: Context<Storage>): Promise<ExecutablePath> {
+        if (true /* replace with your logic to dermine need to forward */) {
+            return {
+                type: "START",
+                intentId: "NewIntentId"
+            };
+        }
+
+        return super.forwardingPathForRequest(request, context);
+    }
+```
+
+If you need to redirect or forward, return an object, of type ExecutablePath, that contains the ID (`intentId`) of the handler you will be forwarding to.  You could potentially just return `undefined` if you are not changing handlers however there is benefit in calling the super methods.  If you fall through to the supers then you can also define the behavior inside OC Studio's GUI, which gives you more flexibility to modify the behavior without development.
