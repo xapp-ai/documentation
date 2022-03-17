@@ -71,7 +71,7 @@ npm i @xapp/chat-widget redux-thunk redux react-redux --production
 ```
 
 ```jsx
-import { ChatWidget, WidgetEnv } from "@xapp/chat-widget";
+import { Chat as ChatWidget, WidgetEnv } from "@xapp/chat-widget";
 import "@xapp/chat-widget/dist/index.css";
 
 const config: WidgetEnv = {
@@ -129,7 +129,7 @@ window["xaConfig"] = {
 If you have installed the widget as part of your React application using the React library, you can append the user ID and access token as part of the configuration.
 
 ```jsx
-import { ChatWidget, WidgetEnv } from "@xapp/chat-widget";
+import { Chat as ChatWidget, WidgetEnv } from "@xapp/chat-widget";
 import "@xapp/chat-widget/dist/index.css";
 
 const config: WidgetEnv = {
