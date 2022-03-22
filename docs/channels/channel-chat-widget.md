@@ -99,15 +99,18 @@ The user ID and accessToken will be on every request to your applications runtim
 ```typescript
 
     /**
-     * Unique identifier provided by the channel for the user's current device.
+     * Optional ID that will be used for the user.  If not prevent
      */
-    deviceId?: string;
-
+    readonly userId?: string;
     /**
-     * Access token from account linking
+     * Optional access token that is passed to the backend and used for authenticated API calls.  This is for logged in users and is passed
+     * through on all requests to the assistant backend.
      */
-    accessToken?: string;
-
+    readonly accessToken?: string;
+    /**
+     * Optional attributes to append to each request.  
+     */
+    readonly attributes?: Record<string, string>;
 ```
 
 
@@ -138,7 +141,11 @@ const config: WidgetEnv = {
         type: "direct"
     },
     userId: "abc",
-    accessToken: "123"
+    accessToken: "123",
+    // Custom attributes that will be be appended on every request
+    attributes: {
+        foo: "bar"
+    }
 };
 
 function RenderWidget() {

@@ -8,6 +8,9 @@ module.exports = {
   organizationName: "xapp-ai", // Usually your GitHub org/user name.
   projectName: "documentation", // Usually your repo name.
   themeConfig: {
+    colorMode: {
+      disableSwitch: true,
+    },
     navbar: {
       title: "XAPP AI",
       logo: {
