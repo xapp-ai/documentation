@@ -58,6 +58,11 @@ The script itself does not make any blocking network calls and does not depend o
 The script is hosted on a CDN however when making configuration updates, the first time loading the widget after a save will be slower than all subsequent calls as the cached scripted is invalidated and the cache updated.  
 :::
 
+#### See Also
+
+* [Installing the Widget on Wordpress Sites](widget/install-wordpress.md)
+
+
 ### React Library
 
 It is also possible to embed the widget in a React based web application, this will provide you with a more integrated look and feel however requires you to build and inject your own configuration.
