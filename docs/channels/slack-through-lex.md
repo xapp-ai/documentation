@@ -1,5 +1,5 @@
 ---
-title: Setting up Slack through AWS Lex
+title: Slack (through AWS Lex)
 ---
 
 :::tip
