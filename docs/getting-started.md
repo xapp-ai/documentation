@@ -9,7 +9,7 @@ Optimal Conversation (OC) Studio is a conversational AI middleware platform that
 
 ## Quick Links
 
-* [Basics](./basics/conversational-ai) - Quickly run through the basics
+* [Basics](./basics/basics-conversational-ai) - Quickly run through the basics
 * [Develop](./development/overview.md) - Get started developing for OC Studio
 * [Studio](./studio/architectures.md) - Start learning about OC Studio
 
