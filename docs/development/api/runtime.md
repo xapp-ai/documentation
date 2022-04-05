@@ -70,7 +70,7 @@ Get a specific entity.
 
 ### GET /cms/search
 
-Search for provided text through query string `?query="{text}`, for example `/cms/search/query="my query"`.
+Search for provided text through query string `?query="{text}"`, for example `/cms/search/query="my query"`.
 
 ### GET /cms/faq/query
 
@@ -86,5 +86,5 @@ Put runtime events to your assistant application.
 
 ### GET /cms/suggestions
 
-Get autocomplete suggestions, you must provide query parameters `key=` and `queryText=`.  Key is from the respective channel the suggestions are being served from.
+Get autocomplete suggestions, you must provide query parameters `key=` and `queryText=`.  Key is from the respective channel the suggestions are being served from.  Additionally, you can filter by types, `type=INTENT,FAQ` will just return model and FAQ based suggestions while omitting HISTORICAL.  Excluding `type=` defaults to returning all three.
 

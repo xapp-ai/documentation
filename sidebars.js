@@ -1,65 +1,92 @@
-module.exports = {
-  docs: {
-    ["Getting Started"]: ["getting-started"],
-    Basics: [
-      "basics/basics-conversational-ai",
-      "basics/basics-model",
-      "basics/basics-content",
-    ],
-    ["Dialog Management"]: [
-      "dialog-manager/overview",
-      "dialog-manager/conditions",
-    ],
-    Model: [
-      "model/intents",
-      "model/slots",
-      "model/entities",
-      "model/model-best-practices",
-    ],
-    Content: [
-      "content/handlers",
-      "content/responses",
-      // "content/documents",
-      //  "content/answers",
-      "content/crawler",
-    ],
-    Infrastructure: [
-      "infrastructure/infrastructure-architecture",
-      "infrastructure/infrastructure-aws",
-    ],
-    Channels: [
-      "channels/channels",
-      /*"channels/channel-lex",
-      "channels/channel-alexa",
-      "channels/channel-dialogflow", */
-      "channels/channel-chat-widget",
-      /*   "channels/channel-intelligent-search", */
-      "channels/slack-through-lex",
-    ],
-    /*
-    Integrations: [
-      "integrations/integration-aws-connect",
-      "integrations/integration-genesys",
-    ], */
-    Data: ["data/types-of-data", "data/analytics-basics"],
-
-    Development: [
-      "development/overview",
-      "development/custom-application",
-      "development/custom-handlers",
-      "development/storage",
-      "development/compiling-templated-responses",
-      "development/running-locally",
-      "development/runtime-environment-variables",
-      "development/cli",
-      "development/api",
-    ],
-    Studio: [
-      "studio/organizations-applications-members",
-      "studio/architectures",
-      "studio/governance",
-    ],
-  },
+const sidebars = {
+  docs: [
+    "getting-started",
+    {
+      type: "category",
+      label: "Basics",
+      items: [
+        "basics/basics-conversational-ai",
+        "basics/basics-model",
+        "basics/basics-content",
+      ],
+    },
+    {
+      type: "category",
+      label: "Dialog Management",
+      items: ["dialog-manager/overview", "dialog-manager/conditions"],
+    },
+    {
+      type: "category",
+      label: "Model",
+      items: [
+        "model/intents",
+        "model/slots",
+        "model/entities",
+        "model/model-best-practices",
+      ],
+    },
+    {
+      type: "category",
+      label: "Content",
+      items: [
+        "content/handlers",
+        "content/responses",
+        // "content/documents",
+        // "content/answers",
+        "content/crawler",
+      ],
+    },
+    {
+      type: "category",
+      label: "Infrastructure",
+      items: [
+        "infrastructure/infrastructure-architecture",
+        "infrastructure/infrastructure-aws",
+      ],
+    },
+    {
+      type: "category",
+      label: "Channels",
+      items: [
+        "channels/channels",
+        //"channels/channel-lex",
+        //"channels/channel-alexa",
+        //"channels/channel-dialogflow",
+        "channels/channel-chat-widget",
+        // "channels/channel-intelligent-search",
+        "channels/slack-through-lex",
+      ],
+    },
+    {
+      type: "category",
+      label: "Data",
+      items: ["data/types-of-data", "data/analytics-basics"],
+    },
+    {
+      type: "category",
+      label: "Development",
+      items: [
+        "development/overview",
+        "development/custom-application",
+        "development/custom-handlers",
+        "development/storage",
+        "development/compiling-templated-responses",
+        "development/running-locally",
+        "development/runtime-environment-variables",
+        "development/cli",
+        "development/api",
+      ],
+    },
+    {
+      type: "category",
+      label: "Studio",
+      items: [
+        "studio/organizations-applications-members",
+        "studio/architectures",
+        "studio/governance",
+      ],
+    },
+  ],
   aws: {
     ["AWS"]: [
       "infrastructure/aws/usage-instructions",
@@ -73,3 +100,19 @@ module.exports = {
     ],
   },
 };
+
+module.exports = sidebars;
+
+/*
+module.exports = {
+  docs: {
+
+    Integrations: [
+      "integrations/integration-aws-connect",
+      "integrations/integration-genesys",
+    ],
+
+    Studio: ,
+  },
+
+}; */
