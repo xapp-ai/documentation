@@ -5,7 +5,14 @@ sidebar_label: Conversational AI
 
 ## What is Conversational AI?
 
-Conversational AI is the set of technologies that come together to allow a human to have a conversation with a machine, typically through chat bots or virtual assistants.
+Conversational AI is the set of technologies that come together to allow a human to have a conversation with a machine, typically through chat bots or virtual assistants.  Conversational AI implementations can be found across different industries helping with a variety of simple to complex tasks.  To help illustrate what exactly Conversational AI is and the different components, we will use the example of placing a coffee order.
+
+![conversational ai](../../static/img/conversational-ai.gif)
+
+
+At a high level, the natural language the user says is translated to an intent and entity values are extracted.  The assistant application uses this information then determine if more information is required from the user or if we have everything we need to complete the order.
+
+## Technologies
 
 The primary technologies include:
 

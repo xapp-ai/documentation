@@ -62,7 +62,6 @@ The script is hosted on a CDN however when making configuration updates, the fir
 
 * [Installing the Widget on Wordpress Sites](widget/install-wordpress.md)
 
-
 ### React Library
 
 It is also possible to embed the widget in a React based web application, this will provide you with a more integrated look and feel however requires you to build and inject your own configuration.
@@ -170,7 +169,11 @@ The preview link, found in the header of your chat widget channel configuration 
 
 You can disable the widget from being displayed after installation or when shared through the preview link by clicking the power button in the header of your chat widget channel configuration page.  
 
+![disable the widget](../../static/img/disable-the-widget.gif)
 
+### Behavior of Opening URLs
+
+Hyperlinks will be surfaced from your widget through suggestion chips, list items and within content itself.  You can change the behavior of how they open and even set policies to define how some specific URLs open.
 
 
 

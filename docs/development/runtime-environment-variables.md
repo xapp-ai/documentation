@@ -6,13 +6,17 @@ Environment variables provide a way to configure the runtime without needing to 
 
 | Variable        |      Description      |   Values |
 | ------------- | :-----------: | -----: |
+| USER_STORAGE_TABLE | Name of the DynamoDB table | String value, name of the DynamoDB table |
 | STENTOR_LOG_LEVEL      | Configurable logging | "debug", "info", "warn", "error" (default) |
 | STUDIO_TOKEN     |   Access token to OC Studio    |  Generated token specific to the APP ID |
+| STUDIO_ORG_TOKEN |  Access token to OC Studio, which has access to all the apps within an organization | Contact customer support for this token |
 | STUDIO_SECRET_NAME |  Optional, name of the secret within AWS Secrets Manager to use     |    The name of the secret, see below for more information |
 | STUDIO_APP_ID | The application ID within studio | String |
 | STUDIO_BASE_URL | Configure the Studio Service to point to another environment | Defaults to "https://api.xapp.ai" |
 | STENTOR_LOG_PII | For development, no redaction of PII (such as phone numbers) will be performed | Defaults to "false" |
 | STENTOR_LOG_PII_MASK_PARTIAL | Similar to STENTOR_LOG_PII, this instead will only do a partial mask of PII | Defaults to "false" |
+| STUDIO_MAX_HISTORY | Max number of items in request history & transcripts to maintain | Defaults to 20 |
+
 
 ## Using AWS Secrets Manager
 

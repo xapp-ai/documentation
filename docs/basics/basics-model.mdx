@@ -43,3 +43,58 @@ the utterance where the value inside is the name of the slot. This notation will
 be used frequently throughout OC Studio to define slots and variables in the assistant's
 responses.
 :::
+
+The example above is not the only way to express that you would like a drink, it is only one sample utterance of many that will come together to make up an utterance.
+
+<ChatMessageBubble owner="mine" hasTail>
+  {"May I have a ${size} ${drink}?"}
+</ChatMessageBubble>
+<br />
+
+<ChatMessageBubble owner="mine" hasTail>
+  {"I would like a ${drink}?"}
+</ChatMessageBubble>
+<br />
+
+<ChatMessageBubble owner="mine" hasTail>
+  {"I would like a ${size} ${drink}?"}
+</ChatMessageBubble>
+<br />
+
+<ChatMessageBubble owner="mine" hasTail>
+  {"${size} ${drink} please, ${packaging}"}
+</ChatMessageBubble>
+<br />
+
+<ChatMessageBubble owner="mine" hasTail>
+  {"${size} ${drink} please, ${packaging}"}
+</ChatMessageBubble>
+<br />
+
+Leverage existing transcripts, wizard of oz exercises and simple brain storming to come up with your initial list of sample utterances.  It will the continue to grow and evolve once you start receiving live data. 
+
+In the last two samples, you noticed we added an additional slot `${packaging}` as an opportunity to also capture if they want it "for here" or "to go".  We now have three slots, each with a unique value set called an entity.
+
+| Slot         | Entity | Values
+| ------------ | ------- | ---- |
+| size        |  Size    | small, medium, large.. |
+| drink | Drink   | coffee, latte, mocha...|
+| packaging | Drink Packaging | to go, for here |
+
+These entities can be used multiple times in the same intent (with different slot names) and used across different intents.  They are list of values that tend to be mutually exclusive, a drink cannot be both large and small, and can have synonyms for each value.  Let's take a look at the drink size entity.
+
+| Value | Synonyms |
+| ------------ | ------- |
+| small | little, petite.. |
+| medium | average, mid-size...|
+| large | big, sizeable... |
+
+While these synonyms are not the most popular values they still will be mapped back to the value and if the user says:
+
+<ChatMessageBubble owner="mine" hasTail>
+  {"I need a sizeable coffee this morning"}
+</ChatMessageBubble>
+<br />
+
+we will know what they mean.
+

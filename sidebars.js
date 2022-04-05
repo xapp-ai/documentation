@@ -18,7 +18,7 @@ module.exports = {
     ],
     Content: [
       "content/handlers",
-      "content/ssml",
+      "content/responses",
       // "content/documents",
       //  "content/answers",
       "content/crawler",
@@ -33,6 +33,7 @@ module.exports = {
       "channels/channel-alexa",
       "channels/channel-dialogflow", */
       "channels/channel-chat-widget",
+      /*   "channels/channel-intelligent-search", */
       "channels/slack-through-lex",
     ],
     /*
@@ -46,6 +47,8 @@ module.exports = {
       "development/overview",
       "development/custom-application",
       "development/custom-handlers",
+      "development/storage",
+      "development/compiling-templated-responses",
       "development/running-locally",
       "development/runtime-environment-variables",
       "development/cli",
