@@ -22,9 +22,9 @@ At a high level, channels are relatively straight forward.  They consist of:
 * `request` Translator - A class that translates the incoming request payload to an abstracted stentor request.
 * `response` Translator - A class that translates the outgoing response payload from a stentor response to one the channel understands.
 
-# Supported Channels
+## Supported Channels
 
-## Stentor
+### Stentor
 
 The most basic of channels, it powers the chat widget and intelligent search bar.  It is able to understand the stentor requests and generates stentor responses.
 
@@ -38,7 +38,7 @@ import { Stentor } from "stentor-channel";
 
 The Stentor channel takes an optional NLU Service as a configuration parameter, which is required if you are calling the channel directly without first passing the request through an NLU.
 
-## Alexa 
+### Alexa 
 
 Smart speaker channel that supports multiple modalities; voice only, voice & screen, and voice & screen with touch.
 
@@ -52,7 +52,7 @@ import { Alexa } from "@xapp/stentor-alexa";
 
 Alexa comes with her own NLU, Speech to Text (STT) and Text to Speech (TTS).
 
-## Dialogflow
+### Dialogflow
 
 The Dialogflow channel provides integration to Dialogflow ES, which is an NLU with it's own set of supported channels.  Adding this gains access to those other Dialogflow supported channels.
 
@@ -64,12 +64,49 @@ npm install @xapp/stentor-dialogflow
 import { Dialogflow } from "@xapp/stentor-dialogflow"
 ```
 
-# Custom Channels
+## Custom Channels
 
 You can provide your own custom channels by implementing the `test` and `capabilities` functions as well as providing request and response translators. 
 
-## Reasons for Building a Custom Channel
+### Reasons for Building a Custom Channel
 
 * Support channels not yet supported
 * Support existing/3rd party chat widget GUI
 * Support custom GUI
+
+### Building a Custom Channel
+
+To build a custom channel, we recommend using the `stentor-channel` [source](https://github.com/stentorium/stentor/tree/master/packages/stentor-channel) as a guide.  You can see the `src/Channel.ts` file, reproduced below, to see how we can take the definition of a `Channel` and create a wrapper function `Stentor` to return a new copy of the stentor channel.
+
+```typescript
+/*! Copyright (c) 2019, XAPPmedia */
+import { Channel, Device, NLUService } from "stentor-models";
+
+import { DEFAULT_DEVICE, STENTOR_PLATFORM } from "./Constants";
+import { isDeviceable, isStentorRequest } from "./Guards";
+import { TranslateStentorRequest, TranslateStentorResponse } from "./Translators";
+
+export function capabilities(body: Record<string, unknown>): Device {
+
+    if (isDeviceable(body)) {
+        return body.device;
+    }
+
+    return DEFAULT_DEVICE;
+}
+
+export const STENTOR_CHANNEL: Channel = {
+    name: STENTOR_PLATFORM,
+    test: isStentorRequest,
+    request: new TranslateStentorRequest(),
+    response: new TranslateStentorResponse(),
+    capabilities
+};
+
+export function Stentor(nlu?: NLUService): Channel {
+    return {
+        ...STENTOR_CHANNEL,
+        nlu
+    };
+}
+```
