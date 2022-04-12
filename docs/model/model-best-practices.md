@@ -9,6 +9,8 @@ Utterances ambiguity can occur when you have too similar (or exact) sample utter
 
 Ensure your sample utterances for each intent are unique.  If there is overlap, you may want to split out the overlapping utterances into their own intent.
 
+In some cases, you can solve ambiguity with [input contexts](/docs/model/intents#contexts).
+
 
 ### Remember Phonetic Ambiguity
 

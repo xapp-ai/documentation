@@ -10,6 +10,12 @@ The CLI, command line interface, is a helpful tool that allows you to perform so
 npm install -g @xapp/cli
 ```
 
+Confirm your installation with
+
+```bash
+xapp -V
+```
+
 :::warning
 Currently only Windows WSL2 and macOS are supported.  The behavior on Windows Shell is unknown.
 :::
@@ -73,3 +79,22 @@ You can query general descriptive information about an application by applicatio
 ```bash
 xapp info {appId}
 ```
+
+## Importing
+
+### Importing from Dialogflow
+
+You can import an existing project from Dialogflow ES.  
+
+### Prerequisites 
+
+* Studio Organization
+* GCP Service Account with Dialogflow Admin permissions credentials JSON file
+
+```bash
+xapp import -p d -c {path-to-JSON-credentials-file} -o {orgId-for-import}
+```
+
+:::warning
+Some Dialogflow features are not supported and will not be imported.
+:::

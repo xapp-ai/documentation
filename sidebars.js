@@ -31,6 +31,7 @@ const sidebars = {
       items: [
         "content/handlers",
         "content/responses",
+        "content/response-groups",
         // "content/documents",
         // "content/answers",
         "content/crawler",
@@ -69,6 +70,7 @@ const sidebars = {
         "development/overview",
         "development/custom-application",
         "development/custom-handlers",
+        "development/channels",
         "development/storage",
         "development/compiling-templated-responses",
         "development/running-locally",
@@ -82,8 +84,9 @@ const sidebars = {
       label: "Studio",
       items: [
         "studio/organizations-applications-members",
-        "studio/architectures",
         "studio/governance",
+        "studio/architectures",
+        "studio/single-tenancy",
       ],
     },
   ],
