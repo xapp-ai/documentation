@@ -87,3 +87,5 @@ And query variables:
 ```
 
 The result will contain a URL that has the content of your requested application in JSON format.  This URL is only available temporarily.
+
+### Importing an App

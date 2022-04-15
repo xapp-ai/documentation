@@ -29,8 +29,6 @@ All of your development starts in your development environment.
 
 We believe in following infrastructure as code for reliably moving the application and it's content through the different steps of your release cycle.  We will provide you with a Cloudformation script that will allow you to manage and deploy Studio to different environments.  You are then responsible for developing the necessary scripts to manage the rest of your infrastructure, such as the runtime environment.  For migrating your model and other content between environments, we recommend leveraging the [management API](/docs/development/api/graphql) to create exports of your application and then importing to the next environment.
 
-
-
 ## Authentication
 
 For authentication, there are two primary options for the single-tenant architecture.  You can:
@@ -39,5 +37,14 @@ For authentication, there are two primary options for the single-tenant architec
 * Leverage Amazon Cognito which allows multiple options for third-party (federated) login.  [Read more](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html)
 
 Both of these options allow you to bring your own identity provider.
+
+## Studio Configuration
+
+
+### Studio Client
+
+A configuration file is loaded when the application loads and is used as the runtime configuration.
+
+
 
 
