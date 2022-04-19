@@ -6,7 +6,7 @@ title: Tokens
 Do not share your tokens.
 :::
 
-A token is required to call the [runtime content management API](/docs/development/api/graphql.md).  It is used to pull content and send events to your application when running in the [hybrid architecture](/docs/studio/architectures#hybrid) where the application is on your infrastructure.
+A token is required to call the [runtime content management API](/docs/development/api/graphql).  It is used to pull content and send events to your application when running in the [hybrid architecture](/docs/studio/architectures#hybrid) where the application is on your infrastructure.
 
 Tokens are specific to an app and they can only access that app's content.
 
