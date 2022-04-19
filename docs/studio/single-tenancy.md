@@ -40,10 +40,26 @@ Both of these options allow you to bring your own identity provider.
 
 ## Studio Configuration
 
-
 ### Studio Client
 
-A configuration file is loaded when the application loads and is used as the runtime configuration.
+A configuration file is loaded when the application loads and is used as the runtime configuration.  The file is located at `/config.js` and looks like this:
+
+```js
+window["xaStudioConfig"] = {
+  apiUrl: "",
+  wsUrl: "",
+  widgetUrl: "",
+  documentationUrl: "https://documentation.xapp.ai",
+  feedbackEmail: "feedback@xapp.ai",
+  supportEmail: "support@xapp.ai",
+  auth: {
+    provider: "",
+    domain: "",
+    clientId: "",
+    audience: "",
+  },
+};
+```
 
 
 

@@ -1,5 +1,5 @@
 ---
-title:  Overview
+title:  Getting Started
 ---
 
 OC Studio offers the ability to quickly create conversational assistants through the user interface that can:
@@ -30,3 +30,20 @@ At a high-level, development will require you to:
     - Includes Alexa & Google Assistant channels with a custom handler example.
 - **OC Studio Starter** - https://github.com/xapp-ai/oc-studio-starter 
     - Used as the template for all CSS4CCI projects, includes the [Question Answer Handler](https://github.com/xapp-ai/question-answering-handler) that facilitates AWS Kendra integration.
+
+## Organization ID, Application ID and Intent ID
+
+Each organization, application, and intent or handler has a unique identifier.  These are used throughout development for referencing information.  The ID for each of these can be found in the URL of Studio.
+
+```
+https://studio.xapp.ai/{{organizationId}}/{{appId}}/{intents|handlers}/{{intentId}}
+```
+
+For example, in the following URL:
+
+```
+https://studio.xapp.ai/xapp/city-of-pawnee/handlers/LaunchRequest
+```
+
+The organizationID is `xapp`, the appId is `city-of-pawnee` and the `intentId` is `LaunchRequest`.
+

@@ -2,13 +2,21 @@
 title: Runtime RESTful API
 ---
 
+
 The runtime RESTful API is the main source of content and events push for your assistant application.  
 
 The base URL for OC Studio is https://api.xapp.ai but this will depend on your environment, for example if you have a single tenant instance.
 
 :::info
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3454397-e7916289-8f94-4c96-89bf-cef081d50205?action=collection%2Ffork&collection-url=entityId%3D3454397-e7916289-8f94-4c96-89bf-cef081d50205%26entityType%3Dcollection%26workspaceId%3Daf98e5eb-4de7-4539-b698-06cc23716e64)
+
+We have all the requests documented on Postman if you want to test them out.  You will need to generate a token for your application 
+:::
+
+:::info
 You can see a full implementation of this API in the source for the [Studio Service](https://github.com/stentorium/stentor/blob/master/packages/stentor-service-studio/src/StudioService.ts)
 :::
+
 
 ## Authorization
 

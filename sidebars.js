@@ -67,9 +67,10 @@ const sidebars = {
       type: "category",
       label: "Development",
       items: [
-        "development/overview",
+        "development/getting-started",
         "development/custom-application",
         "development/custom-handlers",
+        "development/tokens",
         "development/channels",
         "development/storage",
         "development/compiling-templated-responses",
@@ -100,6 +101,7 @@ const sidebars = {
       "infrastructure/aws/common-errors-in-stack-deployment",
       "infrastructure/aws/verify-deployment",
       "infrastructure/aws/iam-policy-for-deployment",
+      "infrastructure/aws/single-tenancy",
     ],
   },
 };

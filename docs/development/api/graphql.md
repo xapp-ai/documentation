@@ -89,3 +89,27 @@ And query variables:
 The result will contain a URL that has the content of your requested application in JSON format.  This URL is only available temporarily.
 
 ### Importing an App
+
+Using the export format from the above app export mutation, you can then import it to an existing organization.
+
+```graphql
+mutation importApp($organizationId: ID!, $appUrl: URL!) {
+  app(organizationId: $organizationId) {
+    importApp(url: $appUrl) {
+       appId
+      organizationId
+      name
+    }
+  }
+}
+```
+
+Variables
+
+```json
+{
+  "appUrl": "https://...",
+  "organizationId": ""
+}
+```
+
