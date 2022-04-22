@@ -77,8 +77,18 @@ xapp set -p default
 You can query general descriptive information about an application by application ID.
 
 ```bash
-xapp info {appId}
+xapp info {{appId}}
 ```
+
+## Generating Types
+
+When developing, it can be helpful to have access to the intents requests and their possible slot values.  You can use the CLI to generate a TypeScript file with all the requests that are specific to your interaction model.
+
+```bash
+xapp types -h "/*! Copyright (c) 2022, XAPP AI */" -f requests.ts -m 50 ./src/models  {{appId}}
+```
+
+The above command will generate a file named `requests.ts` at the `./src/models` directory with a header at the top to prevent any lint errors.  The `-m 50` states to generate a type based on an entities values up to a max of 50 values, otherwise it will set the type as `string`.  Optional fields are `-h`, `-f`, and `-m`.
 
 ## Importing
 

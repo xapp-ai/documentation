@@ -38,6 +38,12 @@ For authentication, there are two primary options for the single-tenant architec
 
 Both of these options allow you to bring your own identity provider.
 
+## Updating your Assistant Application
+
+Your assistant application, the main runtime environment, will need to point to your single-tenant instance's [Runtime API](/docs/development/api/runtime) for retrieving content and pushing events.
+
+The easiest way to configure your assistant application to point to your single tenant environment is to update the environment variable `STUDIO_BASE_URL` to be your single-tenants API URL.
+
 ## Studio Configuration
 
 ### Studio Client
