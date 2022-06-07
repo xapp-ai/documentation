@@ -22,6 +22,7 @@ const sidebars = {
         "model/intents",
         "model/slots",
         "model/entities",
+        "model/input-context",
         "model/model-best-practices",
       ],
     },

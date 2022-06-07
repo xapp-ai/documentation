@@ -175,5 +175,7 @@ You can disable the widget from being displayed after installation or when share
 
 Hyperlinks will be surfaced from your widget through suggestion chips, list items and within content itself.  You can change the behavior of how they open and even set policies to define how some specific URLs open.
 
+#### Recommendation - Assisted Navigation
+
 
 

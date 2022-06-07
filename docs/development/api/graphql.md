@@ -54,12 +54,42 @@ And necessary query variables:
 
 ```json
 {
-  "start": "2020-01-01T00:00:00Z",
-  "end": "2020-01-02T00:00:00Z",
   "appId":""
 }
 
 ```
+
+### App Errors
+
+Stentor has built-in error handling that will capture errors and send them to Studio.  To query them use:
+
+```graphql
+query errors($appId:ID!){
+  app(appId:$appId) {
+    events(byType:["ERROR"]) {
+      total
+      events {
+        eventTime
+        sessionId
+        userId
+        channel
+        platform
+        errorCode
+        errorMessage
+        payload
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "appId":""
+}
+```
+
+The above query will give you the 10 most recent errors.  The `errorMessage` contains the error message and the payload is a JSON string that also contains the error message and the stack trace.
 
 ### Exporting an App
 

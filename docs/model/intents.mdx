@@ -62,41 +62,6 @@ The only difference in these two utterances is the first part, while the rest is
 ```
 The sample is expanded into the above examples.  The expansion notation is bookended with `{` and `}` while each expansion is then separated by `|`. 
 
-## Contexts
-
-On intents, you can set input contexts.  These help the NLU know which intent to expect from the user based on what you asked them.
-
-For example, you are asking the user for the zip code.  Most likely, any number they then respond with should go to the intent that captures zip codes so you let the NLU you are expecting a zip code.  Then, when the NLU analyzes the user's next query it will know to prefer the intent that captures zip code.
-
-These input contexts can be extremely helpful in disambiguating potential queries from the user can potentially match to multiple intents.  A persons first name may also be the name of a city, a number may either be a phone number or a zip code.  Setting the input context alleviates these issues.
-
-:::important
-NLUs will treat input context slightly different.  Google Cloud Dialogflow ES for example will use it to prefer certain intents but they will always be available however on Amazon Lex intents with context will only be returned if you tell the NLU to expect it.
-:::
-
-### How to Set the Input Context
-
-First, on the intent you set an input context.  The name of the context must only contain letters and underscores.  We recommend prefixing with `expecting_` and then the type of information you are gathering.  For example:
-
-```
-expecting_name
-```
-
-```
-expecting_email
-```
-You will find the contexts at the bottom of the intent configuration view.
-
-![address intent](../../static/img/model/address-intent.png)
-
-In the above intent, the input context of `expecting_address` is set.
-
-Then, within a handler's content on your response that asks the user for their address.
-
-![response active context](../../static/img/content/response-active-context.png)
-
-Click the `+` button next to the "Add Reprompt" button and select "Active Contexts".  Make sure this matches exactly with what you added to the intent.
-
 ## Classification of Intents 
 
 The intents you define will typically fall into a couple of primary buckets.
