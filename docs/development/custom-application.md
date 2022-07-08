@@ -9,7 +9,7 @@ With OC Studio, you can accomplish all of this by taking over and extending the 
 The assistant is built on the open source Apache 2.0 licensed [Stentor 📣](https://github.com/stentorium/stentor) framework.  Stentor takes care of all the heavy lifting of supporting different channels and dialog management with a straight forward way for extension.
 
 
-### Self-hosted Runtime Environment
+## Self-hosted Runtime Environment
 
 :::note
 If you already launched a stack through Cloudformation, you can skip this step.
@@ -25,7 +25,7 @@ Before launching a stack, you will need to setup a token in AWS Secrets Manager.
 
 Once your secret is setup, you can launch your stack.  From Studio, go to Developer --> Infrastructure and click "Launch Stack".
 
-### Development Environment
+## Development Environment
 
 It is recommended to use either the Windows Subsystem for Linux, Linux, or macOS for your development environment.  You will need Node.js, at least version `12.22.9 || 14 || 16`.  
 
@@ -40,7 +40,7 @@ $ npm run build
 
 The repository is a monorepo powered by [Lerna](https://lerna.js.org/).  The two major packages are `packages/oc-studio-starter-template` and `packages/oc-studio-starter` which contains the content and runtime environment respectively.  
 
-### Deploying
+## Packaging to a ZIP file
 
 Once you make the necessary changes and have added adequate unit tests, you can deploy the application by building a release and then uploading the resulting zip file directly to the Lambda console.
 
@@ -52,4 +52,3 @@ $ npm run dist
 ```
 
 The resulting zip file will be located at `./lib/oc-studio-starter.zip`
-

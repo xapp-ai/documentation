@@ -11,7 +11,7 @@ Potential plugins:
 
 With the plugin, you can then copy your installation snippet for you widget to the plugin's settings page.
 
-## Finding your Widge'ts Code Snippet
+## Finding your Widget's Code Snippet
 
 To find your widget's code snippet, go to the widgets channel page (under Publish --> Channels) and click the puzzle piece icon in the widget's header.
 

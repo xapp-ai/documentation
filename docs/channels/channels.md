@@ -18,3 +18,7 @@ From a user experience design perspective, there are many things to consider. Wh
 :::note
 Not all NLUs support emoji ☹️
 :::
+
+## Custom Channels
+
+You can also build custom channels to integrate with existing/new chat widgets, web applications, or customer support software.  Building a custom channel will require you to host the assistant and modify it's runtime environment.  More information can be found [here](../development/channels#custom-channels).
