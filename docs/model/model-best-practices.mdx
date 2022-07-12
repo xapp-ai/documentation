@@ -1,0 +1,55 @@
+---
+title: Model Best Practices
+sidebar_label: Best Practices
+---
+
+import { ChatMessageBubble } from "@xapp/chat-widget-components";
+
+
+## Be Careful of Ambiguity
+
+Utterances ambiguity can occur when you have too similar (or exact) sample utterances across multiple intents and the NLU is unable to determine which intent you want.  It will return it's best guess which may not be the intent you are expecting.
+
+Ensure your sample utterances for each intent are unique.  If there is overlap, you may want to split out the overlapping utterances into their own intent.
+
+In some cases, you can solve ambiguity with [input contexts](/docs/model/input-context) which help the NLU better determine an intent based on the question you just asked the user.
+
+### Remember Phonetic Ambiguity
+
+Beyond using the same words or phrases in multiple intents, you can also run into ambiguity with similar sounding words that are spelled different.  For example "for" and "four" sound alike but mean different things, which can be a problem when you are gathering information from a user.  A user can ask for the weather at different airports using their IATA location identifier, like DCA for Reagan Washington National Airport.  Some IATA codes can start with and contain numbers and either be 3 or 4 characters in length.  This may cause some phonetic ambiguity if you say:
+
+<ChatMessageBubble owner="mine" hasTail>
+  weather for 4MD
+</ChatMessageBubble>
+<br />
+
+where 4MD is the Baltimore Pier 7 helipad.  However, when the speech to text hears this they may have heard code 44MD, which is the helipad for Union Memorial Hospital in Baltimore.
+
+## Asking for Clarification is Preferred
+
+In the ambiguity case above or similar situations where you might not fully understand what the user is asking for, you will need to ask for clarification.  You are saving the user trouble later on by ensuring you get the right information.  If a human needs to ask for clarification then an intelligent virtual assistant should as well. 
+
+To solve the example above dealing with phonetic ambiguity, you could first look up to make sure both `4MD` and `44MD` are valid airport codes, then respond with:
+
+<ChatMessageBubble owner="others" hasTail>
+  Did you mean 4MD or 44MD?
+</ChatMessageBubble>
+<br />
+
+## Naming
+
+A couple of naming conventions will help you more easily collaborate, maintain, and develop with your model.
+
+### Slot Name Reuse
+
+Reuse the same slot name when it has the same type across intents.  This makes development much easier and easier to understand if you are new to the model.  
+
+### Plural Entity Names, Singular Slot Name
+
+Make your entity names plural, such as `Brands` but when you use them as a slot, make it plural.
+
+```
+show me more from ${brand}
+```
+
+In the above sample utterance, the slot `${brand}` is of type Brands.

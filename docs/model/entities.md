@@ -9,7 +9,6 @@ An entity is a collection of common words that have an association with the real
 
 ## Built-In Entities
 
-
 OC Studio provides a set of built-in slots that are the based on the built-ins from the major NLUs.  The chart below is the abstracted Studio version and how they then translate to the different NLUs. 
 
 | Built-In         | Example | Amazon Lex | Amazon Alexa | Dialogflow ES | 
