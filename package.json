@@ -19,7 +19,7 @@
     "@types/react": "17.0.43",
     "@types/react-helmet": "6.1.5",
     "@types/react-router-dom": "5.3.3",
-    "@xapp/chat-widget": "1.42.5",
+    "@xapp/chat-widget": "1.46.3",
     "@xapp/chat-widget-components": "1.11.2-alpha.0",
     "clsx": "1.1.1",
     "react": "17.0.2",
