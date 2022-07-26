@@ -90,6 +90,7 @@ const sidebars = {
         "studio/organizations-applications-members",
         "studio/governance",
         "studio/architectures",
+        "studio/autocomplete-suggestions",
         "studio/single-tenancy",
       ],
     },

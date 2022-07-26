@@ -173,9 +173,13 @@ You can disable the widget from being displayed after installation or when share
 
 ### Behavior of Opening URLs
 
-Hyperlinks will be surfaced from your widget through suggestion chips, list items and within content itself.  You can change the behavior of how they open and even set policies to define how some specific URLs open.
+Hyperlinks will be surfaced from your widget through suggestion chips, list items and within content itself.  You can change the behavior of how they open and even set policies to define how some specific URLs open. 
 
 #### Recommendation - Assisted Navigation
 
+An assisted navigation configuration will open links the widget is installed on in the same tab and others in a new tab.  This will allow the user to ask the widget questions, get answers and navigate to the answer while also keeping the widget open.  
+
+![assisted navigation](../../static/img/channel/widget/widget-url-behavior-assisted-navigation.png)
 
 
+Set the default to be New tab and then add a new policy that contains your website and its TLD and set the behavior to same window.  Any link that matches the URL regex policy will then open in the same window and all those that don't will open in a new tab.
