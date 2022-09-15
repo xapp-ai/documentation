@@ -90,6 +90,8 @@ Search within FAQs.
 
 Put runtime events to your assistant application.
 
+__[Read More](/docs/development/api/runtime-events)__
+
 ## Suggestions
 
 ### GET /cms/suggestions

@@ -81,6 +81,7 @@ const sidebars = {
         "development/cli",
         "development/api",
         "development/arachne-cli",
+        "development/development-faqs",
       ],
     },
     {
