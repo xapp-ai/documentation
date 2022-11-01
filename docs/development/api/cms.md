@@ -1,9 +1,8 @@
 ---
-title: Runtime RESTful API
+title: CMS API
 ---
 
-
-The runtime RESTful API is the main source of content and events push for your assistant application.  
+The CMS API has both RESTful components and a GraphQL endpoint.  It is the main source of content and events push for your assistant application and allows you to programmatically CRUD intents, handlers, and entities for a specific application.  
 
 The base URL for OC Studio is https://api.xapp.ai but this will depend on your environment, for example if you have a single tenant instance.
 
@@ -98,3 +97,10 @@ __[Read More](/docs/development/api/runtime-events)__
 
 Get autocomplete suggestions, you must provide query parameters `key=` and `queryText=`.  Key is from the respective channel the suggestions are being served from.  Additionally, you can filter by types, `type=INTENT,FAQ` will just return model and FAQ based suggestions while omitting HISTORICAL.  Excluding `type=` defaults to returning all three.
 
+## GraphQL
+
+### POST /cms/graphql
+
+An identical API with our dedicated [GraphQL](/docs/development/api/graphql) endpoint, the one found at `/cms/graphql` expect with more limited access.  Since the token used for authentication only allows you access to a specific application, you are only allowed to CRUD (create, read, update, delete) intents, handlers, & entities.
+
+This endpoint is meant for programmatic management of your models within Studio.  For example you can update a list of entities based on an external catalog of data at regular intervals or based on modifications to the catalog.

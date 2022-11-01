@@ -51,11 +51,11 @@ const sidebars = {
       label: "Channels",
       items: [
         "channels/channels",
-        //"channels/channel-lex",
+        "channels/channel-lex",
         //"channels/channel-alexa",
         //"channels/channel-dialogflow",
         "channels/channel-chat-widget",
-        // "channels/channel-intelligent-search",
+        "channels/channel-intelligent-search",
         "channels/slack-through-lex",
       ],
     },
