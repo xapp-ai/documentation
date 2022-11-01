@@ -10,7 +10,7 @@ Single tenancy allows you to host all of OC Studio on your AWS account.  Typical
 
 ## Deploying
 
-At a high level, for deployment we will provide you with a Cloudformation script that you will then deploy to your AWS account.  This script will automatically deploy all the necessary services, application code and the necessary IAM roles them to communicate with each other.  You will then have a [runtime API](/docs/development/api/runtime), a [management API](/docs/development/api/graphql) and a Studio web application URL.
+At a high level, for deployment we will provide you with a Cloudformation script that you will then deploy to your AWS account.  This script will automatically deploy all the necessary services, application code and the necessary IAM roles them to communicate with each other.  You will then have a [CMS API](/docs/development/api/cms), a [GraphQL API](/docs/development/api/graphql) and a Studio web application URL.
 
 From there you can start to build out your application in Studio and point your assistant application to use the new runtime API.
 
@@ -40,7 +40,7 @@ Both of these options allow you to bring your own identity provider.
 
 ## Updating your Assistant Application
 
-Your assistant application, the main runtime environment, will need to point to your single-tenant instance's [Runtime API](/docs/development/api/runtime) for retrieving content and pushing events.
+Your assistant application, the main runtime environment, will need to point to your single-tenant instance's [CMS API](/docs/development/api/cms) for retrieving content and pushing events.
 
 The easiest way to configure your assistant application to point to your single tenant environment is to update the environment variable `STUDIO_BASE_URL` to be your single-tenants API URL.
 

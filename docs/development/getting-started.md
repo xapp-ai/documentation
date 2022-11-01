@@ -30,6 +30,7 @@ At a high-level, development will require you to:
     - Includes Alexa & Google Assistant channels with a custom handler example.
 - **OC Studio Starter** - https://github.com/xapp-ai/oc-studio-starter 
     - Used as the template for all CSS4CCI projects, includes the [Question Answer Handler](https://github.com/xapp-ai/question-answering-handler) that facilitates AWS Kendra integration.
+    - For a detailed guide start [here](./starters/oc-studio-starter.md)
 
 ## Organization ID, Application ID and Intent ID
 

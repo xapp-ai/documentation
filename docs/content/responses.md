@@ -34,6 +34,18 @@ When leveraging SSML features, first check if your TTS engine supports it [here]
 
 ### Common SSML Tags
 
+#### Audio
+
+```xml
+<audio src="https://assets.xapp.media/prod/my-audio-file.mp3" />
+```
+
+The `<audio>` tag will play back the audio content from the source URL. 
+
+* [Encoding (audio) with FFMPEG](/docs/content/encoding-with-ffmpeg)
+* [Alexa Skill Kit Sound Library](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html) - Sound library only for Alexa
+* [Amazon Polly Text to Speech](https://aws.amazon.com/polly/) - Text to speech can be helpful to add alternative machine generated voices
+
 #### Break
 
 ```xml

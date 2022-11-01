@@ -1,5 +1,5 @@
 ---
-title: Management GraphQL API
+title: GraphQL API
 ---
 
 The GraphQL API powers our web application, Studio, and our [CLI](../cli.md).  Management of all the resources for an assistant application are done through GraphQL.

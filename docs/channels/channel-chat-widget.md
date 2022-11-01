@@ -117,7 +117,6 @@ The user ID and accessToken will be on every request to your applications runtim
     readonly attributes?: Record<string, string>;
 ```
 
-
 There are two primary methods to provide this information to the widget, a global variables on the browser's window object or by a React parameter (requires custom installation method).
 
 ### Global Variable on window
@@ -173,9 +172,63 @@ You can disable the widget from being displayed after installation or when share
 
 ### Behavior of Opening URLs
 
-Hyperlinks will be surfaced from your widget through suggestion chips, list items and within content itself.  You can change the behavior of how they open and even set policies to define how some specific URLs open.
+Hyperlinks will be surfaced from your widget through suggestion chips, list items and within content itself.  You can change the behavior of how they open and even set policies to define how some specific URLs open. 
 
 #### Recommendation - Assisted Navigation
 
+An assisted navigation configuration will open links the widget is installed on in the same tab and others in a new tab.  This will allow the user to ask the widget questions, get answers and navigate to the answer while also keeping the widget open.  
+
+![assisted navigation](../../static/img/channel/widget/widget-url-behavior-assisted-navigation.png)
+
+Set the default to be New tab and then add a new policy that contains your website and its TLD and set the behavior to same window.  Any link that matches the URL regex policy will then open in the same window and all those that don't will open in a new tab.
 
 
+## Modifying the Host Application based on Widget Interactions
+
+During some interactions with the virtual assistant through the widget you may want to change more than just the [URL](/) and modifying specific elements on the page the user is on.  You can achieve this by passing in a hook to the `WidgetEnv` config that is passed to the widget and then leveraging the custom `data` field on the Response sent to the widget.  
+
+### Register the Hook
+
+Add the `hooks` object with the `onResponse` function to your `WidgetEnv` config.
+
+```jsx
+import { Chat as ChatWidget, WidgetEnv } from "@xapp/chat-widget";
+import "@xapp/chat-widget/dist/index.css";
+// This is important
+import { Response } from "stentor-models";
+
+const config: WidgetEnv = {
+    connection: {
+        serverUrl: "",
+        type: "direct"
+    },
+    hooks: {
+        onResponse: (response: Response) => {
+            console.log('Hook.onResponse');
+            console.log(response);
+            console.log(response.data);
+        }
+    }
+};
+
+function RenderWidget() {
+    return <ChatWidget config={config} mode={"docked"} />;
+}
+```
+
+### Data on the Response
+
+Within your custom handler, for responses that you want to then pass information to the widget's host application, you can set any metadata on the response using the `.data` field.  The widget will still display the output and display items, the entire response will be sent to the `onResponse` hook and you can then parse the data field.
+
+```typescript
+const response = getResponse(this, request, context);
+
+response.data = {
+    ["key"]: "123abc",
+    ["type"]: "custom request"
+};
+
+context.response.respond(response);
+```
+
+You can define your own messaging protocol and append the metadata to the data field.
