@@ -31,7 +31,16 @@ https://kfo7ubarz9t0.execute-api.us-east-1.amazonaws.com/prod/studio
 
 ## Installing the Widget
 
-There are two primary way to install the widget on a website; a script tag or through our React based library.  The script tag is quick and can typically be done without a developer and the React library will require a developer to integrate it with an existing web application.  With the script tag method, you are limited to the standard chat button component and widget overlayed on your content and the React library allow gives you much more control on how it is displayed.
+There are three primary ways to install the widget on a website; WordPress plugin (where applicable), a script tag or through our React based library.  The script tag is quick and can typically be done without a developer and the React library will require a developer to integrate it with an existing web application.  With the script tag method, you are limited to the standard chat button component and widget overlayed on your content and the React library allow gives you much more control on how it is displayed.
+
+### WordPress Plugin
+
+We provide a WordPress plugin that makes it easy to install the chat widget and intelligent search bar.  If you have a WordPress site, this is our recommended approach.
+
+#### Read More
+
+* [OC Studio Integration Plugin](https://wordpress.org/plugins/oc-studio-integration/)
+* [How to install the WordPress Plugin](/docs/channels/wordpress-plugin)
 
 ### Script Tag
 
@@ -170,6 +179,16 @@ You can disable the widget from being displayed after installation or when share
 
 ![disable the widget](../../static/img/disable-the-widget.gif)
 
+### Modifying the Z-Index
+
+The z-index controls the level with which elements on a webpage are displayed.  Elements with higher z-index are displayed on top of elements with a lower z-index when they take up the same spot on the page.  If you open the widget and you see other parts of the website on top of the widget, you may need to adjust the z-index to make sure it is on top of the conflicting components.
+
+![modify the z-index](../../static/img/channel/widget/widget-change-z-index.gif)
+
+#### Read More
+
+* [z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index)
+
 ### Behavior of Opening URLs
 
 Hyperlinks will be surfaced from your widget through suggestion chips, list items and within content itself.  You can change the behavior of how they open and even set policies to define how some specific URLs open. 
@@ -181,7 +200,6 @@ An assisted navigation configuration will open links the widget is installed on 
 ![assisted navigation](../../static/img/channel/widget/widget-url-behavior-assisted-navigation.png)
 
 Set the default to be New tab and then add a new policy that contains your website and its TLD and set the behavior to same window.  Any link that matches the URL regex policy will then open in the same window and all those that don't will open in a new tab.
-
 
 ## Modifying the Host Application based on Widget Interactions
 
