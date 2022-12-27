@@ -60,12 +60,41 @@ let payload: { request: Request, response: Response, tag?: string };
         {
             "appId": "{{appId}}",
             "channel": "my-channel",
-            "type": "REQUEST",
-            "name": "LAUNCH_REQUEST",
+            "type": "AnalyticsEvent",
+            "name": "REQUEST_RESPONSE",
             "platform": "my-platform",
             "selectedHandler": "LaunchRequest",
             "sessionId": "session-test-{{$randomUUID}}",
-            "userId": "user-test-{{$randomUUID}}"
+            "userId": "user-test-{{$randomUUID}}",
+            "payload": {
+                "request": {
+                    "type": "INTENT_REQUEST",
+                    "intentId": "HelpIntent",
+                    "rawQuery": "i need help",
+                    "sessionId": "session-test-{{$randomUUID}}",
+                    "userId": "user-test-{{$randomUUID}}",
+                    "matchConfidence": 1
+                },
+                "response": {
+                    "outputSpeech": {
+                        "displayText": "Here is what I found...",
+                        "ssml": "<speak>Here is what I found...</speak>"
+                    },
+                    "displays": [
+                          {
+                            "type": "LIST",
+                            "title": "Results",
+                            "items": [
+                                {
+                                    "title": "Title 1",
+                                    "token": "token-one",
+                                    "description": "Description 1"
+                                }
+                            ]
+                          }
+                    ]
+                }
+            }
         }
     ]
 }
