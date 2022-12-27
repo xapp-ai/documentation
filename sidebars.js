@@ -33,6 +33,7 @@ const sidebars = {
         "content/handlers",
         "content/responses",
         "content/response-groups",
+        "content/tags",
         // "content/documents",
         // "content/answers",
         "content/crawler",

@@ -2,17 +2,59 @@
 title: Single Tenancy
 ---
 
-:::warning
-🚧This documentation is under construction 🚧
-:::
-
 Single tenancy allows you to host all of OC Studio on your AWS account.  Typically this is necessary when you have sensitive information that you work with that needs to have restricted access.  
 
 ## Deploying
 
-At a high level, for deployment we will provide you with a Cloudformation script that you will then deploy to your AWS account.  This script will automatically deploy all the necessary services, application code and the necessary IAM roles them to communicate with each other.  You will then have a [CMS API](/docs/development/api/cms), a [GraphQL API](/docs/development/api/graphql) and a Studio web application URL.
+At a high level, for deployment we will provide you with an authentication method and command line script that you will use to then deploy a OC Studio instance to your AWS account.  This script will automatically deploy all the necessary services, application code and the necessary IAM roles them to communicate with each other.  You will then have a [CMS API](/docs/development/api/cms), a [GraphQL API](/docs/development/api/graphql) and a Studio web application URL.
 
 From there you can start to build out your application in Studio and point your assistant application to use the new runtime API.
+
+### Setup AWS
+
+1. Create an AWS account in which to deploy Studio.
+2. Create an IAM user with administrator privileges that allows this script to assume. The policy attached to this user is also the policy that CloudFormation will use to deploy the client and API
+3. Create a programmatic access and secret access key for the IAM user and save these credentials as a profile in the `~/.aws/credentials` file.
+4. Create two S3 buckets. One bucket will be used to deploy the client to and the other will be used to deploy the API code to. These buckets must be in the same region that the Studio is to be deployed to.
+5. Optional - Create a Amazon Cognito domain that you will use to authenticate your Studio users
+
+### Setup Deployment Script
+
+1. Install the script
+
+  Either globally
+  ```bash
+  npm install -g @xapp/studio-deploy
+  ```
+  or as a `devDependency` in your package.json
+
+1. Set your AWS_PROFILE
+* `export AWS_PROFILE=<profile>`
+
+1. Add the following environment variables to your current terminal or environment
+  * `STUDIO_CLIENT_S3_BUCKET` - This is the name of the bucket that was created to store the client.
+  * `STUDIO_API_S3_BUCKET` - This is the name of the bucket that was created to store the api client.
+  * `STUDIO_COGNITO_DOMAIN` - This is the domain name unique to your organization that Amazon Cognito will use for signing in.
+
+1. Add the signed URL to your environment to authorize your deployment
+
+*  `STUDIO_SIGNED_URL` - A url in the format `https://single-tenant.xapp.ai?Policy=<token>` provided by XAPP
+
+### Deploy Studio
+
+You will need to deploy the client and API seperately with the following commands:
+
+```$
+studio-deploy deploy-client [ver]
+```
+
+and 
+
+```$
+studio-deploy deploy-api [ver]
+```
+
+These scripts will deploy all necessary assets. 
 
 ## Development, Staging, Production
 
