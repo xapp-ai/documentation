@@ -18,7 +18,3 @@ Within Studio, you can find the analytics for both at an organization level and 
 - **Total Users** Total users is simply a count of all the unique users within a given time period.  
 
 - **Total Sessions** Total sessions is a count of all the unique sessions within a given time period.  It is possible for one user to have many sessions within the same time period.    
-
-## Data Retention
-
-All event driven data that is used for analytics and application optimizations is stored in two locations, fast access and cold storage.  The fast access data is available through the web application for three months.  The cold storage data is stored indefinitely.

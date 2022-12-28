@@ -63,7 +63,11 @@ const sidebars = {
     {
       type: "category",
       label: "Data",
-      items: ["data/types-of-data", "data/analytics-basics"],
+      items: [
+        "data/types-of-data",
+        "data/analytics-basics",
+        "data/data-retention",
+      ],
     },
     {
       type: "category",
