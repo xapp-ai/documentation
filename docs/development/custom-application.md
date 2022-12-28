@@ -8,7 +8,6 @@ With OC Studio, you can accomplish all of this by taking over and extending the 
 
 The assistant is built on the open source Apache 2.0 licensed [Stentor 📣](https://github.com/stentorium/stentor) framework.  Stentor takes care of all the heavy lifting of supporting different channels and dialog management with a straight forward way for extension.
 
-
 ## Self-hosted Runtime Environment
 
 :::note
@@ -17,6 +16,10 @@ If you already launched a stack through Cloudformation, you can skip this step.
 
 :::caution
 Anything you deploy onto your AWS account, you are responsible for the costs.  Some services, such as Kendra come with a 30 day trial however can be expensive to leave up and running if you are not using them.
+:::
+
+:::note
+Within your AWS account, you are responsible for the availability and uptime of the application.
 :::
 
 In order to customize the application, you will need to leverage AWS to setup your own Lambda & Lex instances.  The easiest way to get this up and running is by launching our CloudFormation based stack. 
