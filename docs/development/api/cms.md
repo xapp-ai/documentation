@@ -77,7 +77,7 @@ Get a specific entity.
 
 ### GET /cms/search
 
-Search for provided text through query string `?query="{text}"`, for example `/cms/search/query="my query"`.
+Search for provided text through query string `?question="{text}"`, for example `/cms/search/question="my query"`.
 
 ### GET /cms/faq/query
 
