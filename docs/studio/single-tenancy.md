@@ -16,7 +16,8 @@ From there you can start to build out your application in Studio and point your 
 2. Create an IAM user with administrator privileges that allows this script to assume. The policy attached to this user is also the policy that CloudFormation will use to deploy the client and API
 3. Create a programmatic access and secret access key for the IAM user and save these credentials as a profile in the `~/.aws/credentials` file.
 4. Create two S3 buckets. One bucket will be used to deploy the client to and the other will be used to deploy the API code to. These buckets must be in the same region that the Studio is to be deployed to.
-5. Optional - Create a Amazon Cognito domain that you will use to authenticate your Studio users
+5. Set up a CloudFront distribution to the client S3 bucket.  The default behavior should point to the base bucket itself with no paths.
+6. Optional - Create a Amazon Cognito domain that you will use to authenticate your Studio users
 
 ### Setup Deployment Script
 
@@ -28,15 +29,16 @@ From there you can start to build out your application in Studio and point your 
   ```
   or as a `devDependency` in your package.json
 
-1. Set your AWS_PROFILE
+2. Set your AWS_PROFILE
 * `export AWS_PROFILE=<profile>`
 
-1. Add the following environment variables to your current terminal or environment
+3. Add the following environment variables to your current terminal or environment
+  * `STUDIO_CF_DISTRO_DOMAIN` - This is the domain that the cloudfront distribution created earlier has.
   * `STUDIO_CLIENT_S3_BUCKET` - This is the name of the bucket that was created to store the client.
   * `STUDIO_API_S3_BUCKET` - This is the name of the bucket that was created to store the api client.
   * `STUDIO_COGNITO_DOMAIN` - This is the domain name unique to your organization that Amazon Cognito will use for signing in.
 
-1. Add the signed URL to your environment to authorize your deployment
+4. Add the signed URL to your environment to authorize your deployment
 
 *  `STUDIO_SIGNED_URL` - A url in the format `https://single-tenant.xapp.ai?Policy=<token>` provided by XAPP
 
@@ -55,6 +57,12 @@ studio-deploy deploy-api [ver]
 ```
 
 These scripts will deploy all necessary assets. 
+
+After the assets have been deployed, you can generate an upload a configuration file for the client by running
+
+```$
+studio-deploy deploy-config
+```
 
 ## Development, Staging, Production
 
@@ -109,6 +117,8 @@ window["xaStudioConfig"] = {
 };
 ```
 
+This can be generated when the client and API have both been installed by running 
 
-
-
+```$
+studio-deploy deploy-config
+```
