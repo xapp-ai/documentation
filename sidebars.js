@@ -62,11 +62,28 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Security",
+      items: ["security/security"],
+    },
+    {
+      type: "category",
       label: "Data",
       items: [
         "data/types-of-data",
         "data/analytics-basics",
         "data/data-retention",
+      ],
+    },
+    {
+      type: "category",
+      label: "Studio",
+      items: [
+        "studio/organizations-applications-members",
+        "studio/governance",
+        "studio/architectures",
+        "studio/autocomplete-suggestions",
+        "studio/single-tenancy",
+        "studio/live-take-over",
       ],
     },
     {
@@ -87,17 +104,6 @@ const sidebars = {
         "development/api",
         "development/arachne-cli",
         "development/development-faqs",
-      ],
-    },
-    {
-      type: "category",
-      label: "Studio",
-      items: [
-        "studio/organizations-applications-members",
-        "studio/governance",
-        "studio/architectures",
-        "studio/autocomplete-suggestions",
-        "studio/single-tenancy",
       ],
     },
   ],

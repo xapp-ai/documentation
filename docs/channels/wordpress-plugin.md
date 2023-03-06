@@ -38,3 +38,12 @@ This menu will allow you to copy and paste either your chat widget or search bar
 You can find the key to copy-paste to the WordPress configuration on the channel's settings page for both chat and intelligent search.
 
 ![find-channel-key](../../static/img/channel/find-widget-key.gif)
+
+### Search
+
+Search integration requires you to setup one (or many) buttons that will enable the search modal when clicked.  The plugin will look for the class `xapp-search-button` and then attach click listeners to the element with the class so that the modal opens when clicked.
+
+Below are some common methods for adding a button with the correct class.
+
+#### Menu Item
+

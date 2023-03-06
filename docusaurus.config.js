@@ -7,6 +7,7 @@ module.exports = {
   favicon: "img/favicon.ico",
   organizationName: "xapp-ai", // Usually your GitHub org/user name.
   projectName: "documentation", // Usually your repo name.
+  plugins: [/* "./plugins/inject-widget", */ "./plugins/inject-search"],
   themeConfig: {
     colorMode: {
       disableSwitch: true,
