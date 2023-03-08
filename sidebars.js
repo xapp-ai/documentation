@@ -60,11 +60,11 @@ const sidebars = {
         "channels/slack-through-lex",
       ],
     },
-    {
+    /* {
       type: "category",
       label: "Security",
       items: ["security/security"],
-    },
+    }, */
     {
       type: "category",
       label: "Data",
@@ -85,6 +85,11 @@ const sidebars = {
         "studio/single-tenancy",
         "studio/live-take-over",
       ],
+    },
+    {
+      type: "category",
+      label: "Partners",
+      items: ["partners/partner-integration", "partners/partner-tools"],
     },
     {
       type: "category",

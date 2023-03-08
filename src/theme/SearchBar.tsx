@@ -5,11 +5,14 @@ import { SearchContainer, SearchIcon, SearchWidgetConfig, SearchWidgetTheme, Wid
 
 export default function SearchBar(): JSX.Element {
     return (
-        <button className="xapp-search-button" style={{ width: "80px", height: "40px", borderRadius: "40px", cursor: "pointer", border: "1" }} >
-            <span style={{ display: "flex", alignItems: "center" }} >
-                <SearchIcon />
-                <span>Search</span>
-            </span>
-        </button >);
+        <></>
+    );
 }
+
+/*<button className="xapp-search-button" style={{ width: "80px", height: "40px", borderRadius: "40px", cursor: "pointer", border: "1" }} >
+<span style={{ display: "flex", alignItems: "center" }} >
+    <SearchIcon />
+    <span>Search</span>
+</span>
+</button > */
 
