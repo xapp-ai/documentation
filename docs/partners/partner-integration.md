@@ -36,6 +36,7 @@ __Sample Event Payload__
 ```json
 {
     "tier": "partner_tier",
+    "contract_length": 1, // number of months; 1, 12, 24 are common values
     "id": "partner_customer_id",
     "website": "https://customer-site.com",
     "template": "existing_or_custom_template",
@@ -62,7 +63,7 @@ __Sample Event Payload__
 ```json
 {
     "id": "partner_customer_id",
-    "widget_snippet": "https://customer-site.com",
+    "widget_snippet": "",
     "widget_key": "",
     "search_snippet": "",
     "search_key": "",
