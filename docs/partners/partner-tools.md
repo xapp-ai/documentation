@@ -30,7 +30,7 @@ You can quickly:
 __Read More__
 
 * [Widget Customization](/docs/channels/channel-chat-widget#configuring-the-widget-within-studio)
-* [Live Take Over](/docs/studio/live-take-over)
+* [Opportunity Alerts](/docs/studio/opportunity-alerts)
 
 ### Status Update Events
 

@@ -78,12 +78,13 @@ const sidebars = {
       type: "category",
       label: "Studio",
       items: [
-        "studio/organizations-applications-members",
-        "studio/governance",
         "studio/architectures",
+        "studio/opportunity-alerts",
         "studio/autocomplete-suggestions",
         "studio/single-tenancy",
-        "studio/live-take-over",
+        "studio/export-import",
+        "studio/organizations-applications-members",
+        "studio/governance",
       ],
     },
     {

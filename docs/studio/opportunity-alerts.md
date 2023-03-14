@@ -1,6 +1,6 @@
 ---
-title: Live Take Over
-sidebar_label: BETA - Live Take Over
+title: Opportunity Alerts with Live Take Over
+sidebar_label: BETA - Opportunity Alerts
 ---
 
 :::caution
@@ -9,7 +9,7 @@ This is documentation for a beta feature and are subject to change until final r
 
 :::
 
-Live Take Over (with Opportunity Alerts) are a way for members of your organization to view a chat and optionally take over from the assistant.  
+Opportunity Alerts with Live Take Over are a way for members of your organization to view a chat and optionally take over from the assistant.  
 
 Opportunity Alerts are the configurable notification sent to your phone or email that let you know a conversation has started or some other key event has been reached.
 
