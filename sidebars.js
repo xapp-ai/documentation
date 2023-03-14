@@ -60,6 +60,11 @@ const sidebars = {
         "channels/slack-through-lex",
       ],
     },
+    /* {
+      type: "category",
+      label: "Security",
+      items: ["security/security"],
+    }, */
     {
       type: "category",
       label: "Data",
@@ -68,6 +73,24 @@ const sidebars = {
         "data/analytics-basics",
         "data/data-retention",
       ],
+    },
+    {
+      type: "category",
+      label: "Studio",
+      items: [
+        "studio/architectures",
+        "studio/opportunity-alerts",
+        "studio/autocomplete-suggestions",
+        "studio/single-tenancy",
+        "studio/export-import",
+        "studio/organizations-applications-members",
+        "studio/governance",
+      ],
+    },
+    {
+      type: "category",
+      label: "Partners",
+      items: ["partners/partner-integration", "partners/partner-tools"],
     },
     {
       type: "category",
@@ -87,17 +110,6 @@ const sidebars = {
         "development/api",
         "development/arachne-cli",
         "development/development-faqs",
-      ],
-    },
-    {
-      type: "category",
-      label: "Studio",
-      items: [
-        "studio/organizations-applications-members",
-        "studio/governance",
-        "studio/architectures",
-        "studio/autocomplete-suggestions",
-        "studio/single-tenancy",
       ],
     },
   ],
