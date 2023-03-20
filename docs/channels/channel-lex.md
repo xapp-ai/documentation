@@ -36,6 +36,7 @@ This is a new channel currently in beta and is subject to change.  You will need
 1. Select "Create a role with basic Amazon Lex Permissions"
 1. Take note of the ID of your newly created bot
    - You will add it to the policy we create below
+1. Delete the first intent that is created for you automatically.
 
 ### Create Lex V2 Channel
 
@@ -49,6 +50,7 @@ This is a new channel currently in beta and is subject to change.  You will need
 1. Create IAM Policy
 1. Click JSON tab and copy paste the following:
    - Update the resource ARN with your region, AWS account, and bot ID
+   - __Note:__ `bot-id` is different from the name, it is alphanumeric.
 
 ```json
 {
@@ -58,76 +60,76 @@ This is a new channel currently in beta and is subject to change.  You will need
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-                "lex:DeleteImport",
-                "lex:ListSlotTypes",
-                "lex:CreateExport",
-                "lex:DescribeIntent",
-                "lex:UpdateBotAlias",
-                "lex:DescribeCustomVocabularyMetadata",
-                "lex:DescribeBot",
-                "lex:UpdateBotLocale",
-                "lex:CreateCustomVocabulary",
-                "lex:DescribeBotRecommendation",
+                "lex:BuildBotLocale",
+                "lex:CreateBotAlias",
+                "lex:CreateBotChannel",
                 "lex:CreateBotLocale",
-                "lex:DeleteIntent",
-                "lex:ListBotLocales",
-                "lex:UpdateSlotType",
-                "lex:RecognizeUtterance",
-                "lex:ListBotChannels",
-                "lex:DeleteBotAlias",
-                "lex:DescribeBotLocale",
-                "lex:ListIntents",
-                "lex:SearchAssociatedTranscripts",
-                "lex:UpdateCustomVocabulary",
-                "lex:UpdateExport",
+                "lex:CreateBotVersion",
+                "lex:CreateCustomVocabulary",
+                "lex:CreateExport",
+                "lex:CreateIntent",
+                "lex:CreateResourcePolicy",
                 "lex:CreateSlot",
+                "lex:CreateSlotType",
+                "lex:DeleteBotAlias",
+                "lex:DeleteBotChannel",
+                "lex:DeleteBotLocale",
+                "lex:DeleteBotVersion",
+                "lex:DeleteCustomVocabulary",
+                "lex:DeleteExport",
+                "lex:DeleteImport",
+                "lex:DeleteIntent",
+                "lex:DeleteResourcePolicy",
+                "lex:DeleteSession",
+                "lex:DeleteSlot",
                 "lex:DeleteSlotType",
                 "lex:DeleteUtterances",
-                "lex:UpdateBotRecommendation",
-                "lex:CreateBotVersion",
-                "lex:DeleteSession",
-                "lex:DescribeImport",
-                "lex:DescribeSlot",
-                "lex:UpdateSlot",
-                "lex:ListAggregatedUtterances",
-                "lex:DescribeBotChannel",
-                "lex:PutSession",
-                "lex:DeleteExport",
-                "lex:DescribeResourcePolicy",
-                "lex:DescribeSlotType",
-                "lex:DeleteCustomVocabulary",
-                "lex:DeleteBotVersion",
-                "lex:CreateResourcePolicy",
-                "lex:ListBotAliases",
-                "lex:StopBotRecommendation",
+                "lex:DescribeBot",
                 "lex:DescribeBotAlias",
-                "lex:DescribeCustomVocabulary",
-                "lex:StartImport",
-                "lex:BuildBotLocale",
-                "lex:StartBotRecommendation",
-                "lex:CreateIntent",
-                "lex:ListBotVersions",
-                "lex:TagResource",
-                "lex:RecognizeText",
-                "lex:DescribeExport",
-                "lex:CreateBotAlias",
-                "lex:CreateSlotType",
-                "lex:ListTagsForResource",
-                "lex:ListRecommendedIntents",
-                "lex:DeleteBotLocale",
-                "lex:StartConversation",
-                "lex:UpdateResourcePolicy",
-                "lex:DeleteBotChannel",
-                "lex:DeleteSlot",
-                "lex:GetSession",
-                "lex:UpdateBot",
-                "lex:CreateBotChannel",
+                "lex:DescribeBotChannel",
+                "lex:DescribeBotLocale",
+                "lex:DescribeBotRecommendation",
                 "lex:DescribeBotVersion",
-                "lex:UpdateIntent",
-                "lex:UntagResource",
-                "lex:ListSlots",
-                "lex:DeleteResourcePolicy",
+                "lex:DescribeCustomVocabulary",
+                "lex:DescribeCustomVocabularyMetadata",
+                "lex:DescribeExport",
+                "lex:DescribeImport",
+                "lex:DescribeIntent",
+                "lex:DescribeResourcePolicy",
+                "lex:DescribeSlot",
+                "lex:DescribeSlotType",
+                "lex:GetSession",
+                "lex:ListAggregatedUtterances",
+                "lex:ListBotAliases",
+                "lex:ListBotChannels",
+                "lex:ListBotLocales",
                 "lex:ListBotRecommendations"
+                "lex:ListBotVersions",
+                "lex:ListIntents",
+                "lex:ListRecommendedIntents",
+                "lex:ListSlots",
+                "lex:ListSlotTypes",
+                "lex:ListTagsForResource",
+                "lex:PutSession",
+                "lex:RecognizeText",
+                "lex:RecognizeUtterance",
+                "lex:SearchAssociatedTranscripts",
+                "lex:StartBotRecommendation",
+                "lex:StartConversation",
+                "lex:StartImport",
+                "lex:StopBotRecommendation",
+                "lex:TagResource",
+                "lex:UntagResource",
+                "lex:UpdateBot",
+                "lex:UpdateBotAlias",
+                "lex:UpdateBotLocale",
+                "lex:UpdateBotRecommendation",
+                "lex:UpdateCustomVocabulary",
+                "lex:UpdateExport",
+                "lex:UpdateIntent",
+                "lex:UpdateResourcePolicy",
+                "lex:UpdateSlot",
+                "lex:UpdateSlotType",
             ],
             "Resource": "arn:aws:lex:<region>:<account>:bot/<bot-id>"
         },
@@ -149,18 +151,23 @@ This is a new channel currently in beta and is subject to change.  You will need
 ```
 
 1. Add optional tags
-1. For policy name we recommend `xapp-studio-lex-management` or similar.
+1. For policy name we recommend `xapp-studio-lex-management-{appId}` or similar.
 
 ### Create an IAM Role for Studio Management
 
 1. Create IAM Role
 1. Select AWS account
 1. Select 'Another AWS account' and enter account ID: `204595997473`
-1. Check 'Require external ID'
-    * The external ID an be any string but we recommend generating a UUID
-    * Add your external ID to both the role creation page and to your Lex V2 Channel in studio under setting "Management Role External ID"
-1. Click "Next"
+   * If you are running a single tenant version, this will be the account number where your Studio instance is deployed.
+1. Check 'Require external ID', paste in the external ID from your newly created Lex channel under setting "Management Role External ID"
+
+   ![external role](/img/channel/lex/lex-v2-management-external-id.png)
+
+1. Back in the AWS Console, click "Next"
+
+  ![new role](/img/channel/lex/aws-iam-role-lex-v2-management.png)
+
 1. Search for you policy you created above and select it, click "Next"
-1. For role name we recommend `xapp-studio-lex-management`
+1. For role name we recommend `xapp-studio-lex-management-{appId}`
 1. When you create it, click `View Role` in the green banner at the top.
 1. Copy the role's ARN and paste it to the channel under "Management Role"
