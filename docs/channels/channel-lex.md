@@ -85,7 +85,6 @@ This is a new channel currently in beta and is subject to change.  You will need
             ]
         },
         {
-            "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": [
                 "lex:CreateUploadUrl",
