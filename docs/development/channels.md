@@ -38,6 +38,62 @@ import { Stentor } from "stentor-channel";
 
 The Stentor channel takes an optional NLU Service as a configuration parameter, which is required if you are calling the channel directly without first passing the request through an NLU.
 
+For example, we are setting up a LexV2 Bot instance as our NLU.
+
+```ts
+import { LexServiceV2 } from "@xapp/stentor-service-lex";
+
+//...then
+
+const nlu = new LexServiceV2({
+    botId: process.env.LEX_BOT_ID,
+    botAliasId: process.env.LEX_BOT_ALIAS_ID
+});
+
+```
+and then pass the nlu to your `Stentor()` channel:
+
+```ts
+
+    const assistant = new Assistant()
+        // the rest of your setup
+        .withChannels([
+            // with the nlu, you can use it directly behind API Gateway
+            Stentor(nlu)
+        ])
+```
+
+This `nlu` can be anything that implements `NLUService` so you can extend LexServiceV2 or write your own.
+
+### Lex (v2)
+
+The chatbot framework from AWS, Amazon Lex.  It enables a few channels such as Facebook, Slack, and Twilio SMS.
+
+```bash
+npm install @xapp/stentor-lex-v2
+```
+
+```ts
+import { LexV2Channel } from "@xapp/stentor-lex-v2";
+```
+
+#### Lex as your NLU
+
+You can also use your Lex (v2) bot as a stand-alone NLU through the `@xapp/stentor-service-lex` package.
+
+```bash
+npm install @xapp/stentor-service-lex
+```
+
+```ts
+import { LexServiceV2 } from "@xapp/stentor-service-lex";
+
+const nlu = new LexServiceV2({
+    botId: process.env.LEX_BOT_ID,
+    botAliasId: process.env.LEX_BOT_ALIAS_ID
+});
+```
+
 ### Alexa 
 
 Smart speaker channel that supports multiple modalities; voice only, voice & screen, and voice & screen with touch.

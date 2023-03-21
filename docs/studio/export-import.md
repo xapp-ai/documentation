@@ -45,12 +45,31 @@ xapp export ./temp appId
 
 The above will export an application with ID `appId` to a directory `./temp`
 
+### Exporting with GraphQL
+
+You can use the `/graphql` GUI on Studio or you can use this for programmatic exporting as part of a broader script.
+
+```graphql
+mutation exportApp($appId:ID!, $organizationId:ID!){
+  app(organizationId:$organizationId) {
+    update(appId:$appId) {
+      exportApp {
+        url
+      }
+    }
+  }
+}
+```
+
 ## Importing
 
 :::important
-Only a CLI import is supported at this time.  Read more about the CLI [here](/docs/development/cli)
+
+Importing requires you have the exported JSON file hosted on a public URL.
 
 :::
+
+### Importing with the CLI
 
 To import an application JSON file to an existing organization:
 
@@ -59,6 +78,32 @@ xapp import --organizationId <organizationId> [uri]
 ```
 
 You will need an existing organization to import the application and you must host the JSON file to a publically available URL.
+
+### Importing with GraphQL
+
+You can use the `/graphql` GUI on Studio or you can use this for programmatic importing as part of a broader script.
+
+```graphql
+mutation importApp($organizationId: ID!, $appUrl: URL!, $overwrite: Boolean, $modelOnly: Boolean) {
+  app(organizationId: $organizationId) {
+    importApp(url: $appUrl, overwrite:$overwrite, modelOnly:$modelOnly) {
+      appId
+      organizationId
+      name
+    }
+  }
+}
+```
+
+With required variables:
+
+```json
+{
+  "organizationId": "",
+  "appUrl": ""
+}
+```
+
 
 ## Sample File
 

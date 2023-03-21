@@ -243,7 +243,11 @@ This file has all the information needed for the client to communicate with your
 
 ### Accessing your new Studio
 
-After you configured client, you can now access your instance from the Cloudfront Distribution you created earlier.
+After you configured client, you can now access your instance from the Cloudfront Distribution you created earlier.  A successful deployment will show you an empty Studio.
+
+__What to do Next?__
+
+* [Import an existing App](/docs/studio/export-import)
 
 ### Deploy Failures
 
