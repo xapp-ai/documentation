@@ -49,7 +49,7 @@ This is a new channel currently in beta and is subject to change.  You will need
 
 1. Create IAM Policy
 1. Click JSON tab and copy paste the following:
-   - Update the resource ARN with your region, AWS account, and bot ID
+   - Update the resource ARN with your region, <region>, AWS account <account>, and bot ID <bot-id>
    - __Note:__ `bot-id` is different from the name, it is alphanumeric.
 
 ```json
@@ -57,10 +57,16 @@ This is a new channel currently in beta and is subject to change.  You will need
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-            "lex:Build*",
+                "iam:PassRole"
+            ],
+            "Resource": "arn:aws:iam::<accountId>:role/<name-of-management-role-being-created>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "lex:Build*",
                 "lex:Create*",
                 "lex:Delete*",
                 "lex:Describe*",
@@ -75,10 +81,12 @@ This is a new channel currently in beta and is subject to change.  You will need
                 "lex:Update*",
                 "lex:Untag*"
             ],
-            "Resource": "arn:aws:lex:<region>:<account>:bot/<bot-id>"
+            "Resource": [
+                "arn:aws:lex:<region>:<account>:bot/*",
+                "arn:aws:lex:<region>:<account>:bot-alias/*",
+            ]
         },
         {
-            "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": [
                 "lex:CreateUploadUrl",
