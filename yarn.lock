@@ -2377,10 +2377,10 @@
   resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.54.1.tgz#5120a1574b2d5998db89a474d85fc786190f565d"
   integrity sha512-VPyTROJ/x0W8T+AcaRT0wSHmyzAzAkJH5AIv0ZvtHv2w7cF1tenhE0qdjp5ayD0THSrr6shEtKy489ZfQq0pAQ==
 
-"@xapp/chat-widget@1.54.2":
-  version "1.54.2"
-  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.54.2.tgz#0b4607cb6c3f0f9db6a7cdb13229f059e06aadbc"
-  integrity sha512-rvRQdbF+EehDPdbq3L69Xut3p9eBtBXnCtBWwxJmHA1nmZVY7QQXROImAhS5Xssxv1P0H/YkDkGTTT6+05iR9A==
+"@xapp/chat-widget@1.54.3":
+  version "1.54.3"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.54.3.tgz#8cc4bb335b810222cbcbecb59a5d0428f136a4d8"
+  integrity sha512-0C0HxQcd3uYGZ7GNC7KyiQYdSMSAkhTVLjdMRpyCsP/kkWEhNbeWhxYrADl6uam+YrtMZ242gmRk6vegO6df4Q==
   dependencies:
     "@rollup/plugin-replace" "^4.0.0"
     "@xapp/chat-widget-core" "1.54.1"
