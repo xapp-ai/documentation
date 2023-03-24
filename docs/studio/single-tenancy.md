@@ -241,6 +241,31 @@ window["xaStudioConfig"] = {
 
 This file has all the information needed for the client to communicate with your custom single-tenant backend.
 
+### Configuring a Super Admin
+
+You will need to configure a super admin for Studio that will allow you full access to change organization wide & user level permissions.
+
+1. Create an initial user, in your Cognito instance through the AWS Console
+1. In the AWS Console, go to DynamoDB and select Tables on the left hand side.
+1. Look for a table labled `stentor-user-permission-<stage>`
+1. Click explore Table Items to see a list of all users, you should see your user you created in step 1.
+1. Click your userId to edit the item
+1. Change your `globalPolicy` to:
+   ```json
+   "globalPolicy": {
+     "permissions": [
+        "all:read",
+        "all:write"
+      ],
+      "roles": [
+        "stentor_admin"
+      ]
+   },
+   ```
+1. Click "Save Changes"
+1. Log out of Studio if you were logged in
+1. Log back in to Studio
+
 ### Accessing your new Studio
 
 After you configured client, you can now access your instance from the Cloudfront Distribution you created earlier.  A successful deployment will show you an empty Studio.
@@ -248,6 +273,7 @@ After you configured client, you can now access your instance from the Cloudfron
 __What to do Next?__
 
 * [Import an existing App](/docs/studio/export-import)
+ 
 
 ### Deploy Failures
 

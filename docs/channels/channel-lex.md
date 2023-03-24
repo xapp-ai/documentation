@@ -49,7 +49,7 @@ This is a new channel currently in beta and is subject to change.  You will need
 
 1. Create IAM Policy
 1. Click JSON tab and copy paste the following:
-   - Update the resource ARN with your region, <region>, AWS account <account>, and bot ID <bot-id>
+   - Update the resource ARN with your region, `region`, AWS account `account`, and bot ID `bot-id`
    - __Note:__ `bot-id` is different from the name, it is alphanumeric.
 
 ```json
@@ -61,7 +61,7 @@ This is a new channel currently in beta and is subject to change.  You will need
             "Action": [
                 "iam:PassRole"
             ],
-            "Resource": "arn:aws:iam::<accountId>:role/<name-of-management-role-being-created>"
+            "Resource": "arn:aws:iam::<account>:role/<name-of-management-role-being-created>"
         },
         {
             "Effect": "Allow",

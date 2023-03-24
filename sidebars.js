@@ -104,6 +104,7 @@ const sidebars = {
         "development/compiling-templated-responses",
         "development/tokens",
         "development/channels",
+        "development/nlu",
         "development/running-locally",
         "development/runtime-environment-variables",
         "development/cli",
