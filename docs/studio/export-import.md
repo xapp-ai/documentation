@@ -17,6 +17,7 @@ __It contains:__
 
 __It does not contain:__
 
+* Channels, you should set these up new however some you can copy and paste the JSON to a new channel
 * FAQs, which can be exported independently as a CSV.
 * Analytics, which also can be exported independently as a CSV.
 * Documents, from website crawled are not exported however they can be recrawled.
@@ -107,7 +108,9 @@ With required variables:
 
 ## Sample File
 
-Below is a sample file that contains a partial export.
+You can see a full export here: https://templates.xapp.ai/assistant.json 
+
+Below, is a partial version of the above to help illustrate the format.
 
 ```json
 {
