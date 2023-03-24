@@ -36,6 +36,7 @@ This is a new channel currently in beta and is subject to change.  You will need
 1. Select "Create a role with basic Amazon Lex Permissions"
 1. Take note of the ID of your newly created bot
    - You will add it to the policy we create below
+1. Delete the first intent that is created for you automatically.
 
 ### Create Lex V2 Channel
 
@@ -48,7 +49,8 @@ This is a new channel currently in beta and is subject to change.  You will need
 
 1. Create IAM Policy
 1. Click JSON tab and copy paste the following:
-   - Update the resource ARN with your region, AWS account, and bot ID
+   - Update the resource ARN with your region, `region`, AWS account `account`, and bot ID `bot-id`
+   - __Note:__ `bot-id` is different from the name, it is alphanumeric.
 
 ```json
 {
@@ -59,7 +61,7 @@ This is a new channel currently in beta and is subject to change.  You will need
             "Action": [
                 "iam:PassRole"
             ],
-            "Resource": "arn:aws:iam::<accountId>:role/<name-of-management-role-being-created>"
+            "Resource": "arn:aws:iam::<account>:role/<name-of-management-role-being-created>"
         },
         {
             "Effect": "Allow",
@@ -101,18 +103,24 @@ This is a new channel currently in beta and is subject to change.  You will need
 ```
 
 1. Add optional tags
-1. For policy name we recommend `xapp-studio-lex-management` or similar.
+1. For policy name we recommend `xapp-studio-lex-management-{appId}` or similar.
 
 ### Create an IAM Role for Studio Management
 
 1. Create IAM Role
 1. Select AWS account
 1. Select 'Another AWS account' and enter account ID: `204595997473`
-1. Check 'Require external ID'
-    * The external ID an be any string but we recommend generating a UUID
-    * Add your external ID to both the role creation page and to your Lex V2 Channel in studio under setting "Management Role External ID"
-1. Click "Next"
+   * If you are running a single tenant version, this will be the account number where your Studio instance is deployed.
+1. Check 'Require external ID', paste in the external ID from your newly created Lex channel under setting "Management Role External ID"
+
+   ![external role](/img/channel/lex/lex-v2-management-external-id.png)
+
+1. Back in the AWS Console, click "Next"
+
+  ![new role](/img/channel/lex/aws-iam-role-lex-v2-management.png)
+
 1. Search for you policy you created above and select it, click "Next"
-1. For role name we recommend `xapp-studio-lex-management`
+1. For role name we recommend `xapp-studio-lex-management-{appId}`
 1. When you create it, click `View Role` in the green banner at the top.
 1. Copy the role's ARN and paste it to the channel under "Management Role"
+

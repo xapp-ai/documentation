@@ -8,6 +8,12 @@ Our multi-tenant environment has much quicker release cycle, typically every one
 
 ## Client
 
+### 1.82.5 - 3/22/2023
+
+**Studio**
+
+* Fixes headers for `content-type` that would sometimes prevent a login
+
 ### 1.82.4 - 3/10/2023
 
 **Chat Widget**
@@ -36,7 +42,6 @@ Our multi-tenant environment has much quicker release cycle, typically every one
 Initial Studio release for Single-tenant
 
 ## API
-
 
 
 
