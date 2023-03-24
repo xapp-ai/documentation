@@ -187,6 +187,10 @@ Done in 1902.67s.
 
 #### Configure a key for your tokens
 
+:::warning
+Changing your keys later will invalidate all your tokens.
+:::
+
 In order to create [tokens](/docs/development/tokens), that will allow a secure connection between the runtime and your Studio instance, you will need to generate a secure key.
 
 1. On Mac, Linux or WSL2 run the command `ssh-keygen -f cms_key.key -b 4096 -t rsa -m pkcs8`. If this is not available, then use the preferred method to generate RSA private and public key pairs. Do not include any passphrases.
