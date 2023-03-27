@@ -1,6 +1,6 @@
 ---
-title: BETA - AWS Lex (V2) Channel
-sidebar_label: BETA - AWS Lex (V2) Channel
+title: AWS Lex (V2) Channel
+sidebar_label: AWS Lex (V2) Channel
 slug: /channels/aws-lex
 ---
 
@@ -13,10 +13,6 @@ The AWS Lex channel provides you two options for integration; either with fulfil
 - AWS Account and user with appropriate permissions to:
   - To create a Lex Bot
   - To create IAM Roles
-
-### What is the PostText URL?
-
-The PostFix URL is generated for you automatically when you leverage the provided CloudFormation script for deployment. It is a lambda exposed through API Gateway that calls your Lex bot's [PostText API](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html). The PostText is part of the Lex Runtime Service that receives user input and returns the bot's response. The PostText URL takes Stentor requests and then returns Stentor responses
 
 ## Setup
 
@@ -110,7 +106,7 @@ This is a new channel currently in beta and is subject to change.  You will need
 1. Create IAM Role
 1. Select AWS account
 1. Select 'Another AWS account' and enter account ID: `204595997473`
-   * If you are running a single tenant version, this will be the account number where your Studio instance is deployed.
+   * If you are running a single tenant version with Lex in the same account, this will be the account number where your Studio instance is deployed.
 1. Check 'Require external ID', paste in the external ID from your newly created Lex channel under setting "Management Role External ID"
 
    ![external role](/img/channel/lex/lex-v2-management-external-id.png)
@@ -124,3 +120,28 @@ This is a new channel currently in beta and is subject to change.  You will need
 1. When you create it, click `View Role` in the green banner at the top.
 1. Copy the role's ARN and paste it to the channel under "Management Role"
 
+## Configuration
+
+### Bot Name
+
+The name of the bot you will be managing with Studio.  This is not the ID but is the name.
+
+### PostText Lex URL
+
+The PostFix URL is generated for you automatically when you leverage the provided CloudFormation script for deployment. It is a lambda exposed through API Gateway that calls your Lex bot's [PostText API](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html). The PostText is part of the Lex Runtime Service that receives user input and returns the bot's response. The PostText URL takes Stentor requests and then returns Stentor responses.
+
+**Read More**
+
+* [PostText Lambda](/docs/development/posttext-lambda)
+
+### Fulfillment Lambda ARN
+
+Optional, if you provide this it will set it as the fulfillment ARN for each intent.  It will then be called whenever an intent is resolved.
+
+### Management Role
+
+The role, as described above in configuration, this is the ARN for the IAM Role you setup to allow management by Studio.
+
+### Management Role External ID
+
+Readonly, use this when setting up your management role.  It helps further secure the connection betwen AWS accounts.
