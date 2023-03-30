@@ -43,4 +43,4 @@ Forwards are used after the user has had content from the handler and they respo
 
 ## Data
 
-The data field gives you an open-ended key-value storage to pass data to the handler at runtime.  When designing [custom handlers](../development/custom-handlers.md), place configuration variables here that can be useful to modify the behavior of the handler without required a code update.
+The data field gives you an open-ended key-value storage to pass data to the handler at runtime.  When designing [custom handlers](../development/custom-handlers.md), place configuration variables here that can be useful to modify the behavior of the handler without requiring a code update.
