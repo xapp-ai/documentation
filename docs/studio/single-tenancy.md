@@ -185,6 +185,40 @@ Setting up pipeline suggestions_pipeline...
 Done in 1902.67s.
 ```
 
+#### Configure a key for your tokens
+
+:::warning
+Changing your keys later will invalidate all your tokens.
+:::
+
+In order to create [tokens](/docs/development/tokens), that will allow a secure connection between the runtime and your Studio instance, you will need to generate a secure key.
+
+1. On Mac, Linux or WSL2 run the command `ssh-keygen -f cms_key.key -b 4096 -t rsa -m pkcs8`. If this is not available, then use the preferred method to generate RSA private and public key pairs. Do not include any passphrases.
+
+1. Run the command `ssh-keygen -f cms_key.key.pub -b 4096 -e -t rsa -m pkcs8`.  This should convert the public key in to the proper format which should look similar to this:
+
+  ```
+  -----BEGIN PUBLIC KEY-----
+  ARandomBunchOfGibberish
+  -----END PUBLIC KEY-----
+  ```
+
+1. Run the command `cat cms_key.key` to display the private key which should be in the format like so:
+
+  ```
+  -----BEGIN PRIVATE KEY-----
+  ARandomBunchOfGibberish
+  -----END PRIVATE KEY-----
+  ```
+
+1. Go to the AWS Console.  Go to `Systems Manager`, and navigate to the `Parameter Store`.
+
+1. Click `Create Parameter`.  Name the new parameter `studio-cms-public-dev`.  Click `SecureString` under `type`. Copy and paste the public key in to the `Value` section.  Click the `Create Parameter` button.
+
+1. Click `Create Parameter` and this time name the parameter `studio-cms-private-dev`. Click `SecureString` under `type`. Copy and paste the private key in to the `Value` section.  Click the `Create Parameter` button.
+
+That is it!  You can now generate tokens based on this secure key.
+
 #### Configuring Client
 
 After the assets have been deployed, you can generate and upload a configuration file for the client by running:
@@ -241,39 +275,15 @@ window["xaStudioConfig"] = {
 
 This file has all the information needed for the client to communicate with your custom single-tenant backend.
 
-### Configuring a Super Admin
-
-You will need to configure a super admin for Studio that will allow you full access to change organization wide & user level permissions.
-
-1. Create an initial user, in your Cognito instance through the AWS Console
-1. In the AWS Console, go to DynamoDB and select Tables on the left hand side.
-1. Look for a table labled `stentor-user-permission-<stage>`
-1. Click explore Table Items to see a list of all users, you should see your user you created in step 1.
-1. Click your userId to edit the item
-1. Change your `globalPolicy` to:
-   ```json
-   "globalPolicy": {
-     "permissions": [
-        "all:read",
-        "all:write"
-      ],
-      "roles": [
-        "stentor_admin"
-      ]
-   },
-   ```
-1. Click "Save Changes"
-1. Log out of Studio if you were logged in
-1. Log back in to Studio
-
 ### Accessing your new Studio
 
 After you configured client, you can now access your instance from the Cloudfront Distribution you created earlier.  A successful deployment will show you an empty Studio.
 
-__What to do Next?__
+__What to do next?__
 
 * [Import an existing App](/docs/studio/export-import)
- 
+* [Invite Members](/docs/studio/organizations-applications-members)
+* [Test your API](/docs/development/api/cms)
 
 ### Deploy Failures
 
@@ -400,14 +410,38 @@ All of your development starts in your development environment.
 
 We believe in following infrastructure as code for reliably moving the application and it's content through the different steps of your release cycle.  We will provide you with a Cloudformation script that will allow you to manage and deploy Studio to different environments.  You are then responsible for developing the necessary scripts to manage the rest of your infrastructure, such as the runtime environment.  For migrating your model and other content between environments, we recommend leveraging the [management API](/docs/development/api/graphql) to create exports of your application and then importing to the next environment.
 
-## Authentication
+## Users & Authentication
 
-For authentication, there are two primary options for the single-tenant architecture.  You can:
+As part of deployment, we created an Amazon Cognito user pool for you.  You can keep using this user pool or you can setup third-party (federated) login (read more [here](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html)).  
 
-* Provide your OAuth 2.0 compatible endpoint
-* Leverage Amazon Cognito which allows multiple options for third-party (federated) login.  [Read more](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html)
+### Managing Users
 
-Both of these options allow you to bring your own identity provider.
+You can add new users manually through the Cognito User Pool console on AWS.  By default, we have self-service registration turned on, this allows users to create their own accounts **however** they will not have access to other organizations by default.  You can turn off self-service registration within your user pool under "Sign-up experience" with disabling "Self-service sign-up".
+
+### Configuring an Admin
+
+You most likely won't need an admin user however if you anticipate your Studio user's creating multiple organizations, an admin will have full access to all the organizations and their apps.
+
+1. Select or create a new user that will be the admin
+1. In the AWS Console, go to DynamoDB and select Tables on the left hand side.
+1. Look for a table labled `stentor-user-permission-<stage>`
+1. Click explore Table Items to see a list of all users, search until you find the user that will be admin
+1. Click your userId to edit the item
+1. Change your `globalPolicy` to:
+   ```json
+   "globalPolicy": {
+     "permissions": [
+        "all:read",
+        "all:write"
+      ],
+      "roles": [
+        "stentor_admin"
+      ]
+   },
+   ```
+1. Click "Save Changes"
+1. Log out of Studio if you were logged in
+1. Log back in to Studio
 
 ## Updating your Assistant Application for your new Studio Instance
 

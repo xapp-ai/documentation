@@ -1,6 +1,6 @@
 ---
-title: BETA - AWS Lex (V2) Channel
-sidebar_label: BETA - AWS Lex (V2) Channel
+title: AWS Lex (V2) Channel
+sidebar_label: AWS Lex (V2) Channel
 slug: /channels/aws-lex
 ---
 
@@ -13,10 +13,6 @@ The AWS Lex channel provides you two options for integration; either with fulfil
 - AWS Account and user with appropriate permissions to:
   - To create a Lex Bot
   - To create IAM Roles
-
-### What is the PostText URL?
-
-The PostFix URL is generated for you automatically when you leverage the provided CloudFormation script for deployment. It is a lambda exposed through API Gateway that calls your Lex bot's [PostText API](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html). The PostText is part of the Lex Runtime Service that receives user input and returns the bot's response. The PostText URL takes Stentor requests and then returns Stentor responses
 
 ## Setup
 
@@ -130,7 +126,42 @@ This is a new channel currently in beta and is subject to change.  You will need
 1. When you create it, click `View Role` in the green banner at the top.
 1. Copy the role's ARN and paste it to the channel in Studio that you created earlier under "Management Role"
 
-## App Installation
+## Configuration
+
+### Bot Name
+
+The name of the bot you will be managing with Studio.  This is not the ID but is the name.
+
+### PostText Lex URL
+
+The PostFix URL is generated for you automatically when you leverage the provided CloudFormation script for deployment. It is a lambda exposed through API Gateway that calls your Lex bot's [PostText API](https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html). The PostText is part of the Lex Runtime Service that receives user input and returns the bot's response. The PostText URL takes Stentor requests and then returns Stentor responses.
+
+**Read More**
+
+* [PostText Lambda](/docs/development/posttext-lambda)
+
+### Fulfillment Lambda ARN
+
+Optional, if you provide this it will set it as the fulfillment ARN for each intent.  It will then be called whenever an intent is resolved.  This is required when you use Lex as a channel.
+
+**Read More**
+
+* [Using Lex as a Channel](/docs/channels/aws-lex#use-as-a-channel)
+* [Types of NLU](/docs/development/nlu#types-of-nlu)
+
+### Management Role
+
+The role, as described above in configuration, this is the ARN for the IAM Role you setup to allow management by Studio.
+
+### Management Role External ID
+
+Readonly, use this when setting up your management role.  It helps further secure the connection betwen AWS accounts.
+
+## Installation
+
+:::important
+This is only required if you have your own runtime environment.
+:::
 
 You can use your new Lex V2 bot as a stand alone NLU, use it as a channel or both methods at the same time.  When you use it as a channel, you must provide a fulfillment ARN to the channel.  This lets Lex know what Lambda to call for responses.
 
@@ -198,5 +229,3 @@ import { LexV2Channel } from "@xapp/stentor-lex-v2";
         ])
         .lambda();
 ```
-
-
