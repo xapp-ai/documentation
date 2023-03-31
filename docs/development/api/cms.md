@@ -9,7 +9,7 @@ The base URL for OC Studio is https://api.xapp.ai but this will depend on your e
 :::info
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3454397-e7916289-8f94-4c96-89bf-cef081d50205?action=collection%2Ffork&collection-url=entityId%3D3454397-e7916289-8f94-4c96-89bf-cef081d50205%26entityType%3Dcollection%26workspaceId%3Daf98e5eb-4de7-4539-b698-06cc23716e64)
 
-We have all the requests documented on Postman if you want to test them out.  You will need to generate a token for your application 
+We have all the requests documented on Postman if you want to test them out.  You will need to generate a token for your application and add that as a variable along with the appId.  If you are using a single-tenant version, you will need to update your API.
 :::
 
 :::info
