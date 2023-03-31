@@ -48,69 +48,74 @@ This is a new channel currently in beta and is subject to change.  You will need
 ### Create IAM Policy for Studio Management
 
 1. Create IAM Policy
-1. Click JSON tab and copy paste the following:
-   - Update the resource ARN with your region, `region`, AWS account `account`, and bot ID `bot-id`
-   - __Note:__ `bot-id` is different from the name, it is alphanumeric.
+1. Click JSON tab and copy paste the following after you made the following replacements:
+   - `region` - Only `us-east-1` is supported at this time.
+   - `account` - Your AWS account number
+   - `bot-id` - The ID of the bot you made earlier
+   - `bot-alias` - The ID of the alias you are updating
+   - `name-of-management-role` - Decide now what you management role will be, we reccomend `studio-{appId}-lex-management`
+      - __NOTE__ You will use this in the next step, it will need to match exactly
 
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "iam:PassRole"
-            ],
-            "Resource": "arn:aws:iam::<account>:role/<name-of-management-role-being-created>"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "lex:Build*",
-                "lex:Create*",
-                "lex:Delete*",
-                "lex:Describe*",
-                "lex:Get*",
-                "lex:List*",
-                "lex:Put*",
-                "lex:Recognize*",
-                "lex:Search*",
-                "lex:Start*",
-                "lex:Stop*",
-                "lex:Tag*",
-                "lex:Update*",
-                "lex:Untag*"
-            ],
-            "Resource": [
-                "arn:aws:lex:<region>:<account>:bot/*",
-                "arn:aws:lex:<region>:<account>:bot-alias/*",
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "lex:CreateUploadUrl",
-                "lex:ListBuiltInSlotTypes",
-                "lex:ListBots",
-                "lex:ListBuiltInIntents",
-                "lex:ListImports",
-                "lex:ListExports"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "iam:PassRole"
+                ],
+                "Resource": "arn:aws:iam::<account>:role/<name-of-management-role>"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "lex:Build*",
+                    "lex:Create*",
+                    "lex:Delete*",
+                    "lex:Describe*",
+                    "lex:Get*",
+                    "lex:List*",
+                    "lex:Put*",
+                    "lex:Recognize*",
+                    "lex:Search*",
+                    "lex:Start*",
+                    "lex:Stop*",
+                    "lex:Tag*",
+                    "lex:Update*",
+                    "lex:Untag*"
+                ],
+                "Resource": [
+                    "arn:aws:lex:<region>:<account>:bot/<bot-id>",
+                    "arn:aws:lex:<region>:<account>:bot-alias/<bot-id>/<bot-alias-id>",
+                ]
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "lex:CreateUploadUrl",
+                    "lex:ListBuiltInSlotTypes",
+                    "lex:ListBots",
+                    "lex:ListBuiltInIntents",
+                    "lex:ListImports",
+                    "lex:ListExports"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
+    ```
 
-1. Add optional tags
-1. For policy name we recommend `xapp-studio-lex-management-{appId}` or similar.
+1. Add optional tags for your own tracking
+1. Name and save the policy.
+   - For the policy name we recommend `studio-{appId}-lex-management-policy` or similar.
 
 ### Create an IAM Role for Studio Management
 
 1. Create IAM Role
 1. Select AWS account
-1. Select 'Another AWS account' and enter account ID: `204595997473`
-   * If you are running a single tenant version, this will be the account number where your Studio instance is deployed.
+1. Select 'Another AWS account', select 'Another AWS account' radio button and enter account ID: `204595997473`
+   * If you are running a single tenant version, this will be the account number where your Studio instance is deployed.  Keep the default value.
 1. Check 'Require external ID', paste in the external ID from your newly created Lex channel under setting "Management Role External ID"
 
    ![external role](/img/channel/lex/lex-v2-management-external-id.png)
@@ -120,7 +125,78 @@ This is a new channel currently in beta and is subject to change.  You will need
   ![new role](/img/channel/lex/aws-iam-role-lex-v2-management.png)
 
 1. Search for you policy you created above and select it, click "Next"
-1. For role name we recommend `xapp-studio-lex-management-{appId}`
+1. Use the exact same role name you added to the policy in the previous step
+   - For role name we recommend `studio-{appId}-lex-management`
 1. When you create it, click `View Role` in the green banner at the top.
-1. Copy the role's ARN and paste it to the channel under "Management Role"
+1. Copy the role's ARN and paste it to the channel in Studio that you created earlier under "Management Role"
+
+## App Installation
+
+You can use your new Lex V2 bot as a stand alone NLU, use it as a channel or both methods at the same time.  When you use it as a channel, you must provide a fulfillment ARN to the channel.  This lets Lex know what Lambda to call for responses.
+
+### Use as an NLU
+
+You can use Lex as a stand-alone NLU for channels that require one, such as the [chat widget channel](/docs/channels/channel-chat-widget.md).
+
+Add the Lex service to your project:
+
+```bash
+npm i @xapp/stentor-service-lex --production
+```
+
+Then within your app:
+
+```typescript
+import { LexServiceV2 } from "@xapp/stentor-service-lex";
+
+// ... a few lines of code later
+
+const nlu = new LexServiceV2({
+    botId: process.env.LEX_BOT_ID,
+    botAliasId: process.env.LEX_BOT_ALIAS_ID
+});
+
+// ... a few more lines of code later
+
+        .withChannels([
+            Stentor(nlu)
+        ])
+```
+
+
+### Use as a Channel
+
+:::important
+If you want to leverage Lex V2 as a channel, you must provide the Lambda ARN where the following code resides.
+:::
+
+Add the channel to your project:
+
+```bash
+npm i @xapp/stentor-lex-v2 --production
+```
+
+Then import and integrate:
+
+```typescript
+import { LexV2Channel } from "@xapp/stentor-lex-v2";
+
+// ... a few lines of code later
+
+    const assistant = new Assistant()
+
+        .withUserStorage(new DynamoUserStorage())
+        .withHandlers({
+            // Add pre-built handlers or make custom ones!
+            ContactCaptureHandler: ContactCaptureHandler,
+            QuestionAnsweringHandler: QuestionAnsweringHandler
+        })
+        .withChannels([
+            // ADD LexV2Channel here!
+            LexV2Channel(),
+            Stentor(nlu)
+        ])
+        .lambda();
+```
+
 
