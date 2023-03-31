@@ -12,6 +12,24 @@ When it calls the PostText API, it is Lex that then calls the App Lambda and the
 
 ### Source Code
 
+You can setup your own PostText Lambda as part of your project and deployment process.  Alternatively you can upload to your own Lambda with the archive [here](https://xapp-ai-deployment.s3.amazonaws.com/posttext.zip), this same archive is used by some of our deployment scripts.
+
+Make sure you add the following dependencies to your `package.json`:
+
+```json
+  "dependencies": {
+    "@xapp/stentor-lex-lib": "1.45.32",
+    "stentor-constants": "1.57.95",
+    "stentor-interaction-model": "1.57.95",
+    "stentor-locales": "1.57.95",
+    "stentor-models": "1.57.95",
+    "stentor-request": "1.57.95",
+    "stentor-utils": "1.57.95"
+  }
+```
+
+Then for the handler of the Lambda:
+
 ```ts
 import {
     TranslateLexPostTextResponse,

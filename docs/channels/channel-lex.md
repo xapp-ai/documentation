@@ -160,7 +160,7 @@ Readonly, use this when setting up your management role.  It helps further secur
 ## Installation
 
 :::important
-This is only required if you have your own runtime environment.
+This is only required if you have your own [runtime environment](/docs/development/custom-application).
 :::
 
 You can use your new Lex V2 bot as a stand alone NLU, use it as a channel or both methods at the same time.  When you use it as a channel, you must provide a fulfillment ARN to the channel.  This lets Lex know what Lambda to call for responses.
