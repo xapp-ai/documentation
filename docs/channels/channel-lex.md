@@ -48,7 +48,7 @@ This is a new channel currently in beta and is subject to change.  You will need
    - `region` - Only `us-east-1` is supported at this time.
    - `account` - Your AWS account number
    - `bot-id` - The ID of the bot you made earlier
-   - `bot-alias` - The ID of the alias you are updating
+   - `bot-alias` - Only `TSTALIASID` is supported at this time, this is the default alias for the latest version.
    - `name-of-management-role` - Decide now what you management role will be, we reccomend `studio-{appId}-lex-management`
       - __NOTE__ You will use this in the next step, it will need to match exactly
 
@@ -83,7 +83,7 @@ This is a new channel currently in beta and is subject to change.  You will need
                 ],
                 "Resource": [
                     "arn:aws:lex:<region>:<account>:bot/<bot-id>",
-                    "arn:aws:lex:<region>:<account>:bot-alias/<bot-id>/<bot-alias-id>",
+                    "arn:aws:lex:<region>:<account>:bot-alias/<bot-id>/<bot-alias-id>"
                 ]
             },
             {
