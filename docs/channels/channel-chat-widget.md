@@ -75,12 +75,12 @@ The script is hosted on a CDN however when making configuration updates, the fir
 
 It is also possible to embed the widget in a React based web application, this will provide you with a more integrated look and feel however requires you to build and inject your own configuration.
 
-#### Installation
+#### App Installation
 
 Add to your project:
 
 ```bash
-npm i @xapp/chat-widget redux-thunk redux react-redux --production
+npm i @xapp/chat-widget redux-thunk redux react-redux --production --save
 ```
 
 ```jsx
