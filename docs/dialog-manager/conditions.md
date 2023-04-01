@@ -170,6 +170,28 @@ To check the platform:
 isPlatform(platform: string)
 ```
 
+To check if the user is on a particular web page:
+
+```ts
+onWebPage(pattern: string)
+```
+
+Primarily for chat widgets installed on websites, this will check the current page they are on against a provided pattern.  For example if you use:
+
+```ts
+onWebPage("xapp.ai")
+```
+
+It will match to any page with domain `xapp.ai` such as `xapp.ai/about-us` & `xapp.ai`.
+
+You can narrow it by providing a path:
+
+```ts
+onWebPage("xapp.ai/about-us")
+```
+
+Which will only match to `xapp.ai/about-us` and any subdirectories.
+
 ### Request Type
 
 The following are available to check the type of request:
