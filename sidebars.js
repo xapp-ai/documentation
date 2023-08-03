@@ -49,6 +49,13 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Integrations",
+      items: [
+        "integrations/integration-lacrm",
+      ],
+    },
+    {
+      type: "category",
       label: "Channels",
       items: [
         "channels/channels",
