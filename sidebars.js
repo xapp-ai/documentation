@@ -112,6 +112,7 @@ const sidebars = {
         "development/tokens",
         "development/channels",
         "development/nlu",
+        "development/knowledgebase",
         "development/running-locally",
         "development/runtime-environment-variables",
         "development/cli",

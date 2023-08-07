@@ -10,7 +10,6 @@ You will need a special signed URL that XAPP will provide to you, this will be u
 
 Single tenancy allows you to host all of OC Studio on your AWS account.  Typically this is necessary when you have sensitive information that you work with that needs to have restricted access.
 
-
 ## Deploying
 
 At a high level, for deployment we will provide you with an authentication method and command line script that you will use to then deploy a OC Studio instance to your AWS account.  This script will automatically deploy all the necessary services, application code and the necessary IAM roles them to communicate with each other.  You will then have a [CMS API](/docs/development/api/cms), a [GraphQL API](/docs/development/api/graphql) and a Studio web application URL.
@@ -447,4 +446,63 @@ You most likely won't need an admin user however if you anticipate your Studio u
 
 Your assistant application, the main runtime environment, will need to point to your single-tenant instance's [CMS API](/docs/development/api/cms) for retrieving content and pushing events.
 
-The easiest way to configure your assistant application to point to your single tenant environment is to update the environment variable `STUDIO_BASE_URL` to be your single-tenants API URL.
+**Configuring the Runtime**
+
+1. Update the environment variable `STUDIO_BASE_URL` to your new single-tenants API URL.
+   *  [More on environment variables](/docs/development/runtime-environment-variables.md)
+2. Update the token in your secret's manager to a new token you generated in your new single-tenant instance.
+   *  [More on tokens](/docs/development/tokens)
+
+**Other Updates**
+
+*  **Chat Widget** You will have your own hosted version of the chat widget source code that was also deployed when you deployed single tenant.  You can find the new installation snippet for the widget on the channels page.
+   * [More on chat widget installation](/docs/channels/channel-chat-widget#script-tag)
+*  **Lex** You you need to setup another Lex channel for you app in your single tenant instance since they are not brought over in an import.  You can hook up to an existing Lex bot or create a new one.
+*  **PostText** You will not need to change your PostText configuration unless you either create a new app runtime or create a new Lex, you will not need to change the configuration on the PostText Lambda.  
+
+## Data & Backups Databases
+
+As part of your single-tenant deployment, you will have different [types of data](/docs/data/types-of-data.md) across a few different databases. 
+
+### Read First
+
+* [Types of Data](/docs/data/types-of-data.md)
+* [Related: Multitenant Data Retention](/docs/data/data-retention.md)
+
+### DynamoDB Tables
+
+| Table |   Description | Partition Key | Sort Key |
+|---------|-------------|---|----|
+| App |   Stores data specific to an app such as channels and base metadata | appId | |
+| Org |   Stores data related to an organization| organizationId | |
+| Handler   | Stores all handler and intent data | appId | intentId |
+| Entity |   Stores all entity data | entityId | appId |
+| User Table | Stores user context | userId | |
+
+#### Backing Up
+
+For all the tables, Point-in-time recovery (PITR) is turned on by default, which provides automatic backups of the tables.  [Read more about PITR](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery_Howitworks.html?icmpid=docs_dynamodb_help_panel_hp_pitr).
+
+Additional backups can be made manually if you want to store data externally.
+
+### OpenSearch
+
+There is one major domain setup for you that holds events, suggestions, FAQs, and any crawled documents.
+
+#### Backing Up
+
+By default, OpenSearch Service will create snapshots for you automatically and store them to S3.  You can also create snapshots manually.
+
+### Recommendation 
+
+The default settings when you deployed are our recommended back up settings.  You can of course choose to increase the frequency of the OpenSearch automatic snapshots and even manually create more backups for storage off your AWS account.  
+
+Another recommendation is leveraging the app's export feature to create another type of backup for your app that is easier to read and then import partials if you need to.  You can do this as part of your workflow for moving version updates between different environments.   
+
+* [Read more about importing & exporting](/docs/studio/export-import.md)
+
+
+
+
+
+
