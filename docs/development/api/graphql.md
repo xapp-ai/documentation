@@ -143,3 +143,33 @@ Variables
 }
 ```
 
+### Creating a New App  
+
+You can create a new app with:
+
+```graphql
+mutation createApp($input: AppInput) {
+  app {
+    addApp(app:$input){
+      appId
+      organizationId
+      name
+    }
+  }
+}
+```
+
+with variables
+
+```json
+{
+  "input":{
+    "name":"Name of New App",
+    "organizationId": "existing-org-id",
+    "templateType": "OC_STUDIO_STARTER_TEMPLATE"
+  }
+}
+```
+
+Where `name` and `organizationId` are the only required input parameters but more can be provided when leveraging this mutation.
+

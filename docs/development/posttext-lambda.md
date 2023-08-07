@@ -221,3 +221,11 @@ function convertV2ActiveContext(active: ActiveContext[]): LexRuntimeV2.ActiveCon
     });
 }
 ```
+
+### Common Errors in PostText
+
+```
+Post Text V2 Response does not include a content or contentType. Can not translate.
+```
+
+When using Lex V2, this occurs when your runtime did not return any responses.  You have an unresolved intent at some point in your application.

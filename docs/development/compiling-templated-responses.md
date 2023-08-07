@@ -1,5 +1,6 @@
 ---
 title: Compiling Templated Responses
+sidebar_label: Templated Responses
 ---
 
 With a [custom handler](./custom-handlers.md) that is gathering information from the user and also pulling information from different data sources, instead of dynamically building the response you may instead want to leverage [templated responses](../content/responses.md#templated-responses).
