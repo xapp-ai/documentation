@@ -52,6 +52,7 @@ const sidebars = {
       label: "Integrations",
       items: [
         "integrations/integration-lacrm",
+        "integrations/integration-jobber",
       ],
     },
     {
