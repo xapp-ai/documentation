@@ -120,6 +120,7 @@ const sidebars = {
         "development/api",
         "development/arachne-cli",
         "development/development-faqs",
+        "release-notes/index",
       ],
     },
   ],
