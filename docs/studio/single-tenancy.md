@@ -366,13 +366,13 @@ This will deploy 0.22.79 of API.
 
 __Note__ You must include the full version pair as the argument to the deploy commands.
 
-You can find the release notes for each of the versions [here](/docs/studio/single-tenant-release-notes).
+You can find the release notes for each of the versions [here](/docs/release-notes/studio-single-tenant).
 
 ## Updating Existing Stack
 
 For existing stacks, you can update client and API using the existing deploy commands.
 
-You can find the release notes for the available releases [here](/docs/studio/single-tenant-release-notes)
+You can find the release notes for the available releases [here](/docs/release-notes/studio-single-tenant)
 
 ### Updating Client
 

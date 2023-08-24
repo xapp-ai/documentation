@@ -50,9 +50,7 @@ const sidebars = {
     {
       type: "category",
       label: "Integrations",
-      items: [
-        "integrations/integration-lacrm",
-      ],
+      items: ["integrations/integration-lacrm"],
     },
     {
       type: "category",
@@ -119,6 +117,7 @@ const sidebars = {
         "development/api",
         "development/arachne-cli",
         "development/development-faqs",
+        "release-notes/index",
       ],
     },
   ],
