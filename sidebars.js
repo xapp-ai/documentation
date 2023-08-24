@@ -50,7 +50,10 @@ const sidebars = {
     {
       type: "category",
       label: "Integrations",
-      items: ["integrations/integration-lacrm"],
+      items: [
+        "integrations/integration-lacrm",
+        "integrations/integration-jobber",
+      ],
     },
     {
       type: "category",
