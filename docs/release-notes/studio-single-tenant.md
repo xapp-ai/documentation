@@ -57,6 +57,11 @@ Initial Studio release for Single-tenant
 
 ## API
 
+### 0.22.116 - 8/30/2023
+
+* Fixes issue on deploy where the web crawling lambda is too large
+* Fixes issue when GraphQL endpoint only returns an error.
+
 ### 0.22.113 - 8/23/2023
 
 Includes Chat Widget version [0.59.0](/docs/release-notes/chat-widget), which includes ability to set imageUrl for chat button.
