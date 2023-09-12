@@ -53,6 +53,7 @@ const sidebars = {
       items: [
         "integrations/integration-lacrm",
         "integrations/integration-jobber",
+        "integrations/integration-service-titan"
       ],
     },
     {
