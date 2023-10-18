@@ -3,7 +3,7 @@ title: Partner Integration
 sidebar_label: Integration
 ---
 
-Our goal is to make integration with a partner's products and services as seemless as possible.  We will integrate with your APIs for lead capture, scheduling, etc.  We will then setup a bespoke runtime environment and necessary infrastructure that is specific to your services.  Your primary responsibility is send and receive the necessary events that allow us to automatically create the application and you receive the necessary information for installation. 
+Our goal is to make integration with a partner's products and services as seemless as possible.  We can offer branded, and white label solutions that integrate with your APIs for lead capture, scheduling, etc.  We will then setup a bespoke runtime environment and necessary infrastructure that is specific to your services.  Your primary responsibility is send and receive the necessary events that allow us to automatically create the application and you receive the necessary information for installation. 
 
 ### Responsibility Matrix
 
