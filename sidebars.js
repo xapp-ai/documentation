@@ -131,12 +131,18 @@ const sidebars = {
         "videos/search",
         "videos/chat",
         "videos/gbm",
-        "videos/training",
-        "videos/crawling",
-        "videos/content",
-        "videos/styling-chat",
-        "videos/deployment",
-        "videos/metrics"
+      ]
+    },
+    {
+      type: "category",
+      label: "Training-Series",
+      items: [
+        "training-series/welcome",
+        "training-series/crawling",
+        "training-series/content",
+        "training-series/styling-chat",
+        "training-series/deployment",
+        "training-series/metrics"
       ]
     },
   ],

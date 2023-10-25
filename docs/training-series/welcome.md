@@ -1,5 +1,5 @@
 ---
-title: Training Series
+title: Welcome
 ---
 
 Tired of reading documentation, and instead want to learn by watching?  We have you covered.  View our training series to learn best practice, and get bite-sized demonstrations for various tasks like styling the chat, or adding a suggestion chip to your messages.  Watch below.
