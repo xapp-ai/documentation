@@ -124,6 +124,21 @@ const sidebars = {
         "release-notes/index",
       ],
     },
+    {
+      type: "category",
+      label: "Videos",
+      items: [
+        "videos/search",
+        "videos/chat",
+        "videos/gbm",
+        "videos/training",
+        "videos/crawling",
+        "videos/content",
+        "videos/styling-chat",
+        "videos/deployment",
+        "videos/metrics"
+      ]
+    },
   ],
   aws: {
     ["AWS"]: [
