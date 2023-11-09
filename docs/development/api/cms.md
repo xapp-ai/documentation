@@ -79,6 +79,16 @@ Get a specific entity.
 
 Search for provided text through query string `?question="{text}"`, for example `/cms/search/question="my query"`.
 
+#### Optional Filter Location ID
+
+Add an optional query parameter `locationId` to filter by a specific location.  In order to use this, you must have documents with this field set.  
+
+```
+?question="{text}"&locationId="{locationId}"
+```
+
+## GET /cms/rag
+
 ### GET /cms/faq/query
 
 Search within FAQs.
