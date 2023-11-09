@@ -12,7 +12,7 @@ On the Cloudformation stack detail page, you should see a tab labelled "Events".
 
 ### LexResource CREATE_FAILED Failed to create resource. States.TaskFailed
 
-### XAPP-AI-PreCheck-{appId} Failed
+### XAPP-AI-PreCheck-\{appId\} Failed
 
 The pre-check does a quick validation before the stack deploys to ensure you have properly setup your secret in SecretsManager and are authorized to deploy the stack.
 

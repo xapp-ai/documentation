@@ -38,8 +38,10 @@ about an urgent issue. This is a clear
 indication the user wants to connect
 with the business.  The conversation
 naturally flows into a lead
-capture.  </p>
-<p>We integrate with many of the
+capture.
+</p>
+<p>
+We integrate with many of the
 most popular platforms, allowing you to
 seamlessly connect with just a few
 clicks.  Once connected, you'll receive

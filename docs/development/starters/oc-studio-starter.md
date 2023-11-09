@@ -97,7 +97,7 @@ Done in 152.19s.
 
 Your new endpoint for your assistant application will be under `endpoints` and your main runtime lambda is under `functions`.
 
-The first `endpoint` (without the /{proxy+}) is how you can interact with your newly created assistant and is what you will use when you setup chat and search widgets.
+The first `endpoint` (without the `/{proxy+}`) is how you can interact with your newly created assistant and is what you will use when you setup chat and search widgets.
 
 ### Updating Lex
 

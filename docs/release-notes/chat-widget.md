@@ -1212,7 +1212,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   Ability to configure type of ChatServer returned from getChatServer from parameter on <ChatWidget /> [#45](https://github.com/xappmedia/chat-widget/issues/45) ([#51](https://github.com/xappmedia/chat-widget/issues/51)) ([0238121](https://github.com/xappmedia/chat-widget/commit/0238121319f0bf2ace7b2ae9309b4c4e0659fd6b))
+-   Ability to configure type of ChatServer returned from getChatServer from parameter on `<ChatWidget />` [#45](https://github.com/xappmedia/chat-widget/issues/45) ([#51](https://github.com/xappmedia/chat-widget/issues/51)) ([0238121](https://github.com/xappmedia/chat-widget/commit/0238121319f0bf2ace7b2ae9309b4c4e0659fd6b))
 -   Carrousel / Entire Card Click if Button Exists [#40](https://github.com/xappmedia/chat-widget/issues/40) ([018d23f](https://github.com/xappmedia/chat-widget/commit/018d23feeff13c8c6221dfd155a92288c5e3e12c))
 -   Chat Bubble on Widget Button [#49](https://github.com/xappmedia/chat-widget/issues/49) ([ef2ad0a](https://github.com/xappmedia/chat-widget/commit/ef2ad0a1432c6a58f60c6a393b29db8a5cbb72e1))
 -   Chat Bubble on Widget Button [#49](https://github.com/xappmedia/chat-widget/issues/49) ([48fbade](https://github.com/xappmedia/chat-widget/commit/48fbadeed94d2976abd65bbd08429b131220d854))

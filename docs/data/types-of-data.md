@@ -65,7 +65,7 @@ XAPP stores the events in two primary locations:
 This data is thoroughly scrubbed of PII before being sent to XAPP's infrastructure however may still contain PII in a deconstructed form.  It has restricted access.
 
 ## Content - Assistant Responses
-How the assistant responds to requests from the user is determined during the design process and then stored in a database to be accessed in real time.  Some of this data contains instructions on how to programmatically inject variables, such as when confirming the user’s telephone number, in the response.  For example, a response “${PHONE_NUMBER} is your number correct?” is injected with the number the user provided at application runtime.  The numbers are not stored with the responses. 
+How the assistant responds to requests from the user is determined during the design process and then stored in a database to be accessed in real time.  Some of this data contains instructions on how to programmatically inject variables, such as when confirming the user’s telephone number, in the response.  For example, a response “$\{PHONE_NUMBER\} is your number correct?” is injected with the number the user provided at application runtime.  The numbers are not stored with the responses. 
 
 ### Storage Location - XAPP AI's Infrastructure 
 XAPP stores this information on behalf of the customer in three primary locations:

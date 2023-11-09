@@ -53,7 +53,7 @@ At runtime, the [handler](../../content/handlers) contains information about how
 
 Get a list of all available handlers.
 
-### GET /cms/handler/{id}
+### GET /cms/handler/\{id\}
 
 Get a specific handler by ID.
 
@@ -69,7 +69,7 @@ Get information about the app.
 
 Get a list of entities.
 
-### GET /cms/entity/{entityId}
+### GET /cms/entity/\{entityId\}
 
 Get a specific entity.
 
