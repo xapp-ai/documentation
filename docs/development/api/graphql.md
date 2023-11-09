@@ -173,3 +173,29 @@ with variables
 
 Where `name` and `organizationId` are the only required input parameters but more can be provided when leveraging this mutation.
 
+### Uploading PDFs to Knowledgebase
+
+This will upload a PDF for a specific appId to the multitenant knowledgebase.
+
+```graphql
+mutation addPDF($appId:ID!, $url:URL!, $locationId: String, $makePublic: Boolean){
+  app {
+    update(appId:$appId) {
+      addDocumentToKnowledgebase(url:$url, locationId:$locationId, makePublic:$makePublic)
+    }
+  }
+}
+```
+
+with variables
+
+```json
+{
+  "appId": "required",
+  "url":"https://publicly.available.url",
+  "makePublic": true,
+  "locationId": "optional"
+}
+```
+
+`makePublic`
