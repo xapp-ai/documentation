@@ -16,7 +16,7 @@
     "@docusaurus/preset-classic": "3.0.0",
     "@tsconfig/docusaurus": "2.0.2",
     "@types/react": "18.2.37",
-    "@types/react-helmet": "6.1.6",
+    "@types/react-helmet": "6.1.9",
     "@types/react-router-dom": "5.3.3",
     "@xapp/chat-widget": "1.62.0",
     "@xapp/chat-widget-components": "1.11.2-alpha.0",
