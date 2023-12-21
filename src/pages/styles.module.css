@@ -10,6 +10,11 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-color: #021838;
+  background-image: url(/img/xapp-banner-design.png);
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 @media screen and (max-width: 966px) {
@@ -34,4 +39,25 @@
 .featureImage {
   height: 200px;
   width: 200px;
+  border-radius: 100px;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.searchContainer input {
+  padding: 10px;
+  font-size: 25px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  width: 80%;
+  box-sizing: border-box;
+  margin: 5px 0;
 }

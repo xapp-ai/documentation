@@ -8,7 +8,18 @@ module.exports = {
   organizationName: "xapp-ai", // Usually your GitHub org/user name.
   projectName: "documentation", // Usually your repo name.
   plugins: [
-    /*"./plugins/inject-widget", "./plugins/inject-search" */
+    "./plugins/inject-widget",
+    "./plugins/inject-search",
+    [
+      "@docusaurus/plugin-content-docs",
+      // This is to support the advanced documentation
+      {
+        id: "docs",
+        path: "docs",
+        routeBasePath: "docs",
+        sidebarPath: "./sidebars-adv.js",
+      },
+    ],
   ],
   themeConfig: {
     colorMode: {
@@ -21,24 +32,25 @@ module.exports = {
         src: "img/logo.svg",
       },
       items: [
-        /* {
-          to: "docs/getting-started",
-          activeBasePath: "docs",
-          label: "Getting Started",
+        {
+          to: "https://xapp.ai/product",
+          label: "Product",
           position: "left",
         },
         {
-          to:
-            "docs/conversational-self-service-for-contact-center-intelligence",
-          activeBasePath: "docs",
-          label: "CSS4CCI",
-          position: "left",
-        }, */
-        /* {
-          to: "/docs/pricing",
+          to: "https://xapp.ai/pricing",
           label: "Pricing",
+          position: "left",
+        },
+        {
+          to: "/help/install",
+          label: "Installation Guides",
+          position: "left",
+        },
+        {
+          type: "search",
           position: "right",
-        }, */
+        },
         {
           to: "https://studio.xapp.ai/",
           label: "Login",
@@ -50,11 +62,46 @@ module.exports = {
       style: "dark",
       links: [
         {
+          title: "Resources",
+          items: [
+            {
+              label: "Install",
+              to: "/help/install",
+            },
+            {
+              label: "Install on Wordpress",
+              to: "/help/install/wordpress",
+            },
+            {
+              label: "Advanced Docs",
+              to: "/docs/getting-started",
+            },
+          ],
+        },
+
+        {
+          title: "XAPP AI",
+          items: [
+            {
+              label: "Pricing",
+              to: "https://xapp.ai/pricing/",
+            },
+            {
+              label: "Terms of Service",
+              to: "https://xapp.ai/terms-service/",
+            },
+            {
+              label: "Privacy Policy",
+              to: "https://xapp.ai/privacy-policy/",
+            },
+          ],
+        },
+        {
           title: "External Links",
           items: [
             {
-              label: "XAPP AI",
-              to: "https://xapp.ai",
+              label: "API Status",
+              to: "https://status.xapp.ai/",
             },
             {
               label: "Github",
@@ -71,7 +118,10 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          id: "help",
+          path: "help",
+          routeBasePath: "help",
+          sidebarPath: require.resolve("./sidebars-help.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/xapp-ai/documentation/edit/main/",
         },
