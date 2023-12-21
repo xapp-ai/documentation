@@ -1,6 +1,6 @@
 ---
 title: Live Chat
-sidebar_label: How it Works
+sidebar_label: Live Chat
 ---
 
 This document explains the live chat feature of the XAPP Chat Widget, which allows users to join and participate in live conversations.
@@ -9,7 +9,7 @@ This document explains the live chat feature of the XAPP Chat Widget, which allo
 
 The live chat feature enhances customer engagement by enabling real-time interaction. Users can seamlessly jump into a live conversation with a customer on the website, either to actively participate or to observe the AI handling the interaction. This functionality is accessible from both desktop and mobile devices, ensuring flexibility and responsiveness.
 
-## Receiving a Live Chat Invitation
+## Receiving a Live Chat Notification
 
 1. **Email Notification**
 

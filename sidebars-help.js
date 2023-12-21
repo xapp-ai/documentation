@@ -1,15 +1,13 @@
 const sidebars = {
-  docs: [
+  help: [
+    "getting-started",
+    "technology",
+    "use-cases",
     {
       type: "category",
-      label: "Install",
-      link: {
-        title: "Installation",
-        description: "All the ways to install our widgets",
-        slug: "/help/install",
-        keywords: ["install"],
-      },
+      label: "Installation Guides",
       items: [
+        "install",
         "install/wordpress",
         "install/javascript",
         "install/wix",
@@ -19,17 +17,18 @@ const sidebars = {
         "install/joomla",
       ],
     },
-    "getting-started",
     {
       type: "category",
       label: "Leads",
       items: ["leads/lead-alerts", "leads/lead-capture"],
     },
+    "live-chat/overview",
+    /*
     {
       type: "category",
       label: "Live Chat",
       items: ["live-chat/overview"],
-    },
+    }, */
     {
       type: "category",
       label: "Videos",

@@ -7,57 +7,63 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-import { SearchContainer, SearchWidgetConfig, SearchWidgetTheme } from "@xapp/intelligent-search-widget";
-
-
 import styles from "./styles.module.css";
-import SearchBar from "../theme/SearchBar";
 
+interface ArticleProps {
+  title: string;
+  imageUrl?: string;
+  link: string;
+  description: JSX.Element;
+}
 
-const features = [
+const articles: ArticleProps[] = [
   {
-    title: "Fast",
-    imageUrl: "img/features/undraw_in_no_time_6igu.svg",
+    title: "Installation",
+    imageUrl: "img/art/dall-e-install.png",
+    link: "/help/install",
     description: (
       <>
-        With OC Studio, you can have a conversational virtual agent in less than
-        60 minutes.
+        Learn how to install the chat widget
       </>
     ),
   },
   {
-    title: "No New Content",
-    imageUrl: "img/features/undraw_knowledge_g5gf.svg",
+    title: "Leads",
+    link: "/help/leads/lead-alerts",
+    imageUrl: "img/art/dall-e-lead-capture.png",
     description: (
       <>
-        We take your existing self-service web based support center and use it
-        as initial training data for your agent.
+        Learn about how we handle leads.
       </>
     ),
   },
   {
-    title: "Infinitely Scalable",
-    imageUrl: "img/features/undraw_starry_window_ppm0.svg",
+    title: "Live Chat",
+    link: "/help/live-chat/overview",
+    imageUrl: "img/art/dall-e-live-chat.png",
     description: (
       <>
-        OC Studio provides infinite scalability with no code and low code
-        methods of extension.
+        Learn how our live chat works.
       </>
     ),
   },
 ];
 
-function Feature({ imageUrl, title, description }) {
+function Article(props: ArticleProps) {
+  const { imageUrl, title, description, link } = props;
+
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={clsx("col col--4", styles.feature)}>
-      {imgUrl && (
+      <Link to={useBaseUrl(link)}>
         <div className="text--center">
-          <img className={styles.featureImage} src={imgUrl} alt={title} />
+          {imgUrl && (
+            <img className={styles.featureImage} src={imgUrl} alt={title} />
+          )}
+          <h3>{title}</h3>
+          <p>{description}</p>
         </div>
-      )}
-      <h3>{title}</h3>
-      <p>{description}</p>
+      </Link>
     </div>
   );
 }
@@ -73,8 +79,7 @@ function Home() {
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{"Help Center"}</h1>
-          <p className="hero__subtitle">{"Everything needed"}</p>
-          <SearchBar />
+          <p className="hero__subtitle">{"Everything you need to get up and running and customize your experience."}</p>
 
           <div className={styles.buttons}>
             <Link
@@ -90,12 +95,24 @@ function Home() {
         </div>
       </header>
       <main>
-        {features && features.length > 0 && (
+        <section>
+          <div className="container">
+            <div className="row">
+              <div className={styles.searchContainer}>
+                <input className={"xapp-search-button"} type="text" placeholder="🔍 Search our documents" />
+              </div>
+            </div>
+          </div>
+        </section>
+        {articles && articles.length > 0 && (
           <section className={styles.features}>
             <div className="container">
               <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
+                <h4>Popular Topics</h4>
+              </div>
+              <div className="row">
+                {articles.map((props, idx) => (
+                  <Article key={idx} {...props} />
                 ))}
               </div>
             </div>

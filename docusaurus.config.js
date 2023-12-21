@@ -43,6 +43,11 @@ module.exports = {
           position: "left",
         },
         {
+          to: "/help/install",
+          label: "Installation Guides",
+          position: "left",
+        },
+        {
           type: "search",
           position: "right",
         },
@@ -57,11 +62,46 @@ module.exports = {
       style: "dark",
       links: [
         {
+          title: "Resources",
+          items: [
+            {
+              label: "Install",
+              to: "/help/install",
+            },
+            {
+              label: "Install on Wordpress",
+              to: "/help/install/wordpress",
+            },
+            {
+              label: "Advanced Docs",
+              to: "/docs/getting-started",
+            },
+          ],
+        },
+
+        {
+          title: "XAPP AI",
+          items: [
+            {
+              label: "Pricing",
+              to: "https://xapp.ai/pricing/",
+            },
+            {
+              label: "Terms of Service",
+              to: "https://xapp.ai/terms-service/",
+            },
+            {
+              label: "Privacy Policy",
+              to: "https://xapp.ai/privacy-policy/",
+            },
+          ],
+        },
+        {
           title: "External Links",
           items: [
             {
-              label: "XAPP AI",
-              to: "https://xapp.ai",
+              label: "API Status",
+              to: "https://status.xapp.ai/",
             },
             {
               label: "Github",

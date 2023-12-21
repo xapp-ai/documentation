@@ -17,7 +17,7 @@ module.exports = async function myPlugin(context, options) {
             tagName: "script",
             attributes: {
               id: "xapp-js",
-              src: "https://widget.xapp.ai/xapp-chat-widget.js?key=40a4bbca-bc93-453b-b151-0c63beb97ffb",
+              src: "https://widget.xapp.ai/xapp-chat-widget.js?key=32046c1c-e65a-42ef-8653-e8f6038f369b",
             },
           },
         ],
