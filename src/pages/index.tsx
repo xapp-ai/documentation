@@ -1,12 +1,18 @@
 import React from "react";
 import clsx from "clsx";
 
-import Head from "@docusaurus/Head";
+// import Head from "@docusaurus/Head";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+
+import { SearchContainer, SearchWidgetConfig, SearchWidgetTheme } from "@xapp/intelligent-search-widget";
+
+
 import styles from "./styles.module.css";
+import SearchBar from "../theme/SearchBar";
+
 
 const features = [
   {
@@ -58,28 +64,25 @@ function Feature({ imageUrl, title, description }) {
 
 function Home() {
   const { siteConfig } = useDocusaurusContext();
+
   return (
     <Layout
       title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
-      <Head>
-        <script
-          id="xapp-js"
-          src="https://widget.xapp.ai/xapp-chat-widget.js?key=34640850-c650-4e85-b244-1fb600469c63"
-        ></script>
-      </Head>
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{"Optimal Conversation Studio"}</h1>
-          <p className="hero__subtitle">{"Conversational AI Platform"}</p>
+          <h1 className="hero__title">{"Help Center"}</h1>
+          <p className="hero__subtitle">{"Everything needed"}</p>
+          <SearchBar />
+
           <div className={styles.buttons}>
             <Link
               className={clsx(
                 "button button--outline button--secondary button--lg",
                 styles.getStarted
               )}
-              to={useBaseUrl("/docs/getting-started")}
+              to={useBaseUrl("/help/getting-started")}
             >
               Get Started
             </Link>
