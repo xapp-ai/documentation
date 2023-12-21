@@ -51,14 +51,13 @@
   width: 100%;
   margin-top: 40px;
   margin-bottom: 20px;
-
-  input {
-    padding: 10px;
-    font-size: 25px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    width: 80%;
-    box-sizing: border-box;
-    margin: 5px 0;
-  }
+}
+.searchContainer input {
+  padding: 10px;
+  font-size: 25px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  width: 80%;
+  box-sizing: border-box;
+  margin: 5px 0;
 }
