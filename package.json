@@ -18,7 +18,7 @@
     "@types/react": "18.2.45",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
-    "@xapp/chat-widget": "1.65.2",
+    "@xapp/chat-widget": "1.65.3",
     "@xapp/intelligent-search-widget": "1.64.1",
     "@xapp/chat-widget-components": "1.11.2-alpha.0",
     "clsx": "2.0.0",
