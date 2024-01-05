@@ -1,0 +1,80 @@
+---
+title: Installation on GoDaddy Site Builder
+sidebar_label: GoDaddy
+---
+
+:::important
+
+**Note**: Due to limitations in GoDaddy Website Builder, the chat widget will be sandboxed within the section it is added to. It will not display at the bottom right corner of every page as typically expected in other environments and will be limited to the section you add it to.
+
+**Due to this limitation, we recommend installing on your contact page.**
+
+:::
+
+## Prerequisites
+
+- Administrative access to your GoDaddy site.
+- Your unique `key` for the XAPP Chat Widget.
+
+## Adding to the Contact Us Page
+
+1. **Log Into Your GoDaddy Account**
+
+   - Sign in and navigate to your Website Builder dashboard.
+
+2. **Open the Contact Us Page**
+
+   <div className="centered-image-container">
+     <img
+       src="/img/install/godaddy/go-daddy-edit-website.png"
+       alt="GoDaddy Edit Site"
+     />
+   </div>
+
+   - Select "Edit Website" or "Edit Site" and navigate to your `/contact` (Contact Us) page.
+
+3. **Add a Custom HTML Section**
+
+   <div className="centered-image-container">
+     <img
+       src="/img/install/godaddy/go-daddy-add-custom-section.gif"
+       alt="GoDaddy Installation"
+     />
+   </div>
+
+   - Choose to add a new section by clicking a "+" button right below the site header, select the "HTML" section.
+   - Set the Title to be "Chat"
+   - Paste the widget script in the Custom Code field:
+
+   ```html
+   <script
+     id="xapp-js"
+     src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
+   ></script>
+   ```
+
+   - Set Forced Height to be 600
+   - Turn on Center align
+
+4. **Set Chat Widget to Auto Open & Adjust Size**
+
+   - Within Studio, navigate to your chat widget settings and set the widget to auto-open as described [here](/help/channels/chat-widget#auto-open-the-widget).
+   - Adjust the widget size to be 1500 px width and set the height to be 800 px (see instructions [here](/help/channels/chat-widget#size)).
+
+5. **Customize and Publish**
+
+   - Adjust the section settings as needed.
+   - Preview the changes and then publish your site.
+
+<BrowserFrame>
+  <img
+    src="/img/install/godaddy/go-daddy-contact-us-page.png"
+    alt="GoDaddy Installation"
+  />
+</BrowserFrame>
+
+This approach places the chat widget on the Contact Us page, providing a focused area for visitor interactions.
+
+## References
+
+- [GoDaddy - Add HTML or custom code to my site](https://www.godaddy.com/help/add-html-or-custom-code-to-my-site-27252)

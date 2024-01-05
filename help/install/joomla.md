@@ -31,10 +31,9 @@ This guide will walk you through the process of adding the XAPP Chat Widget to y
      ```html
      <script
        id="xapp-js"
-       src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_UNIQUE_KEY"
+       src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
      ></script>
      ```
-   - Replace `YOUR_UNIQUE_KEY` with your provided key.
 
 4. **Save Changes**
    - Click `Save` or `Save & Close` to apply the changes.

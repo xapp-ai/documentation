@@ -11,12 +11,13 @@ The XAPP Chat Widget can be easily integrated into your website, offering a rang
 
 ## Installation Guides for CMS Platforms
 
-- **WordPress**: [Install XAPP Chat Widget on WordPress](/help/install/wordpress)
-- **Drupal**: [Install XAPP Chat Widget on Drupal](/help/install/drupal)
-- **Shopify**: [Install XAPP Chat Widget on Shopify](/help/install/shopify)
-- **Wix**: [Install XAPP Chat Widget on Wix](/help/install/wix)
-- **Squarespace**: [Install XAPP Chat Widget on Squarespace](/help/install/squarespace)
-- **Joomla**: [Install XAPP Chat Widget on Joomla](/help/install/joomla)
+- **WordPress**: [Install Chat Widget on WordPress](/help/install/wordpress)
+- **Drupal**: [Install Chat Widget on Drupal](/help/install/drupal)
+- **Shopify**: [Install Chat Widget on Shopify](/help/install/shopify)
+- **Wix**: [Install Chat Widget on Wix](/help/install/wix)
+- **Squarespace**: [Install Chat Widget on Squarespace](/help/install/squarespace)
+- **Joomla**: [Install Chat Widget on Joomla](/help/install/joomla)
+- **GoDaddy Website Builder**: [Install Chat Widget on GoDaddy Website Builder](/help/install/godaddy)
 
 ## General Installation Steps
 

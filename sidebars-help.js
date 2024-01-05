@@ -15,7 +15,13 @@ const sidebars = {
         "install/squarespace",
         "install/drupal",
         "install/joomla",
+        "install/godaddy",
       ],
+    },
+    {
+      type: "category",
+      label: "Channels",
+      items: [/*"channels", */ "channels/chat-widget"],
     },
     {
       type: "category",

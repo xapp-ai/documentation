@@ -1,9 +1,7 @@
 ---
-title: Chat Widget
+title: Chat Widget - Advanced
 sidebar_label: Chat Widget
 ---
-
-## What is the chat widget channel?
 
 The chat widget is a channel provided by OC Studio that you can customize and embed on your website.  It is built to work alongside other text based input channels with built-in components such as cards, vertical lists, horizontal lists and suggestion chips.  Unique to OC Studio, it also has support for autocomplete suggestions.
 

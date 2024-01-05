@@ -26,3 +26,20 @@
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
+
+.centered-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.centered-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px; /* small radius for rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow at the bottom */
+}

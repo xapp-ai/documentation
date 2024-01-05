@@ -83,6 +83,10 @@ module.exports = {
           title: "XAPP AI",
           items: [
             {
+              label: "//xapp.ai",
+              to: "https://xapp.ai/",
+            },
+            {
               label: "Pricing",
               to: "https://xapp.ai/pricing/",
             },
