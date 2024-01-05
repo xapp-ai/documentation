@@ -1,0 +1,34 @@
+/* BrowserFrame.module.css */
+.browserFrame {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 30px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding-top: 26px;
+  position: relative;
+}
+
+.browserCircle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+}
+
+.red {
+  background-color: #ff605c;
+  left: 15px;
+}
+.yellow {
+  background-color: #ffbd44;
+  left: 35px;
+}
+.green {
+  background-color: #00ca56;
+  left: 55px;
+}

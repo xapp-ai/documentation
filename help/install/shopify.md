@@ -28,10 +28,9 @@ This guide will help you add the XAPP Chat Widget to your Shopify store.
      ```html
      <script
        id="xapp-js"
-       src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_UNIQUE_KEY"
+       src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
      ></script>
      ```
-   - Replace `YOUR_UNIQUE_KEY` with your provided key.
 
 4. **Save the Changes**
 

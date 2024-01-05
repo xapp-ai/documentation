@@ -30,10 +30,9 @@ Easily integrate the XAPP Chat Widget into your Wix website with these steps.
      ```html
      <script
        id="xapp-js"
-       src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_UNIQUE_KEY"
+       src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
      ></script>
      ```
-   - Replace `YOUR_UNIQUE_KEY` with the unique key you received.
 
 5. **Set Up the Tool**
 

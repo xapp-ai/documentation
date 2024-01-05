@@ -25,12 +25,9 @@ Before you begin, ensure you have the following:
    ```html
    <script
      id="xapp-js"
-     src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_UNIQUE_KEY"
+     src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
    ></script>
    ```
-
-   Replace `YOUR_UNIQUE_KEY` with the unique key you obtained in the previous
-   step.
 
 3. **Save and Upload Changes**
 
