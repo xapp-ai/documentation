@@ -1,14 +1,7 @@
 ---
-title: Beta - Intelligent Search
-sidebar_label: BETA - Intelligent Search
+title: Intelligent Search - Advanced
+sidebar_label: Intelligent Search
 ---
-
-
-:::caution
-
-This is a new channel currently in beta and is subject to change.  You will need to enable it in your app's settings to access it on the "Add Channel" dialog.
-
-:::
 
 ## What is the intelligent search channel?
 

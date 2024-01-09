@@ -21,7 +21,11 @@ const sidebars = {
     {
       type: "category",
       label: "Channels",
-      items: [/*"channels", */ "channels/chat-widget"],
+      items: [
+        /*"channels", */
+        "channels/chat-widget",
+        "channels/intelligent-search",
+      ],
     },
     {
       type: "category",
