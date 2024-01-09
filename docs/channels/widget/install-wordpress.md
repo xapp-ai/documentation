@@ -15,13 +15,13 @@ With the plugin, you can then copy your installation snippet for you widget to t
 
 To find your widget's code snippet, go to the widgets channel page (under Publish --> Channels) and click the puzzle piece icon in the widget's header.
 
-![find installation snippet](../../../static/img/channel/find-code-snippet.gif)
+![find installation snippet](../../../static/img/channel/widget/find-code-snippet.gif)
 
 ## Installing in Wordpress Plugin
 
 Once the plugin is installed, go to it's settings page and paste the snippet to the section 
 
-![install before closing body tag](../../../static/img/channel/install-wordpress-header-footer.png)
+![install before closing body tag](../../../static/img/channel/wordpress/install-wordpress-header-footer.png)
 
 The screenshot above is for the [Head, Footer and Post Injections](https://wordpress.org/plugins/header-footer/) plugin.
 

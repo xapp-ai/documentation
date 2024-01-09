@@ -36,9 +36,60 @@ Before proceeding, ensure that you have:
 
 4. **Activate the Plugin**: Log in to your WordPress admin dashboard, navigate to `Plugins`, and find `OC Studio Integration` in the list. Click `Activate`.
 
-## Post-Installation Steps
+## Configure the WordPress Plugin
 
-After installation, you might need to configure the plugin settings based on your requirements. Refer to the plugin's settings page within your WordPress admin panel for further instructions.
+We will need to configure the plugin with the special keys for your chat and search (optional) widgets.
+
+Within the WordPress Admin panel, navigate to the new OC Studio Settings page found under the Tools settings.
+
+<div className="centered-image-container">
+<img src="/img/channel/wordpress/wordpress-tools-oc-studio-settings.png" alt="Plugin Configuration"/>
+</div>
+
+Find the keys within studio, and paste them into your plugin configuration page.
+
+- [How to Find the Chat Widget Key](/help/channels/chat-widget#finding-code-snippet--key)
+- [How to Find the Intelligent Search Key](/help/channels/intelligent-search#finding-code-snippet--key)
+
+A completed plugin configuration will look like the follow:
+
+<div className="centered-image-container">
+<img src="/img/channel/wordpress/wordpress-configuration.png" alt="Widget Key"/>
+</div>
+
+The chat widget will not appear, by default, in the lower right hand corner of every page on your website.
+
+## Setting Up a Search Button
+
+In order for the search widget to be trigger, you will need to setup at least one button with the `xapp-search-button` class setting.
+
+### Menu Item
+
+The most straight forward way to add a search bar button is by a menu item.
+
+1.  In your WordPress Admin panel, go to Appearance, then Menus.
+2.  Select the menu you want to edit
+3.  Under "Add menu items, expand "Custom Links"
+
+    <div className="centered-image-container">
+    <img src="/img/channel/wordpress/wordpress-adding-custom-link-to-menu.png" alt="Custom Link"/>
+    </div>
+
+4.  The URL does not matter as it will not be followed but is required, for the Link Text you can put "Search" or "🔍".
+5.  Click "Add to Menu" and you will see it at the bottom of the menu you are editing.
+6.  Scroll to the top of the page and click "Screen Options", then within that menu select "CSS Classes"
+
+    <div className="centered-image-container">
+    <img src="/img/channel/wordpress/wordpress-turn-on-css.png" alt="Turn on CSS"/>
+    </div>
+
+7.  Scroll back down to your newly added menu item and expand menu to edit. In the field "CSS Classes (optional)" add "xapp-search-button". This is how the search code will find the button. Note: You can also remove the URL at this point if you want. It was only required to add the menu item.
+
+    <div className="centered-image-container">
+    <img src="/img/channel/wordpress/wordpress-search-button-config.png" alt="Search Menu Item Config"/>
+    </div>
+
+8.  Save and then verify by clicking on the new menu button on your home page. A search widget will appear when you click.
 
 ## Troubleshooting
 

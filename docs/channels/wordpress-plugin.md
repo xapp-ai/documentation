@@ -31,19 +31,20 @@ Alternatively, you can upload the plugin directly to your WordPress administrati
 
 Once the plugin is installed, you will notice a new menu item under the Tools menu: "OC Studio Integration".
 
-This menu will allow you to copy and paste either your chat widget or search bar's key.  
+This menu will allow you to copy and paste either your chat widget or search bar's key. 
 
-![wordpress configuration](../../static/img/channel/wordpress-configuration.png "OC Studio Integration")
+<div className="centered-image-container">
+<img src="/img/channel/wordpress/wordpress-configuration.png" alt="OC Studio Integration"/>
+</div>
 
 You can find the key to copy-paste to the WordPress configuration on the channel's settings page for both chat and intelligent search.
 
-![find-channel-key](../../static/img/channel/find-widget-key.gif)
+<div className="centered-image-container">
+<img src="/img/channel/wordpress/wordpress-configuration.png" alt="Find Widget Key"/>
+</div>
 
 ### Search
 
 Search integration requires you to setup one (or many) buttons that will enable the search modal when clicked.  The plugin will look for the class `xapp-search-button` and then attach click listeners to the element with the class so that the modal opens when clicked.
 
-Below are some common methods for adding a button with the correct class.
-
-#### Menu Item
 

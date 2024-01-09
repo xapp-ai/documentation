@@ -5,13 +5,35 @@ sidebar_label: Website Chat
 
 ## Installation
 
-You can find our installation guides [here](/help/install), all of them require either copy pasting a line of code or your widget's key. Both of these can be found on your chat widgets settings page, then click the puzzle piece in the header.
+Below are links to our installation guide by webstie platform.
 
-   <div className="centered-image-container">
-   <img src="/img/channel/widget/chat-widget-installation-snippet.png" alt="Widget Key"/>
-   </div>
+- **WordPress**: [Install Chat Widget on WordPress](/help/install/wordpress)
+- **Drupal**: [Install Chat Widget on Drupal](/help/install/drupal)
+- **Shopify**: [Install Chat Widget on Shopify](/help/install/shopify)
+- **Wix**: [Install Chat Widget on Wix](/help/install/wix)
+- **Squarespace**: [Install Chat Widget on Squarespace](/help/install/squarespace)
+- **Joomla**: [Install Chat Widget on Joomla](/help/install/joomla)
+- **GoDaddy Website Builder**: [Install Chat Widget on GoDaddy Website Builder](/help/install/godaddy)
 
-The key is used primarily for the [WordPress plugin](/help/install/wordpress) and the script snippet is used for all others.
+### Finding Code Snippet & Key
+
+For each, you will either need the code snippet or widget specific key. Both of these are found on the chat widget's settings page after you click the puzzle piece in the header.
+
+<div className="centered-image-container">
+<img src="/img/channel/widget/chat-widget-installation-snippet.png" alt="Widget Key"/>
+</div>
+
+The chat widget key is used primarily for the [WordPress plugin](/help/install/wordpress) and the script snippet is used for all others.
+
+<div className="centered-image-container">
+<img src="/img/channel/widget/chat-widget-key.png" alt="Widget Key"/>
+</div>
+
+### Additional Resources
+
+- [Installation Guides](/help/install/)
+- [WordPress Installation Guide](/help/install/wordpress.md)
+- [VIDEO- Install on Wordpress](https://www.youtube.com/watch?v=6x739gsVTt4&list=PLj26gRljku8BiAVezV9wNvyHrSeF_DRa8&index=14)
 
 :::important
 
