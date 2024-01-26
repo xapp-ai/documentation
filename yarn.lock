@@ -3440,11 +3440,6 @@
   dependencies:
     "@xapp/stentor-chat-widget" "1.11.0"
 
-"@xapp/chat-widget-core@1.65.4":
-  version "1.65.4"
-  resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.65.4.tgz#53080ade7aba4bd26df170adbbb4b1ba611b0e87"
-  integrity sha512-Y8YpEJzjhclbMZG9RbSL6uCZ8RnsnG4ULXjZ4pVt94Kb7/zI7pCRpYxPNL6yo3eUyO7OysucjB/jxsmJNHGe6Q==
-
 "@xapp/chat-widget-core@1.65.6":
   version "1.65.6"
   resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.65.6.tgz#1f4adc4715f7acc5dc5d47cc950710de1b6e25a9"
@@ -3465,16 +3460,16 @@
     store "2.0.12"
     tslib "2.6.2"
 
-"@xapp/intelligent-search-widget@1.65.4":
-  version "1.65.4"
-  resolved "https://registry.yarnpkg.com/@xapp/intelligent-search-widget/-/intelligent-search-widget-1.65.4.tgz#d90173120d1fdcbadc9d48e2f28415a4584e8ad3"
-  integrity sha512-c44JPzP1AumglRxjg/KaSZ+nbDQ2+cPGn/a2rk0+J1KqA8pHXFPdjv+6NjGlHMsfI2dyHUwDLaIj0iBGvv0dCw==
+"@xapp/intelligent-search-widget@1.65.6":
+  version "1.65.6"
+  resolved "https://registry.yarnpkg.com/@xapp/intelligent-search-widget/-/intelligent-search-widget-1.65.6.tgz#d35c4f2d3d776a2043919934ca0439505a45f254"
+  integrity sha512-qfDDaBXcPCzV6cOV0Kb1gUXV/iu3+9dTqlvc2FTI33848ppxFzu6lIrLZGt0X3mREib86WO0/k2IUpzElaS2vA==
   dependencies:
-    "@xapp/chat-widget-core" "1.65.4"
-    "@xapp/stentor-intelligent-search-channel" "1.62.0"
-    stentor-guards "1.57.84"
+    "@xapp/chat-widget-core" "1.65.6"
+    "@xapp/stentor-intelligent-search-channel" "1.65.6"
+    stentor-guards "1.58.87"
     store "2.0.12"
-    tslib "2.4.0"
+    tslib "2.6.2"
 
 "@xapp/stentor-chat-widget@1.11.0":
   version "1.11.0"
@@ -3492,13 +3487,13 @@
     stentor-constants "1.58.87"
     stentor-guards "1.58.87"
 
-"@xapp/stentor-intelligent-search-channel@1.62.0":
-  version "1.62.0"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-intelligent-search-channel/-/stentor-intelligent-search-channel-1.62.0.tgz#62668b007ddc69e3b91f70ead9ea46618a44a769"
-  integrity sha512-BXBhQCvTnsf64Sb10csauPAKEyLOL/GrEyYNMFRmywdp0aHpN59LVQYOVtccKrcakfU23F4xBH5af5eiLtJ4Ww==
+"@xapp/stentor-intelligent-search-channel@1.65.6":
+  version "1.65.6"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-intelligent-search-channel/-/stentor-intelligent-search-channel-1.65.6.tgz#56b87e65ef06bbf78e5ccbc36b89c1f386cba04c"
+  integrity sha512-jVs9CSAprtNOEPzoncoG2XK4JBO0tmLAMdhOjDocDs/L1Nebmo35Ek8MSvY7kzxBlXqh2CyS6zaOMNGEM6zOhA==
   dependencies:
-    stentor-constants "1.57.84"
-    stentor-guards "1.57.84"
+    stentor-constants "1.58.87"
+    stentor-guards "1.58.87"
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
@@ -9240,11 +9235,6 @@ stentor-constants@1.37.36:
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.37.36.tgz#ba957292e0f3a77232264133884bb5d2e2aa3ffc"
   integrity sha512-gtR/M9ECP76kJaiyg2b7NRw6ku7M9oe40w5FCU4SIkKp+zBUZ+NDB0pGnkxxJ3lbovODUMl+Zg8KpfTyJNCYrQ==
 
-stentor-constants@1.57.84:
-  version "1.57.84"
-  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.57.84.tgz#3a5e7136003b2a394fd7369d31a0364d0b08dbcf"
-  integrity sha512-aUvpuMtXbuzfhdrgoUiHI7RABC5p2XMuwsQMP8DvhOjssvZvVMhPghAauAoiyHpgPMLy7qLnpoGCgI8vfoxIzQ==
-
 stentor-constants@1.58.87:
   version "1.58.87"
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.58.87.tgz#955795b3713c000c9a092ed95ab9152871275313"
@@ -9256,13 +9246,6 @@ stentor-guards@1.37.36:
   integrity sha512-kXcWZKxGu3xij6hEehxrYE/bFv3i1jBz+0Mzt6iQXL1GpX71R3I21csV185O+9qnRxuBaAxnVafYidfSxsKskw==
   dependencies:
     stentor-constants "1.37.36"
-
-stentor-guards@1.57.84:
-  version "1.57.84"
-  resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.57.84.tgz#b37bbf7ff394fb3cd0425d1fa13dba2edc2874ff"
-  integrity sha512-YpnxTpFewgSAIhrLKq3VNI8oOELRUXD8WBDXobnG27keDHkX0u8YkhdmGokdtQO/pyegbpB/+uraXNTlo3xv/w==
-  dependencies:
-    stentor-constants "1.57.84"
 
 stentor-guards@1.58.87:
   version "1.58.87"
@@ -9537,11 +9520,6 @@ trough@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/trough/-/trough-2.1.0.tgz#0f7b511a4fde65a46f18477ab38849b22c554876"
   integrity sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==
-
-tslib@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
-  integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
 tslib@2.6.2, tslib@^2.6.0:
   version "2.6.2"
