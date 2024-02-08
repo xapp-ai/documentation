@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-docs docs-version-current docs-doc-page docs-doc-id-dialog-manager/overview" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.1.0">
+<meta name="generator" content="Docusaurus v3.1.1">
 <title data-rh="true">Dialog Manager | XAPP AI</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://documentation.xapp.ai/docs/dialog-manager/overview"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs-current"><meta data-rh="true" property="og:title" content="Dialog Manager | XAPP AI"><meta data-rh="true" name="description" content="What is a dialog manager?"><meta data-rh="true" property="og:description" content="What is a dialog manager?"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://documentation.xapp.ai/docs/dialog-manager/overview"><link data-rh="true" rel="alternate" href="https://documentation.xapp.ai/docs/dialog-manager/overview" hreflang="en"><link data-rh="true" rel="alternate" href="https://documentation.xapp.ai/docs/dialog-manager/overview" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="XAPP AI RSS Feed">
-<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="XAPP AI Atom Feed"><link rel="stylesheet" href="/assets/css/styles.e4bb933e.css">
-<script src="/assets/js/runtime~main.930ec529.js" defer="defer"></script>
-<script src="/assets/js/main.d8b909e0.js" defer="defer"></script>
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="XAPP AI Atom Feed"><link rel="stylesheet" href="/assets/css/styles.d642b221.css">
+<script src="/assets/js/runtime~main.fb941a54.js" defer="defer"></script>
+<script src="/assets/js/main.cf327cca.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script>
@@ -18,7 +18,7 @@
 <p>The handlers, which define a state for the dialog manger, contain the logic and contain for handling requests and returning responses. The user can be passed around to different handlers through the user of redirects and forwards. Intents and handlers are decoupled meaning they can be used independently from each other with a focus on the ability to reuse intents based on different contexts.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="runtime">Runtime<a href="#runtime" class="hash-link" aria-label="Direct link to Runtime" title="Direct link to Runtime">​</a></h2>
 <p>For each incoming request, while taking into account the context, the dialog manager performs the following workflow to determine which handler will receive the request.</p>
-<p><img loading="lazy" alt="dialog-manager" src="/assets/images/dialog-manager-d0a7732ca08e5c81a30a5192c272b7fe.png" width="1415" height="1302" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="dialog-manager" src="/assets/images/dialog-manager-d0a7732ca08e5c81a30a5192c272b7fe.png" width="1415" height="1302" class="img_ev3q"></p>
 <p>First, the dialog manager checks the user storage for an existing handler, which will exist for returning users. If it exists it will check to see if the handler can handle the incoming request in some way. If it doesn&#x27;t exist then it will request the handler from the content management system (CMS). If the CMS does not have a handler defined for the request, it will then request the required global Input Unknown handler to help the user return to a defined flow.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="examples">Examples<a href="#examples" class="hash-link" aria-label="Direct link to Examples" title="Direct link to Examples">​</a></h2>
 <p>Let&#x27;s try to simplify this by reviewing a couple of examples and personifying the dialog manager (green) and handler (grey).</p>

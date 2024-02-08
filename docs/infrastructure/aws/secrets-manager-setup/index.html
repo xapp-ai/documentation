@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-docs docs-version-current docs-doc-page docs-doc-id-infrastructure/aws/secrets-manager-setup" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.1.0">
+<meta name="generator" content="Docusaurus v3.1.1">
 <title data-rh="true">Setting up AWS Secrets Manager | XAPP AI</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://documentation.xapp.ai/docs/infrastructure/aws/secrets-manager-setup"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs-current"><meta data-rh="true" property="og:title" content="Setting up AWS Secrets Manager | XAPP AI"><meta data-rh="true" name="description" content="Before you can deploy your application stack, you must first create a Secret in AWS Secrets Manager."><meta data-rh="true" property="og:description" content="Before you can deploy your application stack, you must first create a Secret in AWS Secrets Manager."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://documentation.xapp.ai/docs/infrastructure/aws/secrets-manager-setup"><link data-rh="true" rel="alternate" href="https://documentation.xapp.ai/docs/infrastructure/aws/secrets-manager-setup" hreflang="en"><link data-rh="true" rel="alternate" href="https://documentation.xapp.ai/docs/infrastructure/aws/secrets-manager-setup" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="XAPP AI RSS Feed">
-<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="XAPP AI Atom Feed"><link rel="stylesheet" href="/assets/css/styles.e4bb933e.css">
-<script src="/assets/js/runtime~main.930ec529.js" defer="defer"></script>
-<script src="/assets/js/main.d8b909e0.js" defer="defer"></script>
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="XAPP AI Atom Feed"><link rel="stylesheet" href="/assets/css/styles.d642b221.css">
+<script src="/assets/js/runtime~main.fb941a54.js" defer="defer"></script>
+<script src="/assets/js/main.cf327cca.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script>
@@ -22,11 +22,11 @@
 <p>On secret type, select &quot;Other type of secrets&quot;</p>
 </li>
 </ol>
-<p><img loading="lazy" alt="Select Other type of secrets" src="/assets/images/aws-secrets-manager-select-secret-type-0a6b20a5acc864d87eb2ea1c6dd3a04c.png" width="936" height="670" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Select Other type of secrets" src="/assets/images/aws-secrets-manager-select-secret-type-0a6b20a5acc864d87eb2ea1c6dd3a04c.png" width="936" height="670" class="img_ev3q"></p>
 <ol start="3">
 <li>You will now set a key/value pair with the token. For the key you must use <code>STUDIO_TOKEN</code> and for the value, paste the token you copied from OC Studio.</li>
 </ol>
-<p><img loading="lazy" alt="Key is STUDIO_TOKEN" src="/assets/images/aws-secrets-manager-key-value-a8289895529db162cb9874677b7d4452.png" width="1280" height="926" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Key is STUDIO_TOKEN" src="/assets/images/aws-secrets-manager-key-value-a8289895529db162cb9874677b7d4452.png" width="1280" height="926" class="img_ev3q"></p>
 <ol start="4">
 <li>
 <p>Leave the encryption key as DefaultEncryptionKey and select Next</p>
@@ -35,11 +35,11 @@
 <p>On the next page, for the secret name use your application&#x27;s appId. Add the optional description and tags for reference. Click Next.</p>
 </li>
 </ol>
-<p><img loading="lazy" alt="Name is OCStudio" src="/assets/images/aws-secrets-manager-name-8c8b4786696606c1c93f889f89debdd1.png" width="1150" height="630" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Name is OCStudio" src="/assets/images/aws-secrets-manager-name-8c8b4786696606c1c93f889f89debdd1.png" width="1150" height="630" class="img_ev3q"></p>
 <ol start="6">
 <li>On the Configure Rotation page, you can leave all of the default values. We will not automatically rotate this key, rotation will be manual. Click Next.</li>
 </ol>
-<p><img loading="lazy" alt="Configure Rotation" src="/assets/images/aws-secrets-manager-rotation-99cf472fb375cd6b8c43f2b1a4a8ecec.png" width="1516" height="792" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Configure Rotation" src="/assets/images/aws-secrets-manager-rotation-99cf472fb375cd6b8c43f2b1a4a8ecec.png" width="1516" height="792" class="img_ev3q"></p>
 <ol start="7">
 <li>Review the secret. Ensure the secret name is <code>OCStudio</code>. Finalize by clicking Store.</li>
 </ol></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/infrastructure/aws/free-trial"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Free Trial on AWS</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/infrastructure/aws/description-of-services"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Description of AWS Services</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Resources</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/help/install">Install</a></li><li class="footer__item"><a class="footer__link-item" href="/help/install/wordpress">Install on Wordpress</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/getting-started">Advanced Docs</a></li></ul></div><div class="col footer__col"><div class="footer__title">XAPP AI</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://xapp.ai/" target="_blank" rel="noopener noreferrer" class="footer__link-item">//xapp.ai</a></li><li class="footer__item"><a href="https://xapp.ai/pricing/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Pricing</a></li><li class="footer__item"><a href="https://xapp.ai/terms-service/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Terms of Service</a></li><li class="footer__item"><a href="https://xapp.ai/privacy-policy/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Privacy Policy</a></li></ul></div><div class="col footer__col"><div class="footer__title">External Links</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://status.xapp.ai/" target="_blank" rel="noopener noreferrer" class="footer__link-item">API Status</a></li><li class="footer__item"><a href="https://github.com/xapp-ai" target="_blank" rel="noopener noreferrer" class="footer__link-item">Github</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 XAPP AI, Inc.</div></div></div></footer></div>
