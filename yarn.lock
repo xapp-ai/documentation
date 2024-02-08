@@ -3467,10 +3467,10 @@
     store "2.0.12"
     tslib "2.6.2"
 
-"@xapp/intelligent-search-widget@1.65.6":
-  version "1.65.6"
-  resolved "https://registry.yarnpkg.com/@xapp/intelligent-search-widget/-/intelligent-search-widget-1.65.6.tgz#d35c4f2d3d776a2043919934ca0439505a45f254"
-  integrity sha512-qfDDaBXcPCzV6cOV0Kb1gUXV/iu3+9dTqlvc2FTI33848ppxFzu6lIrLZGt0X3mREib86WO0/k2IUpzElaS2vA==
+"@xapp/intelligent-search-widget@1.65.7":
+  version "1.65.7"
+  resolved "https://registry.yarnpkg.com/@xapp/intelligent-search-widget/-/intelligent-search-widget-1.65.7.tgz#18ca1e0376a74d97e561c1384da92f91a1d0f563"
+  integrity sha512-fY7LG5UdakM+bDjN16tQJXWC6C2rdw5cHiBu3vPEo2zIdBQcAdrKVbyoQQhBmGsALdrccSCupQGELRNgaNGtJw==
   dependencies:
     "@xapp/chat-widget-core" "1.65.6"
     "@xapp/stentor-intelligent-search-channel" "1.65.6"
