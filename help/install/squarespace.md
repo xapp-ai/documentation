@@ -12,16 +12,34 @@ This guide will assist you in adding the XAPP Chat Widget to your Squarespace we
 
 ## Installation Steps
 
-1. **Access Your Squarespace Settings**
+1. **Access Your Squarespace Website**
 
    - Log in to your Squarespace dashboard.
-   - Navigate to `Settings`.
+   - Navigate to `Website`.
+  
+  <div className="centered-image-container">
+<img src="/img/install/squarespace/sq-sp-1.png" width="150px" height="150px" alt="Select website"/>
+</div>
 
-2. **Go to Advanced Settings**
+2. **Select Pages**
 
-   - Within `Settings`, select `Advanced`.
+  <div className="centered-image-container">
+<img src="/img/install/squarespace/sq-sp-2.png" width="150px" height="150px" alt="Select pages"/>
+</div>
 
-3. **Insert the JavaScript Snippet in Code Injection**
+3. **Select Utilies -> Website Tools**
+
+  <div className="centered-image-container">
+<img src="/img/install/squarespace/sq-sp-3.png" width="150px" height="150px" alt="Select website tools"/>
+</div>
+
+4. **In the Custom code section, select Code Injection**
+
+  <div className="centered-image-container">
+<img src="/img/install/squarespace/sq-sp-4.png" width="150px" height="150px" alt="Select code injection"/>
+</div>
+
+5. **Insert the JavaScript Snippet in Code Injection**
 
    - Click on `Code Injection`.
    - In the `Footer` section, paste the following snippet:
@@ -32,11 +50,15 @@ This guide will assist you in adding the XAPP Chat Widget to your Squarespace we
      ></script>
      ```
 
-4. **Save Your Changes**
+  <div className="centered-image-container">
+<img src="/img/install/squarespace/sq-sp-5.png" width="250px" height="250px" alt="Inject Snippet"/>
+</div>
+
+1. **Save Your Changes**
 
    - Click `Save` to apply the changes.
 
-5. **Verify Installation**
+2. **Verify Installation**
    - Refresh your website to ensure the XAPP Chat Widget is visible and functional.
 
 ## Troubleshooting
