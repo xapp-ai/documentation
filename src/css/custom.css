@@ -43,3 +43,14 @@
   border-radius: 5px; /* small radius for rounded corners */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow at the bottom */
 }
+
+.chat-text-bubble {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  /* width: 100%; */
+
+  p {
+    margin: 0;
+  }
+}

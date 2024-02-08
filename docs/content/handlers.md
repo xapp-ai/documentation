@@ -44,3 +44,9 @@ Forwards are used after the user has had content from the handler and they respo
 ## Data
 
 The data field gives you an open-ended key-value storage to pass data to the handler at runtime.  When designing [custom handlers](../development/custom-handlers.md), place configuration variables here that can be useful to modify the behavior of the handler without requiring a code update.
+
+<div className="centered-image-container">
+<img src="/img/content/studio-content-handler-data.png" alt="Handler Data"/>
+</div>
+
+This field is JSON and requires care when updating, everything must be exact to match, otherwise it may cause errors.

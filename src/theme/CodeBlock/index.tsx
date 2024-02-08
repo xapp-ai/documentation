@@ -18,31 +18,29 @@ export default function CodeBlockWrapper(props: Props): JSX.Element {
     setKey(queryParams.get('key') || '');
   }, []);
 
-  const contentWithKey = typeof props.children === 'string' && key
-    ? props.children.replace('YOUR_CHAT_KEY', key)
-    : props.children;
+  const hadPlaceholder = typeof props.children === 'string' && props.children.includes('YOUR_CHAT_KEY');
+
+  const contentWithKey = typeof props.children === 'string' && key ? props.children.replace('YOUR_CHAT_KEY', key) : props.children;
+
+  let helpText: string | undefined = undefined;
+
+  if (hadPlaceholder && !!key) {
+    helpText = 'Note! This snippet is customized for your widget. No modification needed.';
+  } else if (hadPlaceholder && !key) {
+    helpText = 'Note! Please replace "YOUR_CHAT_KEY" with your actual widget key.';
+  }
 
   return (
     <>
       <CodeBlock {...props} children={contentWithKey} />
-      {!!key ? (
+      {helpText ? (
         <p style={{
           marginTop: '1rem',
           textAlign: 'center',
           fontWeight: 'bold',
           fontSize: 'small'
-        }}> Note! This snippet is customized for your widget. No modification needed.</p >
-      ) : (
-        <p style={{
-          marginTop: '1rem',
-          textAlign: 'center',
-          fontWeight: 'bold',
-          fontSize: 'small'
-        }}>
-          Note! Please replace "YOUR_CHAT_KEY" with your actual widget key.
-        </p >
-      )
-      }
+        }}>{helpText}</p>
+      ) : (<></>)}
     </>
   );
 }

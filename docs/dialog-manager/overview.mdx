@@ -81,6 +81,7 @@ Let's try to simplify this by reviewing a couple of examples and personifying th
 <ChatMessageBubble owner="mine" hasTail>
   Passing it on.
 </ChatMessageBubble>
+
 <br/>
 
 In the above, the handler could not handle the incoming request so the dialog manager then attempted to see if the CMS had anything for it.  If it did, the handler would be retrieved and used however in the above case it did not.  The dialog manager then checked the handler again to see if it had a response for an unexpected input, which it did.  It is useful to define specific responses for this situation in a flow to help the user get back on track.
