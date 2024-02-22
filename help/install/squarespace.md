@@ -54,11 +54,11 @@ This guide will assist you in adding the XAPP Chat Widget to your Squarespace we
 <img src="/img/install/squarespace/sq-sp-5.png" width="250px" height="250px" alt="Inject Snippet"/>
 </div>
 
-1. **Save Your Changes**
+6. **Save Your Changes**
 
    - Click `Save` to apply the changes.
 
-2. **Verify Installation**
+7. **Verify Installation**
    - Refresh your website to ensure the XAPP Chat Widget is visible and functional.
 
 ## Troubleshooting
