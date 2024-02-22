@@ -21,13 +21,14 @@ This guide explains how to add the XAPP Chat Widget to your Drupal website using
 
    - In the theme settings, look for an option to add custom JavaScript or HTML.
    - Insert the following snippet:
+
      ```html
      <script
        id="xapp-js"
        src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
      ></script>
      ```
-     
+
 3. **Save and Clear Cache**
 
    - After adding the snippet, save the changes.

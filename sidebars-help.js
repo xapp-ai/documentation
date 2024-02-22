@@ -9,13 +9,15 @@ const sidebars = {
       items: [
         "install",
         "install/wordpress",
-        "install/javascript",
         "install/wix",
         "install/shopify",
         "install/squarespace",
         "install/drupal",
         "install/joomla",
         "install/godaddy",
+        "install/duda",
+        "install/framer",
+        "install/javascript",
       ],
     },
     {
@@ -56,6 +58,7 @@ const sidebars = {
         "training-series/metrics",
       ],
     },
+    "faqs",
   ],
 };
 

@@ -16,20 +16,20 @@ This guide will assist you in adding the XAPP Chat Widget to your Squarespace we
 
    - Log in to your Squarespace dashboard.
    - Navigate to `Website`.
-  
-  <div className="centered-image-container">
+
+<div className="centered-image-container">
 <img src="/img/install/squarespace/sq-sp-1.png" width="150px" height="150px" alt="Select website"/>
 </div>
 
 2. **Select Pages**
 
-  <div className="centered-image-container">
+<div className="centered-image-container">
 <img src="/img/install/squarespace/sq-sp-2.png" width="150px" height="150px" alt="Select pages"/>
 </div>
 
 3. **Select Utilies -> Website Tools**
 
-  <div className="centered-image-container">
+<div className="centered-image-container">
 <img src="/img/install/squarespace/sq-sp-3.png" width="150px" height="150px" alt="Select website tools"/>
 </div>
 
