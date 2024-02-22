@@ -18,6 +18,8 @@ The XAPP Chat Widget can be easily integrated into your website, offering a rang
 - **Squarespace**: [Install Chat Widget on Squarespace](/help/install/squarespace)
 - **Joomla**: [Install Chat Widget on Joomla](/help/install/joomla)
 - **GoDaddy Website Builder**: [Install Chat Widget on GoDaddy Website Builder](/help/install/godaddy)
+- **Framer**: [Install Chat Widget on Framer](/help/install/framer)
+- **Duda**: [Install Chat Widget on Duda](/help/install/duda)
 
 ## General Installation Steps
 

@@ -7,8 +7,11 @@ Easily integrate the XAPP Chat Widget into your Wix website with these steps.
 
 ## Prerequisites
 
-- Access to your Wix site editor.
-- Your unique `key` for the XAPP Chat Widget.
+- Access to your Wix site editor
+- A published Wix site with connected custom domain
+  - Free Wix sites do not support custom code
+- Your unique script snippet or widget key from Studio
+  - See instructions [here](/help/channels/chat-widget#finding-code-snippet--key)
 
 ## Installation Steps
 
@@ -16,17 +19,18 @@ Easily integrate the XAPP Chat Widget into your Wix website with these steps.
 
    - Log in to your Wix account and open your site in the editor.
 
-2. **Access the Tracking & Analytics Area**
+2. **Access the Custom Code Setting**
 
-   - Go to `Settings` > `Tracking & Analytics`.
+   - Go to `Settings` > `Custom code` in the Advanced section
 
-3. **Add a New Tool**
+3. **Add Custom Code**
 
-   - Click on `+ New Tool` and choose `Custom`.
+   - Click + Add Custom Code at the top right
 
 4. **Insert the JavaScript Snippet**
 
    - Paste the following snippet into the code box:
+
      ```html
      <script
        id="xapp-js"
@@ -34,10 +38,11 @@ Easily integrate the XAPP Chat Widget into your Wix website with these steps.
      ></script>
      ```
 
-5. **Set Up the Tool**
+5. **Set Up Code**
 
-   - Name the tool (e.g., XAPP Chat Widget).
+   - Name the code (e.g., XAPP Chat Widget).
    - Apply it to `All pages`, including `Load code once`.
+   - Select to place the code in the Body - end section
 
 6. **Publish Your Changes**
 
@@ -50,5 +55,9 @@ Easily integrate the XAPP Chat Widget into your Wix website with these steps.
 
 - **Widget Not Visible**: Check if the code was saved correctly and published.
 - **Look for Script Errors**: If there are issues, check the browser console for any script-related errors.
+
+## References
+
+- [Wix - Adding custom code to your site](https://support.wix.com/en/article/embedding-custom-code-on-your-site)
 
 For additional support, reach out to XAPP support.
