@@ -2427,7 +2427,7 @@
     "@docusaurus/theme-search-algolia" "3.1.1"
     "@docusaurus/types" "3.1.1"
 
-"@docusaurus/react-loadable@5.5.2", "react-loadable@npm:@docusaurus/react-loadable@5.5.2":
+"@docusaurus/react-loadable@5.5.2":
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/@docusaurus/react-loadable/-/react-loadable-5.5.2.tgz#81aae0db81ecafbdaee3651f12804580868fa6ce"
   integrity sha512-A3dYjdBGuy0IGT+wyLIGIKLRE+sAk1iNk0f1HjNDysO7u8lhL4N3VEm+FAubmJbAztn94F7MxBTPmnixbiyFdQ==
@@ -3452,14 +3452,19 @@
   resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.65.6.tgz#1f4adc4715f7acc5dc5d47cc950710de1b6e25a9"
   integrity sha512-bGJ2zpZRINLh5WlGekamfCQ0IUWqviN4rs+xYAn+DVB1MgsReCB04IaeqqOKS7dICDKkUDSkHbNR5D+eaTlV9Q==
 
-"@xapp/chat-widget@1.65.8":
-  version "1.65.8"
-  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.65.8.tgz#55011290fb3524593b1497cabb134d448a9d8bbd"
-  integrity sha512-sJAk1Rjpkz67kbvA58QuAYgIB5X3G8SH478HX5q6ELcbMU6rGY0NltGBzH7X2aOxuuiRUJZR/lsDsjQxie6zOQ==
+"@xapp/chat-widget-core@1.65.9":
+  version "1.65.9"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.65.9.tgz#ab6776b73f58b9922182ef2812ade4cb9f527b65"
+  integrity sha512-Zlbt0NcO0v8o0yX8xEGwbEuDkxxBx9AhrDkhQINpJK4gd57qV7iqjXx9jyNQK1Mk+lnV6Yz5WN4Fbc/hcYGt+A==
+
+"@xapp/chat-widget@1.67.0":
+  version "1.67.0"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.67.0.tgz#2e7e587d3f4e86f49378947c716d008081ebbedd"
+  integrity sha512-JG59E3VyMJ+668HwvCt/fZlBLw1AOZQ07licX1alOAX6lXgzFv3PVXuozD8pkYP1uhnwt0xGQMKCHmdPjVr1iw==
   dependencies:
     "@rollup/plugin-replace" "4.0.0"
     "@wojtekmaj/enzyme-adapter-react-17" "0.8.0"
-    "@xapp/chat-widget-core" "1.65.6"
+    "@xapp/chat-widget-core" "1.65.9"
     "@xapp/stentor-chat-widget" "1.65.6"
     date-fns "2.30.0"
     react-transition-group "4.4.5"
@@ -8402,6 +8407,14 @@ react-loadable-ssr-addon-v5-slorber@^1.0.1:
   integrity sha512-lq3Lyw1lGku8zUEJPDxsNm1AfYHBrO9Y1+olAYwpUJ2IGFBskM0DMKok97A6LWUpHm+o7IvQBOWu9MLenp9Z+A==
   dependencies:
     "@babel/runtime" "^7.10.3"
+
+"react-loadable@npm:@docusaurus/react-loadable@5.5.2":
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/@docusaurus/react-loadable/-/react-loadable-5.5.2.tgz#81aae0db81ecafbdaee3651f12804580868fa6ce"
+  integrity sha512-A3dYjdBGuy0IGT+wyLIGIKLRE+sAk1iNk0f1HjNDysO7u8lhL4N3VEm+FAubmJbAztn94F7MxBTPmnixbiyFdQ==
+  dependencies:
+    "@types/react" "*"
+    prop-types "^15.6.2"
 
 react-redux@9.1.0:
   version "9.1.0"
