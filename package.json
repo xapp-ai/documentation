@@ -14,7 +14,7 @@
     "@docusaurus/core": "3.2.1",
     "@docusaurus/module-type-aliases": "3.2.1",
     "@docusaurus/preset-classic": "3.2.1",
-    "@tsconfig/docusaurus": "2.0.2",
+    "@tsconfig/docusaurus": "2.0.3",
     "@types/react": "18.2.63",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
