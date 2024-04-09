@@ -11,11 +11,11 @@ The XAPP Chat Widget can be easily integrated into your website, offering a rang
 
 ## Installation Guides for CMS Platforms
 
-Most Popular Methods
+**Most Popular**
 
 - **WordPress**: [Install Chat Widget on WordPress](/help/install/wordpress)
 
-Alphabetical
+**Alphabetical**
 
 - **Drupal**: [Install Chat Widget on Drupal](/help/install/drupal)
 - **Duda**: [Install Chat Widget on Duda](/help/install/duda)
