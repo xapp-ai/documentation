@@ -3,6 +3,12 @@ title: Intelligent Search
 sidebar_label: Search
 ---
 
+:::important
+
+Intelligent Search requires the XAPP AI Complete plan or higher.
+
+:::
+
 The intelligent search channel provide search capabilities for a website which includes your traditional keyword relevancy style search, FAQ search, content driven generative AI answers and natural language powered suggested answers.
 
 ## Installation
@@ -19,3 +25,5 @@ For the WordPress installation you will need the key found on your search's sett
 <div className="centered-image-container">
 <img src="/img/channel/search/search-installation-key.png" alt="Search Key"/>
 </div>
+
+You can also use the script snippet to copy and paste on to your site.

@@ -2,6 +2,7 @@ const sidebars = {
   help: [
     "getting-started",
     "technology",
+    "ai",
     "use-cases",
     {
       type: "category",
@@ -17,6 +18,7 @@ const sidebars = {
         "install/godaddy",
         "install/duda",
         "install/framer",
+        "install/zyro",
         "install/javascript",
       ],
     },
@@ -27,6 +29,17 @@ const sidebars = {
         /*"channels", */
         "channels/chat-widget",
         "channels/intelligent-search",
+        "channels/google-business-messages",
+      ],
+    },
+    {
+      type: "category",
+      label: "Integrations",
+      items: [
+        "integrations",
+        "integrations/integration-jobber",
+        "integrations/integration-service-titan",
+        "integrations/integration-lacrm",
       ],
     },
     {

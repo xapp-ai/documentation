@@ -5,7 +5,7 @@ sidebar_label: Website Chat
 
 ## Installation
 
-Below are links to our installation guide by webstie platform.
+Below are links to our installation guide by website platform.
 
 - **WordPress**: [Install Chat Widget on WordPress](/help/install/wordpress)
 - **Drupal**: [Install Chat Widget on Drupal](/help/install/drupal)
@@ -14,6 +14,7 @@ Below are links to our installation guide by webstie platform.
 - **Squarespace**: [Install Chat Widget on Squarespace](/help/install/squarespace)
 - **Joomla**: [Install Chat Widget on Joomla](/help/install/joomla)
 - **GoDaddy Website Builder**: [Install Chat Widget on GoDaddy Website Builder](/help/install/godaddy)
+- **Zyro/Hostinger**: [Install Chat Widget on Hostinger (previously Zyro)](/help/install/zyro)
 
 ### Finding Code Snippet & Key
 
