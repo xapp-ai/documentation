@@ -49,15 +49,6 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Integrations",
-      items: [
-        "integrations/integration-lacrm",
-        "integrations/integration-jobber",
-        "integrations/integration-service-titan"
-      ],
-    },
-    {
-      type: "category",
       label: "Channels",
       items: [
         "channels/channels",
@@ -127,11 +118,7 @@ const sidebars = {
     {
       type: "category",
       label: "Videos",
-      items: [
-        "videos/search",
-        "videos/chat",
-        "videos/gbm",
-      ]
+      items: ["videos/search", "videos/chat", "videos/gbm"],
     },
     {
       type: "category",
@@ -142,8 +129,8 @@ const sidebars = {
         "training-series/content",
         "training-series/styling-chat",
         "training-series/deployment",
-        "training-series/metrics"
-      ]
+        "training-series/metrics",
+      ],
     },
   ],
   aws: {

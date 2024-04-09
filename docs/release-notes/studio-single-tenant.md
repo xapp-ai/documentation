@@ -57,6 +57,16 @@ Initial Studio release for Single-tenant
 
 ## API
 
+__Note__ At 0.22.116 we started patching that API version as subsequent versions started migrating to Node 18 and once that is complete they will catch back up.
+
+### 0.22.116-patch.12-beta
+
+* Updates app export and import to include channels on the app
+
+### 0.22.116-patch.11
+
+* Fixes issue where analytics would not be populated in Studio client
+
 ### 0.22.116 - 8/30/2023
 
 * Fixes issue on deploy where the web crawling lambda is too large

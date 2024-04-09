@@ -29,7 +29,7 @@ A prerequisite for everything in this guide will be to create an account. We hav
 
 After signing up, the next step is to install the XAPP Chat Widget on your website. We have a comprehensive installation guide that covers various platforms.
 
-- **Installation Guide**: [Install XAPP Chat Widget](#installation-guide-link)
+- **Installation Guide**: [Install XAPP Chat Widget](/help/install)
 
 ## Next Steps
 

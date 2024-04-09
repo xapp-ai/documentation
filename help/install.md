@@ -11,15 +11,30 @@ The XAPP Chat Widget can be easily integrated into your website, offering a rang
 
 ## Installation Guides for CMS Platforms
 
+Most Popular Methods
+
 - **WordPress**: [Install Chat Widget on WordPress](/help/install/wordpress)
+
+Alphabetical
+
 - **Drupal**: [Install Chat Widget on Drupal](/help/install/drupal)
-- **Shopify**: [Install Chat Widget on Shopify](/help/install/shopify)
-- **Wix**: [Install Chat Widget on Wix](/help/install/wix)
-- **Squarespace**: [Install Chat Widget on Squarespace](/help/install/squarespace)
-- **Joomla**: [Install Chat Widget on Joomla](/help/install/joomla)
-- **GoDaddy Website Builder**: [Install Chat Widget on GoDaddy Website Builder](/help/install/godaddy)
-- **Framer**: [Install Chat Widget on Framer](/help/install/framer)
 - **Duda**: [Install Chat Widget on Duda](/help/install/duda)
+- **Framer**: [Install Chat Widget on Framer](/help/install/framer)
+- **GoDaddy Website Builder**: [Install Chat Widget on GoDaddy Website Builder](/help/install/godaddy)
+- **Joomla**: [Install Chat Widget on Joomla](/help/install/joomla)
+- **Shopify**: [Install Chat Widget on Shopify](/help/install/shopify)
+- **Squarespace**: [Install Chat Widget on Squarespace](/help/install/squarespace)
+- **Wix**: [Install Chat Widget on Wix](/help/install/wix)
+- **WordPress**: [Install Chat Widget on WordPress](/help/install/wordpress)
+- **Zyro/Hostinger**: [Install Chat Widget on Hostinger (previously Zyro)](/help/install/zyro)
+
+If you don't see your CMS above, our script snippet method will work for most platforms:
+
+- **JavaScript Snippet**: [Install Chat with Script Snippet](/help/install/javascript)
+
+We also support a React module for installation within React applications, this is considered advanced and requires developers:
+
+- **React Component**: [Install Chat with React Component](/docs/channels/channel-chat-widget#react-library)
 
 ## General Installation Steps
 
