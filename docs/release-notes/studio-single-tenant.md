@@ -57,9 +57,7 @@ Initial Studio release for Single-tenant
 
 ## API
 
-__Note__ At 0.22.116 we started patching that API version as subsequent versions started migrating to Node 18 and once that is complete they will catch back up.
-
-### 0.22.116-patch.12-beta
+### 1.82.5-0.22.117
 
 * Updates app export and import to include channels on the app
 
