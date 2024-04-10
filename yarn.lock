@@ -3441,11 +3441,6 @@
   dependencies:
     "@xapp/stentor-chat-widget" "1.11.0"
 
-"@xapp/chat-widget-core@1.65.6":
-  version "1.65.6"
-  resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.65.6.tgz#1f4adc4715f7acc5dc5d47cc950710de1b6e25a9"
-  integrity sha512-bGJ2zpZRINLh5WlGekamfCQ0IUWqviN4rs+xYAn+DVB1MgsReCB04IaeqqOKS7dICDKkUDSkHbNR5D+eaTlV9Q==
-
 "@xapp/chat-widget-core@1.65.9":
   version "1.65.9"
   resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.65.9.tgz#ab6776b73f58b9922182ef2812ade4cb9f527b65"
@@ -3466,12 +3461,12 @@
     store "2.0.12"
     tslib "2.6.2"
 
-"@xapp/intelligent-search-widget@1.65.7":
-  version "1.65.7"
-  resolved "https://registry.yarnpkg.com/@xapp/intelligent-search-widget/-/intelligent-search-widget-1.65.7.tgz#18ca1e0376a74d97e561c1384da92f91a1d0f563"
-  integrity sha512-fY7LG5UdakM+bDjN16tQJXWC6C2rdw5cHiBu3vPEo2zIdBQcAdrKVbyoQQhBmGsALdrccSCupQGELRNgaNGtJw==
+"@xapp/intelligent-search-widget@1.65.9":
+  version "1.65.9"
+  resolved "https://registry.yarnpkg.com/@xapp/intelligent-search-widget/-/intelligent-search-widget-1.65.9.tgz#87dbe64db409872fec7745cd56e11181a053af88"
+  integrity sha512-D9GXK4MsBg5oSdLvWMjcfPNy/wIcCGETsmz+TvM19/EGlbW238nydiUIKeHasrfefYYFtOg9qUxMMzr72x81SA==
   dependencies:
-    "@xapp/chat-widget-core" "1.65.6"
+    "@xapp/chat-widget-core" "1.65.9"
     "@xapp/stentor-intelligent-search-channel" "1.65.6"
     stentor-guards "1.58.87"
     store "2.0.12"
