@@ -65,6 +65,10 @@ module.exports = {
           title: "Resources",
           items: [
             {
+              label: "Support",
+              to: "/help/support",
+            },
+            {
               label: "Install",
               to: "/help/install",
             },

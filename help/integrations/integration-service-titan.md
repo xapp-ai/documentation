@@ -28,12 +28,12 @@ You can connect your existing Service Titan account with AI Powered Chat, and Go
 - You can find this by going to 'Integrations -> API Application Access' from your account.
 - Enter this value when XAPP AI prompts for it
 
-<div style={{width: '80%'}}>
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/api-access.png" alt="ServiceTitan API Access"/>
+</div>
 
-![Connect](../../static/img/integrations/service-titan/api-access.png)
-
-![Connect](../../static/img/integrations/service-titan/get-tenantid.png)
-
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/get-tenantid.png" alt="ServiceTitan Tenant ID"/>
 </div>
 
 ### Step 2
@@ -42,32 +42,34 @@ You can connect your existing Service Titan account with AI Powered Chat, and Go
 
 - From the same page on your Service Titan account, click the **Connect New App** button app
 
-<div style={{width: '60%'}}>
-
-![Connect](../../static/img/integrations/service-titan/connect-new-app.png)
-
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/connect-new-app.png" alt="ServiceTitan Connect New App"/>
 </div>
 
 - Select the app, choose 'XAPP Bookings'
 
-![Connect](../../static/img/integrations/service-titan/xapp-bookings.png)
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/xapp-bookings.png" alt="ServiceTitan XAPP Bookings"/>
+</div>
 
 - Allow Access to connect your account
 
-<div style={{width: '80%'}}>
-
-![Connect](../../static/img/integrations/service-titan/allow-access.png)
-
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/allow-access.png" alt="ServiceTitan Allow Access"/>
 </div>
 
 #### Make sure you add a Booking provider
 
 - Adding a provider will allow you to see where your booking are coming from
-- If you haven't done this, add it by clicking 'Add new provider' and repeating Step 2 when you've add it. Your new booking provider will show in the drop-down when selecting. _ make note of the ID associated with the booking, you'll need it later_
+- If you haven't done this, add it by clicking 'Add new provider' and repeating Step 2 when you've add it. Your new booking provider will show in the drop-down when selecting. \_ make note of the ID associated with the booking, you'll need it later
 
-  ![Connect](../../static/img/integrations/service-titan/booking-selection.png)
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/booking-selection.png" alt="ServiceTitan Booking Selection"/>
+</div>
 
-  ![Connect](../../static/img/integrations/service-titan/booking-id.png)
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/booking-id.png" alt="ServiceTitan Booking ID"/>
+</div>
 
 ### Step 3
 
@@ -76,16 +78,28 @@ You can connect your existing Service Titan account with AI Powered Chat, and Go
 - After successfully connecting your account, Service Titan will provide a **ClientID** and **Client Secret**
 - Make sure you generate the Client Secret and copy it to share later
 
- <div style={{width: '60%'}}>
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/client-and-secret.png" alt="ServiceTitan Client Secret"/>
+</div>
 
-![Connect](../../static/img/integrations/service-titan/client-and-secret.png)
+# Scheduling Widget
 
- </div>
+:::important
 
-### View Bookings on your account
+Scheduling Widget is only available on the XAPP AI Scheduling plan.
+
+:::
+
+## How it works
+
+We will ask for the contact information of the user and then ask them to describe the issue they have. We will then leverage AI to appropriately match what the potential customer as requested to the correct job type within ServiceTitan.
+
+# View Bookings on your account
 
 - To Trigger a lead, type **Contact Us** in your Chat or Google Business Message app. You'll be prompted for your contact information.
 - In your Service Titan account, leads will be sent to **Calls->Booking** in your account
 - View each lead, and accept or dismiss
 
-![Connect](../../static/img/integrations/service-titan/booking.png)
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/booking.png" alt="ServiceTitan Booking"/>
+</div>

@@ -7,6 +7,12 @@ sidebar_label: Getting Started
 
 Welcome! This guide is designed to help you get started quickly and easily with our chat widget, ensuring you make the most of our services.
 
+## How to get help along the way
+
+You can ask your questions to our chat widget, which is trained on the documentation in this portal. We monitor the chat so if you request an agent, we will jump on as soon as we can. Also, feel free to email us at support@xapp.ai
+
+- [See all Support Options](/help/support)
+
 ## Step 1: Account Creation
 
 A prerequisite for everything in this guide will be to create an account. We have a quick onboarding to get you up and running in a few minutes.
