@@ -23,12 +23,16 @@ You can connect your existing Jobber account with AI Powered Chat, and Google Bu
 
 Allow XAPP AI access to your Jobber instance, we'll send captured leads as 'Requests' to your account
 
-<div style={{width: '40%'}}>
+<div className="centered-image-container">
+<img src="/img/integrations/jobber/integrate.png" alt="Connect XAPP to Jobber"/>
+</div>
 
-![Connect](../../static/img/integrations/jobber/integrate.png)
-![Allow](../../static/img/integrations/jobber/oauth-allow-access.png)
-![Connected](../../static/img/integrations/jobber/connected.png)
+<div className="centered-image-container">
+<img src="/img/integrations/jobber/oauth-allow-access.png" alt="Allow Access"/>
+</div>
 
+<div className="centered-image-container">
+<img src="/img/integrations/jobber/connected.png" alt="Connected"/>
 </div>
 
 ### Detect that the user wants to connect with the business
@@ -59,14 +63,16 @@ When a lead is captured during a chat or Google Business Messages session, XAPP 
 - Request Details - you'll receive the source of the Lead, The user's address, and contact information.
 - Client - The lead will exist as a 'Client' in the system.
 
-<div style={{width: '60%'}}>
+<div className="centered-image-container">
+<img src="/img/integrations/jobber/requests.png" alt="Jobber Requests"/>
+</div>
 
-![Requests](../../static/img/integrations/jobber/requests.png)
+<div className="centered-image-container">
+<img src="/img/integrations/jobber/lead.png" alt="Jobber Details"/>
+</div>
 
-![Details](../../static/img/integrations/jobber/lead.png)
-
-![Transcription](../../static/img/integrations/jobber/transcription.png)
-
+<div className="centered-image-container">
+<img src="/img/integrations/jobber/transcription.png" alt="Jobber Transcript"/>
 </div>
 
 ### Install Chat (and Search) onto your website

@@ -20,6 +20,18 @@ module.exports = {
         sidebarPath: "./sidebars-adv.js",
       },
     ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          // /docs/oldDoc -> /docs/newDoc
+          {
+            from: "/docs/integrations/integration-jobber/",
+            to: "/help/integrations/integration-jobber",
+          },
+        ],
+      },
+    ],
   ],
   themeConfig: {
     colorMode: {
