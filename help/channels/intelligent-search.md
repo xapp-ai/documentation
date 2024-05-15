@@ -39,8 +39,22 @@ You can also use the script snippet to copy and paste on to your site.
 
 By default, the search bar requires a button press to make it appear. For example, at the top of this document there is a "🔍Search" button that when you press it pops up the search bar.
 
+<div className="centered-image-container">
+<img src="/img/channel/search/search-button.png" alt="Search Button"/>
+</div>
+
 The search bar will look for all elements (`<div>` or `<button/>`) on your website with the class `xapp-search-button`. You can add this class to multiple elements, they will all trigger the search bar pop up. Adding this class does not modify the style of the button but you can feel free to add your own class in your stylesheet with this class name.
 
+For example a button:
+
 ```html
-<button className="xapp-search-button">Search</button>
+<button class="xapp-search-button">Search</button>
+```
+
+or within a list:
+
+```html
+<li class="menu-item my-menu xapp-search-button">
+  <a class="menu-link">Search</a>
+</li>
 ```
