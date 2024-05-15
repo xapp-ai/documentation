@@ -13,6 +13,7 @@ You can connect your existing Jobber account with AI Powered Chat, and Google Bu
 
 - Send user requests to your Jobber account
 - Collect name and contact information
+- Schedule jobs
 - Naturally transition the conversation to a lead flow
 - Receive the full transcript of the conversation
 - Get notified when users are talking to you, and speak directly
@@ -47,9 +48,7 @@ Also provided are pre-built language models to determine a user's desire to conn
 
 Helpful components to collect the address and date are available to improve the user experience.
 
-<div className="centered-image-container">
-<img src="/img/integrations/jobber/scheduling.png" alt="Scheduling"/>
-</div>
+
 
 ### Lead information sent to your Jobber account
 
@@ -69,6 +68,34 @@ When a lead is captured during a chat or Google Business Messages session, XAPP 
 
 </div>
 
+### Scheduling Information sent to your Jobber Account
+
+Our AI Scheduler will collect more than just lead information.  Send jobs directly to your account with helpful AI powered summaries of the type of job.  Use this information to prioritize the highest ticket scheduling requests first.  
+
+<div style={{width: '80%'}}>
+![Schedule](../../static/img/integrations/jobber/automated-label.png)
+
+*Quickly prioritize the highest ticket jobs, automatically labeled with your existing products and services*
+
+<hr/>
+</div>
+
+<div style={{width: '40%'}}>
+
+#### Scheduling user requests in 3 steps!
+
+
+1. Collect Contact info![Step 1](../../static/img/integrations/housecall-pro/contact.png)
+
+2. Describe your issue ![Step 2](../../static/img/integrations/housecall-pro/description.png)
+
+3. Select your preferred day ![Step 3](../../static/img/integrations/housecall-pro/time.png)
+
+4.  Done! ![Schedule](../../static/img/integrations/jobber/created-job.png)
+
+
+
+</div>
 ### Install Chat (and Search) onto your website
 
 - [Wordpress Plugin Installs Chat & Search](/help/install/wordpress)

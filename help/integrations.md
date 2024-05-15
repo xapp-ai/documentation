@@ -15,10 +15,5 @@ Our integrations are a key component of our offering and help your AI fit seemle
 
 - [Jobber](https://getjobber.com/) - [Read More](/help/integrations/integration-jobber)
 - [ServiceTitan](https://www.servicetitan.com/) - [Read More](/help/integrations/integration-service-titan)
+- [Housecall Pro](ttps://www.housecallpro.com) - [Read More](/help/integrations/integration-housecall-pro)
 - [Less Annoying CRM](https://www.lessannoyingcrm.com/) - [Read More](/help/integrations/integration-lacrm)
-
-## Coming Soon - In Beta
-
-The following are available at request while in beta:
-
-- [HouseCall Pro](https://www.housecallpro.com/)
