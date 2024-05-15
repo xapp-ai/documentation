@@ -22,15 +22,40 @@ This guide will help you add the XAPP Chat Widget to your Shopify store.
    - In the theme editor, open the `theme.liquid` file.
    - Find the closing `</body>` tag.
 
-3. **Insert the JavaScript Snippet**
+3. **Insert the JavaScript Snippets**
 
-   - Add the following snippet just before the closing `</body>` tag:
-     ```html
-     <script
-       id="xapp-js"
-       src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
-     ></script>
-     ```
+   - Add the following snippets just before the closing `</body>` tag:
+
+   **Chat Snippet**
+
+   ```html
+   <script
+     id="xapp-js"
+     src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
+   ></script>
+   ```
+
+   **Form / Scheduler Snippet**
+
+   ```html
+   <script
+     id="xapp-form-js"
+     src="https://form.xapp.ai/xapp-form-widget.js?key=YOUR_FORM_KEY"
+   ></script>
+   ```
+
+   **Search Snippet**
+
+   ```html
+   <script
+     id="xapp-search-js"
+     src="https://search.xapp.ai/xapp-search-bar.js?key=YOUR_SEARCH_KEY"
+   ></script>
+   ```
+
+   :::important
+   For the **search** bar, you will also need to setup a button on your website to trigger the search bar pop over, please see these [instructions](/help/channels/intelligent-search#triggering-search-with-a-button-press).
+   :::
 
 4. **Save the Changes**
 

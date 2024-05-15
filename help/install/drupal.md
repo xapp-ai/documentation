@@ -17,17 +17,42 @@ This guide explains how to add the XAPP Chat Widget to your Drupal website using
    - Log in to your Drupal admin panel.
    - Navigate to `Appearance` and click on the 'Settings' of your active theme.
 
-2. **Add the JavaScript Snippet**
+2. **Add the JavaScript Snippets**
 
    - In the theme settings, look for an option to add custom JavaScript or HTML.
-   - Insert the following snippet:
 
-     ```html
-     <script
-       id="xapp-js"
-       src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
-     ></script>
-     ```
+   - Insert the following snippets:
+
+   **Chat Snippet**
+
+   ```html
+   <script
+     id="xapp-js"
+     src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
+   ></script>
+   ```
+
+   **Form / Scheduler Snippet**
+
+   ```html
+   <script
+     id="xapp-form-js"
+     src="https://form.xapp.ai/xapp-form-widget.js?key=YOUR_FORM_KEY"
+   ></script>
+   ```
+
+   **Search Snippet**
+
+   ```html
+   <script
+     id="xapp-search-js"
+     src="https://search.xapp.ai/xapp-search-bar.js?key=YOUR_SEARCH_KEY"
+   ></script>
+   ```
+
+   :::important
+   For the **search** bar, you will also need to setup a button on your website to trigger the search bar pop over, please see these [instructions](/help/channels/intelligent-search#triggering-search-with-a-button-press).
+   :::
 
 3. **Save and Clear Cache**
 

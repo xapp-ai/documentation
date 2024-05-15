@@ -16,11 +16,13 @@ Before you begin, ensure you have the following:
 
 1. **Locate Your Unique Key**
 
-   Each XAPP Chat Widget requires a unique `key`. This key should have been provided to you by XAPP. It will be used in the JavaScript snippet to uniquely identify your widget.
+   Each XAPP widget (Chat, Search, Form/Scheduler) requires a unique `key`. This key should have been provided to you by XAPP. It will be used in the JavaScript snippet to uniquely identify your widget.
 
-2. **Insert the JavaScript Snippet**
+2. **Insert the JavaScript Snippets**
 
-   Insert the following JavaScript snippet into the HTML of your website. It is crucial to place this snippet just before the closing `</body>` tag for optimal performance.
+   Insert the following JavaScript snippets into the HTML of your website. It is crucial to place the snippets just before the closing `</body>` tag for optimal performance.
+
+   **Chat Snippet**
 
    ```html
    <script
@@ -29,13 +31,35 @@ Before you begin, ensure you have the following:
    ></script>
    ```
 
+   **Form / Scheduler Snippet**
+
+   ```html
+   <script
+     id="xapp-form-js"
+     src="https://form.xapp.ai/xapp-form-widget.js?key=YOUR_FORM_KEY"
+   ></script>
+   ```
+
+   **Search Snippet**
+
+   ```html
+   <script
+     id="xapp-search-js"
+     src="https://search.xapp.ai/xapp-search-bar.js?key=YOUR_SEARCH_KEY"
+   ></script>
+   ```
+
+   :::important
+   For the **search** bar, you will also need to setup a button on your website to trigger the search bar pop over, please see these [instructions](/help/channels/intelligent-search#triggering-search-with-a-button-press).
+   :::
+
 3. **Save and Upload Changes**
 
-   After inserting the snippet with your unique key, save the changes to your HTML file. If your website is hosted on a server, upload the modified file to your server.
+   After inserting the snippets with your unique key, save the changes to your HTML file. If your website is hosted on a server, upload the modified file to your server.
 
 4. **Verify Installation**
 
-   Once uploaded, visit your website to ensure the XAPP Chat Widget is visible and functioning correctly. If you encounter any issues, double-check the key and the placement of the snippet in your HTML file.
+   Once uploaded, visit your website to ensure all installed widgets are visible and functioning correctly. If you encounter any issues, double-check the key and the placement of the snippet in your HTML file.
 
 ## Troubleshooting
 
