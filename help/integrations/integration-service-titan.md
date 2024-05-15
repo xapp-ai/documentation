@@ -11,7 +11,7 @@ sidebar_label: Service Titan
 
 You can connect your existing Service Titan account with AI Powered Chat, and Google Business Messages.
 
-- Send bookings to your Service Titan account
+- Send bookings & jobs to your Service Titan account
 - Collect name and contact information
 - Naturally transition the conversation to a lead flow
 - Receive the full transcript of the conversation
@@ -38,7 +38,8 @@ You can connect your existing Service Titan account with AI Powered Chat, and Go
 
 ### Step 2
 
-#### Connect to XAPP Bookings
+#### Connect to XAPP AI
+**Warning:** *XAPP must add your Tenant ID before you can complete this step.  You will receive a notification when you can complete step 2*
 
 - From the same page on your Service Titan account, click the **Connect New App** button app
 
@@ -46,10 +47,10 @@ You can connect your existing Service Titan account with AI Powered Chat, and Go
 <img src="/img/integrations/service-titan/connect-new-app.png" alt="ServiceTitan Connect New App"/>
 </div>
 
-- Select the app, choose 'XAPP Bookings'
+- Select the app, choose **AI for Home Services by XAPP AI**
 
 <div className="centered-image-container">
-<img src="/img/integrations/service-titan/xapp-bookings.png" alt="ServiceTitan XAPP Bookings"/>
+<img src="/img/integrations/service-titan/ai-for-home-services.png" alt="ServiceTitan XAPP App"/>
 </div>
 
 - Allow Access to connect your account
@@ -58,7 +59,9 @@ You can connect your existing Service Titan account with AI Powered Chat, and Go
 <img src="/img/integrations/service-titan/allow-access.png" alt="ServiceTitan Allow Access"/>
 </div>
 
-#### Make sure you add a Booking provider
+### Step 3
+
+#### Add a Booking provider
 
 - Adding a provider will allow you to see where your booking are coming from
 - If you haven't done this, add it by clicking 'Add new provider' and repeating Step 2 when you've add it. Your new booking provider will show in the drop-down when selecting. \_ make note of the ID associated with the booking, you'll need it later
@@ -69,24 +72,16 @@ You can connect your existing Service Titan account with AI Powered Chat, and Go
 
 <div className="centered-image-container">
 <img src="/img/integrations/service-titan/booking-id.png" alt="ServiceTitan Booking ID"/>
+
 </div>
 
-### Step 3
+<hr/>
 
-#### Share your Client ID and Client Secret
-
-- After successfully connecting your account, Service Titan will provide a **ClientID** and **Client Secret**
-- Make sure you generate the Client Secret and copy it to share later
-
-<div className="centered-image-container">
-<img src="/img/integrations/service-titan/client-and-secret.png" alt="ServiceTitan Client Secret"/>
-</div>
-
-# Scheduling Widget
+# AI Scheduling
 
 :::important
 
-Scheduling Widget is only available on the XAPP AI Scheduling plan.
+Scheduling is only available on the XAPP AI Scheduling plan.
 
 :::
 
@@ -94,7 +89,27 @@ Scheduling Widget is only available on the XAPP AI Scheduling plan.
 
 We will ask for the contact information of the user and then ask them to describe the issue they have. We will then leverage AI to appropriately match what the potential customer as requested to the correct job type within ServiceTitan.
 
-# View Bookings on your account
+
+<div style={{width: '40%'}}>
+
+#### Scheduling user requests in 3 steps!
+
+
+1. Collect Contact info![Step 1](../../static/img/integrations/housecall-pro/contact.png)
+
+2. Describe your issue ![Step 2](../../static/img/integrations/service-titan/st-description.png)
+
+3. Select your preferred day ![Step 3](../../static/img/integrations/housecall-pro/time.png)
+
+4.  Done! 
+  
+  <div style={{width: '160%'}}>
+   ![Schedule](../../static/img/integrations/service-titan/st-job.png)
+  </div>
+
+</div>
+
+# View Bookings as Leads on your account
 
 - To Trigger a lead, type **Contact Us** in your Chat or Google Business Message app. You'll be prompted for your contact information.
 - In your Service Titan account, leads will be sent to **Calls->Booking** in your account
