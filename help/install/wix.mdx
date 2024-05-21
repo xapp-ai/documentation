@@ -27,20 +27,44 @@ Easily integrate the XAPP Chat Widget into your Wix website with these steps.
 
    - Click + Add Custom Code at the top right
 
-4. **Insert the JavaScript Snippet**
+4. **Insert the JavaScript Snippets**
 
-   - Paste the following snippet into the code box:
+   - Paste the following snippets into the code box:
 
-     ```html
-     <script
-       id="xapp-js"
-       src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
-     ></script>
-     ```
+   **Chat Snippet**
+
+   ```html
+   <script
+     id="xapp-js"
+     src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
+   ></script>
+   ```
+
+   **Form / Scheduler Snippet**
+
+   ```html
+   <script
+     id="xapp-form-js"
+     src="https://form.xapp.ai/xapp-form-widget.js?key=YOUR_FORM_KEY"
+   ></script>
+   ```
+
+   **Search Snippet**
+
+   ```html
+   <script
+     id="xapp-search-js"
+     src="https://search.xapp.ai/xapp-search-bar.js?key=YOUR_SEARCH_KEY"
+   ></script>
+   ```
+
+   :::important
+   For the **search** bar, you will also need to setup a button on your website to trigger the search bar pop over, please see these [instructions](/help/channels/intelligent-search#triggering-search-with-a-button-press).
+   :::
 
 5. **Set Up Code**
 
-   - Name the code (e.g., XAPP Chat Widget).
+   - Name the code (e.g., XAPP Widgets).
    - Apply it to `All pages`, including `Load code once`.
    - Select to place the code in the Body - end section
 

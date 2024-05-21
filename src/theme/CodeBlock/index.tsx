@@ -11,23 +11,52 @@ type Props = WrapperProps<typeof CodeBlockType>;
  * @returns 
  */
 export default function CodeBlockWrapper(props: Props): JSX.Element {
+
   const [key, setKey] = useState('');
+  const [formKey, setFormKey] = useState('');
+  const [searchKey, setSearchKey] = useState('');
 
   useEffect(() => {
+    console.log(`getting keys`);
     const queryParams = new URLSearchParams(window.location.search);
+    console.log(queryParams);
     setKey(queryParams.get('key') || '');
+    setFormKey(queryParams.get('formKey') || '');
+    setSearchKey(queryParams.get('searchKey') || '');
   }, []);
 
-  const hadPlaceholder = typeof props.children === 'string' && props.children.includes('YOUR_CHAT_KEY');
+  // we want to use a regex to find the placeholder, which can be YOUR_CHAT_KEY, YOUR_FORM_KEY, or YOUR_SEARCH_KEY
+  const placeholderRegex = /YOUR_(CHAT|FORM|SEARCH)_KEY/g;
+  // now use the regex to get the placeholder in full
+  const foundPlaceHolder: string = typeof props.children === 'string' && placeholderRegex.test(props.children) ? props.children.match(placeholderRegex)![0] : '';
 
-  const contentWithKey = typeof props.children === 'string' && key ? props.children.replace('YOUR_CHAT_KEY', key) : props.children;
+  const hadPlaceholder = !!foundPlaceHolder;
+
+  // replace the placeholder with the actual key in the code block
+  let placeholderReplacementKey: string;
+
+  switch (foundPlaceHolder) {
+    case 'YOUR_CHAT_KEY':
+      placeholderReplacementKey = key;
+      break;
+    case 'YOUR_FORM_KEY':
+      placeholderReplacementKey = formKey;
+      break;
+    case 'YOUR_SEARCH_KEY':
+      placeholderReplacementKey = searchKey;
+      break;
+    default:
+      placeholderReplacementKey = '';
+  }
+
+  const contentWithKey = typeof props.children === 'string' && placeholderReplacementKey ? props.children.replace(foundPlaceHolder, placeholderReplacementKey) : props.children;
 
   let helpText: string | undefined = undefined;
 
-  if (hadPlaceholder && !!key) {
+  if (hadPlaceholder && !!placeholderReplacementKey) {
     helpText = 'Note! This snippet is customized for your widget. No modification needed.';
-  } else if (hadPlaceholder && !key) {
-    helpText = 'Note! Please replace "YOUR_CHAT_KEY" with your actual widget key.';
+  } else if (hadPlaceholder && !placeholderReplacementKey) {
+    helpText = `Note! Please replace "${foundPlaceHolder}" with your actual widget key.`;
   }
 
   return (
