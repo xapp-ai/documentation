@@ -1,7 +1,28 @@
 ---
-title: Website Chat
+title: Chat
 sidebar_label: Website Chat
 ---
+
+Website Chat provides an AI assistant that is trained on your website and industry that is capable of answer questions from site visitors and is able to take down contact information for potential customers (starting at the Leads tier).
+
+## Starter Chat vs Leads Chat
+
+There are two main differences between Starter chat & our paid tier chat.
+
+- Opportunity Alerts & Live Agent Takeover
+- Lead Capture in Chat
+
+### Opportunity Alerts & Live Agent Takeover
+
+Starting at Leads, you can configure opportunity alerts which email you when a conversation has started with the chat and then allow you to join the chat if you like.
+
+- [Read more about Opportunity Alerts](/help/live-chat/overview)
+
+### Lead Capture in Chat
+
+The underlining training is exactly the same however on Starter, we will provide the contact information (phone number, email, contact us page) when somebody wants to get in touch and on the Leads package, the chat will take down their information and send it to either your email or integration (FSM or CRM).
+
+- [Read more about Integrations](/help/integrations.md)
 
 ## Installation
 

@@ -20,15 +20,19 @@ Before proceeding, ensure that you have:
 
 2. **Navigate to Plugins**: On the admin sidebar, click on `Plugins > Add New`.
 
-3. **Search for OC Studio Integration**: In the search field, type `OC Studio Integration` and press Enter.
+3. **Search for "XAPP AI"**: In the search field, type `XAPP AI` and press Enter.
 
-4. **Install the Plugin**: Locate `OC Studio Integration` in the search results and click on `Install Now`.
+<div className="centered-image-container">
+<img src="/img/channel/wordpress/search-plugin-ai-for-home-services.png" alt="Find Plugin"/>
+</div>
+
+4. **Install the Plugin**: Locate `AI for Home Services` in the search results and click on `Install Now`.
 
 5. **Activate the Plugin**: After installation, click on `Activate` to enable the plugin on your WordPress site.
 
 ### Method 2: Manual Installation via FTP
 
-1. **Download the Plugin**: Visit [OC Studio Integration Plugin Page](https://wordpress.org/plugins/oc-studio-integration/) and download the latest version of the plugin.
+1. **Download the Plugin**: Visit [AI for Home Services Plugin Page](https://wordpress.org/plugins/oc-studio-integration/) and download the latest version of the plugin.
 
 2. **Unzip the Plugin**: Extract the downloaded `.zip` file to a folder on your computer.
 
@@ -40,21 +44,18 @@ Before proceeding, ensure that you have:
 
 We will need to configure the plugin with the special keys for your chat and search (optional) widgets.
 
-Within the WordPress Admin panel, navigate to the new OC Studio Settings page found under the Tools settings.
-
-<div className="centered-image-container">
-<img src="/img/channel/wordpress/wordpress-tools-oc-studio-settings.png" alt="Plugin Configuration"/>
-</div>
+Within the WordPress Admin panel, navigate to the new OC Studio Settings page found under the Tools settings. The same settings page can be found under Settings -> XAPP AI.
 
 Find the keys within studio, and paste them into your plugin configuration page.
 
 - [How to Find the Chat Widget Key](/help/channels/chat-widget#finding-code-snippet--key)
 - [How to Find the Intelligent Search Key](/help/channels/intelligent-search#finding-code-snippet--key)
+- [How to Find the Form/Scheduling Widget Key](/help/channels/form-widget#finding-code-snippet--key)
 
 A completed plugin configuration will look like the follow:
 
 <div className="centered-image-container">
-<img src="/img/channel/wordpress/wordpress-configuration.png" alt="Widget Key"/>
+<img src="/img/channel/wordpress/wordpress-settings-updated" alt="Widget Key"/>
 </div>
 
 The chat widget will not appear, by default, in the lower right hand corner of every page on your website.
