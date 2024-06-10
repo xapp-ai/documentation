@@ -3472,10 +3472,10 @@
   resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.65.9.tgz#ab6776b73f58b9922182ef2812ade4cb9f527b65"
   integrity sha512-Zlbt0NcO0v8o0yX8xEGwbEuDkxxBx9AhrDkhQINpJK4gd57qV7iqjXx9jyNQK1Mk+lnV6Yz5WN4Fbc/hcYGt+A==
 
-"@xapp/chat-widget@1.69.0":
-  version "1.69.0"
-  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.69.0.tgz#168e6f6e3a44c79f5d438d571594404a5a67a8b6"
-  integrity sha512-tfDvPbFmf6VGUQ25flLs46mbRtBMwY3DG1RkJZ/lLbC+QMYcu+j5soo6z0hXlL8wSw3VuGUEtBM0tB3y6a1l+Q==
+"@xapp/chat-widget@1.70.2":
+  version "1.70.2"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.70.2.tgz#230b369e00eb7a0c9a0d5f7afdd4164080be98f1"
+  integrity sha512-KJEfsCCxAwDbTTLImH0183s59FaVqyhquodsvQ07E78SBQOZ4Rr4+Ift3vccxJdGx4Ka/AJZzdd0Rh5018m9gw==
   dependencies:
     "@rollup/plugin-replace" "4.0.0"
     "@wojtekmaj/enzyme-adapter-react-17" "0.8.0"
