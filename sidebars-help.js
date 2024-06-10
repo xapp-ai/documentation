@@ -28,6 +28,7 @@ const sidebars = {
       items: [
         /*"channels", */
         "channels/chat-widget",
+        "channels/form-widget",
         "channels/intelligent-search",
         "channels/google-business-messages",
       ],

@@ -3,11 +3,17 @@ title: Installation on Squarespace
 sidebar_label: Squarespace
 ---
 
+:::important
+
+**Note**: In order to install custom widgets on your Squarespace site, you need at least the Business tier, see the Squarespace pricing [here](https://www.squarespace.com/pricing)
+
+:::
+
 This guide will assist you in adding the XAPP Chat Widget to your Squarespace website using a JavaScript snippet.
 
 ## Prerequisites
 
-- Administrative access to your Squarespace account.
+- Administrative access to your Squarespace account with at least the Business tier.
 - Your unique `key` for the XAPP Chat Widget.
 
 ## Installation Steps
