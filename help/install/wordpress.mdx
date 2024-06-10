@@ -23,12 +23,34 @@ Before proceeding, ensure that you have:
 3. **Search for "XAPP AI"**: In the search field, type `XAPP AI` and press Enter.
 
 <div className="centered-image-container">
-<img src="/img/channel/wordpress/search-plugin-ai-for-home-services.png" alt="Find Plugin"/>
+  <img
+    src="/img/channel/wordpress/search-plugin-ai-for-home-services.png"
+    alt="Find Plugin"
+  />
 </div>
 
 4. **Install the Plugin**: Locate `AI for Home Services` in the search results and click on `Install Now`.
 
 5. **Activate the Plugin**: After installation, click on `Activate` to enable the plugin on your WordPress site.
+
+6. **Configure the Plugin**: Navigate to AI for Home Services settings from the WordPress admin side by: "Tools" --> "XAPP AI Settings"
+
+7. **Paste in your Keys**: For each key, you will need to copy paste your keys from each channel.
+
+   <KeyDisplay />
+
+   - [How to Find the Chat Widget Key](/help/channels/chat-widget#finding-code-snippet--key)
+   - [How to Find the Intelligent Search Key](/help/channels/intelligent-search#finding-code-snippet--key)
+   - [How to Find the Form/Scheduling Widget Key](/help/channels/form-widget#finding-code-snippet--key)
+
+8. **Save Changes**: After saving your changes, your configured widgets should appear.
+
+   <div className="centered-image-container">
+     <img
+       src="/img/channel/wordpress/wordpress-settings-updated.png"
+       alt="Widget Key"
+     />
+   </div>
 
 ### Method 2: Manual Installation via FTP
 
@@ -55,7 +77,10 @@ Find the keys within studio, and paste them into your plugin configuration page.
 A completed plugin configuration will look like the follow:
 
 <div className="centered-image-container">
-<img src="/img/channel/wordpress/wordpress-settings-updated" alt="Widget Key"/>
+  <img
+    src="/img/channel/wordpress/wordpress-settings-updated.png"
+    alt="Widget Key"
+  />
 </div>
 
 The chat widget will not appear, by default, in the lower right hand corner of every page on your website.
@@ -73,7 +98,10 @@ The most straight forward way to add a search bar button is by a menu item.
 3.  Under "Add menu items, expand "Custom Links"
 
     <div className="centered-image-container">
-    <img src="/img/channel/wordpress/wordpress-adding-custom-link-to-menu.png" alt="Custom Link"/>
+      <img
+        src="/img/channel/wordpress/wordpress-adding-custom-link-to-menu.png"
+        alt="Custom Link"
+      />
     </div>
 
 4.  The URL does not matter as it will not be followed but is required, for the Link Text you can put "Search" or "🔍".
@@ -81,13 +109,19 @@ The most straight forward way to add a search bar button is by a menu item.
 6.  Scroll to the top of the page and click "Screen Options", then within that menu select "CSS Classes"
 
     <div className="centered-image-container">
-    <img src="/img/channel/wordpress/wordpress-turn-on-css.png" alt="Turn on CSS"/>
+      <img
+        src="/img/channel/wordpress/wordpress-turn-on-css.png"
+        alt="Turn on CSS"
+      />
     </div>
 
 7.  Scroll back down to your newly added menu item and expand menu to edit. In the field "CSS Classes (optional)" add "xapp-search-button". This is how the search code will find the button. Note: You can also remove the URL at this point if you want. It was only required to add the menu item.
 
     <div className="centered-image-container">
-    <img src="/img/channel/wordpress/wordpress-search-button-config.png" alt="Search Menu Item Config"/>
+      <img
+        src="/img/channel/wordpress/wordpress-search-button-config.png"
+        alt="Search Menu Item Config"
+      />
     </div>
 
 8.  Save and then verify by clicking on the new menu button on your home page. A search widget will appear when you click.
