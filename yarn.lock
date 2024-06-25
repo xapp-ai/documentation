@@ -3475,20 +3475,25 @@
   resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.65.9.tgz#ab6776b73f58b9922182ef2812ade4cb9f527b65"
   integrity sha512-Zlbt0NcO0v8o0yX8xEGwbEuDkxxBx9AhrDkhQINpJK4gd57qV7iqjXx9jyNQK1Mk+lnV6Yz5WN4Fbc/hcYGt+A==
 
-"@xapp/chat-widget@1.70.2":
-  version "1.70.2"
-  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.70.2.tgz#230b369e00eb7a0c9a0d5f7afdd4164080be98f1"
-  integrity sha512-KJEfsCCxAwDbTTLImH0183s59FaVqyhquodsvQ07E78SBQOZ4Rr4+Ift3vccxJdGx4Ka/AJZzdd0Rh5018m9gw==
+"@xapp/chat-widget-core@1.71.0":
+  version "1.71.0"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.71.0.tgz#dedb0f39ac4d33a80225775e9ae0dcb7728e0925"
+  integrity sha512-qxbfQLJpsHpx+rt1kzo+D4lwcfOv6hocPZ4lhKeXoUXvDO9M45d9X/vi+mw1gSyxsTz2FkpZMzDj4mzqix7PuA==
+
+"@xapp/chat-widget@1.71.0":
+  version "1.71.0"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.71.0.tgz#d9a31d92894f467f2c21418848d7e44bc3d9975d"
+  integrity sha512-7k/oXM8wSToOO3s+Hfjv4YvDgfeYbmfTjPFSap+9RVG/kqjb7AC9edugFzr/wkBeq34QlfUK6/sZ/T3kNrBmjg==
   dependencies:
     "@rollup/plugin-replace" "4.0.0"
     "@wojtekmaj/enzyme-adapter-react-17" "0.8.0"
-    "@xapp/chat-widget-core" "1.65.9"
-    "@xapp/stentor-chat-widget" "1.65.6"
+    "@xapp/chat-widget-core" "1.71.0"
+    "@xapp/stentor-chat-widget" "1.71.0"
     date-fns "2.30.0"
     react-transition-group "4.4.5"
-    socket.io-client "4.5.1"
+    socket.io-client "4.7.5"
     store "2.0.12"
-    tslib "2.6.2"
+    tslib "2.6.3"
 
 "@xapp/intelligent-search-widget@1.65.9":
   version "1.65.9"
@@ -3509,13 +3514,13 @@
     stentor-constants "1.37.36"
     stentor-guards "1.37.36"
 
-"@xapp/stentor-chat-widget@1.65.6":
-  version "1.65.6"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-chat-widget/-/stentor-chat-widget-1.65.6.tgz#701757df29781ec314b1dff50be2c71bc6d0e802"
-  integrity sha512-YMAuzsvUcq5kq0SDnyw9rdQyDfhuq3r71bIPghFQHtTkB81LCgzt8Fqk/8bjVERaNCM9IRf9hhB3fK5zUzwxtQ==
+"@xapp/stentor-chat-widget@1.71.0":
+  version "1.71.0"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-chat-widget/-/stentor-chat-widget-1.71.0.tgz#c12f413c2e4c393ef920bf2185aba89220b33bab"
+  integrity sha512-DnFBegmIC479s6HrVfJMfhuNlAW8f3QQbi1+HmkeC97hbFis33zPZParz1Dwwqdw1qhEYdAYfTz7YO5g0Yjn1w==
   dependencies:
-    stentor-constants "1.58.87"
-    stentor-guards "1.58.87"
+    stentor-constants "1.59.68"
+    stentor-guards "1.59.68"
 
 "@xapp/stentor-intelligent-search-channel@1.65.6":
   version "1.65.6"
@@ -4929,21 +4934,21 @@ encodeurl@~1.0.2:
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   integrity sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==
 
-engine.io-client@~6.2.1:
-  version "6.2.3"
-  resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-6.2.3.tgz#a8cbdab003162529db85e9de31575097f6d29458"
-  integrity sha512-aXPtgF1JS3RuuKcpSrBtimSjYvrbhKW9froICH4s0F3XQWLxsKNxqzG39nnvQZQnva4CMvUK63T7shevxRyYHw==
+engine.io-client@~6.5.2:
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-6.5.4.tgz#b8bc71ed3f25d0d51d587729262486b4b33bd0d0"
+  integrity sha512-GeZeeRjpD2qf49cZQ0Wvh/8NJNfeXkXXcoGh+F77oEAgo9gUHwT1fCRxSNU+YEEaysOJTnsFHmM5oAcPy4ntvQ==
   dependencies:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.1"
-    engine.io-parser "~5.0.3"
-    ws "~8.2.3"
+    engine.io-parser "~5.2.1"
+    ws "~8.17.1"
     xmlhttprequest-ssl "~2.0.0"
 
-engine.io-parser@~5.0.3:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/engine.io-parser/-/engine.io-parser-5.0.6.tgz#7811244af173e157295dec9b2718dfe42a64ef45"
-  integrity sha512-tjuoZDMAdEhVnSFleYPCtdL2GXwVTGtNjoeJd9IhIG3C1xs9uwxqRNEu5WpnDZCaozwVlK/nuQhpodhXSIMaxw==
+engine.io-parser@~5.2.1:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/engine.io-parser/-/engine.io-parser-5.2.2.tgz#37b48e2d23116919a3453738c5720455e64e1c49"
+  integrity sha512-RcyUFKA93/CXH20l4SoVvzZfrSDMOTUS3bWVpTt2FuFP+XYrL8i8oonHP7WInRyVHXh0n/ORtoeiE1os+8qkSw==
 
 enhanced-resolve@^5.15.0:
   version "5.15.0"
@@ -9196,20 +9201,20 @@ snake-case@^3.0.4:
     dot-case "^3.0.4"
     tslib "^2.0.3"
 
-socket.io-client@4.5.1:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/socket.io-client/-/socket.io-client-4.5.1.tgz#cab8da71976a300d3090414e28c2203a47884d84"
-  integrity sha512-e6nLVgiRYatS+AHXnOnGi4ocOpubvOUCGhyWw8v+/FxW8saHkinG6Dfhi9TU0Kt/8mwJIAASxvw6eujQmjdZVA==
+socket.io-client@4.7.5:
+  version "4.7.5"
+  resolved "https://registry.yarnpkg.com/socket.io-client/-/socket.io-client-4.7.5.tgz#919be76916989758bdc20eec63f7ee0ae45c05b7"
+  integrity sha512-sJ/tqHOCe7Z50JCBCXrsY3I2k03iOiUe+tj1OmKeD2lXPiGH/RUCdTZFoqVyN7l1MnpIzPrGtLcijffmeouNlQ==
   dependencies:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.2"
-    engine.io-client "~6.2.1"
-    socket.io-parser "~4.2.0"
+    engine.io-client "~6.5.2"
+    socket.io-parser "~4.2.4"
 
-socket.io-parser@~4.2.0:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-4.2.2.tgz#1dd384019e25b7a3d374877f492ab34f2ad0d206"
-  integrity sha512-DJtziuKypFkMMHCm2uIshOYC7QaylbtzQwiMYDuCKy3OPkjLzu4B2vAhTlqipRHHzrI0NJeBAizTK7X+6m1jVw==
+socket.io-parser@~4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/socket.io-parser/-/socket.io-parser-4.2.4.tgz#c806966cf7270601e47469ddeec30fbdfda44c83"
+  integrity sha512-/GbIKmo8ioc+NIWIhwdecY0ge+qVBSMdgxGygevmdHj24bsfgtCmcUUcQ5ZzcylGFHsN3k4HB4Cgkl96KVnuew==
   dependencies:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.1"
@@ -9324,6 +9329,11 @@ stentor-constants@1.58.87:
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.58.87.tgz#955795b3713c000c9a092ed95ab9152871275313"
   integrity sha512-1mph7HcXbvv5d3v1YVgpdLUl9w9LOT5D6gWwPzZZLKHtPRQrl7nuKg+TG6Dd+DTM883IhVTmJOGIgQll3l8Rkg==
 
+stentor-constants@1.59.68:
+  version "1.59.68"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.59.68.tgz#184e676c6fdd2c542f1d81f71a00cabd48a7f989"
+  integrity sha512-hS4hw3sH3nRkxWokZCSvixedIWz72EalzueK8x6xAVw7jpH2ybG+589A2bMPHj77dkIZtS/am/IUdq6rq9J7kg==
+
 stentor-guards@1.37.36:
   version "1.37.36"
   resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.37.36.tgz#a4c46e4e7bb5ccc74fdd3756d7174691b1430572"
@@ -9337,6 +9347,13 @@ stentor-guards@1.58.87:
   integrity sha512-HQbAIsrZxt5VZ8/13Y0TIl/o7kM+2yJMQNT50pO2FD3lrxjyEszYq1PAkeItOwrO9UFqCEyZUgG1b7Tl2nxzSg==
   dependencies:
     stentor-constants "1.58.87"
+
+stentor-guards@1.59.68:
+  version "1.59.68"
+  resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.59.68.tgz#dcfcefab67f8e5e8561c0fb7b498b8477ae09afc"
+  integrity sha512-6wrRxFgny1Rw+zBiwDKBxHxoLiuwaJ9xbGMQ0POkRwAov3zOM4+cwRvXftXGr7sfm1ARKL8ZgvGX6vOzgrKtAA==
+  dependencies:
+    stentor-constants "1.59.68"
 
 store@2.0.12:
   version "2.0.12"
@@ -9609,6 +9626,11 @@ tslib@2.6.2, tslib@^2.6.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
+
+tslib@2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.3.tgz#0438f810ad7a9edcde7a241c3d80db693c8cbfe0"
+  integrity sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==
 
 tslib@^2.0.3:
   version "2.5.0"
@@ -10157,10 +10179,10 @@ ws@^8.13.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.14.2.tgz#6c249a806eb2db7a20d26d51e7709eab7b2e6c7f"
   integrity sha512-wEBG1ftX4jcglPxgFCMJmZ2PLtSbJ2Peg6TmpJFTbe9GZYOQCDPdMYu/Tm0/bGZkw8paZnJY45J4K2PZrLYq8g==
 
-ws@~8.2.3:
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.2.3.tgz#63a56456db1b04367d0b721a0b80cae6d8becbba"
-  integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
+ws@~8.17.1:
+  version "8.17.1"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.17.1.tgz#9293da530bb548febc95371d90f9c878727d919b"
+  integrity sha512-6XQFvXTkbfUOZOKKILFG1PDK2NDQs4azKQl26T0YS5CxqWLgXajbPZ+h4gZekJyRqFU8pvnbAbbs/3TgRPy+GQ==
 
 xdg-basedir@^5.0.1, xdg-basedir@^5.1.0:
   version "5.1.0"
