@@ -54,7 +54,7 @@ The chat widget key is used primarily for the [WordPress plugin](/help/install/w
 ### Additional Resources
 
 - [Installation Guides](/help/install/)
-- [WordPress Installation Guide](/help/install/wordpress.md)
+- [WordPress Installation Guide](/help/install/wordpress)
 - [VIDEO- Install on Wordpress](https://www.youtube.com/watch?v=6x739gsVTt4&list=PLj26gRljku8BiAVezV9wNvyHrSeF_DRa8&index=14)
 
 :::important

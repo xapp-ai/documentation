@@ -67,7 +67,7 @@ The script is hosted on a CDN however when making configuration updates, the fir
 
 #### See Also
 
-* [Installing the Widget on Wordpress Sites](widget/install-wordpress.md)
+* [Installing the Widget on Wordpress Sites](widget/install-wordpress)
 
 ### React Library
 
