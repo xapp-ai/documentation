@@ -27,4 +27,4 @@ For each, you will either need the code snippet or form specific key. Both of th
 ### Additional Resources
 
 - [Installation Guides](/help/install/)
-- [WordPress Installation Guide](/help/install/wordpress.md)
+- [WordPress Installation Guide](/help/install/wordpress)
