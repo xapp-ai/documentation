@@ -20,6 +20,15 @@ module.exports = {
         sidebarPath: "./sidebars-adv.js",
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "academy",
+        path: "academy",
+        routeBasePath: "academy",
+        sidebarPath: "./sidebars-academy.js",
+      },
+    ],
   ],
   themeConfig: {
     colorMode: {
@@ -32,6 +41,11 @@ module.exports = {
         src: "img/logo.svg",
       },
       items: [
+        {
+          to: "/academy/start",
+          label: "Academy",
+          position: "left",
+        },
         {
           to: "https://xapp.ai/product",
           label: "Product",
