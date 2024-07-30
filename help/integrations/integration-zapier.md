@@ -65,7 +65,7 @@ Subscribe to a new lead or scheduling request
 - Create a lead in chat like this
 
 <div className="centered-image-container">
-<img src="/img/integrations/zapier/lead from chat.png" alt="Lead from Chat"/>
+<img src="/img/integrations/zapier/lead from chat clear.png" alt="Lead from Chat"/>
 </div>
 
 
