@@ -2677,6 +2677,11 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
+"@jridgewell/sourcemap-codec@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.0.tgz#3188bcb273a414b0d215fd22a58540b989b9409a"
+  integrity sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==
+
 "@jridgewell/trace-mapping@^0.3.17", "@jridgewell/trace-mapping@^0.3.9":
   version "0.3.17"
   resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.17.tgz#793041277af9073b0951a7fe0f0d8c4c98c36985"
@@ -2781,22 +2786,22 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@rollup/plugin-replace@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-replace/-/plugin-replace-4.0.0.tgz#e34c457d6a285f0213359740b43f39d969b38a67"
-  integrity sha512-+rumQFiaNac9y64OHtkHGmdjm7us9bo1PlbgQfdihQtuNxzjpaB064HbRnewUOggLQxVCCyINfStkgmBeQpv1g==
+"@rollup/plugin-replace@5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-replace/-/plugin-replace-5.0.7.tgz#150c9ee9db8031d9e4580a61a0edeaaed3d37687"
+  integrity sha512-PqxSfuorkHz/SPpyngLyg5GCEkOcee9M1bkxiVDr41Pd61mqP1PLOoDPbpl44SB2mQGKwV/In74gqQmGITOhEQ==
   dependencies:
-    "@rollup/pluginutils" "^3.1.0"
-    magic-string "^0.25.7"
+    "@rollup/pluginutils" "^5.0.1"
+    magic-string "^0.30.3"
 
-"@rollup/pluginutils@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
-  integrity sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==
+"@rollup/pluginutils@^5.0.1":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-5.1.0.tgz#7e53eddc8c7f483a4ad0b94afb1f7f5fd3c771e0"
+  integrity sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==
   dependencies:
-    "@types/estree" "0.0.39"
-    estree-walker "^1.0.1"
-    picomatch "^2.2.2"
+    "@types/estree" "^1.0.0"
+    estree-walker "^2.0.2"
+    picomatch "^2.3.1"
 
 "@sideway/address@^4.1.3":
   version "4.1.4"
@@ -3038,11 +3043,6 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.0.tgz#5fb2e536c1ae9bf35366eed879e827fa59ca41c2"
   integrity sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==
-
-"@types/estree@0.0.39":
-  version "0.0.39"
-  resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
-  integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
 "@types/estree@^1.0.0":
   version "1.0.5"
@@ -3475,15 +3475,20 @@
   resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.71.0.tgz#dedb0f39ac4d33a80225775e9ae0dcb7728e0925"
   integrity sha512-qxbfQLJpsHpx+rt1kzo+D4lwcfOv6hocPZ4lhKeXoUXvDO9M45d9X/vi+mw1gSyxsTz2FkpZMzDj4mzqix7PuA==
 
-"@xapp/chat-widget@1.71.0":
-  version "1.71.0"
-  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.71.0.tgz#d9a31d92894f467f2c21418848d7e44bc3d9975d"
-  integrity sha512-7k/oXM8wSToOO3s+Hfjv4YvDgfeYbmfTjPFSap+9RVG/kqjb7AC9edugFzr/wkBeq34QlfUK6/sZ/T3kNrBmjg==
+"@xapp/chat-widget-core@1.72.3":
+  version "1.72.3"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.72.3.tgz#25fdf6157ca7f7630bb9e92bca4004566a0a5145"
+  integrity sha512-tbB7DrUnfmD+OyFar0toFpx3vp1+ZuUchPxRvT/W5KG7bAIp/0JkxglGrosYApxTE1K/8NE9Veqxc9cRL5hNaw==
+
+"@xapp/chat-widget@1.72.4":
+  version "1.72.4"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.72.4.tgz#87acef7590fc543eb82f509b024066fc236178d8"
+  integrity sha512-QHhmQqsvjNf72auc3+tLhcfvcY9Z7EhrLqwE5lNcmx1wPceVplm8+ftjXwN/W0JSmUvin7AnQdT5OoYDfMoaeg==
   dependencies:
-    "@rollup/plugin-replace" "4.0.0"
+    "@rollup/plugin-replace" "5.0.7"
     "@wojtekmaj/enzyme-adapter-react-17" "0.8.0"
-    "@xapp/chat-widget-core" "1.71.0"
-    "@xapp/stentor-chat-widget" "1.71.0"
+    "@xapp/chat-widget-core" "1.72.3"
+    "@xapp/stentor-chat-widget" "1.72.4"
     date-fns "2.30.0"
     react-transition-group "4.4.5"
     socket.io-client "4.7.5"
@@ -3509,13 +3514,13 @@
     stentor-constants "1.37.36"
     stentor-guards "1.37.36"
 
-"@xapp/stentor-chat-widget@1.71.0":
-  version "1.71.0"
-  resolved "https://registry.yarnpkg.com/@xapp/stentor-chat-widget/-/stentor-chat-widget-1.71.0.tgz#c12f413c2e4c393ef920bf2185aba89220b33bab"
-  integrity sha512-DnFBegmIC479s6HrVfJMfhuNlAW8f3QQbi1+HmkeC97hbFis33zPZParz1Dwwqdw1qhEYdAYfTz7YO5g0Yjn1w==
+"@xapp/stentor-chat-widget@1.72.4":
+  version "1.72.4"
+  resolved "https://registry.yarnpkg.com/@xapp/stentor-chat-widget/-/stentor-chat-widget-1.72.4.tgz#629b7139c3127ba79f10bd95d1fd4bc6dddabb3b"
+  integrity sha512-YgE27KesFKazAWmUmAOq9Ir8wHNhOk6wV33ziTn4VuRx7QzOBtbcyA7R1EyY4oq8wpmWHbNbhteH5o7tjg4Ppg==
   dependencies:
-    stentor-constants "1.59.68"
-    stentor-guards "1.59.68"
+    stentor-constants "1.59.89"
+    stentor-guards "1.59.89"
 
 "@xapp/stentor-intelligent-search-channel@1.71.0":
   version "1.71.0"
@@ -5153,10 +5158,10 @@ estree-util-visit@^2.0.0:
     "@types/estree-jsx" "^1.0.0"
     "@types/unist" "^3.0.0"
 
-estree-walker@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-1.0.1.tgz#31bc5d612c96b704106b477e6dd5d8aa138cb700"
-  integrity sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==
+estree-walker@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
+  integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
 
 estree-walker@^3.0.0:
   version "3.0.3"
@@ -6721,12 +6726,12 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-magic-string@^0.25.7:
-  version "0.25.9"
-  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.9.tgz#de7f9faf91ef8a1c91d02c2e5314c8277dbcdd1c"
-  integrity sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==
+magic-string@^0.30.3:
+  version "0.30.11"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.11.tgz#301a6f93b3e8c2cb13ac1a7a673492c0dfd12954"
+  integrity sha512-+Wri9p0QHMy+545hKww7YAu5NyzF8iomPL/RQazugQ9+Ez4Ic3mERMd8ZTX5rfK944j+560ZJi8iAwgak1Ac7A==
   dependencies:
-    sourcemap-codec "^1.4.8"
+    "@jridgewell/sourcemap-codec" "^1.5.0"
 
 markdown-extensions@^2.0.0:
   version "2.0.0"
@@ -7910,7 +7915,7 @@ picocolors@^1.0.0:
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
   integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
 
-picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.2, picomatch@^2.2.3, picomatch@^2.3.1:
+picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3, picomatch@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
@@ -9256,11 +9261,6 @@ source-map@^0.7.0:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.4.tgz#a9bbe705c9d8846f4e08ff6765acf0f1b0898656"
   integrity sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==
 
-sourcemap-codec@^1.4.8:
-  version "1.4.8"
-  resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz#ea804bd94857402e6992d05a38ef1ae35a9ab4c4"
-  integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
-
 space-separated-tokens@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/space-separated-tokens/-/space-separated-tokens-2.0.2.tgz#1ecd9d2350a3844572c3f4a312bceb018348859f"
@@ -9324,6 +9324,11 @@ stentor-constants@1.59.68:
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.59.68.tgz#184e676c6fdd2c542f1d81f71a00cabd48a7f989"
   integrity sha512-hS4hw3sH3nRkxWokZCSvixedIWz72EalzueK8x6xAVw7jpH2ybG+589A2bMPHj77dkIZtS/am/IUdq6rq9J7kg==
 
+stentor-constants@1.59.89:
+  version "1.59.89"
+  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.59.89.tgz#2c804c2fcf61e1514d07db144d602919fa6d4744"
+  integrity sha512-F4ScN4r8KCeQB7FWKX3mmuf5pEmpfL1RJOWr4VP5A00ZrVZr3dhPZza5+Q8mSWsnZmGt98A/vQpGMm2bYdBkpg==
+
 stentor-guards@1.37.36:
   version "1.37.36"
   resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.37.36.tgz#a4c46e4e7bb5ccc74fdd3756d7174691b1430572"
@@ -9337,6 +9342,13 @@ stentor-guards@1.59.68:
   integrity sha512-6wrRxFgny1Rw+zBiwDKBxHxoLiuwaJ9xbGMQ0POkRwAov3zOM4+cwRvXftXGr7sfm1ARKL8ZgvGX6vOzgrKtAA==
   dependencies:
     stentor-constants "1.59.68"
+
+stentor-guards@1.59.89:
+  version "1.59.89"
+  resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.59.89.tgz#7937b58abf29dfec43c87a45a427933611271dde"
+  integrity sha512-DPKPPxYGir2lgKJMN8RbfHqk9nmerq+GBu54+kt1JQzl4RqVqd6BPEzGDX1AVQKsxQwNjtgpaYmCoNmbXQT6HQ==
+  dependencies:
+    stentor-constants "1.59.89"
 
 store@2.0.12:
   version "2.0.12"
