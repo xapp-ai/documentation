@@ -42,6 +42,7 @@ const sidebars = {
         "integrations/integration-service-titan",
         "integrations/integration-housecall-pro",
         "integrations/integration-lacrm",
+        "integrations/integration-zapier",
       ],
     },
     {
