@@ -30,7 +30,7 @@ const sidebars = {
         "channels/chat-widget",
         "channels/form-widget",
         "channels/intelligent-search",
-        "channels/google-business-messages",
+        "channels/reserve-with-google",
       ],
     },
     {
