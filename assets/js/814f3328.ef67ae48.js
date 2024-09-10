@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkoc_studio_docs=self.webpackChunkoc_studio_docs||[]).push([[2535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome","permalink":"/blog/welcome","unlisted":false},{"title":"Hello","permalink":"/blog/hello-world","unlisted":false},{"title":"Hola","permalink":"/blog/hola","unlisted":false}]}')}}]);
