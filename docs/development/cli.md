@@ -161,7 +161,6 @@ xapp export <directory> [appId] -c
 This will create another directory `/channels` with independent JSON files for each channel.
 
 
-## Importing
 
 
 ### Prerequisites 
