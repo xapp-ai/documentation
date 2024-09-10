@@ -34,6 +34,12 @@ And while not required, you can also logout
 xapp logout
 ```
 
+You can confirm who you are with:
+
+```bash
+xapp whoami
+```
+
 ## Configuration
 
 You can configure the CLI to point to different OC Studio environments.
@@ -72,6 +78,44 @@ To reset back to the default, run:
 xapp set -p default
 ```
 
+### Single Tenant Configuration
+
+Here is a sample configuration used for configuring the CLI for single-tenancy.
+
+```
+{
+  "profiles": {
+    "default": {},
+    "single-tenant": {
+      // API base path, this is the same as the apiUrl in you single-tenant instance /config.js file
+      "basePath": "",
+      // In Cognito, this is the Cognito Domain for your user pool, or it is the auth.domain in your /config.js
+      // this must start with https:// or the browser might now open to log you in 
+      "authPath": "https://{cognito}.amazoncognito.com",
+      // Client ID for the app client in Cognito
+      "clientId": "",
+      // Client Secret for the app client in Cognito
+      "clientSecret": "",
+      // This should be oauth2/token
+      "tokenPath": "oauth2/token",
+      // Single-tenant scope is different from default, you need at least @xapp/cli 1.8.3 to use this, otherwise it won't work
+      "scope": "xappai/api",
+      "token": {
+        "access_token": "",
+        "refresh_token": "",
+        "expires_in": 86400,
+        "token_type": "Bearer"
+      }
+    },
+  },
+  "created": "2021-02-23T22:30:17.345Z",
+  "modified": "2021-11-09T17:17:32.694Z",
+  "currentProfile": "single-tenant"
+}
+```
+
+You will need to remove the comments when copy pasting the above example.
+
 ## Information
 
 You can query general descriptive information about an application by application ID.
@@ -90,11 +134,35 @@ xapp types -h "/*! Copyright (c) 2022, XAPP AI */" -f requests.ts -m 50 ./src/mo
 
 The above command will generate a file named `requests.ts` at the `./src/models` directory with a header at the top to prevent any lint errors.  The `-m 50` states to generate a type based on an entities values up to a max of 50 values, otherwise it will set the type as `string`.  Optional fields are `-h`, `-f`, and `-m`.
 
+## Exporting
+
+You can export an existing app in to one JSON file.  Exporting can be helpful for creating backups or in preparation for importing either as a new app or to another environment.
+
+```bash
+xapp export <directory> [appId] 
+```
+
+For example: 
+
+```bash
+xapp export ./temp appId 
+```
+
+Will export your app to a directory ./temp.  It will make a new directory in that directory `{organizationId}-{appId}-{timestamp}`
+
+### Exporting with Channels
+
+You can also export with all the channel information by adding flag `-c`
+
+```bash
+xapp export <directory> [appId] -c
+```
+
+This will create another directory `/channels` with independent JSON files for each channel.
+
+
 ## Importing
 
-### Importing from Dialogflow
-
-You can import an existing project from Dialogflow ES.  
 
 ### Prerequisites 
 
