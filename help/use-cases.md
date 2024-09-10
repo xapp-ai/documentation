@@ -11,11 +11,12 @@ This document restructures the use cases of our AI chat technology to focus on s
 
 - **24/7 Automated Responses**: Our technology provides continuous response to customer inquiries, ensuring consistent engagement.
 - **Lead Information Capture**: Capable of detecting when a customer intends to get in touch, and efficiently captures their contact information.
+ - **Scheduling**: Advanced AI features available to streamline bookings including automated field selection and smart capacity planning.
 
 #### Key Channels
 
 - Website Chat
-- Google Business Messages Chat
+- Reserve with Google
 
 ## Answer Questions
 
@@ -39,7 +40,7 @@ This document restructures the use cases of our AI chat technology to focus on s
 #### Key Channels
 
 - Website Chat
-- Google Business Messages Chat
+- Reserve with Google
 
 ## Live Chat
 
@@ -51,8 +52,8 @@ This document restructures the use cases of our AI chat technology to focus on s
 #### Key Channels
 
 - Website Chat
-- Google Business Messages Chat
+- Reserve with Google
 
 ## Conclusion
 
-Our AI chat technology, with its versatile application across different channels, excels in automating customer interactions, answering queries, capturing leads after hours, and facilitating live chat. These use cases demonstrate the technology's ability to enhance customer engagement and support, adapting to various business needs and customer preferences.
+Our AI scheduling and chat technology, with its versatile application across different channels, excels in automating customer interactions, answering queries, capturing leads after hours, and facilitating live chat. These use cases demonstrate the technology's ability to enhance customer engagement and support, adapting to various business needs and customer preferences.
