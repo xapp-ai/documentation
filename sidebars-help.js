@@ -20,6 +20,7 @@ const sidebars = {
         "install/framer",
         "install/zyro",
         "install/javascript",
+        "install/voolt",
       ],
     },
     {

@@ -27,6 +27,7 @@ The XAPP Chat Widget can be easily integrated into your website, offering a rang
 - **Wix**: [Install Chat Widget on Wix](/help/install/wix)
 - **WordPress**: [Install Chat Widget on WordPress](/help/install/wordpress)
 - **Zyro/Hostinger**: [Install Chat Widget on Hostinger (previously Zyro)](/help/install/zyro)
+- **Voolt**: [Connect XAPP Hosted page](/help/install/voolt)
 
 If you don't see your CMS above, our script snippet method will work for most platforms:
 
