@@ -3474,14 +3474,19 @@
   resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.74.1.tgz#2cdb5fcbc1407428fa4ca40c402ef42a18c02768"
   integrity sha512-jRuI0zxz3OLfLmTiZfTneBIvAW1a4xJDfLf1mDGTsyRCUMKT67ELE/UBd7I8/5kiwK6KFnXMqinUUfxIH967Bg==
 
-"@xapp/chat-widget@1.74.3":
-  version "1.74.3"
-  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.74.3.tgz#db9e28c2eaa93a4243d021807e2393a36e5fd673"
-  integrity sha512-3NkhPq+XGF1JLZNKRUgOMuGPKb7vCS/yFxMZ/iTulpiHohRbKlkqtfZChb7DFs9fyxYtPnvAZ3seVsa5j03ldQ==
+"@xapp/chat-widget-core@1.74.4":
+  version "1.74.4"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget-core/-/chat-widget-core-1.74.4.tgz#48e802775fdf2667aa2dc3de9e2f0410c54d49b5"
+  integrity sha512-Mzw4T8VS83dly7nbOgrN5wUjeTI/X+EWSoGnmn9W54yz1tVoiDwa5zI+CfmJMXlzJ3l/ZNgxxp9NFD1FsjqHcg==
+
+"@xapp/chat-widget@1.74.4":
+  version "1.74.4"
+  resolved "https://registry.yarnpkg.com/@xapp/chat-widget/-/chat-widget-1.74.4.tgz#5c078af6dfd74e0a9826a70d66bb34c98b78b73f"
+  integrity sha512-4xTTRhi+CvmO2Ztdx6NRGvP5wWmQFBqWD0C9S585/5fBtXKKnvzT9WIoi00j+Ef244f4itOAB9cSB6lDobJu+g==
   dependencies:
     "@rollup/plugin-replace" "5.0.7"
     "@wojtekmaj/enzyme-adapter-react-17" "0.8.0"
-    "@xapp/chat-widget-core" "1.74.1"
+    "@xapp/chat-widget-core" "1.74.4"
     "@xapp/stentor-chat-widget" "1.74.1"
     date-fns "2.30.0"
     react-transition-group "4.4.5"
