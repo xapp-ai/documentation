@@ -3233,10 +3233,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@18.3.9":
-  version "18.3.9"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.9.tgz#2cdf5f425ec8a133d67e9e3673909738b783db20"
-  integrity sha512-+BpAVyTpJkNWWSSnaLBk6ePpHLOGJKnEQNbINNovPWzvEUyAe3e+/d494QdEh71RekM/qV7lw6jzf1HGrJyAtQ==
+"@types/react@18.3.11":
+  version "18.3.11"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.11.tgz#9d530601ff843ee0d7030d4227ea4360236bd537"
+  integrity sha512-r6QZ069rFTjrEYgFdOck1gK7FLVsgJE7tTz0pQBczlBNUhBNk0MQH4UbnFSwjpQLMkLzgqvBBa+qGpLje16eTQ==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
@@ -9313,11 +9313,6 @@ stentor-constants@1.37.36:
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.37.36.tgz#ba957292e0f3a77232264133884bb5d2e2aa3ffc"
   integrity sha512-gtR/M9ECP76kJaiyg2b7NRw6ku7M9oe40w5FCU4SIkKp+zBUZ+NDB0pGnkxxJ3lbovODUMl+Zg8KpfTyJNCYrQ==
 
-stentor-constants@1.59.102:
-  version "1.59.102"
-  resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.59.102.tgz#98dbf13a1af95856c9fe5787f06a986761daef86"
-  integrity sha512-nF/gw+jsh4oMeY8wfMysjfpzTY4Exm32wg24DZU2/MlQCck1HfHZ6tiLFIXs0ha/PeeIEGzqYq8dADVja/F8sg==
-
 stentor-constants@1.59.107:
   version "1.59.107"
   resolved "https://registry.yarnpkg.com/stentor-constants/-/stentor-constants-1.59.107.tgz#37e05183847135d1a452c49cface2d1e80944b85"
@@ -9329,13 +9324,6 @@ stentor-guards@1.37.36:
   integrity sha512-kXcWZKxGu3xij6hEehxrYE/bFv3i1jBz+0Mzt6iQXL1GpX71R3I21csV185O+9qnRxuBaAxnVafYidfSxsKskw==
   dependencies:
     stentor-constants "1.37.36"
-
-stentor-guards@1.59.103:
-  version "1.59.103"
-  resolved "https://registry.yarnpkg.com/stentor-guards/-/stentor-guards-1.59.103.tgz#5a4bf2d7ba10266207b0f0bfabe0d6c8bea58d5b"
-  integrity sha512-I1gCP2AYvXV7DyWsdlkLwl00oGf1N9KnlpKqvOdONmA9/VF4KC8f3n7gQEX50kuoKuehcoetAvq2GGn6JcFhfQ==
-  dependencies:
-    stentor-constants "1.59.102"
 
 stentor-guards@1.59.113:
   version "1.59.113"
