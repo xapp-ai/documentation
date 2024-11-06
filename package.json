@@ -11,11 +11,11 @@
     "serve": "docusaurus serve"
   },
   "dependencies": {
-    "@docusaurus/core": "3.5.2",
-    "@docusaurus/module-type-aliases": "3.5.2",
-    "@docusaurus/preset-classic": "3.5.2",
+    "@docusaurus/core": "3.6.0",
+    "@docusaurus/module-type-aliases": "3.6.0",
+    "@docusaurus/preset-classic": "3.6.0",
     "@tsconfig/docusaurus": "2.0.3",
-    "@types/react": "18.3.11",
+    "@types/react": "18.3.12",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
     "@xapp/chat-widget": "1.74.6",

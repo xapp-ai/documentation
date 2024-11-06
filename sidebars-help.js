@@ -25,6 +25,7 @@ const sidebars = {
         "install/zyro",
         "install/javascript",
         "install/voolt",
+        "install/landing-page",
       ],
     },
     {
