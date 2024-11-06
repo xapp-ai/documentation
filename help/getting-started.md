@@ -21,15 +21,11 @@ A prerequisite for everything in this guide will be to create an account. We hav
 
 ### Understanding Our Offerings
 
-#### Free Tier
-
-- Our free offering includes basic features suitable for small websites or individual users.
-- It's a great way to get acquainted with our widget's functionalities without any initial investment.
-
 #### Paid Tiers
-
-- For advanced features and enhanced support, consider upgrading to one of our paid tiers.
-- Our paid plans offer additional functionalities tailored for businesses of all sizes.
+- Our paid plans offer functionalities tailored for businesses of all sizes.
+- **XAPP AI Leads** - For small businesses looking to grow their digital footprint with AI — No website required.
+- **XAPP AI Leads+** - Built for businesses using Field Service Management Systems.
+- **XAPP AI Scheduler** - For organizations that need advanced availability and scheduling features. 
 
 ## Step 2: Installation
 
