@@ -1,8 +1,12 @@
 const sidebars = {
   help: [
     "getting-started",
-    "technology",
-    "ai",
+    "get-more-leads",
+    {
+      type: "category",
+      label: "AI",
+      items: ["ai/business-description", "ai/high-value-lead", "ai/ai-faqs"],
+    },
     "use-cases",
     {
       type: "category",
@@ -23,6 +27,11 @@ const sidebars = {
         "install/voolt",
         "install/landing-page",
       ],
+    },
+    {
+      type: "category",
+      label: "Guides",
+      items: ["guides/create-google-business-profile"],
     },
     {
       type: "category",
@@ -76,6 +85,7 @@ const sidebars = {
         "training-series/metrics",
       ],
     },
+    "technology",
     "faqs",
   ],
 };
