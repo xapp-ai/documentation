@@ -59,7 +59,7 @@ const sidebars = {
     {
       type: "category",
       label: "Leads",
-      items: ["leads/lead-alerts", "leads/lead-capture"],
+      items: ["leads/lead-capture"],
     },
     "live-chat/overview",
     /*

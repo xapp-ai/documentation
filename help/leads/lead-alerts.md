@@ -2,11 +2,11 @@
 title: Lead Alerts
 ---
 
-This document provides an overview of the Lead Alerts feature in the XAPP Chat Widget, specifically designed for users of the free tier.
+This document provides an overview of the Lead Alerts feature in the XAPP Chat Widget, specifically designed for users that have cancelled their subscription but choose to keep the chat widget installed.
 
 ## Overview
 
-Lead Alerts are an essential feature for website owners using the free tier of the XAPP Chat Widget. This feature notifies owners when a visitor has interacted with the AI chatbot, indicating potential interest or queries from the visitor. The alert is sent via email and includes a summary of the conversation, giving the website owner a useful context about the visitor's inquiry.
+Lead Alerts are an essential feature for website owners using the XAPP Chat Widget after they cancel their account. Without an active subscription, chat will no longer automatically capture leads for you but let you know that your business's contact information was shared to a potential customers. The alert is sent via email and includes a summary of the conversation, giving the website owner a useful context about the visitor's inquiry.
 
 ## Functionality
 
@@ -32,13 +32,9 @@ Lead Alerts are an essential feature for website owners using the free tier of t
 
 ## Use Case
 
-Ideal for small businesses or individuals using the free tier, Lead Alerts help in identifying and acting on potential customer inquiries without the need for constant monitoring of the chat interactions.
+Lead Alerts help in identifying and acting on potential customer inquiries without the need for constant monitoring of the chat interactions.
 
 ## Limitations
 
-- Lead Alerts are only available in the free tier of the XAPP Chat Widget.
+- Lead Alerts are only available on agents without an active subscription.
 - The feature relies on the AI's assessment to qualify interactions as potential leads.
-
-## Conclusion
-
-Lead Alerts are a valuable tool for website owners using the free tier of the XAPP Chat Widget, offering timely notifications and insights into visitor interactions. This feature aids in identifying potential leads and enhancing customer engagement through informed responses.
