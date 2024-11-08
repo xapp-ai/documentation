@@ -11,9 +11,9 @@
     "serve": "docusaurus serve"
   },
   "dependencies": {
-    "@docusaurus/core": "3.6.0",
-    "@docusaurus/module-type-aliases": "3.6.0",
-    "@docusaurus/preset-classic": "3.6.0",
+    "@docusaurus/core": "3.6.1",
+    "@docusaurus/module-type-aliases": "3.6.1",
+    "@docusaurus/preset-classic": "3.6.1",
     "@tsconfig/docusaurus": "2.0.3",
     "@types/react": "18.3.12",
     "@types/react-helmet": "6.1.11",
