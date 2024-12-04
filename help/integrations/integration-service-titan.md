@@ -5,7 +5,7 @@ sidebar_label: Service Titan
 
 :::important
 
-3rd party integrations are available on all paid tiers, it is not available on Starter.
+3rd party integrations are available starting at the Leads+ tier
 
 :::
 
@@ -39,7 +39,8 @@ You can connect your existing Service Titan account with AI Powered Chat, and Go
 ### Step 2
 
 #### Connect to XAPP AI
-**Warning:** *XAPP must add your Tenant ID before you can complete this step.  You will receive a notification when you can complete step 2*
+
+**Warning:** _XAPP must add your Tenant ID before you can complete this step. You will receive a notification when you can complete step 2_
 
 - From the same page on your Service Titan account, click the **Connect New App** button app
 
@@ -89,11 +90,9 @@ Scheduling is only available on the XAPP AI Scheduling plan.
 
 We will ask for the contact information of the user and then ask them to describe the issue they have. We will then leverage AI to appropriately match what the potential customer as requested to the correct job type within ServiceTitan.
 
-
 <div style={{width: '40%'}}>
 
 #### Scheduling user requests in 3 steps!
-
 
 1. Collect Contact info![Step 1](../../static/img/integrations/housecall-pro/contact.png)
 
@@ -101,8 +100,8 @@ We will ask for the contact information of the user and then ask them to describ
 
 3. Select your preferred day ![Step 3](../../static/img/integrations/housecall-pro/time.png)
 
-4.  Done! 
-  
+4. Done!
+
   <div style={{width: '160%'}}>
    ![Schedule](../../static/img/integrations/service-titan/st-job.png)
   </div>

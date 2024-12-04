@@ -52,6 +52,7 @@ const sidebars = {
         "integrations/integration-jobber",
         "integrations/integration-service-titan",
         "integrations/integration-housecall-pro",
+        "integrations/integration-fieldpulse",
         "integrations/integration-lacrm",
         "integrations/integration-zapier",
       ],
