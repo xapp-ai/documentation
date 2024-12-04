@@ -5,7 +5,7 @@ sidebar_label: Less Annoying CRM
 
 :::important
 
-3rd party integrations are available on all paid tiers, it is not available on Starter.
+3rd party integrations are available starting at the Leads+ tier
 
 :::
 

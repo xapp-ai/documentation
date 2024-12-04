@@ -5,7 +5,7 @@ sidebar_label: Housecall Pro
 
 :::important
 
-- 3rd party integrations are available on all paid tiers, it is not available on Starter.
+- 3rd party integrations are available starting at the Leads+ tier
 - You must be on Housecall Pro's [MAX plan](https://www.housecallpro.com/pricing/) to integrate leads, and scheduling requests
 
 :::
@@ -22,9 +22,9 @@ You can connect your existing Housecall Pro account with AI Chat, AI Scheduling,
 
 ### Connect your Housecall Pro account to XAPP AI
 
-Allow XAPP AI access to your Housecall Pro instance, we'll manage customer requests, locations, scheduling, and notes on your account.  
+Allow XAPP AI access to your Housecall Pro instance, we'll manage customer requests, locations, scheduling, and notes on your account.
 
-#### 1. Navigate to the App Store (top right on your Housecall Pro account)
+#### Step 1. Navigate to the App Store (top right on your Housecall Pro account)
 
 <div style={{width: '40%'}}>
 
@@ -32,7 +32,7 @@ Allow XAPP AI access to your Housecall Pro instance, we'll manage customer reque
 
 </div>
 
-#### 2. Select the API app from your Housecall Pro Max plan
+#### Step 2. Select the API app from your Housecall Pro Max plan
 
 <div style={{width: '70%'}}>
 
@@ -40,7 +40,7 @@ Allow XAPP AI access to your Housecall Pro instance, we'll manage customer reque
 
 </div>
 
-#### 3. Generate a new API Key and grant full access
+#### Step 3. Generate a new API Key and grant full access
 
 <div style={{width: '80%'}}>
 
@@ -48,7 +48,7 @@ Allow XAPP AI access to your Housecall Pro instance, we'll manage customer reque
 
 </div>
 
-#### 4. Generate a new API Key and grant full access 
+#### Step 4. Generate a new API Key and grant full access
 
 <div style={{display: '30%'}}>
 
@@ -56,7 +56,7 @@ Allow XAPP AI access to your Housecall Pro instance, we'll manage customer reque
 
 </div>
 
-#### 5. Copy & Share your API Key
+#### Step 5. Copy & Share your API Key
 
 <div style={{display: '20%'}}>
 
@@ -67,13 +67,12 @@ Allow XAPP AI access to your Housecall Pro instance, we'll manage customer reque
 <hr/>
 
 ### Chat & Google Business Messages
-  *Detect that the user wants to connect with the business*
+
+_Detect that the user wants to connect with the business_
 
 <div className="centered-image-container">
 <img src="/img/integrations/lacrm/contact-us.png" alt="Contact Us"/>
 </div>
-
-
 
 <div className="centered-image-container">
 <img src="/img/integrations/lacrm/help-with.png" alt="Help With"/>
@@ -82,7 +81,6 @@ Allow XAPP AI access to your Housecall Pro instance, we'll manage customer reque
 We provide helpful suggestion chips users can click to initiate a lead flow. This can be a simple 'Contact Us' button like above.
 
 Also provided are pre-built language models to determine a user's desire to connect with the business. When this happens, the user is put into a lead flow. In the image above, our auto-complete suggestions for a home services company lets the user discover the phrases they can use.
-
 
 ### Lead information sent to your Housecall Pro account
 
@@ -96,18 +94,15 @@ When a lead is captured during a chat or Google Business Messages session, XAPP 
 
 ![Details](../../static/img/integrations/housecall-pro/Notes.png)
 
-
 </div>
 
 ### Scheduling Information sent to your Housecall Pro account
 
-Our AI Scheduler will collect more than just lead information.  Send jobs directly to your account with helpful AI powered summaries based on the user's description of the issue.  Use this information to prioritize the highest ticket scheduling requests first.  
+Our AI Scheduler will collect more than just lead information. Send jobs directly to your account with helpful AI powered summaries based on the user's description of the issue. Use this information to prioritize the highest ticket scheduling requests first.
 
 <div style={{width: '40%'}}>
 
-
 #### Scheduling user requests in 3 steps!
-
 
 1. Collect Contact info![Step 1](../../static/img/integrations/housecall-pro/contact.png)
 
@@ -116,9 +111,7 @@ Our AI Scheduler will collect more than just lead information.  Send jobs direct
 3. Select your preferred day ![Step 3](../../static/img/integrations/housecall-pro/time.png)
 
 4. Done! ![Schedule](../../static/img/integrations/housecall-pro/Schedule.png)
-        ![Details](../../static/img/integrations/housecall-pro/Scheduling-Notes.png)
-
-
+   ![Details](../../static/img/integrations/housecall-pro/Scheduling-Notes.png)
 
 </div>
 
