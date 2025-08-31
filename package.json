@@ -20,7 +20,7 @@
     "@types/react-router-dom": "5.3.3",
     "@xapp/chat-widget": "1.74.6",
     "@xapp/chat-widget-components": "1.11.2-alpha.0",
-    "@xapp/intelligent-search-widget": "1.74.6",
+    "@xapp/intelligent-search-widget": "1.78.0",
     "clsx": "2.1.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
