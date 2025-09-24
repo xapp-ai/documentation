@@ -13,17 +13,19 @@
   "dependencies": {
     "@docusaurus/core": "3.8.1",
     "@docusaurus/module-type-aliases": "3.8.1",
+    "@docusaurus/plugin-content-docs": "3.8.1",
     "@docusaurus/preset-classic": "3.8.1",
+    "@mdx-js/react": "^3.1.1",
     "@tsconfig/docusaurus": "2.0.3",
-    "@types/react": "19.0.6",
+    "@types/react": "19.1.13",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
-    "@xapp/chat-widget": "1.74.6",
+    "@xapp/chat-widget": "1.78.1",
     "@xapp/chat-widget-components": "1.11.2-alpha.0",
-    "@xapp/intelligent-search-widget": "1.74.6",
+    "@xapp/intelligent-search-widget": "1.78.0",
     "clsx": "2.1.1",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "react-redux": "9.2.0",
     "redux": "5.0.1",
     "redux-thunk": "3.1.0"
@@ -39,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "packageManager": "yarn@4.10.3"
 }

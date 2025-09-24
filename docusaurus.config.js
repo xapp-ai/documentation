@@ -145,8 +145,6 @@ module.exports = {
     ],
   ],
   clientModules: [
-    require.resolve(
-      "./node_modules/@xapp/chat-widget-components/dist/index.css"
-    ),
+    require.resolve("@xapp/chat-widget-components/dist/index.css"),
   ],
 };
