@@ -5,7 +5,6 @@ sidebar_label: Housecall Pro
 
 :::important
 
-- 3rd party integrations are available starting at the Leads+ tier
 - You must be on Housecall Pro's [MAX plan](https://www.housecallpro.com/pricing/) to integrate leads, and scheduling requests
 
 :::
