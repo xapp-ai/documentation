@@ -17,7 +17,7 @@
     "@docusaurus/preset-classic": "3.9.0",
     "@mdx-js/react": "^3.1.1",
     "@tsconfig/docusaurus": "2.0.3",
-    "@types/react": "19.1.13",
+    "@types/react": "19.1.14",
     "@types/react-helmet": "6.1.11",
     "@types/react-router-dom": "5.3.3",
     "@xapp/chat-widget": "1.78.1",
