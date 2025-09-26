@@ -3,12 +3,6 @@ title: Less Annoying CRM integration
 sidebar_label: Less Annoying CRM
 ---
 
-:::important
-
-3rd party integrations are available starting at the Leads+ tier
-
-:::
-
 You can connect your existing Less Annoying CRM instance with AI Powered Chat, and Google Business Messages.
 
 - Send leads to your Less Annoying CRM instance

@@ -21,31 +21,19 @@ const articles: ArticleProps[] = [
     title: "Installation",
     imageUrl: "img/art/dall-e-install.png",
     link: "/help/install",
-    description: (
-      <>
-        Learn how to install the chat widget
-      </>
-    ),
+    description: <>Learn how to install the chat widget</>,
   },
   {
-    title: "Leads",
+    title: "Bookings, Leads &Contacts",
     link: "/help/leads/lead-alerts",
     imageUrl: "img/art/dall-e-lead-capture.png",
-    description: (
-      <>
-        Learn about how we handle leads.
-      </>
-    ),
+    description: <>Learn about how we handle people trying to get in touch with you.</>,
   },
   {
     title: "Live Chat",
     link: "/help/live-chat/overview",
     imageUrl: "img/art/dall-e-live-chat.png",
-    description: (
-      <>
-        Learn how our live chat works.
-      </>
-    ),
+    description: <>Learn how our live chat works.</>,
   },
 ];
 
@@ -57,9 +45,7 @@ function Article(props: ArticleProps) {
     <div className={clsx("col col--4", styles.feature)}>
       <Link to={useBaseUrl(link)}>
         <div className="text--center">
-          {imgUrl && (
-            <img className={styles.featureImage} src={imgUrl} alt={title} />
-          )}
+          {imgUrl && <img className={styles.featureImage} src={imgUrl} alt={title} />}
           <h3>{title}</h3>
           <p>{description}</p>
         </div>
@@ -72,10 +58,7 @@ function Home() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
+    <Layout title={`${siteConfig.title}`} description="Description will go into a meta tag in <head />">
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{"Help Center"}</h1>
@@ -83,10 +66,7 @@ function Home() {
 
           <div className={styles.buttons}>
             <Link
-              className={clsx(
-                "button button--outline button--secondary button--lg",
-                styles.getStarted
-              )}
+              className={clsx("button button--outline button--secondary button--lg", styles.getStarted)}
               to={useBaseUrl("/help/getting-started")}
             >
               Get Started
