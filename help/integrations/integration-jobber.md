@@ -3,12 +3,6 @@ title: Jobber
 sidebar_label: Jobber
 ---
 
-:::important
-
-3rd party integrations are available starting at the Leads+ tier
-
-:::
-
 You can connect your existing Jobber account with AI Powered Chat, and Google Business Messages.
 
 - Send user requests to your Jobber account

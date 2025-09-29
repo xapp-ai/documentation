@@ -4,9 +4,7 @@ sidebar_label: Service Titan
 ---
 
 :::important
-
-3rd party integrations are available starting at the Leads+ tier
-
+The Service Titan integration requires an account with ServiceTitan
 :::
 
 You can connect your existing Service Titan account with AI Powered Chat, and Google Business Messages.

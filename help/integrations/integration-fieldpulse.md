@@ -3,12 +3,6 @@ title: FieldPulse
 sidebar_label: FieldPulse
 ---
 
-:::important
-
-3rd party integrations are available starting at the Leads+ tier
-
-:::
-
 You can connect your existing FieldPulse account to automatically send leads from chat and form widgets.
 
 ---

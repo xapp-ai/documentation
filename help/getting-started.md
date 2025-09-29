@@ -22,10 +22,10 @@ A prerequisite for everything in this guide will be to create an account. We hav
 ### Understanding Our Offerings
 
 #### Paid Tiers
-- Our paid plans offer functionalities tailored for businesses of all sizes.
-- **XAPP AI Leads** - For small businesses looking to grow their digital footprint with AI — No website required.
-- **XAPP AI Leads+** - Built for businesses using Field Service Management Systems.
-- **XAPP AI Scheduler** - For organizations that need advanced availability and scheduling features. 
+
+Our paid plans offer functionalities tailored for businesses of all sizes.
+
+- **XAPP AI Book Online** - For small businesses looking to grow their digital footprint with AI — No website required, just a Google Business Profile
 
 ## Step 2: Installation
 

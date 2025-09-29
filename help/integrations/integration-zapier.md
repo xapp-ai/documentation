@@ -3,12 +3,6 @@ title: Zapier
 sidebar_label: Zapier
 ---
 
-:::important
-
-3rd party integrations are available starting at the Leads+ tier
-
-:::
-
 Use Zapier to send leads, and scheduling requests to your preferred destination. [Zapier's](https://zapier.com) app marketplace includes over 7,000 integrations. Here are a few examples of where you can send requests from your website and Google business profile
 
 - Google Spreadsheets - send leads to a shared spreadsheet
@@ -17,7 +11,7 @@ Use Zapier to send leads, and scheduling requests to your preferred destination.
 
 ---
 
-## Create a Zap, and connect your Zapier account to AI for Home Services by XAPP AI
+# Create a Zap, and connect your Zapier account to AI for Home Services by XAPP AI
 
 <div style={{width: '40%'}} className="centered-image-container">
 <img src="/img/integrations/zapier/trigger.png" alt="Create a trigger"/>
@@ -41,18 +35,17 @@ Use Zapier to send leads, and scheduling requests to your preferred destination.
 
 <hr/>
 
-### Setup a Trigger
+## Setup a Trigger
 
 Subscribe to a new lead or scheduling request
 
 <div style={{width: '40%'}} className="centered-image-container">
 <img src="/img/integrations/zapier/select event.png" alt="Select event"/>
-
 </div>
 
-### Integrate the lead from XAPP
+## Integrate the lead from XAPP
 
-#### We'll walk through a simple example sending the lead to a Google spreadsheet. You can create numerous integrations based on this sample.
+### We'll walk through a simple example sending the lead to a Google spreadsheet. You can create numerous integrations based on this sample.
 
 - Make sure you have a spreadsheet created
 - Set the headers to _Lead, Transcript, Added_
@@ -63,9 +56,9 @@ Subscribe to a new lead or scheduling request
 
 </div>
 
-### Creating a Lead
+## Creating a Lead
 
-#### Create a lead to test with.
+### Create a lead to test with.
 
 - Create a lead in chat like this
 
@@ -73,7 +66,7 @@ Subscribe to a new lead or scheduling request
 <img src="/img/integrations/zapier/lead from chat clear.png" alt="Lead from Chat"/>
 </div>
 
-#### Map the lead to your destination
+### Map the lead to your destination
 
 - Refresh your page, and see new leads created
 - Map the lead to your destination, in this case we'll map to a column in the spreadsheet.
@@ -84,10 +77,35 @@ Subscribe to a new lead or scheduling request
 
 <div className="centered-image-container">
 <img src="/img/integrations/zapier/my leads in spreadsheet.png" alt="Spreadsheet leads"/>
-
 </div>
 
-### More information on using Zapier to integrate
+## Common Issues
+
+### Unable to pull leads - Cannot read properties of undefined
+
+<div className="centered-image-container">
+<img src="/img/integrations/zapier/unable-read-properties-of-undefined.png" alt="Properties of Undefined"/>
+</div>
+
+When you attempt to do initial testing you may see the error above, one of the primary causes was registering the incorrect application ID at initial connection. This is easy to correct.
+
+1. Find you application ID. You can find this under your businesses settings page or directly from the URL. See [How do I find my application ID?](https://documentation.xapp.ai/docs/development/development-faqs/#how-do-i-find-my-application-id). Note it should not have any leading or trailing slashes.
+
+2. Click on the "XAPP AI" starting node and select the three dot menu under "Account". Then click "Reconnect"
+
+<div className="centered-image-container">
+<img src="/img/integrations/zapier/click-reconnect.png" alt="Click Reconnect"/>
+</div>
+
+3. Paste your application ID to the box and click "Yes, Continue to XAPP AI"
+
+<div className="centered-image-container">
+<img src="/img/integrations/zapier/zapier-paste-app-id.png" alt="Paste App ID"/>
+</div>
+
+4. Test your leads again.
+
+# More information on using Zapier to integrate
 
 - [Zapier App Marketplace](https://zapier.com/apps)
 - [Zapier Training](https://zapier.com/apps)
