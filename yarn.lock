@@ -3330,10 +3330,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/docusaurus@npm:2.0.3":
-  version: 2.0.3
-  resolution: "@tsconfig/docusaurus@npm:2.0.3"
-  checksum: 10c0/6e3d2739f34d479a0e3ffe3499b2fd21e955f56dca7b0226aa03e0ce24fd3f0d65a85f15586b83c1d049d9724966c3c065a1d6e778379906ae280189c5fe823b
+"@tsconfig/docusaurus@npm:2.0.4":
+  version: 2.0.4
+  resolution: "@tsconfig/docusaurus@npm:2.0.4"
+  checksum: 10c0/ac062d51d046385bc8778cfacf5e52a6e7ac7f68f3a07e9c8a28d8b064ff7e8f492a9758b676d6f54b4aa3a096bc20218f68fd486fb81025842ffc6d28ab782a
   languageName: node
   linkType: hard
 
@@ -9748,7 +9748,7 @@ __metadata:
     "@docusaurus/plugin-content-docs": "npm:3.9.0"
     "@docusaurus/preset-classic": "npm:3.9.0"
     "@mdx-js/react": "npm:^3.1.1"
-    "@tsconfig/docusaurus": "npm:2.0.3"
+    "@tsconfig/docusaurus": "npm:2.0.4"
     "@types/react": "npm:19.2.2"
     "@types/react-helmet": "npm:6.1.11"
     "@types/react-router-dom": "npm:5.3.3"
