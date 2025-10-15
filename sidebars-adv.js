@@ -4,11 +4,7 @@ const sidebars = {
     {
       type: "category",
       label: "Basics",
-      items: [
-        "basics/basics-conversational-ai",
-        "basics/basics-model",
-        "basics/basics-content",
-      ],
+      items: ["basics/basics-conversational-ai", "basics/basics-model", "basics/basics-content"],
     },
     {
       type: "category",
@@ -18,13 +14,7 @@ const sidebars = {
     {
       type: "category",
       label: "Model",
-      items: [
-        "model/intents",
-        "model/slots",
-        "model/entities",
-        "model/input-context",
-        "model/model-best-practices",
-      ],
+      items: ["model/intents", "model/slots", "model/entities", "model/input-context", "model/model-best-practices"],
     },
     {
       type: "category",
@@ -42,10 +32,7 @@ const sidebars = {
     {
       type: "category",
       label: "Infrastructure",
-      items: [
-        "infrastructure/infrastructure-architecture",
-        "infrastructure/infrastructure-aws",
-      ],
+      items: ["infrastructure/infrastructure-architecture", "infrastructure/infrastructure-aws"],
     },
     {
       type: "category",
@@ -68,11 +55,7 @@ const sidebars = {
     {
       type: "category",
       label: "Data",
-      items: [
-        "data/types-of-data",
-        "data/analytics-basics",
-        "data/data-retention",
-      ],
+      items: ["data/types-of-data", "data/analytics-basics", "data/data-retention"],
     },
     {
       type: "category",
@@ -104,6 +87,7 @@ const sidebars = {
         "development/compiling-templated-responses",
         "development/tokens",
         "development/channels",
+        "development/router",
         "development/nlu",
         "development/knowledgebase",
         "development/running-locally",
