@@ -62,6 +62,12 @@ You can connect your existing Service Titan account with AI Powered Chat, and Go
 
 #### Add a Booking provider
 
+- You can find your booking providers in your ServiceTitan account by clicking the **Settings** (gear) icon, then **Integrations -> Booking Providers**
+
+<div className="centered-image-container">
+<img src="/img/integrations/service-titan/find-booking-providers.png" alt="ServiceTitan Booking Providers location"/>
+</div>
+
 - Adding a provider will allow you to see where your booking are coming from
 - If you haven't done this, add it by clicking 'Add new provider' and repeating Step 2 when you've add it. Your new booking provider will show in the drop-down when selecting. \_ make note of the ID associated with the booking, you'll need it later
 
