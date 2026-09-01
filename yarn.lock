@@ -3998,6 +3998,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xapp/chat-widget-core@npm:1.97.0":
+  version: 1.97.0
+  resolution: "@xapp/chat-widget-core@npm:1.97.0"
+  peerDependencies:
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  checksum: 10c0/b21ce4fc6bcda080d622fdb5b72aeb10257b2a40c26f7c3b7af30b860a115c0e1f53315bdd6f5e9ae0efc8bfdf36d71709d1da6d9d945dcb2d2b74413834a059
+  languageName: node
+  linkType: hard
+
 "@xapp/chat-widget@npm:1.78.1":
   version: 1.78.1
   resolution: "@xapp/chat-widget@npm:1.78.1"
@@ -4020,20 +4030,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xapp/intelligent-search-widget@npm:1.78.0":
-  version: 1.78.0
-  resolution: "@xapp/intelligent-search-widget@npm:1.78.0"
+"@xapp/intelligent-search-widget@npm:1.95.6":
+  version: 1.95.6
+  resolution: "@xapp/intelligent-search-widget@npm:1.95.6"
   dependencies:
-    "@xapp/chat-widget-core": "npm:1.78.0"
-    "@xapp/stentor-intelligent-search-channel": "npm:1.78.0"
-    stentor-guards: "npm:1.61.9"
+    "@xapp/chat-widget-core": "npm:1.97.0"
+    "@xapp/stentor-intelligent-search-channel": "npm:1.96.2"
+    stentor-guards: "npm:1.74.5"
     store: "npm:2.0.12"
     tslib: "npm:2.8.1"
   peerDependencies:
-    react: 18.X
-    react-dom: 18.X
-    stentor-models: 1.X
-  checksum: 10c0/c990651bf3c1d4ed0bb1b45d242ec1c2b1a33e59948d6b9b2e11e346ed7954ab7ee63046c54e30b1f1dba244db929b1c99536131ae29ea969b1cb799cc5f7cc8
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+    stentor-models: ^1.0.0
+  checksum: 10c0/01cafa5b5ef59c4f2f70378c9b78245fcb29b29137f3b2c13abf0febadc3c783213d16521ea74d1c7bd8c4f2fcfc12a298129660fa2e0873aa2351771a2033ca
   languageName: node
   linkType: hard
 
@@ -4061,15 +4071,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xapp/stentor-intelligent-search-channel@npm:1.78.0":
-  version: 1.78.0
-  resolution: "@xapp/stentor-intelligent-search-channel@npm:1.78.0"
+"@xapp/stentor-chat-widget@npm:1.98.0":
+  version: 1.98.0
+  resolution: "@xapp/stentor-chat-widget@npm:1.98.0"
   dependencies:
-    stentor-constants: "npm:1.61.9"
-    stentor-guards: "npm:1.61.9"
+    stentor-guards: "npm:1.74.5"
   peerDependencies:
-    stentor-models: 1.X
-  checksum: 10c0/ba5ab61b767ce6928c159d734b7bd994a3c18539db9ea0063ba96ace6fbd72981fadca204da3f7edb7d49f076c51f2d4a85ab3f963aacdea7c23342afbdc9725
+    react: ^18.0.0 || ^19.0.0
+    stentor-models: ^1.0.0
+  checksum: 10c0/b72d16504c845d0e9c4736b2c22182326c5f4c103ac6543030ef46a50b716abf4cebec9b101c5884f9ef3b651f474d50beff0a952b8b2a4d8bd358dad689125e
+  languageName: node
+  linkType: hard
+
+"@xapp/stentor-intelligent-search-channel@npm:1.96.2":
+  version: 1.96.2
+  resolution: "@xapp/stentor-intelligent-search-channel@npm:1.96.2"
+  dependencies:
+    "@xapp/stentor-chat-widget": "npm:1.98.0"
+    stentor-guards: "npm:1.74.5"
+  peerDependencies:
+    stentor-models: ^1.0.0
+  checksum: 10c0/91572dbda508e360920a3016fe77406dd709ad3b6f07c2dc1f1c8d73f66513632b2433ddc4fa5a5334afcb57f8d5112070b8ad4b9d36b76eba0a089a8f29e3c9
   languageName: node
   linkType: hard
 
@@ -9754,7 +9776,7 @@ __metadata:
     "@types/react-router-dom": "npm:5.3.3"
     "@xapp/chat-widget": "npm:1.78.1"
     "@xapp/chat-widget-components": "npm:1.11.2-alpha.0"
-    "@xapp/intelligent-search-widget": "npm:1.78.0"
+    "@xapp/intelligent-search-widget": "npm:1.95.6"
     clsx: "npm:2.1.1"
     react: "npm:19.2.0"
     react-dom: "npm:19.2.0"
@@ -12383,6 +12405,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stentor-constants@npm:1.74.5":
+  version: 1.74.5
+  resolution: "stentor-constants@npm:1.74.5"
+  peerDependencies:
+    stentor-models: 1.x
+  checksum: 10c0/132979db5932a6969586feb8411fbcb2374e78de159a3944deae74b5d8b81c53ea0faa086d1bf28556439f09ccb7ed6382dae0523185a76e3fb3e9c02b89cc4a
+  languageName: node
+  linkType: hard
+
 "stentor-guards@npm:1.37.36":
   version: 1.37.36
   resolution: "stentor-guards@npm:1.37.36"
@@ -12402,6 +12433,17 @@ __metadata:
   peerDependencies:
     stentor-models: 1.x
   checksum: 10c0/3fa22b0c323a78b379887936e615af65c7f7256be3893d16acbfa14fb59bc53b84879fd10275295dff9afda8f1e427394494138b81a81d36a58b5c8ae2c39c39
+  languageName: node
+  linkType: hard
+
+"stentor-guards@npm:1.74.5":
+  version: 1.74.5
+  resolution: "stentor-guards@npm:1.74.5"
+  dependencies:
+    stentor-constants: "npm:1.74.5"
+  peerDependencies:
+    stentor-models: 1.x
+  checksum: 10c0/379f08b5d7b611a92727cc021e0988eb8131f73a78f2d1241fa471c695eddb857387b1c13eddfdace2a547a30108605598e6dd323b1b52d7fe311280ea0a81ff
   languageName: node
   linkType: hard
 
