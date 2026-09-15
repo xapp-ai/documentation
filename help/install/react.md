@@ -41,6 +41,10 @@ The widget loads once and stays on screen as visitors move between pages — cli
 
 Use this when you want the chat to sit inside your own layout instead of floating over the page.
 
+:::tip
+Try it first on the [Embedded Chat Examples](/examples/embedded-chat) page — live layouts with source code you can copy, and a field to preview your own widget key.
+:::
+
 1. **Install the packages**
 
    ```bash
