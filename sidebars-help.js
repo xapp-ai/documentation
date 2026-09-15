@@ -24,6 +24,7 @@ const sidebars = {
         "install/framer",
         "install/zyro",
         "install/javascript",
+        "install/react",
         "install/voolt",
         "install/landing-page",
       ],
