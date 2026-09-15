@@ -1,6 +1,6 @@
 ---
-title: Installation on React and Single-Page Apps
-sidebar_label: React / Single-Page Apps
+title: Installation on React and Next.js
+sidebar_label: React / Next.js
 ---
 
 This guide is for sites built with React — a single-page application (for example with Vite or Create React App) or [Next.js](#nextjs-app-router) — rather than on a website builder. Using Vue, Angular or Svelte? See the [Vue](/help/install/vue), [Angular](/help/install/angular) and [Svelte](/help/install/svelte) guides. It covers two ways to add the XAPP Chat Widget:

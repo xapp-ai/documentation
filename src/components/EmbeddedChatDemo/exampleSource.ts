@@ -31,8 +31,12 @@ export const FRAMEWORKS: { id: FrameworkId; label: string; guide: string }[] = [
 
 const REACT_PACKAGES = "npm install @xapp/chat-widget react react-dom react-redux stentor-models";
 
+/**
+ * The key as it is spliced into generated source. Widget keys are UUIDs, so anything else typed
+ * into the field is dropped rather than left to break the quoting of code people copy.
+ */
 function key(settings: DemoSettings): string {
-    return settings.chatKey || PLACEHOLDER_KEY;
+    return settings.chatKey.replace(/[^A-Za-z0-9_-]/g, "") || PLACEHOLDER_KEY;
 }
 
 /** Indents every line after the first, for splicing generated blocks into templates. */
@@ -123,7 +127,14 @@ export function EmbeddedChat() {
 }
 
 /** React / Next.js page markup; `Chat` is the component name to render. */
-function reactLayout(layout: LayoutId, settings: DemoSettings, chat: string, importLine: string, name: string): string {
+function reactLayout(
+    layout: LayoutId,
+    settings: DemoSettings,
+    chat: string,
+    importLine: string,
+    name: string,
+    nextjs: boolean
+): string {
     switch (layout) {
         case "contact":
             return `${importLine}
@@ -161,7 +172,8 @@ export default function ${name}() {
 }
 `;
         case "panel":
-            return `${name === "HelpPanel" && importLine.includes("ChatEmbed") ? `"use client";\n\n` : ""}import { useState } from "react";
+            // The panel holds state, so as a Next.js component it has to be a client component.
+            return `${nextjs ? `"use client";\n\n` : ""}import { useState } from "react";
 ${importLine}
 
 export default function ${name}() {
@@ -203,7 +215,7 @@ function reactFiles(layout: LayoutId, settings: DemoSettings): SourceFile[] {
         {
             name: `${name}.tsx`,
             language: "tsx",
-            code: reactLayout(layout, settings, "EmbeddedChat", `import { EmbeddedChat } from "./EmbeddedChat";`, name),
+            code: reactLayout(layout, settings, "EmbeddedChat", `import { EmbeddedChat } from "./EmbeddedChat";`, name, false),
         },
     ];
 }
@@ -232,7 +244,7 @@ export const ChatEmbed = dynamic(() => import("./EmbeddedChat").then((m) => m.Em
         {
             name: pageFile.name,
             language: "tsx",
-            code: reactLayout(layout, settings, "ChatEmbed", `import { ChatEmbed } from "@/components/ChatEmbed";`, pageFile.pageName),
+            code: reactLayout(layout, settings, "ChatEmbed", `import { ChatEmbed } from "@/components/ChatEmbed";`, pageFile.pageName, true),
         },
     ];
 }

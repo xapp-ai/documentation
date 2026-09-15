@@ -115,18 +115,20 @@ const EmbeddedChatDemo: React.FC = () => {
         const requested = new URLSearchParams(window.location.search).get("framework");
         return FRAMEWORKS.find((f) => f.id === requested)?.id ?? "react";
     });
-    // Index into the current framework's files; defaults to the component file, after "Install".
-    const [fileIndex, setFileIndex] = useState(1);
+    // The file tab the reader picked, by name. Layouts don't all have the same files (Angular's
+    // app.routes.ts has no panel variant), so a position would land on an unrelated file.
+    const [selectedFile, setSelectedFile] = useState<string | undefined>();
 
     const configState = useChatConfig(chatKey || DEMO_CHAT_KEY);
     const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar };
     const files = sourceFiles(framework, layout, settings);
-    const activeFile = files[Math.min(fileIndex, files.length - 1)];
+    // Falls back to the component file, after "Install", when the picked file isn't in this layout.
+    const activeFile = files.find((f) => f.name === selectedFile) ?? files[Math.min(1, files.length - 1)];
     const frameworkInfo = FRAMEWORKS.find((f) => f.id === framework)!;
 
     const chooseFramework = (id: FrameworkId) => {
         setFramework(id);
-        setFileIndex(1);
+        setSelectedFile(undefined);
         const url = new URL(window.location.href);
         url.searchParams.set("framework", id);
         window.history.replaceState(null, "", url);
@@ -324,13 +326,13 @@ const EmbeddedChatDemo: React.FC = () => {
                     </span>
                 </div>
                 <div className={styles.sourceTabs} role="tablist" aria-label="Source files">
-                    {files.map((file, i) => (
+                    {files.map((file) => (
                         <button
                             key={file.name}
                             role="tab"
                             aria-selected={file === activeFile}
                             className={`${styles.sourceTab} ${file === activeFile ? styles.sourceTabActive : ""}`}
-                            onClick={() => setFileIndex(i)}
+                            onClick={() => setSelectedFile(file.name)}
                         >
                             {file.name}
                         </button>

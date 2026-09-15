@@ -36,7 +36,7 @@ If you don't see your CMS above, our script snippet method will work for most pl
 
 For custom web applications, including embedding the chat inside your own page layout — this requires a developer:
 
-- **React / Next.js**: [Install Chat on React and Single-Page Apps](/help/install/react)
+- **React / Next.js**: [Install Chat on React and Next.js](/help/install/react)
 - **Vue**: [Install Chat on Vue](/help/install/vue)
 - **Angular**: [Install Chat on Angular](/help/install/angular)
 - **Svelte**: [Install Chat on Svelte](/help/install/svelte)
