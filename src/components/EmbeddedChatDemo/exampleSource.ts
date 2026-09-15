@@ -49,14 +49,14 @@ function indent(block: string, spaces: number): string {
 }
 
 /** The `config` built from the Studio config, shared by every component-based framework. */
-function configExpression(settings: DemoSettings, type: string): string {
+function configExpression(settings: DemoSettings): string {
     return settings.hideActionBar
-        ? `const config${type} = {
+        ? `const config: WidgetEnv = {
   ...studioConfig,
   // The action bar is a floating page element; hide it inside an embedded chat.
   actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },
 };`
-        : `const config${type} = studioConfig;`;
+        : `const config: WidgetEnv = studioConfig;`;
 }
 
 // ---------------------------------------------------------------- React
@@ -275,7 +275,7 @@ onMounted(async () => {
   if (unmounted || !container.value) {
     return;
   }
-  ${indent(configExpression(settings, ": WidgetEnv"), 2)}
+  ${indent(configExpression(settings), 2)}
   root = createRoot(container.value);
   root.render(createElement(Chat, { config, mode: "${settings.mode}" }));
 });
@@ -429,7 +429,7 @@ export class XappChat implements AfterViewInit, OnDestroy {
     if (this.destroyed) {
       return;
     }
-    ${indent(configExpression(settings, ": WidgetEnv"), 4)}
+    ${indent(configExpression(settings), 4)}
     this.root = createRoot(this.container.nativeElement);
     this.root.render(createElement(Chat, { config, mode: '${settings.mode}' }));
   }
@@ -598,7 +598,7 @@ function svelteFiles(layout: LayoutId, settings: DemoSettings): SourceFile[] {
       if (unmounted) {
         return;
       }
-      ${indent(configExpression(settings, ": WidgetEnv"), 6)}
+      ${indent(configExpression(settings), 6)}
       root = createRoot(container);
       root.render(createElement(Chat, { config, mode: "${settings.mode}" }));
     })();
