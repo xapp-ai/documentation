@@ -757,6 +757,9 @@ function htmlFiles(layout: LayoutId, settings: DemoSettings): SourceFile[] {
         overrides.push(`// The action bar is a floating page element; hide it inside an embedded chat.
 actionBar: { enabled: false },`);
     }
+    // Emitted even though the script served from widget.xapp.ai predates header.hidden (the page
+    // shows a note for that): the bundle ignores unknown config, so the copied snippet is harmless
+    // today and starts hiding the header once the CDN bundle is redeployed, with no code change.
     if (settings.hideHeader) {
         overrides.push(`// The page already has a heading; ignored in normal mode.
 header: { hidden: true },`);

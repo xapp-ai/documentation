@@ -107,10 +107,17 @@ Set `header.hidden` to drop the header when the widget is embedded in a page tha
 
 ```tsx
 const config: WidgetEnv = {
-    ...studioConfig,
-    header: { ...studioConfig.header, hidden: true },
+    connection: {
+        serverUrl: "",
+        type: "direct"
+    },
+    header: {
+        hidden: true
+    },
 };
 ```
+
+When you load the configuration saved in Studio instead, keep its other header settings by spreading them: `header: { ...studioConfig.header, hidden: true }`, where `studioConfig` is the fetched `config.json` (see [Installation on React and Next.js](/help/install/react)).
 
 It only applies in `docked` and `static` mode. In `normal` mode the header holds the minimize and close buttons, so it is always shown. A menu button configured for the header (`menu.menuButtonLocation` of `HEADER_LEFT` or `HEADER_RIGHT`) moves to the footer while the header is hidden.
 
