@@ -75,14 +75,14 @@ It is also possible to embed the widget in a React based web application, this w
 
 #### App Installation
 
-Add to your project:
+Add to your project (React 18 and 19 are supported):
 
 ```bash
-npm i @xapp/chat-widget redux-thunk redux react-redux --production --save
+npm install @xapp/chat-widget react-redux stentor-models
 ```
 
-```jsx
-import { Chat as ChatWidget, WidgetEnv } from "@xapp/chat-widget";
+```tsx
+import { Chat as XappChat, WidgetEnv } from "@xapp/chat-widget";
 import "@xapp/chat-widget/dist/index.css";
 
 const config: WidgetEnv = {
@@ -93,13 +93,13 @@ const config: WidgetEnv = {
 };
 
 function RenderWidget() {
-    return <ChatWidget config={config} mode={"docked"} />;
+    return <XappChat config={config} mode={"docked"} />;
 }
 ```
 
-The config has all the same parameters configured on the chat widget channel page however without the GUI for setting them.  
+The config has all the same parameters configured on the chat widget channel page however without the GUI for setting them. To use the configuration saved in Studio instead of building your own, fetch it from `https://widget.xapp.ai/config.json?key=YOUR_CHAT_KEY` and pass the result as `config` — see [Installation on React and Single-Page Apps](/help/install/react) for a complete example.
 
-When in `docked` mode the widget will fill the space, height & width, given to it and be responsive to changes in dimensions.
+When in `docked` mode the widget will fill the space, height & width, given to it and be responsive to changes in dimensions. `normal` renders the standard floating button and window, and `static` renders an always-open window fixed to the corner of the screen (it does not fill its container).
 
 ## Authenticated Users
 

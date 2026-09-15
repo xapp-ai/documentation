@@ -34,9 +34,9 @@ If you don't see your CMS above, our script snippet method will work for most pl
 
 - **JavaScript Snippet**: [Install Chat with Script Snippet](/help/install/javascript)
 
-We also support a React module for installation within React applications, this is considered advanced and requires developers:
+For custom React / single-page applications (for example built with Vite), including embedding the chat inside your own page layout — this requires a developer:
 
-- **React Component**: [Install Chat with React Component](/docs/channels/channel-chat-widget#react-library)
+- **React / Single-Page Apps**: [Install Chat on React and Single-Page Apps](/help/install/react)
 
 ## General Installation Steps
 
