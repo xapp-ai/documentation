@@ -266,12 +266,18 @@ let root: Root | null = null;
 let unmounted = false;
 
 onMounted(async () => {
-  const res = await fetch(\`https://widget.xapp.ai/config.json?key=\${CHAT_KEY}\`);
-  if (!res.ok) {
-    console.error(\`Chat config request failed: \${res.status}\`);
+  let studioConfig: WidgetEnv;
+  try {
+    const res = await fetch(\`https://widget.xapp.ai/config.json?key=\${CHAT_KEY}\`);
+    if (!res.ok) {
+      throw new Error(\`Chat config request failed: \${res.status}\`);
+    }
+    studioConfig = await res.json();
+  } catch (error) {
+    // A network failure rejects fetch itself, so catch both that and a bad status.
+    console.error(error);
     return;
   }
-  const studioConfig: WidgetEnv = await res.json();
   if (unmounted || !container.value) {
     return;
   }
@@ -420,12 +426,18 @@ export class XappChat implements AfterViewInit, OnDestroy {
   private destroyed = false;
 
   async ngAfterViewInit(): Promise<void> {
-    const res = await fetch(\`https://widget.xapp.ai/config.json?key=\${CHAT_KEY}\`);
-    if (!res.ok) {
-      console.error(\`Chat config request failed: \${res.status}\`);
+    let studioConfig: WidgetEnv;
+    try {
+      const res = await fetch(\`https://widget.xapp.ai/config.json?key=\${CHAT_KEY}\`);
+      if (!res.ok) {
+        throw new Error(\`Chat config request failed: \${res.status}\`);
+      }
+      studioConfig = await res.json();
+    } catch (error) {
+      // A network failure rejects fetch itself, so catch both that and a bad status.
+      console.error(error);
       return;
     }
-    const studioConfig: WidgetEnv = await res.json();
     if (this.destroyed) {
       return;
     }
@@ -589,12 +601,18 @@ function svelteFiles(layout: LayoutId, settings: DemoSettings): SourceFile[] {
     let unmounted = false;
 
     (async () => {
-      const res = await fetch(\`https://widget.xapp.ai/config.json?key=\${CHAT_KEY}\`);
-      if (!res.ok) {
-        console.error(\`Chat config request failed: \${res.status}\`);
+      let studioConfig: WidgetEnv;
+      try {
+        const res = await fetch(\`https://widget.xapp.ai/config.json?key=\${CHAT_KEY}\`);
+        if (!res.ok) {
+          throw new Error(\`Chat config request failed: \${res.status}\`);
+        }
+        studioConfig = await res.json();
+      } catch (error) {
+        // A network failure rejects fetch itself, so catch both that and a bad status.
+        console.error(error);
         return;
       }
-      const studioConfig: WidgetEnv = await res.json();
       if (unmounted) {
         return;
       }

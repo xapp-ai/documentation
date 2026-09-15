@@ -50,12 +50,18 @@ The chat widget is a React component. A small Svelte component creates a React r
        let unmounted = false;
 
        (async () => {
-         const res = await fetch(`https://widget.xapp.ai/config.json?key=${CHAT_KEY}`);
-         if (!res.ok) {
-           console.error(`Chat config request failed: ${res.status}`);
+         let studioConfig: WidgetEnv;
+         try {
+           const res = await fetch(`https://widget.xapp.ai/config.json?key=${CHAT_KEY}`);
+           if (!res.ok) {
+             throw new Error(`Chat config request failed: ${res.status}`);
+           }
+           studioConfig = await res.json();
+         } catch (error) {
+           // A network failure rejects fetch itself, so catch both that and a bad status.
+           console.error(error);
            return;
          }
-         const studioConfig: WidgetEnv = await res.json();
          if (unmounted) {
            return;
          }

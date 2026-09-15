@@ -17,7 +17,7 @@ The chat widget is a React component. A small standalone Angular component creat
 
 ## Prerequisites
 
-- An Angular application using standalone components (Angular CLI), and a developer who can build and deploy it
+- An Angular 17 or later application using standalone components (Angular CLI), and a developer who can build and deploy it
 - Your chat widget key from Studio
   - See instructions [here](/help/channels/chat-widget#finding-code-snippet--key)
 
@@ -61,12 +61,18 @@ The chat widget is a React component. A small standalone Angular component creat
      private destroyed = false;
 
      async ngAfterViewInit(): Promise<void> {
-       const res = await fetch(`https://widget.xapp.ai/config.json?key=${CHAT_KEY}`);
-       if (!res.ok) {
-         console.error(`Chat config request failed: ${res.status}`);
+       let studioConfig: WidgetEnv;
+       try {
+         const res = await fetch(`https://widget.xapp.ai/config.json?key=${CHAT_KEY}`);
+         if (!res.ok) {
+           throw new Error(`Chat config request failed: ${res.status}`);
+         }
+         studioConfig = await res.json();
+       } catch (error) {
+         // A network failure rejects fetch itself, so catch both that and a bad status.
+         console.error(error);
          return;
        }
-       const studioConfig: WidgetEnv = await res.json();
        if (this.destroyed) {
          return;
        }
