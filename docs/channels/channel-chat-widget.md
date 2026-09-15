@@ -101,6 +101,19 @@ The config has all the same parameters configured on the chat widget channel pag
 
 When in `docked` mode the widget will fill the space, height & width, given to it and be responsive to changes in dimensions. `normal` renders the standard floating button and window, and `static` renders an always-open window fixed to the corner of the screen (it does not fill its container).
 
+#### Hiding the Header
+
+Set `header.hidden` to drop the header when the widget is embedded in a page that already has its own heading (requires `@xapp/chat-widget` 1.103.0 or later):
+
+```tsx
+const config: WidgetEnv = {
+    ...studioConfig,
+    header: { ...studioConfig.header, hidden: true },
+};
+```
+
+It only applies in `docked` and `static` mode. In `normal` mode the header holds the minimize and close buttons, so it is always shown. A menu button configured for the header (`menu.menuButtonLocation` of `HEADER_LEFT` or `HEADER_RIGHT`) moves to the footer while the header is hidden.
+
 ## Authenticated Users
 
 For applications where the widget is installed behind a login, you can set the user's unique user ID and access token on the widget so it is passed through to the assistant application.  It can then be used to retreive information specific to the authenticated user.  

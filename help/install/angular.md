@@ -132,6 +132,24 @@ The chat widget is a React component. A small standalone Angular component creat
 `ng build` prints warnings that `react`, `react-dom/client` and related modules are not ESM. They are expected and do not affect the chat.
 :::
 
+## Hide the Chat Header (Optional)
+
+When your page already has its own heading, the chat's title bar repeats it. Add `header` to the config your component builds:
+
+```tsx
+const config: WidgetEnv = {
+  ...studioConfig,
+  actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },
+  header: { ...studioConfig.header, hidden: true },
+};
+```
+
+- Requires `@xapp/chat-widget` 1.103.0 or later.
+- Applies in `docked` and `static` mode only. A floating (`normal`) chat always keeps its header, because that is where its minimize and close buttons are.
+- If your menu button is set to appear in the header, it moves to the footer so the menu stays reachable.
+
+Try it with the **Hide header** option on the [Embedded Chat Examples](/examples/embedded-chat) page.
+
 ## Verify Installation
 
 1. Open the page with the chat and confirm it shows its welcome message inside your container.
