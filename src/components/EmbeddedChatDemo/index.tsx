@@ -89,6 +89,7 @@ const LiveChat: React.FC<{ state: ConfigState; mode: ChatMode; hideActionBar: bo
 
     // Required lazily: the widget touches window at import time, which breaks static rendering.
     const { Chat: XappChat } = require("@xapp/chat-widget") as typeof import("@xapp/chat-widget");
+    // Each setting spreads its override only when on; spreading `false` adds nothing.
     const config: WidgetEnv = {
         ...state.config,
         ...(hideActionBar && { actionBar: state.config.actionBar && { ...state.config.actionBar, enabled: false } }),

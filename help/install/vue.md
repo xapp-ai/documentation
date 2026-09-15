@@ -117,7 +117,7 @@ If your app renders on the server (for example Nuxt), the widget must only load 
 
 When your page already has its own heading, the chat's title bar repeats it. Add `header` to the config your component builds:
 
-```tsx
+```ts
 const config: WidgetEnv = {
   ...studioConfig,
   actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },

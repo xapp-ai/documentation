@@ -136,7 +136,7 @@ The chat widget is a React component. A small standalone Angular component creat
 
 When your page already has its own heading, the chat's title bar repeats it. Add `header` to the config your component builds:
 
-```tsx
+```ts
 const config: WidgetEnv = {
   ...studioConfig,
   actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },

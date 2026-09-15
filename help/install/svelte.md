@@ -115,7 +115,7 @@ If your app renders on the server (for example SvelteKit), the widget must only 
 
 When your page already has its own heading, the chat's title bar repeats it. Add `header` to the config your component builds:
 
-```tsx
+```ts
 const config: WidgetEnv = {
   ...studioConfig,
   actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },
