@@ -61,6 +61,33 @@ Before you begin, ensure you have the following:
 
    Once uploaded, visit your website to ensure all installed widgets are visible and functioning correctly. If you encounter any issues, double-check the key and the placement of the snippet in your HTML file.
 
+## Embedded Chat on Any HTML Page
+
+Instead of the floating button, the chat can sit inside your page layout — for example on a "Talk to us" page. Add these to that page, replacing the floating chat snippet:
+
+```html
+<div id="xapp-widget" style="height: 600px; max-width: 420px;"></div>
+
+<script>
+  window.xaConfig = {
+    mode: "docked",
+    // The action bar is a floating page element; hide it inside an embedded chat.
+    actionBar: { enabled: false },
+  };
+</script>
+<script
+  id="xapp-js"
+  src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
+></script>
+```
+
+- The chat renders inside the element with `id="xapp-widget"` and fills it, so **set the height on that element itself** — a height on a parent element is not enough.
+- `window.xaConfig` must be set **before** the widget script. Your Studio settings still apply; the values here only override the mode and the action bar.
+
+:::important
+The script renders the chat once, when the page loads. This suits server-rendered and multi-page sites (static HTML, WordPress templates, PHP, Rails, Django and similar), where each page is a full page load. In a single-page app whose routes mount and unmount the chat, use the component guide for your framework instead: [React / Next.js](/help/install/react), [Vue](/help/install/vue), [Angular](/help/install/angular) or [Svelte](/help/install/svelte).
+:::
+
 ## Troubleshooting
 
 - **Widget Not Appearing**: Ensure the snippet is placed correctly in your HTML and that the `key` is accurate.

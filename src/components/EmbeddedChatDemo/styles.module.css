@@ -338,3 +338,40 @@
   background: var(--ifm-background-surface-color);
   font-weight: 600;
 }
+
+/* Framework selector */
+
+.frameworkRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.segment {
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: inherit;
+  cursor: pointer;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+}
+
+.segment:hover {
+  border-color: var(--ifm-color-primary-light);
+}
+
+.segmentActive {
+  color: #fff;
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}

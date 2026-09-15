@@ -34,9 +34,14 @@ If you don't see your CMS above, our script snippet method will work for most pl
 
 - **JavaScript Snippet**: [Install Chat with Script Snippet](/help/install/javascript)
 
-For custom React / single-page applications (for example built with Vite), including embedding the chat inside your own page layout — this requires a developer:
+For custom web applications, including embedding the chat inside your own page layout — this requires a developer:
 
-- **React / Single-Page Apps**: [Install Chat on React and Single-Page Apps](/help/install/react)
+- **React / Next.js**: [Install Chat on React and Single-Page Apps](/help/install/react)
+- **Vue**: [Install Chat on Vue](/help/install/vue)
+- **Angular**: [Install Chat on Angular](/help/install/angular)
+- **Svelte**: [Install Chat on Svelte](/help/install/svelte)
+
+To embed the chat inside a page of a server-rendered or static HTML site, see [Embedded Chat on Any HTML Page](/help/install/javascript#embedded-chat-on-any-html-page).
 
 ## General Installation Steps
 
