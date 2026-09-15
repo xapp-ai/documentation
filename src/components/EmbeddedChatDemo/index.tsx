@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import CodeBlock from "@theme/CodeBlock";
+import Link from "@docusaurus/Link";
 import type { WidgetEnv } from "@xapp/chat-widget";
 import "@xapp/chat-widget/dist/index.css";
 
-import { ChatMode, componentSource, DemoSettings, LayoutId, layoutSource } from "./exampleSource";
+import { ChatMode, DemoSettings, FrameworkId, FRAMEWORKS, LayoutId, sourceFiles } from "./exampleSource";
 import styles from "./styles.module.css";
 
 /** The XAPP AI assistant this site already uses, shown when no key is entered. */
@@ -110,10 +111,28 @@ const EmbeddedChatDemo: React.FC = () => {
     const [maxWidth, setMaxWidth] = useState(420);
     const [hideActionBar, setHideActionBar] = useState(true);
     const [panelOpen, setPanelOpen] = useState(false);
-    const [sourceTab, setSourceTab] = useState<"component" | "page">("component");
+    const [framework, setFramework] = useState<FrameworkId>(() => {
+        const requested = new URLSearchParams(window.location.search).get("framework");
+        return FRAMEWORKS.find((f) => f.id === requested)?.id ?? "react";
+    });
+    // The file tab the reader picked, by name. Layouts don't all have the same files (Angular's
+    // app.routes.ts has no panel variant), so a position would land on an unrelated file.
+    const [selectedFile, setSelectedFile] = useState<string | undefined>();
 
     const configState = useChatConfig(chatKey || DEMO_CHAT_KEY);
     const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar };
+    const files = sourceFiles(framework, layout, settings);
+    // Falls back to the component file, after "Install", when the picked file isn't in this layout.
+    const activeFile = files.find((f) => f.name === selectedFile) ?? files[Math.min(1, files.length - 1)];
+    const frameworkInfo = FRAMEWORKS.find((f) => f.id === framework)!;
+
+    const chooseFramework = (id: FrameworkId) => {
+        setFramework(id);
+        setSelectedFile(undefined);
+        const url = new URL(window.location.href);
+        url.searchParams.set("framework", id);
+        window.history.replaceState(null, "", url);
+    };
 
     const applyKey = (event: React.FormEvent) => {
         event.preventDefault();
@@ -285,16 +304,42 @@ const EmbeddedChatDemo: React.FC = () => {
             </div>
 
             <div className={styles.source}>
-                <div className={styles.sourceTabs} role="tablist" aria-label="Source code">
-                    <button role="tab" aria-selected={sourceTab === "component"} className={`${styles.sourceTab} ${sourceTab === "component" ? styles.sourceTabActive : ""}`} onClick={() => setSourceTab("component")}>
-                        EmbeddedChat.tsx
-                    </button>
-                    <button role="tab" aria-selected={sourceTab === "page"} className={`${styles.sourceTab} ${sourceTab === "page" ? styles.sourceTabActive : ""}`} onClick={() => setSourceTab("page")}>
-                        {layout === "contact" ? "ContactPage.tsx" : layout === "fullpage" ? "ChatPage.tsx" : "HelpPanel.tsx"}
-                    </button>
+                <div className={styles.frameworkRow}>
+                    <span className={styles.label} id="framework-label">
+                        Framework
+                    </span>
+                    <div className={styles.segmented} role="radiogroup" aria-labelledby="framework-label">
+                        {FRAMEWORKS.map((f) => (
+                            <button
+                                key={f.id}
+                                role="radio"
+                                aria-checked={framework === f.id}
+                                className={`${styles.segment} ${framework === f.id ? styles.segmentActive : ""}`}
+                                onClick={() => chooseFramework(f.id)}
+                            >
+                                {f.label}
+                            </button>
+                        ))}
+                    </div>
+                    <span className={styles.hint}>
+                        The live preview is the same widget in every framework. <Link to={frameworkInfo.guide}>{frameworkInfo.label} install guide</Link>
+                    </span>
+                </div>
+                <div className={styles.sourceTabs} role="tablist" aria-label="Source files">
+                    {files.map((file) => (
+                        <button
+                            key={file.name}
+                            role="tab"
+                            aria-selected={file === activeFile}
+                            className={`${styles.sourceTab} ${file === activeFile ? styles.sourceTabActive : ""}`}
+                            onClick={() => setSelectedFile(file.name)}
+                        >
+                            {file.name}
+                        </button>
+                    ))}
                     <span className={styles.hint}>Updates as you change the settings above.</span>
                 </div>
-                <CodeBlock language="tsx">{sourceTab === "component" ? componentSource(settings) : layoutSource(layout, settings)}</CodeBlock>
+                <CodeBlock language={activeFile.language}>{activeFile.code}</CodeBlock>
             </div>
         </div>
     );

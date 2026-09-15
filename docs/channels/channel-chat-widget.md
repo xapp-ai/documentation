@@ -97,7 +97,7 @@ function RenderWidget() {
 }
 ```
 
-The config has all the same parameters configured on the chat widget channel page however without the GUI for setting them. To use the configuration saved in Studio instead of building your own, fetch it from `https://widget.xapp.ai/config.json?key=YOUR_CHAT_KEY` and pass the result as `config` — see [Installation on React and Single-Page Apps](/help/install/react) for a complete example.
+The config has all the same parameters configured on the chat widget channel page however without the GUI for setting them. To use the configuration saved in Studio instead of building your own, fetch it from `https://widget.xapp.ai/config.json?key=YOUR_CHAT_KEY` and pass the result as `config` — see [Installation on React and Next.js](/help/install/react) for a complete example.
 
 When in `docked` mode the widget will fill the space, height & width, given to it and be responsive to changes in dimensions. `normal` renders the standard floating button and window, and `static` renders an always-open window fixed to the corner of the screen (it does not fill its container).
 

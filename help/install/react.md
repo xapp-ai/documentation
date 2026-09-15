@@ -1,9 +1,9 @@
 ---
-title: Installation on React and Single-Page Apps
-sidebar_label: React / Single-Page Apps
+title: Installation on React and Next.js
+sidebar_label: React / Next.js
 ---
 
-This guide is for sites built as a custom React single-page application (SPA) — for example with Vite or Create React App — rather than on a website builder. It covers two ways to add the XAPP Chat Widget:
+This guide is for sites built with React — a single-page application (for example with Vite or Create React App) or [Next.js](#nextjs-app-router) — rather than on a website builder. Using Vue, Angular or Svelte? See the [Vue](/help/install/vue), [Angular](/help/install/angular) and [Svelte](/help/install/svelte) guides. It covers two ways to add the XAPP Chat Widget:
 
 - **Floating chat** — the standard chat button and window, on every page. Uses the script snippet.
 - **Embedded chat** — the chat window placed inside your own page layout, for example on a "Talk to us" page. Uses the `@xapp/chat-widget` React component.
@@ -123,6 +123,97 @@ If your app already imports a component named `Chat` or `ChatWidget`, import our
 | `docked` | Fills its container and is always open. **Use this for embedding.** |
 | `normal` | The standard floating chat button and window, same as the script snippet. |
 | `static` | An always-open chat window fixed to the corner of the screen. It does not sit inside your layout. |
+
+## Next.js (App Router)
+
+The same component works in Next.js with two changes, both needed for `next build` to succeed:
+
+- **Load it only in the browser.** The widget reads browser storage as soon as it loads, which fails while Next.js pre-renders the page on the server. Wrap it with `next/dynamic` and `ssr: false`.
+- **Load the stylesheet from the XAPP CDN.** Next.js 16's default bundler (Turbopack) cannot parse the stylesheet shipped in the npm package, so link `https://widget.xapp.ai/xapp-chat-widget.css` instead of importing `@xapp/chat-widget/dist/index.css`.
+
+1. **Install the packages**
+
+   ```bash
+   npm install @xapp/chat-widget react-redux stentor-models
+   ```
+
+2. **Add the chat component** — `components/EmbeddedChat.tsx`
+
+   ```tsx
+   "use client";
+
+   import { useEffect, useState } from "react";
+   import { Chat as XappChat, WidgetEnv } from "@xapp/chat-widget";
+
+   const CHAT_KEY = "YOUR_CHAT_KEY";
+
+   async function loadChatConfig(): Promise<WidgetEnv> {
+     const res = await fetch(`https://widget.xapp.ai/config.json?key=${CHAT_KEY}`);
+     if (!res.ok) {
+       throw new Error(`Chat config request failed: ${res.status}`);
+     }
+     return res.json();
+   }
+
+   export function EmbeddedChat() {
+     const [config, setConfig] = useState<WidgetEnv | null>(null);
+
+     useEffect(() => {
+       let cancelled = false;
+       loadChatConfig()
+         .then((studioConfig) => {
+           if (!cancelled) {
+             setConfig({
+               ...studioConfig,
+               actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },
+             });
+           }
+         })
+         .catch((error) => console.error(error));
+       return () => {
+         cancelled = true;
+       };
+     }, []);
+
+     if (!config) {
+       return null;
+     }
+     return (
+       <>
+         <link rel="stylesheet" href="https://widget.xapp.ai/xapp-chat-widget.css" precedence="default" />
+         <XappChat config={config} mode="docked" />
+       </>
+     );
+   }
+   ```
+
+3. **Add a browser-only wrapper** — `components/ChatEmbed.tsx`
+
+   ```tsx
+   "use client";
+
+   import dynamic from "next/dynamic";
+
+   // The widget reads browser storage when it loads, so it must not run during server rendering.
+   export const ChatEmbed = dynamic(() => import("./EmbeddedChat").then((m) => m.EmbeddedChat), { ssr: false });
+   ```
+
+4. **Use the wrapper in a page** — for example `app/help/page.tsx`
+
+   ```tsx
+   import { ChatEmbed } from "@/components/ChatEmbed";
+
+   export default function HelpPage() {
+     return (
+       <main>
+         <h1>Talk to us</h1>
+         <div style={{ height: 600, maxWidth: 420 }}>
+           <ChatEmbed />
+         </div>
+       </main>
+     );
+   }
+   ```
 
 ## Using Both
 

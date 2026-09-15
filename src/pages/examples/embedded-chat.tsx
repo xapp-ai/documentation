@@ -9,9 +9,9 @@ export default function EmbeddedChatExamples(): JSX.Element {
             <main className="container margin-vert--lg">
                 <h1>Embedded Chat Examples</h1>
                 <p>
-                    Live examples of the chat widget embedded inside a React page with the <code>@xapp/chat-widget</code> component. Pick a
-                    layout, adjust the settings, and copy the source below — it updates to match. Enter your own widget key to preview your
-                    assistant. See <Link to="/help/install/react">Installation on React and Single-Page Apps</Link> for the full guide.
+                    Live examples of the chat widget embedded inside a web page. Pick a layout, adjust the settings, choose your framework —
+                    React, Next.js, Vue, Angular, Svelte or plain HTML — and copy the source below; it updates to match. Enter your own widget
+                    key to preview your assistant. See the <Link to="/help/install">installation guides</Link> for step-by-step instructions.
                 </p>
                 <BrowserOnly fallback={<div>Loading examples…</div>}>
                     {() => {
