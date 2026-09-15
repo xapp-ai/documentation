@@ -74,7 +74,12 @@ function useChatConfig(chatKey: string): ConfigState {
     return state;
 }
 
-const LiveChat: React.FC<{ state: ConfigState; mode: ChatMode; hideActionBar: boolean }> = ({ state, mode, hideActionBar }) => {
+const LiveChat: React.FC<{ state: ConfigState; mode: ChatMode; hideActionBar: boolean; hideHeader: boolean }> = ({
+    state,
+    mode,
+    hideActionBar,
+    hideHeader,
+}) => {
     if (state.status === "loading") {
         return <div className={styles.placeholder}>Loading chat configuration…</div>;
     }
@@ -84,9 +89,12 @@ const LiveChat: React.FC<{ state: ConfigState; mode: ChatMode; hideActionBar: bo
 
     // Required lazily: the widget touches window at import time, which breaks static rendering.
     const { Chat: XappChat } = require("@xapp/chat-widget") as typeof import("@xapp/chat-widget");
-    const config: WidgetEnv = hideActionBar
-        ? { ...state.config, actionBar: state.config.actionBar && { ...state.config.actionBar, enabled: false } }
-        : state.config;
+    // Each setting spreads its override only when on; spreading `false` adds nothing.
+    const config: WidgetEnv = {
+        ...state.config,
+        ...(hideActionBar && { actionBar: state.config.actionBar && { ...state.config.actionBar, enabled: false } }),
+        ...(hideHeader && { header: { ...state.config.header, hidden: true } }),
+    };
 
     return <XappChat config={config} mode={mode} />;
 };
@@ -110,6 +118,7 @@ const EmbeddedChatDemo: React.FC = () => {
     const [height, setHeight] = useState(560);
     const [maxWidth, setMaxWidth] = useState(420);
     const [hideActionBar, setHideActionBar] = useState(true);
+    const [hideHeader, setHideHeader] = useState(false);
     const [panelOpen, setPanelOpen] = useState(false);
     const [framework, setFramework] = useState<FrameworkId>(() => {
         const requested = new URLSearchParams(window.location.search).get("framework");
@@ -120,7 +129,7 @@ const EmbeddedChatDemo: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<string | undefined>();
 
     const configState = useChatConfig(chatKey || DEMO_CHAT_KEY);
-    const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar };
+    const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar, hideHeader };
     const files = sourceFiles(framework, layout, settings);
     // Falls back to the component file, after "Install", when the picked file isn't in this layout.
     const activeFile = files.find((f) => f.name === selectedFile) ?? files[Math.min(1, files.length - 1)];
@@ -150,10 +159,11 @@ const EmbeddedChatDemo: React.FC = () => {
     // Remount the widget when anything that shapes its config changes, so each variation starts clean.
     const chat = (
         <LiveChat
-            key={`${chatKey}|${mode}|${hideActionBar}|${layout}`}
+            key={`${chatKey}|${mode}|${hideActionBar}|${hideHeader}|${layout}`}
             state={configState}
             mode={mode}
             hideActionBar={hideActionBar}
+            hideHeader={hideHeader}
         />
     );
 
@@ -235,6 +245,16 @@ const EmbeddedChatDemo: React.FC = () => {
                         <span>
                             Hide action bar
                             <span className={styles.radioDescription}>The Chat / Book buttons float over the page, so an embedded chat usually hides them.</span>
+                        </span>
+                    </label>
+
+                    <label className={styles.checkbox}>
+                        <input type="checkbox" checked={hideHeader} onChange={(e) => setHideHeader(e.target.checked)} />
+                        <span>
+                            Hide header
+                            <span className={styles.radioDescription}>
+                                Drops the widget's title bar when your page already has one. Only applies to <code>docked</code> and <code>static</code>.
+                            </span>
                         </span>
                     </label>
 
@@ -325,6 +345,12 @@ const EmbeddedChatDemo: React.FC = () => {
                         The live preview is the same widget in every framework. <Link to={frameworkInfo.guide}>{frameworkInfo.label} install guide</Link>
                     </span>
                 </div>
+                {framework === "html" && hideHeader && (
+                    <p className={styles.warning}>
+                        The script served from widget.xapp.ai does not support <code>header.hidden</code> yet, so the HTML embed keeps its header
+                        for now. The npm-based frameworks support it from <code>@xapp/chat-widget</code> 1.103.0.
+                    </p>
+                )}
                 <div className={styles.sourceTabs} role="tablist" aria-label="Source files">
                     {files.map((file) => (
                         <button

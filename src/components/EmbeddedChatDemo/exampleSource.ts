@@ -10,6 +10,7 @@ export interface DemoSettings {
     readonly height: number;
     readonly maxWidth: number;
     readonly hideActionBar: boolean;
+    readonly hideHeader: boolean;
 }
 
 export interface SourceFile {
@@ -48,27 +49,43 @@ function indent(block: string, spaces: number): string {
         .join("\n");
 }
 
+/** Overrides applied on top of the Studio config, one commented property per enabled setting. */
+function configOverrides(settings: DemoSettings): string[] {
+    const overrides: string[] = [];
+    if (settings.hideActionBar) {
+        overrides.push(`// The action bar is a floating page element; hide it inside an embedded chat.
+actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },`);
+    }
+    if (settings.hideHeader) {
+        overrides.push(`// The page already has a heading. Needs @xapp/chat-widget 1.103.0+; ignored in normal mode.
+header: { ...studioConfig.header, hidden: true },`);
+    }
+    return overrides;
+}
+
+/** The Studio config with the overrides spread over it, as an object literal. */
+function configObject(settings: DemoSettings): string | undefined {
+    const overrides = configOverrides(settings);
+    if (!overrides.length) {
+        return undefined;
+    }
+    return `{
+  ...studioConfig,
+  ${indent(overrides.join("\n"), 2)}
+}`;
+}
+
 /** The `config` built from the Studio config, shared by every component-based framework. */
 function configExpression(settings: DemoSettings): string {
-    return settings.hideActionBar
-        ? `const config: WidgetEnv = {
-  ...studioConfig,
-  // The action bar is a floating page element; hide it inside an embedded chat.
-  actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },
-};`
-        : `const config: WidgetEnv = studioConfig;`;
+    const object = configObject(settings);
+    return object ? `const config: WidgetEnv = ${object};` : `const config: WidgetEnv = studioConfig;`;
 }
 
 // ---------------------------------------------------------------- React
 
 function reactComponent(settings: DemoSettings, nextjs: boolean): string {
-    const setConfig = settings.hideActionBar
-        ? `setConfig({
-  ...studioConfig,
-  // The action bar is a floating page element; hide it inside an embedded chat.
-  actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },
-});`
-        : `setConfig(studioConfig);`;
+    const object = configObject(settings);
+    const setConfig = object ? `setConfig(${object});` : `setConfig(studioConfig);`;
 
     const header = nextjs
         ? `"use client";
@@ -735,13 +752,24 @@ function svelteFiles(layout: LayoutId, settings: DemoSettings): SourceFile[] {
 // ---------------------------------------------------------------- HTML
 
 function htmlFiles(layout: LayoutId, settings: DemoSettings): SourceFile[] {
-    const xaConfig = settings.hideActionBar
-        ? `window.xaConfig = {
-    mode: "${settings.mode}",
-    // The action bar is a floating page element; hide it inside an embedded chat.
-    actionBar: { enabled: false },
-  };`
-        : `window.xaConfig = { mode: "${settings.mode}" };`;
+    const overrides: string[] = [`mode: "${settings.mode}",`];
+    if (settings.hideActionBar) {
+        overrides.push(`// The action bar is a floating page element; hide it inside an embedded chat.
+actionBar: { enabled: false },`);
+    }
+    // Emitted even though the script served from widget.xapp.ai predates header.hidden (the page
+    // shows a note for that): the bundle ignores unknown config, so the copied snippet is harmless
+    // today and starts hiding the header once the CDN bundle is redeployed, with no code change.
+    if (settings.hideHeader) {
+        overrides.push(`// The page already has a heading; ignored in normal mode.
+header: { hidden: true },`);
+    }
+    const xaConfig =
+        overrides.length === 1
+            ? `window.xaConfig = { ${overrides[0].slice(0, -1)} };`
+            : `window.xaConfig = {
+    ${indent(overrides.join("\n"), 4)}
+  };`;
 
     const scripts = `<!-- xaConfig must be set before the widget script -->
 <script>

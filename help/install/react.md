@@ -215,6 +215,24 @@ The same component works in Next.js with two changes, both needed for `next buil
    }
    ```
 
+## Hide the Chat Header (Optional)
+
+When your page already has its own heading, the chat's title bar repeats it. Add `header` to the config in `EmbeddedChat` — the same change works for React and Next.js:
+
+```tsx
+setConfig({
+  ...studioConfig,
+  actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false },
+  header: { ...studioConfig.header, hidden: true },
+});
+```
+
+- Requires `@xapp/chat-widget` 1.103.0 or later.
+- Applies in `docked` and `static` mode only. A floating (`normal`) chat always keeps its header, because that is where its minimize and close buttons are.
+- If your menu button is set to appear in the header, it moves to the footer so the menu stays reachable.
+
+Try it with the **Hide header** option on the [Embedded Chat Examples](/examples/embedded-chat) page.
+
 ## Using Both
 
 Do not combine the script snippet with an embedded chat on the same page — visitors would see two chat windows.
