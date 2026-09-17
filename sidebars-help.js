@@ -2,6 +2,7 @@ const sidebars = {
   help: [
     "getting-started",
     "get-more-leads",
+    "get-xapp-ai",
     {
       type: "category",
       label: "AI",
