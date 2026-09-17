@@ -129,6 +129,31 @@ const config: WidgetEnv = {
 
 Try it with the **Hide header** option on the [Embedded Chat Examples](/examples/embedded-chat) page.
 
+## Follow the Visitor as They Scroll (Optional)
+
+An embedded chat scrolls away with the page, so a visitor who carries on reading loses the conversation they started. `popOut` lets it follow them: while its place on the page is off-screen the chat moves into a floating window in the corner, and it returns when they scroll back to it.
+
+```ts
+const config: WidgetEnv = {
+  ...studioConfig,
+  popOut: { enabled: true },
+};
+```
+
+It is the same chat that moves, not a second one, so the conversation carries on — including a message being typed. On a phone it offers the chat button (or the action bar) instead of a window covering the screen; tapping that opens the conversation where they left it.
+
+| Option | Default | What it does |
+| --- | --- | --- |
+| `enabled` | `false` | Turns it on. Only for an embedded (`docked`) chat — a floating chat already floats. |
+| `after` | `"seen"` | `"seen"` follows anyone who scrolls past. `"message"` waits until the visitor has sent something, so a chat nobody has spoken to stays on the page. The assistant's greeting does not count. |
+| `minWidth` | `640` | Narrowest window that opens the floating chat. Below this, see `mobile`. |
+| `mobile` | `"auto"` | What a narrow screen gets: `"auto"` (the action bar if the app has one, otherwise the chat button), `"actionBar"`, `"button"`, or `"none"`. |
+
+- Requires `@xapp/chat-widget` 1.104.0 or later.
+- The chat must have been on screen once before it follows anyone, so a chat below the fold never floats in front of a visitor who has not reached it yet.
+- The floating window always has a header, even with `header.hidden` set, because that is how the visitor puts it away. Closing it returns the chat to the page — on a phone, back to the entry point — and it follows again the next time they scroll past.
+- Where the visitor is reading is kept across the move: at the newest message they stay there, and reading back through the thread keeps their place.
+
 ## Verify Installation
 
 1. Open the page with the chat and confirm it shows its welcome message inside your container.

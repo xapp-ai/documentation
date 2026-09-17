@@ -84,6 +84,22 @@ Instead of the floating button, the chat can sit inside your page layout — for
 - The chat renders inside the element with `id="xapp-widget"` and fills it, so **set the height on that element itself** — a height on a parent element is not enough.
 - `window.xaConfig` must be set **before** the widget script. Your Studio settings still apply; the values here only override the mode and the action bar.
 
+### Follow the Visitor as They Scroll
+
+Add `popOut` and the embedded chat moves into a floating window while its place on the page is scrolled out of view, then returns when the visitor scrolls back to it. It is the same chat that moves, so the conversation carries on. On a phone it offers the chat button or action bar instead of covering the screen.
+
+```html
+<script>
+  window.xaConfig = {
+    mode: "docked",
+    actionBar: { enabled: false },
+    popOut: { enabled: true },
+  };
+</script>
+```
+
+Needs the widget script to be serving `@xapp/chat-widget` 1.104.0 or later. See the [chat widget channel reference](/docs/channels/channel-chat-widget#following-the-visitor-as-they-scroll) for `after`, `minWidth` and `mobile`.
+
 :::important
 The script renders the chat once, when the page loads. This suits server-rendered and multi-page sites (static HTML, WordPress templates, PHP, Rails, Django and similar), where each page is a full page load. In a single-page app whose routes mount and unmount the chat, use the component guide for your framework instead: [React / Next.js](/help/install/react), [Vue](/help/install/vue), [Angular](/help/install/angular) or [Svelte](/help/install/svelte).
 :::
