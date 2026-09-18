@@ -119,6 +119,8 @@ const config: WidgetEnv = {
 
 When you load the configuration saved in Studio instead, keep its other header settings by spreading them: `header: { ...studioConfig.header, hidden: true }`, where `studioConfig` is the fetched `config.json` (see [Installation on React and Next.js](/help/install/react)).
 
+It only applies in `docked` and `static` mode. In `normal` mode the header holds the minimize and close buttons, so it is always shown. A menu button configured for the header (`menu.menuButtonLocation` of `HEADER_LEFT` or `HEADER_RIGHT`) moves to the footer while the header is hidden.
+
 #### Following the Visitor as They Scroll
 
 An embedded chat scrolls away with the page. `popOut` makes it follow the visitor instead: while its place on the page is off-screen the chat moves into a floating window, and it returns when they scroll back to it (requires `@xapp/chat-widget` 1.104.0 or later).
@@ -145,8 +147,6 @@ The same widget moves — it is re-parented, not re-rendered — so the conversa
 | `mobile` | `"auto"` | Below `minWidth`: `"auto"` shows the action bar if one is configured and the chat button otherwise, `"actionBar"` and `"button"` force one of them, and `"none"` leaves the chat on the page. Tapping the entry point opens the conversation; closing it returns to the entry point. |
 
 The chat has to have been on screen once before it follows anyone, so one sitting below the fold never floats in front of a visitor who has not reached it. The floating window keeps its header even when `header.hidden` is set, because that is how it is put away.
-
-It only applies in `docked` and `static` mode. In `normal` mode the header holds the minimize and close buttons, so it is always shown. A menu button configured for the header (`menu.menuButtonLocation` of `HEADER_LEFT` or `HEADER_RIGHT`) moves to the footer while the header is hidden.
 
 ## Authenticated Users
 
