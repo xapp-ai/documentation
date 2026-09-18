@@ -74,12 +74,13 @@ function useChatConfig(chatKey: string): ConfigState {
     return state;
 }
 
-const LiveChat: React.FC<{ state: ConfigState; mode: ChatMode; hideActionBar: boolean; hideHeader: boolean }> = ({
-    state,
-    mode,
-    hideActionBar,
-    hideHeader,
-}) => {
+const LiveChat: React.FC<{
+    state: ConfigState;
+    mode: ChatMode;
+    hideActionBar: boolean;
+    hideHeader: boolean;
+    popOut: boolean;
+}> = ({ state, mode, hideActionBar, hideHeader, popOut }) => {
     if (state.status === "loading") {
         return <div className={styles.placeholder}>Loading chat configuration…</div>;
     }
@@ -94,6 +95,7 @@ const LiveChat: React.FC<{ state: ConfigState; mode: ChatMode; hideActionBar: bo
         ...state.config,
         ...(hideActionBar && { actionBar: state.config.actionBar && { ...state.config.actionBar, enabled: false } }),
         ...(hideHeader && { header: { ...state.config.header, hidden: true } }),
+        ...(popOut && { popOut: { enabled: true } }),
     };
 
     return <XappChat config={config} mode={mode} />;
@@ -119,6 +121,7 @@ const EmbeddedChatDemo: React.FC = () => {
     const [maxWidth, setMaxWidth] = useState(420);
     const [hideActionBar, setHideActionBar] = useState(true);
     const [hideHeader, setHideHeader] = useState(false);
+    const [popOut, setPopOut] = useState(false);
     const [panelOpen, setPanelOpen] = useState(false);
     const [framework, setFramework] = useState<FrameworkId>(() => {
         const requested = new URLSearchParams(window.location.search).get("framework");
@@ -129,7 +132,12 @@ const EmbeddedChatDemo: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<string | undefined>();
 
     const configState = useChatConfig(chatKey || DEMO_CHAT_KEY);
-    const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar, hideHeader };
+    // Following is only shown on the contact page layout, and only makes sense docked, so this -
+    // not the checkbox - is what the preview and the generated code follow. A checkbox left on
+    // while the reader moves to another layout or mode would otherwise put `popOut` into sample
+    // code that says, correctly, that it does nothing there.
+    const popOutActive = popOut && mode === "docked" && layout === "contact";
+    const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar, hideHeader, popOut: popOutActive };
     const files = sourceFiles(framework, layout, settings);
     // Falls back to the component file, after "Install", when the picked file isn't in this layout.
     const activeFile = files.find((f) => f.name === selectedFile) ?? files[Math.min(1, files.length - 1)];
@@ -159,11 +167,12 @@ const EmbeddedChatDemo: React.FC = () => {
     // Remount the widget when anything that shapes its config changes, so each variation starts clean.
     const chat = (
         <LiveChat
-            key={`${chatKey}|${mode}|${hideActionBar}|${hideHeader}|${layout}`}
+            key={`${chatKey}|${mode}|${hideActionBar}|${hideHeader}|${popOutActive}|${layout}`}
             state={configState}
             mode={mode}
             hideActionBar={hideActionBar}
             hideHeader={hideHeader}
+            popOut={popOutActive}
         />
     );
 
@@ -258,6 +267,24 @@ const EmbeddedChatDemo: React.FC = () => {
                         </span>
                     </label>
 
+                    <label className={styles.checkbox}>
+                        <input
+                            type="checkbox"
+                            checked={popOut}
+                            onChange={(e) => setPopOut(e.target.checked)}
+                            disabled={mode !== "docked" || layout !== "contact"}
+                        />
+                        <span>
+                            Follow on scroll
+                            <span className={styles.radioDescription}>
+                                Scroll the sample page below: the chat moves into a floating window once its place on the
+                                page leaves the view, and goes back when you scroll to it. The window sits against your
+                                browser window, as it would on a real site. Shown here on the contact page layout, in{" "}
+                                <code>docked</code> mode.
+                            </span>
+                        </span>
+                    </label>
+
                     {mode !== "docked" && (
                         <p className={styles.warning}>
                             <code>{mode}</code> mode is positioned against the screen, not the sample page — look in the bottom-right corner of your browser.
@@ -274,15 +301,28 @@ const EmbeddedChatDemo: React.FC = () => {
                     </div>
 
                     {layout === "contact" && (
-                        <div className={styles.contactPage}>
-                            <section className={styles.contactCopy}>
-                                <h2>Talk to us</h2>
-                                <p>Questions? Chat with us and get an answer right away.</p>
-                                <MockLines count={6} />
-                            </section>
-                            <div className={styles.chatBox} style={{ height, maxWidth }}>
-                                {chat}
+                        // Following only shows itself on a page long enough to scroll, so the
+                        // sample page becomes a scrolling one while it is on.
+                        <div className={popOutActive ? styles.scrollingPage : undefined}>
+                            <div className={styles.contactPage}>
+                                <section className={styles.contactCopy}>
+                                    <h2>Talk to us</h2>
+                                    <p>Questions? Chat with us and get an answer right away.</p>
+                                    <MockLines count={6} />
+                                </section>
+                                <div className={styles.chatBox} style={{ height, maxWidth }}>
+                                    {chat}
+                                </div>
                             </div>
+                            {popOutActive && (
+                                // Long enough that the chat scrolls fully out of the sample page at
+                                // any height the slider offers - a short tail is indistinguishable
+                                // from the feature not working.
+                                <section className={styles.contactCopy} style={{ padding: "0 24px 24px" }}>
+                                    <h2>Keep scrolling</h2>
+                                    <MockLines count={40} />
+                                </section>
+                            )}
                         </div>
                     )}
 
@@ -345,6 +385,13 @@ const EmbeddedChatDemo: React.FC = () => {
                         The live preview is the same widget in every framework. <Link to={frameworkInfo.guide}>{frameworkInfo.label} install guide</Link>
                     </span>
                 </div>
+                {framework === "html" && popOutActive && (
+                    <p className={styles.warning}>
+                        The script served from widget.xapp.ai does not support <code>popOut</code> yet, so an HTML embed
+                        keeps its place on the page for now. The npm-based frameworks support it from{" "}
+                        <code>@xapp/chat-widget</code> 1.104.0.
+                    </p>
+                )}
                 {framework === "html" && hideHeader && (
                     <p className={styles.warning}>
                         The script served from widget.xapp.ai does not support <code>header.hidden</code> yet, so the HTML embed keeps its header
