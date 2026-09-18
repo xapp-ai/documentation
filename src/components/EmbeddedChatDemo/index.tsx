@@ -8,6 +8,9 @@ import { ChatMode, DemoSettings, FrameworkId, FRAMEWORKS, LayoutId, sourceFiles 
 import styles from "./styles.module.css";
 
 /** The XAPP AI assistant this site already uses, shown when no key is entered. */
+/** Tallest the chat may be while following, so the scrolling sample page can scroll it away. */
+const POP_OUT_MAX_HEIGHT = 300;
+
 const DEMO_CHAT_KEY = "32046c1c-e65a-42ef-8653-e8f6038f369b";
 
 const LAYOUTS: { id: LayoutId; label: string; description: string }[] = [
@@ -132,7 +135,23 @@ const EmbeddedChatDemo: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<string | undefined>();
 
     const configState = useChatConfig(chatKey || DEMO_CHAT_KEY);
-    const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar, hideHeader, popOut };
+    // Following is only shown on the contact page layout, and only makes sense docked, so this -
+    // not the checkbox - is what the preview and the generated code follow. A checkbox left on
+    // while the reader moves to another layout or mode would otherwise put `popOut` into sample
+    // code that says, correctly, that it does nothing there.
+    const popOutActive = popOut && mode === "docked" && layout === "contact";
+    // The chat has to fit inside the scrolling sample page with room to spare, or it can never
+    // leave the view and the demo looks broken.
+    const previewHeight = popOutActive ? Math.min(height, POP_OUT_MAX_HEIGHT) : height;
+    const settings: DemoSettings = {
+        chatKey,
+        mode,
+        height: previewHeight,
+        maxWidth,
+        hideActionBar,
+        hideHeader,
+        popOut: popOutActive,
+    };
     const files = sourceFiles(framework, layout, settings);
     // Falls back to the component file, after "Install", when the picked file isn't in this layout.
     const activeFile = files.find((f) => f.name === selectedFile) ?? files[Math.min(1, files.length - 1)];
@@ -162,12 +181,12 @@ const EmbeddedChatDemo: React.FC = () => {
     // Remount the widget when anything that shapes its config changes, so each variation starts clean.
     const chat = (
         <LiveChat
-            key={`${chatKey}|${mode}|${hideActionBar}|${hideHeader}|${popOut}|${layout}`}
+            key={`${chatKey}|${mode}|${hideActionBar}|${hideHeader}|${popOutActive}|${layout}`}
             state={configState}
             mode={mode}
             hideActionBar={hideActionBar}
             hideHeader={hideHeader}
-            popOut={popOut}
+            popOut={popOutActive}
         />
     );
 
@@ -231,9 +250,15 @@ const EmbeddedChatDemo: React.FC = () => {
                     {layout === "contact" && (
                         <label className={styles.slider}>
                             <span className={styles.label}>
-                                Container height <code>{height}px</code>
+                                Container height <code>{previewHeight}px</code>
                             </span>
                             <input type="range" min={360} max={760} step={20} value={height} onChange={(e) => setHeight(Number(e.target.value))} />
+                            {popOutActive && height > POP_OUT_MAX_HEIGHT && (
+                                <span className={styles.radioDescription}>
+                                    Capped at {POP_OUT_MAX_HEIGHT}px while following, so the chat fits inside the scrolling
+                                    sample page.
+                                </span>
+                            )}
                         </label>
                     )}
 
@@ -267,14 +292,15 @@ const EmbeddedChatDemo: React.FC = () => {
                             type="checkbox"
                             checked={popOut}
                             onChange={(e) => setPopOut(e.target.checked)}
-                            disabled={mode !== "docked"}
+                            disabled={mode !== "docked" || layout !== "contact"}
                         />
                         <span>
                             Follow on scroll
                             <span className={styles.radioDescription}>
                                 Scroll the sample page below: the chat moves into a floating window once its place on the
                                 page leaves the view, and goes back when you scroll to it. The window sits against your
-                                browser window, as it would on a real site. <code>docked</code> only.
+                                browser window, as it would on a real site. Shown here on the contact page layout, in{" "}
+                                <code>docked</code> mode.
                             </span>
                         </span>
                     </label>
@@ -297,7 +323,7 @@ const EmbeddedChatDemo: React.FC = () => {
                     {layout === "contact" && (
                         // Following only shows itself on a page long enough to scroll, so the
                         // sample page becomes a scrolling one while it is on.
-                        <div className={popOut ? styles.scrollingPage : undefined}>
+                        <div className={popOutActive ? styles.scrollingPage : undefined}>
                             <div className={styles.contactPage}>
                                 <section className={styles.contactCopy}>
                                     <h2>Talk to us</h2>
@@ -309,12 +335,12 @@ const EmbeddedChatDemo: React.FC = () => {
                                     // While following, the chat has to fit inside the scrolling
                                     // sample page with room to spare, or it can never leave the
                                     // view and the demo looks broken.
-                                    style={{ height: popOut ? Math.min(height, 300) : height, maxWidth }}
+                                    style={{ height: previewHeight, maxWidth }}
                                 >
                                     {chat}
                                 </div>
                             </div>
-                            {popOut && (
+                            {popOutActive && (
                                 <section className={styles.contactCopy} style={{ padding: "0 24px 24px" }}>
                                     <h2>Keep scrolling</h2>
                                     <MockLines count={24} />
