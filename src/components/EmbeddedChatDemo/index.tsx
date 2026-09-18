@@ -74,12 +74,13 @@ function useChatConfig(chatKey: string): ConfigState {
     return state;
 }
 
-const LiveChat: React.FC<{ state: ConfigState; mode: ChatMode; hideActionBar: boolean; hideHeader: boolean }> = ({
-    state,
-    mode,
-    hideActionBar,
-    hideHeader,
-}) => {
+const LiveChat: React.FC<{
+    state: ConfigState;
+    mode: ChatMode;
+    hideActionBar: boolean;
+    hideHeader: boolean;
+    popOut: boolean;
+}> = ({ state, mode, hideActionBar, hideHeader, popOut }) => {
     if (state.status === "loading") {
         return <div className={styles.placeholder}>Loading chat configuration…</div>;
     }
@@ -94,6 +95,7 @@ const LiveChat: React.FC<{ state: ConfigState; mode: ChatMode; hideActionBar: bo
         ...state.config,
         ...(hideActionBar && { actionBar: state.config.actionBar && { ...state.config.actionBar, enabled: false } }),
         ...(hideHeader && { header: { ...state.config.header, hidden: true } }),
+        ...(popOut && { popOut: { enabled: true } }),
     };
 
     return <XappChat config={config} mode={mode} />;
@@ -119,6 +121,7 @@ const EmbeddedChatDemo: React.FC = () => {
     const [maxWidth, setMaxWidth] = useState(420);
     const [hideActionBar, setHideActionBar] = useState(true);
     const [hideHeader, setHideHeader] = useState(false);
+    const [popOut, setPopOut] = useState(false);
     const [panelOpen, setPanelOpen] = useState(false);
     const [framework, setFramework] = useState<FrameworkId>(() => {
         const requested = new URLSearchParams(window.location.search).get("framework");
@@ -129,7 +132,7 @@ const EmbeddedChatDemo: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<string | undefined>();
 
     const configState = useChatConfig(chatKey || DEMO_CHAT_KEY);
-    const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar, hideHeader };
+    const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar, hideHeader, popOut };
     const files = sourceFiles(framework, layout, settings);
     // Falls back to the component file, after "Install", when the picked file isn't in this layout.
     const activeFile = files.find((f) => f.name === selectedFile) ?? files[Math.min(1, files.length - 1)];
@@ -159,11 +162,12 @@ const EmbeddedChatDemo: React.FC = () => {
     // Remount the widget when anything that shapes its config changes, so each variation starts clean.
     const chat = (
         <LiveChat
-            key={`${chatKey}|${mode}|${hideActionBar}|${hideHeader}|${layout}`}
+            key={`${chatKey}|${mode}|${hideActionBar}|${hideHeader}|${popOut}|${layout}`}
             state={configState}
             mode={mode}
             hideActionBar={hideActionBar}
             hideHeader={hideHeader}
+            popOut={popOut}
         />
     );
 
@@ -258,6 +262,23 @@ const EmbeddedChatDemo: React.FC = () => {
                         </span>
                     </label>
 
+                    <label className={styles.checkbox}>
+                        <input
+                            type="checkbox"
+                            checked={popOut}
+                            onChange={(e) => setPopOut(e.target.checked)}
+                            disabled={mode !== "docked"}
+                        />
+                        <span>
+                            Follow on scroll
+                            <span className={styles.radioDescription}>
+                                Scroll the sample page below: the chat moves into a floating window once its place on the
+                                page leaves the view, and goes back when you scroll to it. The window sits against your
+                                browser window, as it would on a real site. <code>docked</code> only.
+                            </span>
+                        </span>
+                    </label>
+
                     {mode !== "docked" && (
                         <p className={styles.warning}>
                             <code>{mode}</code> mode is positioned against the screen, not the sample page — look in the bottom-right corner of your browser.
@@ -274,15 +295,31 @@ const EmbeddedChatDemo: React.FC = () => {
                     </div>
 
                     {layout === "contact" && (
-                        <div className={styles.contactPage}>
-                            <section className={styles.contactCopy}>
-                                <h2>Talk to us</h2>
-                                <p>Questions? Chat with us and get an answer right away.</p>
-                                <MockLines count={6} />
-                            </section>
-                            <div className={styles.chatBox} style={{ height, maxWidth }}>
-                                {chat}
+                        // Following only shows itself on a page long enough to scroll, so the
+                        // sample page becomes a scrolling one while it is on.
+                        <div className={popOut ? styles.scrollingPage : undefined}>
+                            <div className={styles.contactPage}>
+                                <section className={styles.contactCopy}>
+                                    <h2>Talk to us</h2>
+                                    <p>Questions? Chat with us and get an answer right away.</p>
+                                    <MockLines count={6} />
+                                </section>
+                                <div
+                                    className={styles.chatBox}
+                                    // While following, the chat has to fit inside the scrolling
+                                    // sample page with room to spare, or it can never leave the
+                                    // view and the demo looks broken.
+                                    style={{ height: popOut ? Math.min(height, 300) : height, maxWidth }}
+                                >
+                                    {chat}
+                                </div>
                             </div>
+                            {popOut && (
+                                <section className={styles.contactCopy} style={{ padding: "0 24px 24px" }}>
+                                    <h2>Keep scrolling</h2>
+                                    <MockLines count={24} />
+                                </section>
+                            )}
                         </div>
                     )}
 

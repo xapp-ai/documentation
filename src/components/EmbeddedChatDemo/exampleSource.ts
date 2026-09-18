@@ -11,6 +11,7 @@ export interface DemoSettings {
     readonly maxWidth: number;
     readonly hideActionBar: boolean;
     readonly hideHeader: boolean;
+    readonly popOut: boolean;
 }
 
 export interface SourceFile {
@@ -59,6 +60,11 @@ actionBar: studioConfig.actionBar && { ...studioConfig.actionBar, enabled: false
     if (settings.hideHeader) {
         overrides.push(`// The page already has a heading. Needs @xapp/chat-widget 1.103.0+; ignored in normal mode.
 header: { ...studioConfig.header, hidden: true },`);
+    }
+    if (settings.popOut) {
+        overrides.push(`// Follow the visitor into a floating window once this scrolls out of view.
+// Needs @xapp/chat-widget 1.104.0+; docked mode only.
+popOut: { enabled: true },`);
     }
     return overrides;
 }
@@ -763,6 +769,10 @@ actionBar: { enabled: false },`);
     if (settings.hideHeader) {
         overrides.push(`// The page already has a heading; ignored in normal mode.
 header: { hidden: true },`);
+    }
+    if (settings.popOut) {
+        overrides.push(`// Follow the visitor into a floating window once this scrolls out of view.
+popOut: { enabled: true },`);
     }
     const xaConfig =
         overrides.length === 1
