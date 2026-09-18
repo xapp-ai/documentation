@@ -8,9 +8,6 @@ import { ChatMode, DemoSettings, FrameworkId, FRAMEWORKS, LayoutId, sourceFiles 
 import styles from "./styles.module.css";
 
 /** The XAPP AI assistant this site already uses, shown when no key is entered. */
-/** Tallest the chat may be while following, so the scrolling sample page can scroll it away. */
-const POP_OUT_MAX_HEIGHT = 300;
-
 const DEMO_CHAT_KEY = "32046c1c-e65a-42ef-8653-e8f6038f369b";
 
 const LAYOUTS: { id: LayoutId; label: string; description: string }[] = [
@@ -140,18 +137,7 @@ const EmbeddedChatDemo: React.FC = () => {
     // while the reader moves to another layout or mode would otherwise put `popOut` into sample
     // code that says, correctly, that it does nothing there.
     const popOutActive = popOut && mode === "docked" && layout === "contact";
-    // The chat has to fit inside the scrolling sample page with room to spare, or it can never
-    // leave the view and the demo looks broken.
-    const previewHeight = popOutActive ? Math.min(height, POP_OUT_MAX_HEIGHT) : height;
-    const settings: DemoSettings = {
-        chatKey,
-        mode,
-        height: previewHeight,
-        maxWidth,
-        hideActionBar,
-        hideHeader,
-        popOut: popOutActive,
-    };
+    const settings: DemoSettings = { chatKey, mode, height, maxWidth, hideActionBar, hideHeader, popOut: popOutActive };
     const files = sourceFiles(framework, layout, settings);
     // Falls back to the component file, after "Install", when the picked file isn't in this layout.
     const activeFile = files.find((f) => f.name === selectedFile) ?? files[Math.min(1, files.length - 1)];
@@ -250,15 +236,9 @@ const EmbeddedChatDemo: React.FC = () => {
                     {layout === "contact" && (
                         <label className={styles.slider}>
                             <span className={styles.label}>
-                                Container height <code>{previewHeight}px</code>
+                                Container height <code>{height}px</code>
                             </span>
                             <input type="range" min={360} max={760} step={20} value={height} onChange={(e) => setHeight(Number(e.target.value))} />
-                            {popOutActive && height > POP_OUT_MAX_HEIGHT && (
-                                <span className={styles.radioDescription}>
-                                    Capped at {POP_OUT_MAX_HEIGHT}px while following, so the chat fits inside the scrolling
-                                    sample page.
-                                </span>
-                            )}
                         </label>
                     )}
 
@@ -330,20 +310,17 @@ const EmbeddedChatDemo: React.FC = () => {
                                     <p>Questions? Chat with us and get an answer right away.</p>
                                     <MockLines count={6} />
                                 </section>
-                                <div
-                                    className={styles.chatBox}
-                                    // While following, the chat has to fit inside the scrolling
-                                    // sample page with room to spare, or it can never leave the
-                                    // view and the demo looks broken.
-                                    style={{ height: previewHeight, maxWidth }}
-                                >
+                                <div className={styles.chatBox} style={{ height, maxWidth }}>
                                     {chat}
                                 </div>
                             </div>
                             {popOutActive && (
+                                // Long enough that the chat scrolls fully out of the sample page at
+                                // any height the slider offers - a short tail is indistinguishable
+                                // from the feature not working.
                                 <section className={styles.contactCopy} style={{ padding: "0 24px 24px" }}>
                                     <h2>Keep scrolling</h2>
-                                    <MockLines count={24} />
+                                    <MockLines count={40} />
                                 </section>
                             )}
                         </div>
@@ -408,6 +385,13 @@ const EmbeddedChatDemo: React.FC = () => {
                         The live preview is the same widget in every framework. <Link to={frameworkInfo.guide}>{frameworkInfo.label} install guide</Link>
                     </span>
                 </div>
+                {framework === "html" && popOutActive && (
+                    <p className={styles.warning}>
+                        The script served from widget.xapp.ai does not support <code>popOut</code> yet, so an HTML embed
+                        keeps its place on the page for now. The npm-based frameworks support it from{" "}
+                        <code>@xapp/chat-widget</code> 1.104.0.
+                    </p>
+                )}
                 {framework === "html" && hideHeader && (
                     <p className={styles.warning}>
                         The script served from widget.xapp.ai does not support <code>header.hidden</code> yet, so the HTML embed keeps its header

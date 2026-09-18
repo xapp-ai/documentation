@@ -770,6 +770,9 @@ actionBar: { enabled: false },`);
         overrides.push(`// The page already has a heading; ignored in normal mode.
 header: { hidden: true },`);
     }
+    // Emitted for the same reason as header.hidden above: the bundle served from widget.xapp.ai
+    // ignores config it does not know, so the snippet is harmless today and starts following the
+    // visitor once that bundle catches up with the npm release.
     if (settings.popOut) {
         overrides.push(`// Follow the visitor into a floating window once this scrolls out of view.
 popOut: { enabled: true },`);
