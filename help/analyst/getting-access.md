@@ -11,8 +11,12 @@ There's no separate XAPP Analyst account. When asked to sign in, use the same em
 
 ## ChatGPT
 
-1. Open the [XAPP Analyst app for ChatGPT](https://chatgpt.com/plugins/plugin_asdk_app_69fc98bbd57c8191af97c7fce043570f).
-2. Click **Connect**.
+<a className="button button--primary button--lg" href="https://chatgpt.com/plugins/plugin_asdk_app_69fc98bbd57c8191af97c7fce043570f" target="_blank" rel="noopener noreferrer">Get XAPP Analyst for ChatGPT</a>
+
+<br /><br />
+
+1. Click **Get XAPP Analyst for ChatGPT** above to open the plugin page in ChatGPT.
+2. Click **+ Install plugin**.
 3. Sign in with your XAPP Studio login and approve access.
 4. Start a new chat and ask a question, for example: _"Use XAPP Analyst to show my leads from last month."_
 
