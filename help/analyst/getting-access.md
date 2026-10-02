@@ -11,7 +11,7 @@ There's no separate XAPP Analyst account. When asked to sign in, use the same em
 
 ## ChatGPT
 
-<a className="button button--primary button--lg" href="https://chatgpt.com/plugins/plugin_asdk_app_69fc98bbd57c8191af97c7fce043570f" target="_blank" rel="noopener noreferrer">Get XAPP Analyst for ChatGPT</a>
+<a className="button button--primary" style={{ fontSize: "1.1rem", padding: "0.75rem 1.75rem" }} href="https://chatgpt.com/plugins/plugin_asdk_app_69fc98bbd57c8191af97c7fce043570f" target="_blank" rel="noopener noreferrer">Get XAPP Analyst for ChatGPT</a>
 
 <br /><br />
 
