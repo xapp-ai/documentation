@@ -11,6 +11,12 @@ const sidebars = {
     "use-cases",
     {
       type: "category",
+      label: "Analyst",
+      link: { type: "doc", id: "analyst" },
+      items: ["analyst/getting-access", "analyst/sample-queries"],
+    },
+    {
+      type: "category",
       label: "Installation Guides",
       items: [
         "install",
