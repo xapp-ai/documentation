@@ -35,13 +35,11 @@ The site maintains two separate documentation sections:
 ### Custom Plugins
 The project includes custom plugins in the `plugins/` directory:
 - `inject-widget` - Integrates XAPP AI chat widget
-- `inject-search` - Integrates XAPP AI intelligent search widget
 - `faqs` - FAQs functionality
 
 ### Widget Integration
 The site integrates XAPP AI widgets:
 - Chat widget (`@xapp/chat-widget`)
-- Search widget (`@xapp/intelligent-search-widget`)
 - Widget components (`@xapp/chat-widget-components`)
 
 ### Custom Theme Components

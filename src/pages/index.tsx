@@ -75,15 +75,6 @@ function Home() {
         </div>
       </header>
       <main>
-        <section>
-          <div className="container">
-            <div className="row">
-              <div className={styles.searchContainer}>
-                <input className={"xapp-search-button"} type="text" placeholder="🔍 Search our documents" />
-              </div>
-            </div>
-          </div>
-        </section>
         {articles && articles.length > 0 && (
           <section className={styles.features}>
             <div className="container">
