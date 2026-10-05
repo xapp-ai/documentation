@@ -9,7 +9,6 @@ module.exports = {
   projectName: "documentation", // Usually your repo name.
   plugins: [
     "./plugins/inject-widget",
-    "./plugins/inject-search",
     [
       "@docusaurus/plugin-content-docs",
       // This is to support the advanced documentation
@@ -46,10 +45,6 @@ module.exports = {
           to: "/help/install",
           label: "Installation Guides",
           position: "left",
-        },
-        {
-          type: "search",
-          position: "right",
         },
         {
           to: "https://studio.xapp.ai/",
