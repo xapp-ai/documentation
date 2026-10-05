@@ -9329,7 +9329,7 @@ __metadata:
     react-redux: "npm:9.3.0"
     redux: "npm:5.0.1"
     redux-thunk: "npm:3.1.0"
-    stentor-models: "npm:1.79.0"
+    stentor-models: "npm:1.81.0"
   languageName: unknown
   linkType: soft
 
@@ -11886,12 +11886,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stentor-models@npm:1.79.0":
-  version: 1.79.0
-  resolution: "stentor-models@npm:1.79.0"
+"stentor-models@npm:1.81.0":
+  version: 1.81.0
+  resolution: "stentor-models@npm:1.81.0"
   dependencies:
     "@xapp/patterns": "npm:2.0.3"
-  checksum: 10c0/767ce62c6df5581d63b3ce2f4a5c22612460c9c4d0a95601c2ac1cbe9c06b076b35bf0109fcb1ffa3ac17137e42c24a1f728918dd1e8a543ed2b1e1a0699d587
+  checksum: 10c0/bec3099d56bf2a485e1501184bbd0e7e1fa3ed6abd2ac1b23d94eec099ed8ccd8e9072c7996e7f86cc9d2ab7791c44d5d89b7c0599e29c2b7c7a7090183e3d14
   languageName: node
   linkType: hard
 
