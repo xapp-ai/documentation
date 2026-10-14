@@ -18,9 +18,10 @@ const sidebars = {
     {
       type: "category",
       label: "Installation Guides",
-      // Keep in the same order as the list on help/install.md
+      // Keep in the same order as the list on help/install.md: WordPress featured first, then A–Z
       items: [
         "install",
+        "install/wordpress",
         "install/drupal",
         "install/duda",
         "install/framer",
@@ -33,7 +34,6 @@ const sidebars = {
         "install/webflow",
         "install/weebly",
         "install/wix",
-        "install/wordpress",
         "install/zyro",
         "install/voolt",
         "install/landing-page",
