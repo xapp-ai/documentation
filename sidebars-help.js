@@ -18,6 +18,7 @@ const sidebars = {
     {
       type: "category",
       label: "Installation Guides",
+      // Keep in the same order as the list on help/install.md
       items: [
         "install",
         "install/drupal",
