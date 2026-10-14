@@ -18,7 +18,7 @@ const sidebars = {
     {
       type: "category",
       label: "Installation Guides",
-      // Keep in the same order as the list on help/install.md: WordPress featured first, then A–Z
+      // Same order as help/install.md: WordPress (featured), site builders A–Z, hosted pages, then developer guides
       items: [
         "install",
         "install/wordpress",
