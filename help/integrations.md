@@ -11,6 +11,10 @@ sidebar_label: Overview
 
 Our integrations are a key component of our offering and help your AI fit seemlessly into your existing business workflows and tools you already use. They will report captured leads and other contact requests to your CRM (customer relationship management) and/or FSM (field service management) software. We can also help schedule jobs or appointments directly in your FSM.
 
+## Call Connect
+
+Call Connect phones you the moment a high-value lead comes in and puts you through to the customer on one keypress. It is a paid add-on - [Read More](/help/integrations/call-connect)
+
 ## Supported Integrations
 
 - [Jobber](https://getjobber.com/) - [Read More](/help/integrations/integration-jobber)
