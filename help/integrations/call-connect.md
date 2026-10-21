@@ -31,6 +31,7 @@ When a lead is not called, Studio shows **Skipped** and the reason on the lead:
 | No business hours set                              | Fill in the hours on your location                      |
 | No business time zone set                          | Set the time zone on your location                      |
 | The calling number is not active yet               | Your Call Connect number is still being set up          |
+| Paused                                             | You paused calls in your Call Connect settings          |
 | Turned off                                         | Call Connect is switched off                            |
 
 Calls are placed only when both sides can take them:
@@ -105,6 +106,7 @@ Open **Integrations → Call Connect** in Studio.
 
 | Section                        | Setting                                                    | Default                                                                      |
 | ------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Pause calls                    | Stop calling for now; leads are emailed, the number is kept | Off |
 | Your Call Connect number       | Area code; Caller ID name (shown to customers)             | Your location's area code and business name                                  |
 | Numbers to call                | The phones we ring you on, in order                        | None                                                                         |
 | When to call                   | Use my business hours; Time zone                           | Your location's hours                                                        |
@@ -144,7 +146,7 @@ A busy line counts as no answer, and we try your next number. If none of your nu
 
 ### What if my voicemail picks up?
 
-Your voicemail records the briefing, and we move on to your next number. Calls work best on a phone a person answers, such as a cell, rather than a main line with a phone menu.
+We leave a short message with the request, say we'll email you the details, and try your next number. Calls work best on a phone a person answers, such as a cell, rather than a main line with a phone menu.
 
 ### Can I call the customer back later myself?
 
@@ -153,6 +155,10 @@ Yes. Every lead is still in Studio and your email with the customer's number, wh
 ### What happens if I call back the number that called me?
 
 You hear a short message. The customer's details are in Studio and your email.
+
+### Can I pause calls?
+
+Yes. Open the Call Connect setup in Studio, turn on **Pause calls** and save. While paused, leads are emailed to you as usual and Studio shows them as skipped with "Paused". Your number is kept. Turn it off again to resume.
 
 ### What happens to my number if I cancel?
 
