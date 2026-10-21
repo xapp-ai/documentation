@@ -81,9 +81,17 @@ If nobody at the business answers either try, the lead goes to you by email.
 
 ## The numbers on the call
 
-- **Calls to you** come from the XAPP AI calling number. Save it as a contact so your phone never screens or silences it.
+- **Calls to you** come from one of the numbers below. Save them as a contact so your phone never screens or silences our calls.
 - **Calls to the customer** come from your Call Connect number, shown in Studio, with your caller ID name. Some carriers take a few days to start showing a new caller ID name.
 - **When a customer calls your Call Connect number back**, we ring your numbers in turn and show you the customer's own number, so you can call them back directly.
+
+### Numbers we call you from
+
+| Number         | Caller ID     |
+| -------------- | ------------- |
+| (251) 286-9820 | CUSTOMER CALL |
+
+If you call one of these numbers back, you'll hear a short message; the customer's details are in your email.
 
 ## Settings
 
