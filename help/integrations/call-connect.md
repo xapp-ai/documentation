@@ -28,7 +28,8 @@ When a lead is not called, Studio shows **Skipped** and the reason on the lead:
 | No phone number on the lead                        | There is nothing to call; the lead goes by email        |
 | Already called about this number recently          | We called you about this customer in the last 7 days    |
 | Daily call limit reached                           | You've had 10 calls today (the default limit)           |
-| No business hours set / No business time zone set  | Fill in the hours on your location                      |
+| No business hours set                              | Fill in the hours on your location                      |
+| No business time zone set                          | Set the time zone on your location                      |
 | The calling number is not active yet               | Your Call Connect number is still being set up          |
 | Turned off                                         | Call Connect is switched off                            |
 
@@ -55,9 +56,11 @@ You answer and hear a short spoken briefing, then the keypad options. For exampl
 | Key | What happens                                                                                                  |
 | --- | ------------------------------------------------------------------------------------------------------------- |
 | 1   | "Connecting you now." We ring the customer while you hear ringing. When they pick up, you're talking.         |
-| 2   | "No problem. We'll call you back in 15 minutes." You can use this once per lead. If you press 2 again, the details are emailed instead. |
+| 2   | "No problem. We'll call you back in 15 minutes." Once per lead (see below).                                   |
 | 3   | "OK, we'll send you the details by email." We don't call the customer.                                        |
 | 9   | Plays the briefing again.                                                                                     |
+
+**Pressing 2 again** on the call back sends the details by email instead.
 
 **After the conversation**, if you talked for 30 seconds or more, the call asks: "Did you book this job? Press 1 for yes, 2 for no, 3 for not yet." Your answer is saved on the lead.
 
@@ -117,7 +120,7 @@ The **Test call** button rings your first number with a sample lead. It starts w
 
 ### I tested it and didn't get a call
 
-Open the lead in Studio. If it says **Skipped**, the reason is shown there; "Not a high-value lead" is the usual one for a test. Write the test lead like a real high-value job, for example "full roof replacement after hail, insurance claim filed", and include a phone number we can call.
+Open the lead in Studio. If it says **Skipped**, the reason is shown there; "Not a high-value lead" is the usual one for a test. Write the test lead like a real high-value job, for example "full roof replacement after hail, insurance claim filed", and include a phone number we can call. To change what counts as high value, edit your [high value lead description](/help/ai/high-value-lead).
 
 ### It called me again with the same message
 
