@@ -134,6 +134,34 @@ Call screening counts as not answering, so no message is left and a retry follow
 
 You need two phones: one to act as the business and one as the customer. A free Google Voice number works as the second phone. Pressing 1 on a **Test call** doesn't dial anyone, so use a real form submission to test the connection to the customer.
 
+### What does the customer hear?
+
+Their phone rings with your Call Connect number and your caller ID name. When they answer, you're already on the line: there is no recording or robot voice on their side.
+
+### What if I'm busy or on another call?
+
+A busy line counts as no answer, and we try your next number. If none of your numbers answer, the lead goes to you by email. If you can't talk right now, press 2 and we'll call you back.
+
+### What if my voicemail picks up?
+
+Your voicemail records the briefing, and we move on to your next number. Calls work best on a phone a person answers, such as a cell, rather than a main line with a phone menu.
+
+### Can I call the customer back later myself?
+
+Yes. Every lead is still in Studio and your email with the customer's number, whatever happened on the call.
+
+### What happens if I call back the number that called me?
+
+You hear a short message. The customer's details are in Studio and your email.
+
+### What happens to my number if I cancel?
+
+We keep it for 30 days. If you add Call Connect again within 30 days, you get the same number back. After that it's released.
+
+### Does it work outside the US?
+
+Not yet. Call Connect calls US phone numbers only.
+
 ### Are calls recorded?
 
 No.
