@@ -5,7 +5,7 @@ sidebar_label: Call Connect
 
 :::important
 
-Call Connect is a paid add-on. Add it from **Integrations** in Studio by selecting the Call Connect card.
+Call Connect is a paid XAPP AI add-on, not a third-party integration. Add it from **Integrations** in Studio by selecting the Call Connect card. See [How can I find your pricing?](/help/faqs/how-can-i-find-your-pricing)
 
 :::
 
@@ -22,7 +22,8 @@ When a lead is not called, Studio shows **Skipped** and the reason on the lead:
 | What Studio shows                                  | What it means                                           |
 | -------------------------------------------------- | ------------------------------------------------------- |
 | Not a high-value lead                              | The request didn't match your high value description    |
-| Urgency / Contact type is not in the call criteria | You limited calls to certain urgencies or contact types |
+| Urgency is not in the call criteria                | You limited calls to certain urgencies                  |
+| Contact type is not in the call criteria           | You limited calls to certain contact types              |
 | Marked as spam                                     | The lead was flagged as spam                            |
 | No phone number on the lead                        | There is nothing to call; the lead goes by email        |
 | Already called about this number recently          | We called you about this customer in the last 7 days    |
@@ -35,7 +36,7 @@ Calls are placed only when both sides can take them:
 
 - **Your business hours**, from your location settings.
 - **The customer's local time**, 8 am to 9 pm.
-- **At least 5 minutes apart**, so two leads never ring you at once.
+- **At least 5 minutes apart** by default, so two leads never ring you at once.
 
 A lead that arrives after hours is called at the next time both are open.
 
@@ -54,7 +55,7 @@ You answer and hear a short spoken briefing, then the keypad options. For exampl
 | Key | What happens                                                                                                  |
 | --- | ------------------------------------------------------------------------------------------------------------- |
 | 1   | "Connecting you now." We ring the customer while you hear ringing. When they pick up, you're talking.         |
-| 2   | "No problem. We'll call you back in 15 minutes." Once per lead; a second press 2 sends the details by email.  |
+| 2   | "No problem. We'll call you back in 15 minutes." You can use this once per lead. If you press 2 again, the details are emailed instead. |
 | 3   | "OK, we'll send you the details by email." We don't call the customer.                                        |
 | 9   | Plays the briefing again.                                                                                     |
 
@@ -87,6 +88,8 @@ If nobody at the business answers either try, the lead goes to you by email.
 
 ### Numbers we call you from
 
+We currently call from one number. If we add more, they'll be listed here.
+
 | Number         | Caller ID     |
 | -------------- | ------------- |
 | (251) 286-9820 | CUSTOMER CALL |
@@ -104,8 +107,8 @@ Open **Integrations → Call Connect** in Studio.
 | When to call                   | Use my business hours; Time zone                           | Your location's hours                                                        |
 | Which leads                    | High-value leads only                                      | On                                                                           |
 | If the customer doesn't answer | Call me again if the customer doesn't answer               | On                                                                           |
-|                                | Call me again after: 15, 30 or 45 minutes, 1, 2 or 4 hours | 45 minutes                                                                   |
-|                                | Pressing 2 calls me back in: 5, 10, 15, 30 or 60 minutes   | 15 minutes                                                                   |
+| If the customer doesn't answer | Call me again after: 15, 30 or 45 minutes, 1, 2 or 4 hours | 45 minutes                                                                   |
+| If the customer doesn't answer | Pressing 2 calls me back in: 5, 10, 15, 30 or 60 minutes   | 15 minutes                                                                   |
 | On the call                    | Say who the lead came from                                 | On: your partner brand's name if partner branding is on, otherwise XAPP AI   |
 
 The **Test call** button rings your first number with a sample lead. It starts with "This is a test call" and never dials a customer.
@@ -114,7 +117,7 @@ The **Test call** button rings your first number with a sample lead. It starts w
 
 ### I tested it and didn't get a call
 
-Open the lead in Studio. If it says **Skipped**, the reason is shown there; "Not a high-value lead" is the usual one for a test. Write the test lead like a real high-value job, for example "full roof replacement after hail, insurance claim filed".
+Open the lead in Studio. If it says **Skipped**, the reason is shown there; "Not a high-value lead" is the usual one for a test. Write the test lead like a real high-value job, for example "full roof replacement after hail, insurance claim filed", and include a phone number we can call.
 
 ### It called me again with the same message
 
