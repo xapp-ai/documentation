@@ -10,7 +10,7 @@ Partners can put their own brand on the parts of XAPP AI that their customers an
 * Your organization must be a **Partner** organization. Contact your XAPP AI account manager if you do not see the branding page.
 * Only **Organization Owners** and **Organization Admins** can view or change branding settings.
 
-To open the settings, go to your organization in Studio and choose **Settings → Partner Branding**.
+To open the settings, go to your organization in Studio and choose **Partner Branding** in the navigation menu, or **Settings → Branding** in the organization menu.
 
 ## What you can brand
 
@@ -39,7 +39,7 @@ Switch on **Enable Partner Branding**. Nothing is branded while this is off, and
 
 | Setting | Notes |
 |---|---|
-| **Company Logo** | Upload an image and crop it. The logo must be between 100 and 800 pixels wide and between 50 and 400 pixels tall. |
+| **Company Logo** | Upload an image and crop it. The logo must be between 100 and 800 pixels wide and between 50 and 400 pixels tall; 200 × 100 pixels is recommended. |
 | **Primary Color** | Hex color, for example `#071837`. The header text color is picked automatically for contrast. |
 | **Background Color** | Hex color for the email body. |
 | **Company Name** | Shown in the email footer. |
@@ -53,7 +53,7 @@ If you enable branding but do not upload a logo, emails show no logo rather than
 
 The **Partner Code** is a short identifier for your brand that appears in booking links, for example `?partnerId=yourcode`.
 
-* Up to 20 characters: lowercase letters, numbers, and hyphens.
+* Up to 20 characters: letters, numbers, and hyphens, with no spaces.
 * Must be unique across XAPP AI. Some codes are reserved. Studio will not save a code that is reserved or already in use, so choose another.
 
 ### 4. Booking domain (optional)
@@ -63,7 +63,7 @@ By default your booking page is served from an XAPP AI domain. To serve it from 
 1. In **Booking Domain**, enter the domain you want to use, for example `book.yourcompany.com`.
 2. Studio shows the DNS records to add: a **CNAME** that points the domain at your booking page, and a **TXT** record that proves you own it. Add both at your DNS provider.
 3. Turn off any proxy or CDN on the CNAME record (for example, Cloudflare's orange cloud). The record must be DNS-only.
-4. Studio checks automatically. The status moves from waiting for DNS, to setting up, to **Live**. This usually takes minutes but can take a few hours while DNS spreads.
+4. Studio checks automatically. The status moves from waiting for DNS, to setting up, to **Live**. This usually takes minutes but can take a few hours while DNS propagates.
 
 When you change from one booking domain to another, the current domain keeps working until the new one is live, so booking links do not break during the switch.
 
@@ -92,7 +92,7 @@ When a visitor opens the booking page through your partner code or booking domai
 
 ## Centralized bookings
 
-Turn on **Collect bookings centrally** if your organization receives the leads for all of your dealers instead of each dealer receiving their own. Dealers who sign up through your partner link then skip the step that asks where their leads should go.
+Turn on **Collect bookings centrally** if your organization receives the leads for all of your dealers instead of each dealer receiving their own. Dealers who sign up through your partner link then skip the sign-up step that asks where their leads should be sent.
 
 ## What is not white labeled
 
