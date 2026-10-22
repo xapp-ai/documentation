@@ -73,7 +73,7 @@ const sidebars = {
     {
       type: "category",
       label: "Partners",
-      items: ["partners/partner-integration", "partners/partner-tools"],
+      items: ["partners/partner-integration", "partners/partner-tools", "partners/white-label-branding"],
     },
     {
       type: "category",
