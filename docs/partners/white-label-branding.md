@@ -19,7 +19,7 @@ To open the settings, go to your organization in Studio and choose **Partner Bra
 | Logo | Header of lead emails and the hosted booking page |
 | Primary color | Header and footer background of lead emails; accents on the booking page |
 | Background color | Body background of lead emails |
-| Company name and website | Footer of lead emails, the "Powered by" link on the booking page (the name appears there only when you have no logo), and the source name announced on [Call Connect](/help/integrations/call-connect) calls |
+| Company name and website | Footer of lead emails, the "Powered by" link on the booking page (your logo, or your company name if no logo is uploaded), and the source name announced on [Call Connect](/help/integrations/call-connect) calls |
 | Custom sender email or domain | The "From" address on lead emails |
 | Booking domain | The web address of your booking page, for example `book.yourcompany.com` |
 | Partner code | Identifies your brand in booking links |
@@ -99,6 +99,6 @@ Turn on **Collect bookings centrally** if your organization receives the leads f
 * **Studio itself** is not rebranded. It is always served from `studio.xapp.ai` with XAPP AI branding, and there is no custom login page. Branded lead emails leave out the link to view the lead in Studio.
 * **The chat widget** on customer websites is styled per application in the widget settings, not by partner branding. See [Widget Customization](/docs/channels/channel-chat-widget#configuring-the-widget-within-studio).
 
-## Need something else?
+## Additional options
 
 Some options, such as connecting a CRM that every new dealer inherits or a template application used for dealer sign-up, are set up by XAPP AI for you. Contact your account manager.
