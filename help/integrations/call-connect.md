@@ -36,11 +36,13 @@ When a lead is not called, Studio shows **Skipped** and the reason on the lead:
 
 Calls are placed only when both sides can take them:
 
-- **Your business hours**, from your location settings.
+- **Your business hours**, from your Google listing, unless you set calling hours in [Settings](#settings).
 - **The customer's local time**, 8 am to 9 pm.
 - **At least 5 minutes apart** by default, so two leads never ring you at once.
 
-A lead that arrives after hours is called at the next time both are open.
+Because we dial the customer as soon as you press 1, the 8 am to 9 pm limit applies to calls to you as well. Even if your listing says "Open 24 hours", you only get calls between 8 am and 9 pm the customer's time.
+
+A lead that arrives after hours is called at the next time both are open, for example a lead at 11 pm is called at 8 am the next morning.
 
 ## What you hear
 
@@ -109,7 +111,7 @@ Open **Integrations → Call Connect** in Studio.
 | Pause calls                    | Stop calling for now; leads are emailed, the number is kept | Off |
 | Your Call Connect number       | Area code; Caller ID name (shown to customers)             | Your location's area code and business name                                  |
 | Numbers to call                | The phones we ring you on, in order                        | None                                                                         |
-| When to call                   | Use my business hours; Time zone                           | Your location's hours                                                        |
+| When to call                   | Use my business hours; Time zone                           | Your Google listing's hours, within 8 am to 9 pm the customer's time         |
 | Which leads                    | High-value leads only                                      | On                                                                           |
 | If the customer doesn't answer | Call me again if the customer doesn't answer               | On                                                                           |
 | If the customer doesn't answer | Call me again after: 15, 30 or 45 minutes, 1, 2 or 4 hours | 45 minutes                                                                   |
@@ -147,6 +149,10 @@ A busy line counts as no answer, and we try your next number. If none of your nu
 ### What if my voicemail picks up?
 
 We leave a short message with the request, say we'll email you the details, and try your next number. Calls work best on a phone a person answers, such as a cell, rather than a main line with a phone menu.
+
+### We're open 24 hours. Will you call us at night?
+
+No. We only call the customer between 8 am and 9 pm their time, and we call you right before them, so a lead at night is called at 8 am. The lead is in Studio and your email as usual.
 
 ### Can I call the customer back later myself?
 
