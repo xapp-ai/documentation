@@ -65,6 +65,7 @@ const sidebars = {
       label: "Integrations",
       items: [
         "integrations",
+        "integrations/call-connect",
         "integrations/integration-jobber",
         "integrations/integration-service-titan",
         "integrations/integration-housecall-pro",
