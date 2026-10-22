@@ -19,7 +19,7 @@ To open the settings, go to your organization in Studio and choose **Settings â†
 | Logo | Header of lead emails and the hosted booking page |
 | Primary color | Header and footer background of lead emails; accents on the booking page |
 | Background color | Body background of lead emails |
-| Company name and website | Footer of lead emails, the "Powered by" link on the booking page, and the source name announced on [Call Connect](/help/integrations/call-connect) calls |
+| Company name and website | Footer of lead emails, the "Powered by" link on the booking page (the name appears there only when you have no logo), and the source name announced on [Call Connect](/help/integrations/call-connect) calls |
 | Custom sender email or domain | The "From" address on lead emails |
 | Booking domain | The web address of your booking page, for example `book.yourcompany.com` |
 | Partner code | Identifies your brand in booking links |
@@ -54,7 +54,7 @@ If you enable branding but do not upload a logo, emails show no logo rather than
 The **Partner Code** is a short identifier for your brand that appears in booking links, for example `?partnerId=yourcode`.
 
 * Up to 20 characters: lowercase letters, numbers, and hyphens.
-* Must be unique across XAPP AI. Some codes are reserved.
+* Must be unique across XAPP AI. Some codes are reserved. Studio will not save a code that is reserved or already in use, so choose another.
 
 ### 4. Booking domain (optional)
 
@@ -76,7 +76,7 @@ Lead emails are sent from an XAPP AI address unless you set up your own. You can
 * **Custom Sender Email**: a single address, for example `no-reply@yourcompany.com`. We send a verification email to it; click the link to confirm.
 * **Custom Sender Domain**: your whole domain. Studio shows the DNS records (TXT and DKIM CNAMEs) to add at your DNS provider.
 
-Lead emails use your address once it is verified.
+Lead emails keep using the XAPP AI address until verification completes, then switch to your address.
 
 ### 6. Form style (optional)
 
@@ -88,7 +88,7 @@ Forms embedded on a customer's own website keep the styling configured for that 
 
 ## Booking page "Powered by"
 
-When a visitor opens the booking page through your partner code or booking domain, the page shows your logo and colors, and the footer reads "Powered by" followed by your logo, linked to your website, instead of XAPP AI.
+When a visitor opens the booking page through your partner code or booking domain, the page shows your logo and colors, and the footer reads "Powered by" followed by your logo, linked to your website, instead of XAPP AI. If you have not uploaded a logo, your company name is shown instead.
 
 ## Centralized bookings
 
