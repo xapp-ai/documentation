@@ -18,7 +18,7 @@ A common setup for home service businesses:
 - Website form fills and chat leads need to land in **GoHighLevel**, because that is where the automated follow-up lives: instant texts, email sequences, and reminders.
 - Jobs and estimates are managed in a **separate** field service or production tool. Leads don't need to go there first.
 
-If that sounds like you, send your leads to GoHighLevel with the Webhook integration. They arrive within seconds of being captured and can kick off your follow-up sequences right away.
+If that sounds like you, send your leads to GoHighLevel with the Webhook integration. They usually arrive within a minute of being captured, once our AI has analyzed them, and can kick off your follow-up sequences right away.
 
 ## What you need
 
@@ -77,7 +77,7 @@ Back in GoHighLevel, open the **Inbound Webhook** trigger and click **Fetch Samp
 | Source | `source` |
 
 3. Save the action.
-4. Add your follow-up next. For example, use **Add to Workflow** or **Add Contact Tag** to start the sequence you already use for new leads.
+4. Next, add your follow-up. For example, use **Add to Workflow** or **Add Contact Tag** to start the sequence you already use for new leads.
 5. Switch the workflow from **Draft** to **Publish** and save.
 
 ### Useful extra fields
@@ -102,7 +102,7 @@ A field that is unknown for a given lead is sent empty. The full list of keys is
 
 ## Troubleshooting
 
-**No sample request shows up.** Make sure the integration is saved in XAPP AI, then send another test lead. Leads are delivered a few seconds after they're captured, once our AI has analyzed them.
+**No sample request shows up.** Make sure the integration is saved in XAPP AI, then send another test lead. Leads usually arrive within a minute of being captured, once our AI has analyzed them.
 
 **Contacts are missing names or fields.** Make sure **Send simplified (flat) payload** is checked in XAPP AI. If you turned it on after building the workflow, click **Fetch Sample Requests** again, pick a new Mapping Reference, and re-map the fields.
 
