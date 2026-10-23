@@ -41,7 +41,7 @@ In GoHighLevel, **Inbound Webhook** is a *premium* workflow trigger. HighLevel (
 
 :::caution
 
-Treat this URL like a password. Anyone who has it can send data into your workflow, so don't post it publicly or share it outside your team.
+Treat this URL like a password. Anyone who has it can send data into your workflow, so don't post it publicly or share it outside your team. If it does leak, delete the Inbound Webhook trigger, add a new one, and paste the new URL into XAPP AI.
 
 :::
 
@@ -95,6 +95,8 @@ The simplified payload also includes our AI's read on each lead. Each one is a r
 | `utm_source`, `utm_campaign`, `gclid`, … | Ad and campaign attribution |
 
 For example, you could send leads where `urgency` is `URGENT` to a faster text sequence.
+
+`transcript_text` contains the whole conversation, including anything personal the customer typed. Only store it where your team would keep other customer records.
 
 A field that is unknown for a given lead is sent empty. The full list of keys is the same on every lead, so you only need to map them once.
 
