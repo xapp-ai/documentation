@@ -73,6 +73,7 @@ const sidebars = {
         "integrations/integration-serviceminder",
         "integrations/integration-lacrm",
         "integrations/integration-zapier",
+        "integrations/integration-gohighlevel",
       ],
     },
     {
