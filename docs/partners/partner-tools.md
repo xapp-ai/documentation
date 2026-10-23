@@ -31,6 +31,7 @@ __Read More__
 
 * [Widget Customization](/docs/channels/channel-chat-widget#configuring-the-widget-within-studio)
 * [Opportunity Alerts](/docs/studio/opportunity-alerts)
+* [White Label Branding](/docs/partners/white-label-branding)
 
 ### Status Update Events
 
