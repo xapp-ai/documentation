@@ -39,6 +39,12 @@ In GoHighLevel, **Inbound Webhook** is a *premium* workflow trigger. HighLevel (
 2. Click **Add New Trigger** and choose **Inbound Webhook**.
 3. Copy the **webhook URL** it shows you. You'll paste it into XAPP AI in the next step.
 
+:::caution
+
+Treat this URL like a password. Anyone who has it can send data into your workflow, so don't post it publicly or share it outside your team.
+
+:::
+
 Leave this tab open. You'll come back here to map fields once a test lead has been sent.
 
 ## Step 2: Connect the webhook in XAPP AI
@@ -81,7 +87,7 @@ The simplified payload also includes our AI's read on each lead. Each one is a r
 | Field | What it holds |
 |---|---|
 | `summary` / `concise_summary` | A plain-English summary of what the customer needs |
-| `urgency` | How urgent the request is |
+| `urgency` | How urgent the request is: `LOW`, `MEDIUM`, `HIGH`, `URGENT` or `NOT_SPECIFIED` |
 | `job_type` / `service_type` | The kind of work requested |
 | `high_value_lead` | `true` when the lead looks like a high-value job |
 | `preferred_day`, `preferred_time_start`, `preferred_time_end` | When the customer asked to be contacted or scheduled |
@@ -98,7 +104,7 @@ A field that is unknown for a given lead is sent empty. The full list of keys is
 
 **Contacts are missing names or fields.** Make sure **Send simplified (flat) payload** is checked in XAPP AI. If you turned it on after building the workflow, click **Fetch Sample Requests** again, pick a new Mapping Reference, and re-map the fields.
 
-**Duplicate contacts.** GoHighLevel matches existing contacts using your sub-account's **Allow Duplicate Contact** setting (under **Settings → Business Profile**). Turn duplicates off there to have repeat leads update the existing contact.
+**Duplicate contacts.** GoHighLevel matches existing contacts using your sub-account's **Allow Duplicate Contact** setting. Turn duplicates off there to have repeat leads update the existing contact. The setting's location in GoHighLevel can change, so search the [GoHighLevel Help Center](https://help.gohighlevel.com/) for "Allow Duplicate Contact" if you can't find it.
 
 ## More information
 
