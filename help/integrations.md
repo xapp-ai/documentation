@@ -22,3 +22,4 @@ Call Connect phones you the moment a high-value lead comes in and puts you throu
 - [Housecall Pro](https://www.housecallpro.com) - [Read More](/help/integrations/integration-housecall-pro)
 - [Zapier](https://zapier.com/) - [Read More](/help/integrations/integration-zapier)
 - [Less Annoying CRM](https://www.lessannoyingcrm.com/) - [Read More](/help/integrations/integration-lacrm)
+- [GoHighLevel](https://www.gohighlevel.com/) - [Read More](/help/integrations/integration-gohighlevel)
