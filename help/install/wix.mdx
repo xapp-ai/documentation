@@ -1,87 +1,22 @@
 ---
 title: Installation on Wix
 sidebar_label: Wix
+hide_title: true
 ---
 
-Easily integrate the XAPP Chat Widget into your Wix website with these steps.
 
-## Prerequisites
+import Guide from "./_partials/wix.md";
+import Keys from "./_keys.mdx";
+import Search from "./_search.mdx";
 
-- Access to your Wix site editor
-- A published Wix site with connected custom domain
-  - Free Wix sites do not support custom code
-- Your unique script snippet or widget key from Studio
-  - See instructions [here](/help/channels/chat-widget#finding-code-snippet--key)
+{/* The steps are the partner install guide in _partials; edit them there. */}
 
-## Installation Steps
+<Guide />
 
-1. **Open Your Site Editor**
+<Keys />
 
-   - Log in to your Wix account and open your site in the editor.
-
-2. **Access the Custom Code Setting**
-
-   - Go to `Settings` > `Custom code` in the Advanced section
-
-3. **Add Custom Code**
-
-   - Click + Add Custom Code at the top right
-
-4. **Insert the JavaScript Snippets**
-
-   - Paste the following snippets into the code box:
-
-   **Chat Snippet**
-
-   ```html
-   <script
-     id="xapp-js"
-     src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
-   ></script>
-   ```
-
-   **Form / Scheduler Snippet**
-
-   ```html
-   <script
-     id="xapp-form-js"
-     src="https://form.xapp.ai/xapp-form-widget.js?key=YOUR_FORM_KEY"
-   ></script>
-   ```
-
-   **Search Snippet**
-
-   ```html
-   <script
-     id="xapp-search-js"
-     src="https://search.xapp.ai/xapp-search-bar.js?key=YOUR_SEARCH_KEY"
-   ></script>
-   ```
-
-   :::important
-   For the **search** bar, you will also need to setup a button on your website to trigger the search bar pop over, please see these [instructions](/help/channels/intelligent-search#triggering-search-with-a-button-press).
-   :::
-
-5. **Set Up Code**
-
-   - Name the code (e.g., XAPP Widgets).
-   - Apply it to `All pages`, including `Load code once`.
-   - Select to place the code in the Body - end section
-
-6. **Publish Your Changes**
-
-   - Save and publish your site to make the changes live.
-
-7. **Verify Installation**
-   - Visit your live site to ensure the XAPP Chat Widget is functioning correctly.
-
-## Troubleshooting
-
-- **Widget Not Visible**: Check if the code was saved correctly and published.
-- **Look for Script Errors**: If there are issues, check the browser console for any script-related errors.
+<Search />
 
 ## References
 
 - [Wix - Adding custom code to your site](https://support.wix.com/en/article/embedding-custom-code-on-your-site)
-
-For additional support, reach out to XAPP support.

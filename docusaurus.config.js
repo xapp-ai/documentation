@@ -1,3 +1,17 @@
+const remarkSnippet = require("./plugins/install-guides/remark-snippet");
+
+// What the install guides' {{snippet}} block shows on our help pages.
+const XAPP_SNIPPET = `<!-- Chat -->
+<script
+  id="xapp-js"
+  src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
+></script>
+<!-- Form / Scheduler -->
+<script
+  id="xapp-form-js"
+  src="https://form.xapp.ai/xapp-form-widget.js?key=YOUR_FORM_KEY"
+></script>`;
+
 module.exports = {
   title: "XAPP AI",
   tagline: "Documentation for XAPP AI's Optimal Conversation Studio",
@@ -9,6 +23,7 @@ module.exports = {
   projectName: "documentation", // Usually your repo name.
   plugins: [
     "./plugins/inject-widget",
+    "./plugins/install-guides",
     [
       "@docusaurus/plugin-content-docs",
       // This is to support the advanced documentation
@@ -125,6 +140,7 @@ module.exports = {
           path: "help",
           routeBasePath: "help",
           sidebarPath: require.resolve("./sidebars-help.js"),
+          remarkPlugins: [[remarkSnippet, { snippet: XAPP_SNIPPET }]],
           // Please change this to your repo.
           editUrl: "https://github.com/xapp-ai/documentation/edit/main/",
         },
