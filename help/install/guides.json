@@ -1,0 +1,60 @@
+{
+  "commit": "1796814d77a24a192bb6d3500e9ea5107d744d64",
+  "guides": [
+    {
+      "platform": "drupal",
+      "title": "Drupal",
+      "path": "/help/install/drupal/guide.json"
+    },
+    {
+      "platform": "duda",
+      "title": "Duda",
+      "path": "/help/install/duda/guide.json"
+    },
+    {
+      "platform": "framer",
+      "title": "Framer",
+      "path": "/help/install/framer/guide.json"
+    },
+    {
+      "platform": "generic",
+      "title": "Any website",
+      "path": "/help/install/generic/guide.json"
+    },
+    {
+      "platform": "godaddy",
+      "title": "GoDaddy",
+      "path": "/help/install/godaddy/guide.json"
+    },
+    {
+      "platform": "joomla",
+      "title": "Joomla",
+      "path": "/help/install/joomla/guide.json"
+    },
+    {
+      "platform": "shopify",
+      "title": "Shopify",
+      "path": "/help/install/shopify/guide.json"
+    },
+    {
+      "platform": "squarespace",
+      "title": "Squarespace",
+      "path": "/help/install/squarespace/guide.json"
+    },
+    {
+      "platform": "wix",
+      "title": "Wix",
+      "path": "/help/install/wix/guide.json"
+    },
+    {
+      "platform": "wordpress",
+      "title": "WordPress",
+      "path": "/help/install/wordpress/guide.json"
+    },
+    {
+      "platform": "zyro",
+      "title": "Hostinger (Zyro)",
+      "path": "/help/install/zyro/guide.json"
+    }
+  ]
+}

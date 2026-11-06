@@ -1,0 +1,6 @@
+{
+  "platform": "squarespace",
+  "title": "Squarespace",
+  "markdown": "# Add the website widget to Squarespace\n\n## Before you start\n\n- You need administrator access to your Squarespace site.\n- Your site must be on the Business plan or higher. Lower plans do not allow custom code.\n\n## Steps\n\n1. Log in to Squarespace and open your site's dashboard.\n\n2. Go to `Website`, then `Pages`.\n\n3. Scroll down to `Utilities` and choose `Website Tools`.\n\n4. In the Custom code section, choose `Code Injection`.\n\n5. Paste the code below into the `Footer` box:\n\n   ```html\n   {{snippet}}\n   ```\n\n6. Click `Save`.\n\n## Check it worked\n\nVisit your live website. The widget button should appear on the page. It can take a few minutes to show up; if you don't see it, clear your browser cache or open the site in a private window.\n\n## Troubleshooting\n\n- **Widget not appearing**: make sure the code is in the `Footer` box (not the Header) and that you clicked `Save`.\n- **No Code Injection option**: code injection needs the Business plan or higher.\n- **Still nothing**: open your browser's developer console and look for script errors on the page.",
+  "commit": "1796814d77a24a192bb6d3500e9ea5107d744d64"
+}
