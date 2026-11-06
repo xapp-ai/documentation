@@ -14,7 +14,11 @@ title: Framer
 
 2. Open the project's Site Settings.
 
+   ![Framer site settings](/img/install/framer/framer-site-settings.png)
+
 3. Scroll down to the `Custom Code` section.
+
+   ![Framer custom code](/img/install/framer/framer-custom-code.png)
 
 4. Paste the code below into the "End of `<body>` tag" box:
 

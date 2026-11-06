@@ -1,0 +1,23 @@
+name: Install guides
+
+on:
+  pull_request:
+    paths:
+      - "help/install/**"
+      - "plugins/install-guides/**"
+  push:
+    branches: ["main"]
+    paths:
+      - "help/install/**"
+      - "plugins/install-guides/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # The white-label rules for the partner install guides; no dependencies needed.
+      - run: node --test "plugins/**/*.test.js"

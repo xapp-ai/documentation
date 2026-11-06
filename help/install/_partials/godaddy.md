@@ -16,7 +16,11 @@ GoDaddy Website Builder keeps custom code inside the section you add it to. That
 
 2. Select `Edit Website` (or `Edit Site`) and open your Contact Us page.
 
+   ![GoDaddy edit website](/img/install/godaddy/go-daddy-edit-website.png)
+
 3. Click the `+` button just below the site header to add a section, and choose the `HTML` section.
+
+   ![GoDaddy add an HTML section](/img/install/godaddy/go-daddy-add-custom-section.gif)
 
 4. Set the section Title to "Chat".
 
@@ -29,6 +33,8 @@ GoDaddy Website Builder keeps custom code inside the section you add it to. That
 6. Set `Forced Height` to `600` and turn on `Center align`.
 
 7. Adjust the section settings as needed, preview your page, then click `Publish`.
+
+   ![GoDaddy contact page with the widget](/img/install/godaddy/go-daddy-contact-us-page.png)
 
 The widget works best on GoDaddy when it is set to open automatically and sized larger (about 1500 px wide by 800 px tall). Whoever provided your code can switch that on for you.
 

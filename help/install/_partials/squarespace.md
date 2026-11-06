@@ -15,11 +15,21 @@ title: Squarespace
 
 2. Go to `Website`, then `Pages`.
 
+   ![Squarespace website menu](/img/install/squarespace/sq-sp-1.png)
+
+   ![Squarespace pages](/img/install/squarespace/sq-sp-2.png)
+
 3. Scroll down to `Utilities` and choose `Website Tools`.
+
+   ![Squarespace website tools](/img/install/squarespace/sq-sp-3.png)
 
 4. In the Custom code section, choose `Code Injection`.
 
+   ![Squarespace code injection](/img/install/squarespace/sq-sp-4.png)
+
 5. Paste the code below into the `Footer` box:
+
+   ![Squarespace code injection footer](/img/install/squarespace/sq-sp-5.png)
 
    ```html
    {{snippet}}

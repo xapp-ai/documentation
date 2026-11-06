@@ -1,56 +1,22 @@
 ---
 title: Installation on Zyro / Hostinger
 sidebar_label: Zyro / Hostinger
+hide_title: true
 ---
 
-## Prerequisites
 
-- Access to your Zyro site admin
+import Guide from "./_partials/zyro.md";
+import Keys from "./_keys.mdx";
+import Search from "./_search.mdx";
 
-- Your unique script snippet or widget key from Studio
-  - See instructions [here](/help/channels/chat-widget#finding-code-snippet--key)
+{/* The steps are the partner install guide in _partials; edit them there. */}
 
-## Installation Steps
+<Guide />
 
-1. **Open your Web site Builder**
+<Keys />
 
-2. **At the bottom right, click "Website settings" then "Integrations"**
+<Search />
 
-3. **Paste your unique JavaScript Snippets**
-
-   - Paste in the snippets in to the "Custom code" section
-
-   **Chat Snippet**
-
-   ```html
-   <script
-     id="xapp-js"
-     src="https://widget.xapp.ai/xapp-chat-widget.js?key=YOUR_CHAT_KEY"
-   ></script>
-   ```
-
-   **Form / Scheduler Snippet**
-
-   ```html
-   <script
-     id="xapp-form-js"
-     src="https://form.xapp.ai/xapp-form-widget.js?key=YOUR_FORM_KEY"
-   ></script>
-   ```
-
-   **Search Snippet**
-
-   ```html
-   <script
-     id="xapp-search-js"
-     src="https://search.xapp.ai/xapp-search-bar.js?key=YOUR_SEARCH_KEY"
-   ></script>
-   ```
-
-   :::important
-   For the **search** bar, you will also need to setup a button on your website to trigger the search bar pop over, please see these [instructions](/help/channels/intelligent-search#triggering-search-with-a-button-press).
-   :::
-
-## Reference
+## References
 
 - [Hostinger (Zyro) - How to Integrate Custom Code](https://support.hostinger.com/en/articles/6445594-website-builder-how-to-integrate-custom-code)
