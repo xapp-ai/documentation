@@ -3,129 +3,241 @@ title: Partner Integration
 sidebar_label: Integration
 ---
 
-Our goal is to make integration with a partner's products and services as seemless as possible.  We can offer branded, and white label solutions that integrate with your APIs for lead capture, scheduling, etc.  We will then setup a bespoke runtime environment and necessary infrastructure that is specific to your services.  Your primary responsibility is send and receive the necessary events that allow us to automatically create the application and you receive the necessary information for installation. 
+White-label partners set up and manage XAPP AI for their own businesses through the **partner API**. Your system sends an event to set up a business. XAPP AI builds the assistant, the website widget, Book Online and a booking link. Your system then reads back the business's status, its install snippet, white-label install steps, and its leads and traffic.
 
-### Responsibility Matrix
+* **API reference:** [api.xapp.ai/partner/docs](https://api.xapp.ai/partner/docs) lists every endpoint with request and response shapes.
+* **OpenAPI spec:** [api.xapp.ai/partner/openapi.json](https://api.xapp.ai/partner/openapi.json), for generating a client.
+* **API keys:** created in Studio on your organization's **Developer Tools** page. See [Partner API Keys](/docs/partners/partner-api-keys).
 
-|  Integration | XAPP  | Partner  | 
+## Responsibilities
+
+| | XAPP AI | Partner |
 |---|---|---|
-|  Partner API Integration | ✅ |   |
-|  Assistant Runtime | ✅ | | 
-| Assistant Management & QA |✅ | |
-|  Assistant Infrastructure | ✅ | |
-| Custom Templates | ✅ | | 
-| Event Setup  | ✅ |  ✅ |
-|  Custom Analytics Endpoint | ✅  | *Optional* | 
+| Partner API and its infrastructure | ✅ | |
+| Assistant runtime, management and QA | ✅ | |
+| Templates for your businesses | ✅ | |
+| Sending setup events for your businesses | | ✅ |
+| Sending install steps to your businesses | | ✅ |
+| Reading status and analytics | | ✅ |
 
-## Management Services
+## Basics
 
-Any item related to creation, deletion and updating can be handled through integration with our APIs.  We recommend using an event style approach for communication between our services and yours.  We run on AWS and typically use AWS EventBridge for communication between our account and a partner's account.  CRMs such as Salesforce make it easy to send workflow triggered events through EventBridge.
+| | |
+|---|---|
+| Base URL | `https://api.xapp.ai/partner/v1` |
+| Authentication | `Authorization: Bearer <partner key>` on every request |
+| Format | JSON in and out |
+| Business id | Your own id for each business (`businessId`), up to 128 letters, digits, `.`, `_`, `:` or `-` |
 
-![integration status](/img/partners/studio-partner-status-integration.png)
+A key belongs to one partner organization. It can only see and change that organization's businesses. A business that belongs to someone else answers `404`, exactly like one that does not exist.
 
-### Events
+Check that a key works with `GET /partner/v1/ping`:
 
-#### Create Subscription Event
-
-A create subscription event is sent from your environment to ours upon either the creation or upgrade of a subscription that includes our offering.
-
-When we receive it, we register the event in our CRM and also start the automation that creates the assistant application.
-
-__Sample Event Payload__ 
-
-```json
-{
-    "tier": "partner_tier",
-    "contract_length": 1, // number of months; 1, 12, 24 are common values
-    "id": "partner_customer_id",
-    "website": "https://customer-site.com",
-    "template": "existing_or_custom_template",
-    "company_name": "Customer Name"
-}
+```bash
+curl https://api.xapp.ai/partner/v1/ping \
+  -H "Authorization: Bearer $PARTNER_KEY"
 ```
 
-We receive the event in a custom partner specific event receiver that understands the tier to determine which products are required.  We then crawl the website looking for content, metadata, logos, and color scheme that we use to generate the channels that will be installed for the customer.  
-
-We then run the generated asset through a manual quality assurance before we mark it as ready to for install.
-
-#### Ready for Installation Event
-
-We send a ready for installation event after we have completed the QA on the newly created assistant application and relevent channels.
-
-This QA includes but is not limited to:
-
-* Review of logo and color scheme to match customers website
-* Review of content and any calls to action
-* Review basic functionality & integrations
-
-__Sample Event Payload__ 
-
 ```json
-{
-    "id": "partner_customer_id",
-    "widget_snippet": "",
-    "widget_key": "",
-    "search_snippet": "",
-    "search_key": "",
-}
+{ "ok": true, "partnerOrgId": "your-org-id" }
 ```
 
-We will return all the necessary information for installation of the widget to the customer's website.  For the widget and search channels, the installation can be done through a script snippet or our Wordpress Plugin.
+A missing or wrong key answers `401`.
 
-#### Cancellation Event
+## Endpoints
 
-Cancellations are also all automated.  When we receive the event, we cease all automations for the assistant (such as web crawling), clean up any assets and delete any necessary residual data.
+| Method and path | What it does |
+|---|---|
+| `GET /partner/v1/ping` | Confirms the key works and names its organization |
+| `POST /partner/v1/events` | Sends an event, for example to set up a business |
+| `GET /partner/v1/businesses` | Lists your businesses, a page at a time |
+| `GET /partner/v1/businesses/{businessId}` | One business: status, snippet, install steps, booking link |
+| `GET /partner/v1/businesses/{businessId}/analytics` | One business's leads and website traffic over a date range |
+| `POST /partner/graphql` | The same reads as one GraphQL endpoint |
 
-__Sample Event Payload__ 
+## Setting up a business
 
-```json
-{
-    "id": "partner_customer_id",
-    "effective_date": "ISO-8601 of when cancellation is effective",
-}
-```
+### 1. Send the setup event
 
-## Runtime Services
-
-We define runtime services as anything that the virtual assistant will rely upon during an active session.  This can be the customers content from their website or from your APIs.
-
-### Assistant Application
-
-We will build a custom assistant application that is specific to and the services you offer your customers.  It is our responsibility to host and maintain the infrastructure as well as perform QA on each of the applications.  
-
-### APIs
-
-You, as a partner, most likely have APIs for the customer that help capture leads and facilitate scheduling.  We have abstracted workflows that we will hook up to your APIs for your customers.
-
-### Answer Content
-
-We pull answers to questions for users from the customers website content.  We automatically crawl and index the publically available content at a regular cadence.  This does not require any additional integrations.
-
-## Analytic Services
-
-Integration with your APIs will help push captured leads and scheduled appointments to your services for the customer.  Additionally, we can provide more data to the customer such as unique users and recent queries for the customer.  We can help build a custom endpoint specific to you, the partner, that you can use to query analytics for a customer.  You can then choose to display the data in your platform or however you choose.
-
-__Example Response__
-
-```json
-{
-    "partner_id": "3E7E87CB-447B-A150",
-    "startDate": "2023-02-28T22:13:58-05:00",
-    "endDate": "2023-03-08T03:13:55.700Z",
-    "widget": {
-        "totalUniqueSessions": 4,
-        "totalUniqueUsers": 4,
-        "queries": {
-            "total": 10,
-            "totalNoContent": 1,
-            "topQueriesNoContent": [
-                "do you have spanish speakers on staff"
-            ],
-            "topQueries": [
-                "connect me with someone",
-                "hi! i need a insurance card when i renewed it i did not get one",
-            ]
-        }
+```bash
+curl -X POST https://api.xapp.ai/partner/v1/events \
+  -H "Authorization: Bearer $PARTNER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "id": "01JC8Z6Q4M2V7Y3K9T5R0B1XWE",
+    "type": "business.setup_requested",
+    "version": "1",
+    "occurredAt": "2026-11-01T15:00:00Z",
+    "businessId": "biz-48213",
+    "data": {
+      "businessName": "Green Valley Lawn Care",
+      "website": "https://greenvalleylawn.example",
+      "googleBusinessProfile": "ChIJN1t_tDeuEmsRUsoyG83frY4",
+      "phone": "+15555550123",
+      "streetAddress": "1200 Main St",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78701",
+      "integrations": [
+        { "type": "partner-crm", "config": { "campaignId": "campaign-991" } }
+      ]
     }
+  }'
+```
+
+* `id` is your id for the event. Events are de-duplicated on it, so after a timeout or a `5xx`, resend with the **same** `id`.
+* `businessName` is the only required field. XAPP AI builds everything the rest allows:
+  * the website widget (chat and forms) when there is a `website`
+  * Book Online (booking through Reserve with Google) when a Google Business Profile is found
+  * a booking link in every case
+* `integrations` says where the business's leads go. Each entry has:
+  * `type`: an integration XAPP AI has set up for your organization. Your account manager gives you its name.
+  * `config`: values only you know, such as a campaign id in your own system. Keys the integration does not use are ignored.
+
+  Leave `integrations` out to use your organization's default. The [API reference](https://api.xapp.ai/partner/docs) has every field of the event.
+
+| Response | Meaning |
+|---|---|
+| `202` | Stored, and it will be worked shortly |
+| `200` | An event with this `id` was already received. Nothing new happens. |
+| `400` | Not valid. Every failing field is listed, and nothing was stored. |
+| `429`, `5xx` | Retry with backoff; see below |
+
+Sending the setup event again for a business that is already set up changes nothing. The exception is a `failed` business, which is worked again (see the statuses below).
+
+To retry, wait longer between each attempt, for example 1, 2, 4 and then 8 seconds, adding a little random jitter. Keep the same `id` throughout. A resent event is never worked twice.
+
+### 2. Follow its status
+
+Read the business with `GET /partner/v1/businesses/{businessId}`. Its `status` moves through:
+
+| Status | Meaning |
+|---|---|
+| `provisioning` | Being built, or waiting to retry a step that may pass |
+| `in_review` | Built, and in XAPP AI's quality review |
+| `google_pending` | Reviewed; Book Online is waiting on Google |
+| `live` | Ready |
+| `stopped` | Turned off. Version 1 of the API has no event to stop a business; ask your account manager. |
+| `failed` | Will not succeed without a change to the request or your setup. Fix the cause, then send the setup event again with a **new** `id`. The business is then worked again. |
+
+### 3. Send the install steps to the business
+
+Once the widget is built, the business response carries `widget.snippet`, the script tag for the business's website, and `widget.instructions`. The instructions are white-label install steps in plain Markdown, with the snippet already in them, written for the business owner or their web person. They name neither XAPP AI nor Studio, so you can paste them into an email as they are.
+
+Ask for the business's website platform with `?platform=`:
+
+```bash
+curl "https://api.xapp.ai/partner/v1/businesses/biz-48213?platform=wix" \
+  -H "Authorization: Bearer $PARTNER_KEY"
+```
+
+Platforms with their own steps (the [API reference](https://api.xapp.ai/partner/docs) lists the current set):
+
+* `wordpress`, `wix`, `squarespace`, `shopify`, `godaddy`, `duda`
+* `framer`, `drupal`, `joomla`, `zyro` (Hostinger)
+* `generic`, for any other site
+
+Without `platform` you get the generic steps. `widget.instructions.availablePlatforms` lists every platform there are steps for.
+
+The response also has `bookingLink`, and `bookOnline` when the business has a Google Business Profile.
+
+## Listing businesses
+
+`GET /partner/v1/businesses` returns your businesses in `businessId` order, 50 at a time by default (`limit` takes 1 to 100). Each one is shaped like the single-business response, without the install steps. Filter by `status`, for example `?status=live`.
+
+Pass `nextCursor` back as `cursor` for the next page. The last page has no `nextCursor`.
+
+```bash
+curl "https://api.xapp.ai/partner/v1/businesses?status=live&limit=100" \
+  -H "Authorization: Bearer $PARTNER_KEY"
+```
+
+## Analytics
+
+`GET /partner/v1/businesses/{businessId}/analytics?from=&to=` returns one business's leads and website traffic over a date range. `from` and `to` are ISO 8601 dates. Without them you get the last 30 days. A range can be at most 366 days.
+
+```json
+{
+  "businessId": "biz-48213",
+  "from": "2026-10-01T00:00:00.000Z",
+  "to": "2026-11-01T00:00:00.000Z",
+  "leads": { "total": 12, "highValue": 3 },
+  "traffic": {
+    "visitors": 340,
+    "uniqueVisitors": 290,
+    "pageViews": 900,
+    "chatOpens": 25,
+    "sessions": { "website": 300, "bookOnline": 20, "bookingLink": 10 },
+    "submissions": { "website": 8, "bookOnline": 2, "bookingLink": 1 },
+    "sources": [
+      { "channel": "google_search", "sessions": 120 },
+      { "channel": "direct", "sessions": 80 }
+    ]
+  }
 }
 ```
+
+| Field | Meaning |
+|---|---|
+| `leads.total` | Leads received in the range. Test and abandoned leads are left out. |
+| `leads.highValue` | Of those, leads classified as high value |
+| `traffic.visitors` | Visitors to the business's own website, counted by IP address. Bots and crawlers are left out. |
+| `traffic.uniqueVisitors` | Distinct browsers on the business's website |
+| `traffic.pageViews` | Page views on the business's website |
+| `traffic.chatOpens` | Chat windows opened |
+| `traffic.sessions` | Sessions on each channel: the business's `website`, `bookOnline` (Reserve with Google), and the `bookingLink` |
+| `traffic.submissions` | Booking form submissions on each channel |
+| `traffic.sources` | Arrivals on the business's website by channel, largest first. Channels: `google_search`, `google_maps`, `facebook`, `instagram`, `other_social`, `ai`, `other_search`, `email`, `referral` and `direct`. |
+
+`visitors`, `uniqueVisitors` and `pageViews` are `null` when they could not be read, so an outage never shows up as zero visitors. A business that is not set up yet reports zeros.
+
+## GraphQL
+
+`POST https://api.xapp.ai/partner/graphql` offers the same reads in one request, with the same keys. Introspection is on, so GraphQL tools can load the schema from the endpoint.
+
+```graphql
+query LiveBusinesses($after: String) {
+  partner {
+    businesses(status: live, first: 25, after: $after) {
+      businesses {
+        businessId
+        businessName
+        bookingLink
+        widget {
+          snippet
+          instructions(platform: "wordpress") { markdown }
+        }
+        analytics(from: "2026-10-01T00:00:00Z", to: "2026-11-01T00:00:00Z") {
+          leads { total highValue }
+          traffic { visitors chatOpens submissions { website bookOnline bookingLink } }
+        }
+      }
+      nextCursor
+    }
+  }
+}
+```
+
+```bash
+curl -X POST https://api.xapp.ai/partner/graphql \
+  -H "Authorization: Bearer $PARTNER_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "{ partner { business(businessId: \"biz-48213\") { status analytics { leads { total } } } } }"}'
+```
+
+* Enum values such as `status: live` are written without quotes in GraphQL, where REST takes `?status=live`.
+* One request can ask for `analytics` on at most **25** businesses. Page with `first: 25` when you want each business's analytics.
+* `partner.business(businessId:)` is `null` for a business that does not exist or is another partner's.
+* Bad input, such as an unknown platform, an invalid date range or an unknown cursor, returns an error with `extensions.code` set to `BAD_USER_INPUT`.
+
+## Errors
+
+Errors other than GraphQL's are JSON with a `message`, for example `{"message": "Business not found"}`.
+
+| Status | Meaning |
+|---|---|
+| `400` | The request is invalid. The message says why. |
+| `401` | No key, or a key that is wrong or revoked |
+| `403` | The key cannot use this route, for example an organization API key that is not a partner key |
+| `404` | No such business for your organization |
+| `429` | Throttled. Retry with backoff. |

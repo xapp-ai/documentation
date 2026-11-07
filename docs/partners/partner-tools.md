@@ -32,7 +32,17 @@ __Read More__
 * [Widget Customization](/docs/channels/channel-chat-widget#configuring-the-widget-within-studio)
 * [Opportunity Alerts](/docs/studio/opportunity-alerts)
 * [White Label Branding](/docs/partners/white-label-branding)
+* [Partner Integration](/docs/partners/partner-integration)
 
-### Status Update Events
+### Developer Tools
 
-By special request, we can send you app status change events to your an AWS EventBridge bus on your account.  This is helpful when you want to get active notifications on when an app is ready for installation or goes live.
+The **Developer Tools** page in your partner organization has everything for building against the [partner API](/docs/partners/partner-integration):
+* the API's base URL and GraphQL endpoint
+* links to the [API reference](https://api.xapp.ai/partner/docs) and the [OpenAPI spec](https://api.xapp.ai/partner/openapi.json)
+* your organization's [partner API keys](/docs/partners/partner-api-keys)
+
+Only Organization Owners and Admins can open it.
+
+### Status Updates
+
+Read each business's status with the partner API: one business with `GET /partner/v1/businesses/{businessId}`, or all of them with `GET /partner/v1/businesses?status=`. A business moves from `provisioning` through `in_review` to `live`. See [Setting up a business](/docs/partners/partner-integration#2-follow-its-status).
