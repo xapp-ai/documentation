@@ -101,9 +101,9 @@ curl -X POST https://api.xapp.ai/partner/v1/events \
 | `202` | Stored, and it will be worked shortly |
 | `200` | An event with this `id` was already received. Nothing new happens. |
 | `400` | Not valid. Every failing field is listed, and nothing was stored. |
-| `429`, `5xx` | Retry with backoff, as below |
+| `429`, `5xx` | Retry with backoff; see below |
 
-Sending the setup event again for a business that is already set up changes nothing.
+Sending the setup event again for a business that is already set up changes nothing. The exception is a `failed` business, which is worked again (see the statuses below).
 
 To retry, wait longer between each attempt, for example 1, 2, 4 and then 8 seconds, adding a little random jitter. Keep the same `id` throughout. A resent event is never worked twice.
 
@@ -132,6 +132,7 @@ curl "https://api.xapp.ai/partner/v1/businesses/biz-48213?platform=wix" \
 ```
 
 Platforms with their own steps (the [API reference](https://api.xapp.ai/partner/docs) lists the current set):
+
 * `wordpress`, `wix`, `squarespace`, `shopify`, `godaddy`, `duda`
 * `framer`, `drupal`, `joomla`, `zyro` (Hostinger)
 * `generic`, for any other site
@@ -224,6 +225,7 @@ curl -X POST https://api.xapp.ai/partner/graphql \
   -d '{"query": "{ partner { business(businessId: \"biz-48213\") { status analytics { leads { total } } } } }"}'
 ```
 
+* Enum values such as `status: live` are written without quotes in GraphQL, where REST takes `?status=live`.
 * One request can ask for `analytics` on at most **25** businesses. Page with `first: 25` when you want each business's analytics.
 * `partner.business(businessId:)` is `null` for a business that does not exist or is another partner's.
 * Bad input, such as an unknown platform, an invalid date range or an unknown cursor, returns an error with `extensions.code` set to `BAD_USER_INPUT`.
@@ -236,6 +238,6 @@ Errors other than GraphQL's are JSON with a `message`, for example `{"message": 
 |---|---|
 | `400` | The request is invalid. The message says why. |
 | `401` | No key, or a key that is wrong or revoked |
-| `403` | The key cannot use this route |
+| `403` | The key cannot use this route, for example an organization API key that is not a partner key |
 | `404` | No such business for your organization |
 | `429` | Throttled. Retry with backoff. |
