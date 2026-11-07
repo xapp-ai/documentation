@@ -30,6 +30,7 @@ The **Developer Tools** page also shows the API's base URL, the GraphQL endpoint
 ## The key list
 
 For each key, Studio shows:
+
 * its masked value
 * when it was created, and by whom
 * when it was last used
@@ -48,4 +49,4 @@ Click **Revoke** next to the key and confirm.
 
 * **A key used in the last 7 days cannot be revoked.** Your system is still calling with it, and revoking it would cut that system off. Studio shows the date from which the key can be revoked. Switch your system to another key first.
 * If a key has leaked, contact XAPP AI. XAPP AI can revoke a key that is still in use.
-* A revoked key stops working within **5 minutes**. It cannot be restored.
+* A revoked key stops working within **5 minutes**. After that, requests made with it get `401`. It cannot be restored.

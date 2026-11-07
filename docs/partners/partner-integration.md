@@ -88,7 +88,7 @@ curl -X POST https://api.xapp.ai/partner/v1/events \
 * `id` is your id for the event. Events are de-duplicated on it, so after a timeout or a `5xx`, resend with the **same** `id`.
 * `businessName` is the only required field. XAPP AI builds everything the rest allows:
   * the website widget (chat and forms) when there is a `website`
-  * Book Online when a Google Business Profile is found
+  * Book Online (booking through Reserve with Google) when a Google Business Profile is found
   * a booking link in every case
 * `integrations` says where the business's leads go. Each entry has:
   * `type`: an integration XAPP AI has set up for your organization. Your account manager gives you its name.
@@ -101,11 +101,11 @@ curl -X POST https://api.xapp.ai/partner/v1/events \
 | `202` | Stored, and it will be worked shortly |
 | `200` | An event with this `id` was already received. Nothing new happens. |
 | `400` | Not valid. Every failing field is listed, and nothing was stored. |
-| `429`, `5xx` | Retry with the same `id`, backing off between attempts |
+| `429`, `5xx` | Retry with backoff, as below |
 
 Sending the setup event again for a business that is already set up changes nothing.
 
-When retrying a `429` or `5xx`, wait longer between each attempt, for example 1, 2, 4 and then 8 seconds, adding a little random jitter. Keep the same `id` throughout. A resent event is never worked twice.
+To retry, wait longer between each attempt, for example 1, 2, 4 and then 8 seconds, adding a little random jitter. Keep the same `id` throughout. A resent event is never worked twice.
 
 ### 2. Follow its status
 
@@ -117,7 +117,7 @@ Read the business with `GET /partner/v1/businesses/{businessId}`. Its `status` m
 | `in_review` | Built, and in XAPP AI's quality review |
 | `google_pending` | Reviewed; Book Online is waiting on Google |
 | `live` | Ready |
-| `stopped` | Turned off |
+| `stopped` | Turned off. Version 1 of the API has no event to stop a business; ask your account manager. |
 | `failed` | Will not succeed without a change to the request or your setup. Fix the cause, then send the setup event again with a **new** `id`. The business is then worked again. |
 
 ### 3. Send the install steps to the business
@@ -131,7 +131,7 @@ curl "https://api.xapp.ai/partner/v1/businesses/biz-48213?platform=wix" \
   -H "Authorization: Bearer $PARTNER_KEY"
 ```
 
-Platforms with their own steps:
+Platforms with their own steps (the [API reference](https://api.xapp.ai/partner/docs) lists the current set):
 * `wordpress`, `wix`, `squarespace`, `shopify`, `godaddy`, `duda`
 * `framer`, `drupal`, `joomla`, `zyro` (Hostinger)
 * `generic`, for any other site
@@ -197,7 +197,7 @@ curl "https://api.xapp.ai/partner/v1/businesses?status=live&limit=100" \
 ```graphql
 query LiveBusinesses($after: String) {
   partner {
-    businesses(status: live, first: 100, after: $after) {
+    businesses(status: live, first: 25, after: $after) {
       businesses {
         businessId
         businessName
@@ -224,6 +224,7 @@ curl -X POST https://api.xapp.ai/partner/graphql \
   -d '{"query": "{ partner { business(businessId: \"biz-48213\") { status analytics { leads { total } } } } }"}'
 ```
 
+* One request can ask for `analytics` on at most **25** businesses. Page with `first: 25` when you want each business's analytics.
 * `partner.business(businessId:)` is `null` for a business that does not exist or is another partner's.
 * Bad input, such as an unknown platform, an invalid date range or an unknown cursor, returns an error with `extensions.code` set to `BAD_USER_INPUT`.
 
