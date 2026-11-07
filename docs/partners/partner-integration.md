@@ -67,7 +67,7 @@ curl -X POST https://api.xapp.ai/partner/v1/events \
     "id": "01JC8Z6Q4M2V7Y3K9T5R0B1XWE",
     "type": "business.setup_requested",
     "version": "1",
-    "occurredAt": "2026-11-10T15:00:00Z",
+    "occurredAt": "2026-11-01T15:00:00Z",
     "businessId": "biz-48213",
     "data": {
       "businessName": "Green Valley Lawn Care",
@@ -77,7 +77,10 @@ curl -X POST https://api.xapp.ai/partner/v1/events \
       "streetAddress": "1200 Main St",
       "city": "Austin",
       "state": "TX",
-      "zip": "78701"
+      "zip": "78701",
+      "integrations": [
+        { "type": "partner-crm", "config": { "campaignId": "campaign-991" } }
+      ]
     }
   }'
 ```
@@ -87,16 +90,22 @@ curl -X POST https://api.xapp.ai/partner/v1/events \
   * the website widget (chat and forms) when there is a `website`
   * Book Online when a Google Business Profile is found
   * a booking link in every case
-* `integrations` says where the business's leads go. Each `type` must be an integration XAPP AI has set up for your organization. Leave it out to use your organization's default.
+* `integrations` says where the business's leads go. Each entry has:
+  * `type`: an integration XAPP AI has set up for your organization. Your account manager gives you its name.
+  * `config`: values only you know, such as a campaign id in your own system. Keys the integration does not use are ignored.
+
+  Leave `integrations` out to use your organization's default. The [API reference](https://api.xapp.ai/partner/docs) has every field of the event.
 
 | Response | Meaning |
 |---|---|
 | `202` | Stored, and it will be worked shortly |
 | `200` | An event with this `id` was already received. Nothing new happens. |
 | `400` | Not valid. Every failing field is listed, and nothing was stored. |
-| `429`, `5xx` | Retry later with the same `id` |
+| `429`, `5xx` | Retry with the same `id`, backing off between attempts |
 
 Sending the setup event again for a business that is already set up changes nothing.
+
+When retrying a `429` or `5xx`, wait longer between each attempt, for example 1, 2, 4 and then 8 seconds, adding a little random jitter. Keep the same `id` throughout. A resent event is never worked twice.
 
 ### 2. Follow its status
 
@@ -109,7 +118,7 @@ Read the business with `GET /partner/v1/businesses/{businessId}`. Its `status` m
 | `google_pending` | Reviewed; Book Online is waiting on Google |
 | `live` | Ready |
 | `stopped` | Turned off |
-| `failed` | Will not succeed without a change to the request or your setup |
+| `failed` | Will not succeed without a change to the request or your setup. Fix the cause, then send the setup event again with a **new** `id`. The business is then worked again. |
 
 ### 3. Send the install steps to the business
 
@@ -228,4 +237,4 @@ Errors other than GraphQL's are JSON with a `message`, for example `{"message": 
 | `401` | No key, or a key that is wrong or revoked |
 | `403` | The key cannot use this route |
 | `404` | No such business for your organization |
-| `429` | Throttled. Retry later. |
+| `429` | Throttled. Retry with backoff. |
