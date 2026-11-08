@@ -75,6 +75,7 @@ const sidebars = {
       label: "Partners",
       items: [
         "partners/partner-integration",
+        "partners/partner-api-keys",
         "partners/partner-tools",
         "partners/white-label-branding",
       ],
