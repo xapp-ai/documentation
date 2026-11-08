@@ -2,5 +2,5 @@
   "platform": "shopify",
   "title": "Shopify",
   "markdown": "# Add the website widget to Shopify\n\n## Before you start\n\n- You need access to your Shopify admin with permission to edit themes.\n\n## Steps\n\n1. In your Shopify admin, go to `Online Store` > `Themes`.\n\n2. Find your current theme and click `Actions` (or the `...` button) > `Edit code`.\n\n3. Under Layout, open the `theme.liquid` file.\n\n4. Find the closing `</body>` tag near the bottom of the file.\n\n5. Paste the code below just before the closing `</body>` tag:\n\n   ```html\n   {{snippet}}\n   ```\n\n6. Click `Save`.\n\n## Check it worked\n\nVisit your store. The widget button should appear on the page. It can take a few minutes to show up; if you don't see it, clear your browser cache or open the store in a private window.\n\n## Troubleshooting\n\n- **Widget not appearing**: make sure the code is just before `</body>` in `theme.liquid` of your published theme, and that you clicked `Save`.\n- **Theme conflicts**: some themes or apps add scripts that interfere with new widgets. Check your browser's developer console for script errors.\n- **Changed themes**: if you publish a different theme later, add the code to that theme's `theme.liquid` too.",
-  "commit": "1796814d77a24a192bb6d3500e9ea5107d744d64"
+  "commit": "42b9615e1fac4891dd967a75978f69072608abba"
 }
