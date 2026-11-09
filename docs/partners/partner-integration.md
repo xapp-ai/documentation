@@ -109,7 +109,7 @@ To retry, wait longer between each attempt, for example 1, 2, 4 and then 8 secon
 
 ### 2. Follow its status
 
-Read the business with `GET /partner/v1/businesses/{businessId}`. You can read it as soon as the setup event is accepted: until it is built, it has `status: provisioning` and no `widget`, `bookOnline` or `bookingLink`, and `integrations` is empty. Its `status` moves through:
+Read the business with `GET /partner/v1/businesses/{businessId}`. You can read it as soon as the setup event is accepted: until it is built, it has `status: provisioning` and no `widget`, `bookOnline` or `bookingLink`, and `integrations` is empty. Poll it, for example every 30 seconds; setup usually takes under a minute. Its `status` moves through:
 
 | Status | Meaning |
 |---|---|
@@ -118,7 +118,7 @@ Read the business with `GET /partner/v1/businesses/{businessId}`. You can read i
 | `google_pending` | Reviewed; Book Online is waiting on Google |
 | `live` | Ready |
 | `stopped` | Turned off. Version 1 of the API has no event to stop a business; ask your account manager. |
-| `failed` | Will not succeed as sent. `failureReason`, a sentence for a person to read, says why. Fix the cause, then send the setup event again with a **new** `id`. The business is then worked again. |
+| `failed` | Setup stopped. `failureReason`, a sentence for a person to read, says why: a problem with the request or your setup, or a failure on XAPP AI's side that kept recurring. Fix the cause if there is one, then send the setup event again with a **new** `id`. The business is then worked again. |
 
 A failed business:
 
