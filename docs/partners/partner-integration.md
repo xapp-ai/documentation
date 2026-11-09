@@ -109,7 +109,7 @@ To retry, wait longer between each attempt, for example 1, 2, 4 and then 8 secon
 
 ### 2. Follow its status
 
-Read the business with `GET /partner/v1/businesses/{businessId}`. You can read it as soon as the setup event is accepted. Its `status` moves through:
+Read the business with `GET /partner/v1/businesses/{businessId}`. You can read it as soon as the setup event is accepted: until it is built, it has `status: provisioning` and no `widget`, `bookOnline` or `bookingLink`, and `integrations` is empty. Its `status` moves through:
 
 | Status | Meaning |
 |---|---|
@@ -118,7 +118,23 @@ Read the business with `GET /partner/v1/businesses/{businessId}`. You can read i
 | `google_pending` | Reviewed; Book Online is waiting on Google |
 | `live` | Ready |
 | `stopped` | Turned off. Version 1 of the API has no event to stop a business; ask your account manager. |
-| `failed` | Will not succeed as sent. `failureReason` says why. Fix the cause, then send the setup event again with a **new** `id`. The business is then worked again. |
+| `failed` | Will not succeed as sent. `failureReason`, a sentence for a person to read, says why. Fix the cause, then send the setup event again with a **new** `id`. The business is then worked again. |
+
+A failed business:
+
+```json
+{
+  "businessId": "biz-48213",
+  "businessName": "Green Valley Lawn Care",
+  "status": "failed",
+  "failureReason": "Setup failed on our side after several tries, and we have been alerted. Send the setup event again with a new id to retry.",
+  "createdAt": "2026-11-10T15:00:04.000Z",
+  "updatedAt": "2026-11-10T15:36:12.000Z",
+  "integrations": []
+}
+```
+
+`failureReason` is present only when `status` is `failed`.
 
 ### 3. Send the install steps to the business
 
@@ -239,6 +255,8 @@ Errors other than GraphQL's are JSON with a `message`, for example `{"message": 
 |---|---|
 | `400` | The request is invalid. The message says why. |
 | `401` | No key, or a key that is wrong or revoked |
-| `403` | The key cannot use this route, for example an organization API key that is not a partner key. A firewall in front of the API also answers `403` to a body that looks like an attack, such as a `javascript:` URL. Such a body would fail validation anyway, so check its fields. |
+| `403` | The key cannot use this route, for example an organization API key that is not a partner key. See also the note below. |
 | `404` | No such business for your organization |
 | `429` | Throttled. Retry with backoff. |
+
+A firewall in front of the API also answers `403` to a body that looks like an attack, such as a website of `javascript:alert(1)`. The request never reaches the API. Check the event's fields against the [API reference](https://api.xapp.ai/partner/docs): websites must be `http` or `https` URLs.
