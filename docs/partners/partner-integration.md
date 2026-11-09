@@ -109,7 +109,7 @@ To retry, wait longer between each attempt, for example 1, 2, 4 and then 8 secon
 
 ### 2. Follow its status
 
-Read the business with `GET /partner/v1/businesses/{businessId}`. Its `status` moves through:
+Read the business with `GET /partner/v1/businesses/{businessId}`. You can read it as soon as the setup event is accepted. Its `status` moves through:
 
 | Status | Meaning |
 |---|---|
@@ -118,7 +118,7 @@ Read the business with `GET /partner/v1/businesses/{businessId}`. Its `status` m
 | `google_pending` | Reviewed; Book Online is waiting on Google |
 | `live` | Ready |
 | `stopped` | Turned off. Version 1 of the API has no event to stop a business; ask your account manager. |
-| `failed` | Will not succeed without a change to the request or your setup. Fix the cause, then send the setup event again with a **new** `id`. The business is then worked again. |
+| `failed` | Will not succeed as sent. `failureReason` says why. Fix the cause, then send the setup event again with a **new** `id`. The business is then worked again. |
 
 ### 3. Send the install steps to the business
 
@@ -229,6 +229,7 @@ curl -X POST https://api.xapp.ai/partner/graphql \
 * One request can ask for `analytics` on at most **25** businesses. Page with `first: 25` when you want each business's analytics.
 * `partner.business(businessId:)` is `null` for a business that does not exist or is another partner's.
 * Bad input, such as an unknown platform, an invalid date range or an unknown cursor, returns an error with `extensions.code` set to `BAD_USER_INPUT`.
+* GraphQL only reads. A mutation or subscription returns an error with `extensions.code` set to `GRAPHQL_VALIDATION_FAILED`. To make a change, send an event.
 
 ## Errors
 
@@ -238,6 +239,6 @@ Errors other than GraphQL's are JSON with a `message`, for example `{"message": 
 |---|---|
 | `400` | The request is invalid. The message says why. |
 | `401` | No key, or a key that is wrong or revoked |
-| `403` | The key cannot use this route, for example an organization API key that is not a partner key |
+| `403` | The key cannot use this route, for example an organization API key that is not a partner key. A firewall in front of the API also answers `403` to a body that looks like an attack, such as a `javascript:` URL. Such a body would fail validation anyway, so check its fields. |
 | `404` | No such business for your organization |
 | `429` | Throttled. Retry with backoff. |
