@@ -48,5 +48,5 @@ An organization can hold **two** partner keys at a time. Two keys are enough to 
 Click **Revoke** next to the key and confirm.
 
 * **A key used in the last 7 days cannot be revoked.** Your system is still calling with it, and revoking it would cut that system off. Studio shows the date from which the key can be revoked. Switch your system to another key first.
-* If a key has leaked, contact XAPP AI. XAPP AI can revoke a key that is still in use.
+* **If a key has leaked**, rotate it: create a second key and switch your system to it. Then contact XAPP AI to revoke the leaked key. Whoever holds it can keep it in use, so you cannot revoke it yourself, but XAPP AI can revoke it immediately.
 * A revoked key stops working within **5 minutes**. After that, requests made with it get `401`. It cannot be restored.
