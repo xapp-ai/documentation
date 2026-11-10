@@ -20,6 +20,70 @@ White-label partners set up and manage XAPP AI for their own businesses through 
 | Sending install steps to your businesses | | ✅ |
 | Reading status and analytics | | ✅ |
 
+## Setup flow
+
+Every call in the life of one business, from the partner's first key to its monthly report. Calls in an **opt** box are optional, and a **loop** box repeats. The numbered sections below describe each call.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Owner as Business owner
+    participant P as Partner system
+    participant API as XAPP partner API
+    participant X as XAPP
+    participant G as Google
+    actor H as Homeowner
+    participant D as Partner lead destination
+
+    Note over P,API: Once: create a partner key in Studio, Developer Tools
+    opt Check the key
+        P->>API: GET /partner/v1/ping
+        API-->>P: 200 ok, partnerOrgId
+    end
+
+    Owner->>P: Signs up with the partner
+    P->>API: POST /partner/v1/events (business.setup_requested)
+    API-->>P: 202 Accepted (200 if this event id was already received)
+    API->>X: Queue the setup
+    X->>X: Build the assistant, website widget and booking link, and attach the lead integration
+    opt The business has a Google Business Profile
+        X->>G: Submit Book Online (Reserve with Google)
+    end
+
+    loop About every 30 seconds while status is provisioning
+        P->>API: GET /partner/v1/businesses/{businessId}
+        API-->>P: status provisioning
+    end
+    P->>API: GET /partner/v1/businesses/{businessId}?platform=wordpress
+    API-->>P: status in_review, widget.snippet, widget.instructions, bookingLink
+    opt status is failed
+        API-->>P: failureReason
+        P->>API: POST /partner/v1/events (fix the cause, send again with a new id)
+    end
+
+    P->>Owner: Install steps (widget.instructions.markdown) and the booking link
+    Owner->>Owner: Adds the snippet to every page of the website
+    X->>X: Quality review moves the business to live
+    opt Book Online submitted
+        Note over X,G: status google_pending until Google approves
+        G-->>X: Book button live on the Google profile
+    end
+
+    H->>X: Chat, form or booking on the website, Google or the booking link
+    X->>D: Lead, tagged with the business's referenceId
+
+    opt Reporting
+        P->>API: GET /partner/v1/businesses/{businessId}/analytics?from=&to=
+        API-->>P: Leads and traffic
+        P->>API: POST /partner/graphql (many businesses in one request)
+        API-->>P: The same reads, in one response
+    end
+    opt Reconcile
+        P->>API: GET /partner/v1/businesses?status=live&cursor=
+        API-->>P: A page of businesses and nextCursor
+    end
+```
+
 ## Basics
 
 | | |
