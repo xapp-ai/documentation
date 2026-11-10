@@ -2,5 +2,5 @@
   "platform": "zyro",
   "title": "Hostinger (Zyro)",
   "markdown": "# Add the website widget to Hostinger Website Builder (formerly Zyro)\n\n## Before you start\n\n- You need access to your Hostinger Website Builder.\n\n## Steps\n\n1. Open your site in the Website Builder.\n\n2. Click `Website settings`, then `Integrations`.\n\n3. Paste the code below into the `Custom code` section:\n\n   ```html\n   {{snippet}}\n   ```\n\n4. Save, then publish your site so the change goes live.\n\n## Check it worked\n\nVisit your live site. The widget button should appear on the page. It can take a few minutes to show up; if you don't see it, clear your browser cache or open the site in a private window.\n\n## Troubleshooting\n\n- **Widget not appearing**: make sure the code was saved in `Custom code` and that you published the site.\n- **Still nothing**: open your browser's developer console and look for script errors on the page.",
-  "commit": "42b9615e1fac4891dd967a75978f69072608abba"
+  "commit": "01a8cfc24430a547aa8ba57adbcf3fdba9445281"
 }

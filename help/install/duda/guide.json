@@ -2,5 +2,5 @@
   "platform": "duda",
   "title": "Duda",
   "markdown": "# Add the website widget to Duda\n\n## Before you start\n\n- You need access to your Duda site editor.\n\n## Steps\n\n1. Open your site in the Duda editor.\n\n2. Click `Widgets` on the left side.\n\n3. Search for `HTML` and drag the HTML widget onto your page.\n\n4. In the HTML Content panel, paste the code below:\n\n   ```html\n   {{snippet}}\n   ```\n\n5. Click `Update` to close the HTML Content panel.\n\n6. Click `Republish` to update your live site.\n\n## Check it worked\n\nVisit your live site. The widget button should appear at the bottom of the page. It can take a few minutes to show up; if you don't see it, clear your browser cache or open the site in a private window.\n\n## Troubleshooting\n\n- **Widget not appearing**: make sure you clicked `Update` and then `Republish`.\n- **Still nothing**: check that the code was pasted exactly as provided, then open your browser's developer console and look for script errors.",
-  "commit": "42b9615e1fac4891dd967a75978f69072608abba"
+  "commit": "01a8cfc24430a547aa8ba57adbcf3fdba9445281"
 }
