@@ -21,6 +21,9 @@ module.exports = {
   favicon: "img/favicon.ico",
   organizationName: "xapp-ai", // Usually your GitHub org/user name.
   projectName: "documentation", // Usually your repo name.
+  // ```mermaid code blocks render as diagrams (the partner setup flow).
+  markdown: { mermaid: true },
+  themes: ["@docusaurus/theme-mermaid"],
   plugins: [
     "./plugins/inject-widget",
     "./plugins/install-guides",
