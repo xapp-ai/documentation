@@ -222,7 +222,7 @@ Platforms with their own steps (the [API reference](https://api.xapp.ai/partner/
 
 Without `platform` you get the generic steps. `widget.instructions.availablePlatforms` lists every platform there are steps for.
 
-The response also has `bookingLink`, `bookOnline` when the business has a Google Business Profile, and `agent`: the business's MCP server for AI agents (`mcpUrl`, `manifestUrl`, `serverCardUrl`), which the snippet advertises on the business's website. See [AI Agent Discovery](/docs/partners/ai-agent-discovery).
+The response also has `bookingLink`, `bookOnline` when the business has a Google Business Profile, and `agent`: the business's MCP server for AI agents (`mcpUrl`, `manifestUrl`, `serverCardUrl`), which the snippet advertises on the business's website. See [AI Agent Discovery](/docs/ai-agents/ai-agent-discovery).
 
 ## Listing businesses
 
