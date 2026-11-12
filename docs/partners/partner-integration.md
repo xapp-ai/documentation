@@ -70,6 +70,9 @@ sequenceDiagram
     end
 
     H->>X: Chat, form or booking on the website, Google or the booking link
+    opt An AI agent acting for a homeowner
+        H->>X: Reads the site's MCP tags, then asks the business's MCP server and leaves a lead
+    end
     X->>D: Lead, tagged with the business's referenceId
 
     opt Reporting
@@ -219,7 +222,7 @@ Platforms with their own steps (the [API reference](https://api.xapp.ai/partner/
 
 Without `platform` you get the generic steps. `widget.instructions.availablePlatforms` lists every platform there are steps for.
 
-The response also has `bookingLink`, and `bookOnline` when the business has a Google Business Profile.
+The response also has `bookingLink`, `bookOnline` when the business has a Google Business Profile, and `agent`: the business's MCP server for AI agents (`mcpUrl`, `manifestUrl`, `serverCardUrl`), which the snippet advertises on the business's website. See [AI Agent Discovery](/docs/ai-agents/ai-agent-discovery).
 
 ## Listing businesses
 
@@ -253,6 +256,16 @@ curl "https://api.xapp.ai/partner/v1/businesses?status=live&limit=100" \
       { "channel": "google_search", "sessions": 120 },
       { "channel": "direct", "sessions": 80 }
     ]
+  },
+  "agents": {
+    "visitors": 14,
+    "formSubmits": 2,
+    "byAgent": [
+      { "name": "ChatGPT-User", "visitors": 9, "formSubmits": 2 },
+      { "name": "Claude-User", "visitors": 5, "formSubmits": 0 }
+    ],
+    "aiReferrals": [{ "name": "chatgpt", "visitors": 6 }],
+    "crawlers": 40
   }
 }
 ```
@@ -268,8 +281,13 @@ curl "https://api.xapp.ai/partner/v1/businesses?status=live&limit=100" \
 | `traffic.sessions` | Sessions on each channel: the business's `website`, `bookOnline` (Reserve with Google), and the `bookingLink` |
 | `traffic.submissions` | Booking form submissions on each channel |
 | `traffic.sources` | Arrivals on the business's website by channel, largest first. Channels: `google_search`, `google_maps`, `facebook`, `instagram`, `other_social`, `ai`, `other_search`, `email`, `referral` and `direct`. |
+| `agents.visitors` | AI agents browsing for someone (ChatGPT's agent, Claude, …) that loaded the widget on the business's website |
+| `agents.formSubmits` | Of those, how many submitted a form |
+| `agents.byAgent` | Those agents by name, with their visitors and form submits, most visitors first |
+| `agents.aiReferrals` | People an AI assistant (`chatgpt`, `perplexity`, `google-ai-overview`, …) sent to the website, by assistant |
+| `agents.crawlers` | Search engines and other crawlers that loaded the widget |
 
-`visitors`, `uniqueVisitors` and `pageViews` are `null` when they could not be read, so an outage never shows up as zero visitors. A business that is not set up yet reports zeros.
+`visitors`, `uniqueVisitors`, `pageViews` and `agents` are `null` when they could not be read, so an outage never shows up as zero visitors. A business that is not set up yet reports zeros.
 
 ## GraphQL
 
@@ -283,6 +301,7 @@ query LiveBusinesses($after: String) {
         businessId
         businessName
         bookingLink
+        agent { mcpUrl }
         widget {
           snippet
           instructions(platform: "wordpress") { markdown }
@@ -290,6 +309,7 @@ query LiveBusinesses($after: String) {
         analytics(from: "2026-10-01T00:00:00Z", to: "2026-11-01T00:00:00Z") {
           leads { total highValue }
           traffic { visitors chatOpens submissions { website bookOnline bookingLink } }
+          agents { visitors formSubmits aiReferrals { name visitors } }
         }
       }
       nextCursor

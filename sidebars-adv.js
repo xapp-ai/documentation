@@ -72,6 +72,11 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "AI Agents",
+      items: ["ai-agents/ai-agent-discovery"],
+    },
+    {
+      type: "category",
       label: "Partners",
       items: [
         "partners/partner-integration",
