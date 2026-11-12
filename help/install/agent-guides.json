@@ -1,0 +1,60 @@
+{
+  "commit": "0700daef14986fd524800536880f6d6a5020be10",
+  "guides": [
+    {
+      "platform": "drupal",
+      "title": "Drupal",
+      "path": "/help/install/drupal/agent-guide.json"
+    },
+    {
+      "platform": "duda",
+      "title": "Duda",
+      "path": "/help/install/duda/agent-guide.json"
+    },
+    {
+      "platform": "framer",
+      "title": "Framer",
+      "path": "/help/install/framer/agent-guide.json"
+    },
+    {
+      "platform": "generic",
+      "title": "Any website",
+      "path": "/help/install/generic/agent-guide.json"
+    },
+    {
+      "platform": "godaddy",
+      "title": "GoDaddy Website Builder",
+      "path": "/help/install/godaddy/agent-guide.json"
+    },
+    {
+      "platform": "joomla",
+      "title": "Joomla",
+      "path": "/help/install/joomla/agent-guide.json"
+    },
+    {
+      "platform": "shopify",
+      "title": "Shopify",
+      "path": "/help/install/shopify/agent-guide.json"
+    },
+    {
+      "platform": "squarespace",
+      "title": "Squarespace",
+      "path": "/help/install/squarespace/agent-guide.json"
+    },
+    {
+      "platform": "wix",
+      "title": "Wix",
+      "path": "/help/install/wix/agent-guide.json"
+    },
+    {
+      "platform": "wordpress",
+      "title": "WordPress",
+      "path": "/help/install/wordpress/agent-guide.json"
+    },
+    {
+      "platform": "zyro",
+      "title": "Hostinger Website Builder",
+      "path": "/help/install/zyro/agent-guide.json"
+    }
+  ]
+}
