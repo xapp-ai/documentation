@@ -22,7 +22,7 @@ AI assistants such as ChatGPT, Claude and Gemini can ask your business questions
    {{tags}}
    ```
 
-4. Save the file and upload it to your site.
+4. Save the file. If your site is deployed from code, commit the change and deploy it the way your site's changes usually go out; otherwise upload the file to your site's theme folder.
 
 5. Clear your site's cache from `Configuration` > `Performance`.
 

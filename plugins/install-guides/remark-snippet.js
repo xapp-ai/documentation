@@ -10,7 +10,21 @@ module.exports = function remarkSnippet(options = {}) {
   if (!options.snippet) {
     throw new Error("remark-snippet needs a snippet option");
   }
-  const visit = (node) => {
+  // An agent guide is embedded under its platform's widget guide, whose title is the page's.
+  const demote = (node) => {
+    if (node.type === "heading") {
+      node.depth = Math.min(node.depth + 1, 6);
+    }
+    (node.children || []).forEach(demote);
+  };
+  return (tree, file) => {
+    visit(tree);
+    if (file && /[\\/]_agent-partials[\\/]/.test(String(file.path || ""))) {
+      demote(tree);
+    }
+  };
+
+  function visit(node) {
     if (node.type === "code" && node.value.trim() === SNIPPET_PLACEHOLDER) {
       node.value = options.snippet;
     } else if (node.type === "code" && node.value.trim() === TAGS_PLACEHOLDER) {
@@ -20,6 +34,5 @@ module.exports = function remarkSnippet(options = {}) {
       node.value = options.tags;
     }
     (node.children || []).forEach(visit);
-  };
-  return visit;
+  }
 };

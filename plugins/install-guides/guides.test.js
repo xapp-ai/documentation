@@ -192,12 +192,14 @@ describe("agent guides", () => {
     assert.deepEqual(validateGuide("drupal", markdown, AGENT_GUIDES), []);
   });
 
-  test("pass with no placeholder, for a platform with nowhere to put head code", () => {
-    assert.deepEqual(validateGuide("godaddy", markdown.replace(/```html\n\s*\{\{tags\}\}\n\s*```/, "Nothing to add."), AGENT_GUIDES), []);
+  test("pass with no placeholder only for a platform listed as having nowhere to put head code", () => {
+    const empty = markdown.replace(/```html\n\s*\{\{tags\}\}\n\s*```/, "Nothing to add.");
+    assert.deepEqual(validateGuide("godaddy", empty, AGENT_GUIDES), []);
+    assert.match(validateGuide("wix", empty, AGENT_GUIDES).join("\n"), /exactly one \{\{tags\}\}/);
   });
 
   test("reject two placeholders, or the widget's placeholder", () => {
-    assert.match(validateGuide("drupal", `${markdown}\n\n${TAGS_PLACEHOLDER}`, AGENT_GUIDES).join("\n"), /at most one \{\{tags\}\}/);
+    assert.match(validateGuide("drupal", `${markdown}\n\n${TAGS_PLACEHOLDER}`, AGENT_GUIDES).join("\n"), /exactly one \{\{tags\}\}/);
     assert.match(validateGuide("drupal", `${markdown}\n\n${SNIPPET_PLACEHOLDER}`, AGENT_GUIDES).join("\n"), /\{\{snippet\}\}/);
   });
 
@@ -214,8 +216,9 @@ describe("agent guides", () => {
   });
 
   test("share their intro, check and troubleshooting word for word, apart from GoDaddy's", () => {
+    // The intro is everything between the title and the first section; the tail, from the check on.
     const sections = (markdown) => {
-      const intro = markdown.split("\n\n")[1];
+      const intro = markdown.slice(markdown.indexOf("\n") + 1, markdown.indexOf("\n## ")).trim();
       const tail = markdown.slice(markdown.indexOf("## Check it worked"));
       return { intro, tail };
     };
@@ -279,6 +282,22 @@ describe("remarkSnippet", () => {
     const tree = { type: "root", children: [{ type: "code", lang: "html", value: TAGS_PLACEHOLDER }] };
     remarkSnippet({ snippet: "<script></script>", tags: "<link rel=\"mcp-server\">" })(tree);
     assert.equal(tree.children[0].value, "<link rel=\"mcp-server\">");
+  });
+
+  test("demotes an embedded agent guide's headings a level, so its help page keeps one title", () => {
+    const tree = {
+      type: "root",
+      children: [
+        { type: "heading", depth: 1, children: [] },
+        { type: "heading", depth: 2, children: [] },
+      ],
+    };
+    remarkSnippet({ snippet: "s", tags: "t" })(tree, { path: "/site/help/install/_agent-partials/wix.md" });
+    assert.deepEqual(tree.children.map((h) => h.depth), [2, 3]);
+
+    const widget = { type: "root", children: [{ type: "heading", depth: 1, children: [] }] };
+    remarkSnippet({ snippet: "s", tags: "t" })(widget, { path: "/site/help/install/_partials/wix.md" });
+    assert.equal(widget.children[0].depth, 1);
   });
 
   test("throws on a {{tags}} block when it was given no tags, rather than show the placeholder", () => {

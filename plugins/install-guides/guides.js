@@ -19,10 +19,18 @@ const TAGS_PLACEHOLDER = "{{tags}}";
 const WIDGET_GUIDES = { dir: PARTIALS_DIR, placeholder: SNIPPET_PLACEHOLDER, required: true, file: "guide.json", index: "guides.json" };
 
 /**
- * The MCP discovery tags' guides. A platform with nowhere to put head code says so instead, so
- * {{tags}} is optional; the widget adds the tags itself either way.
+ * The MCP discovery tags' guides: exactly one {{tags}} each, except on a platform with nowhere to
+ * put head code (`withoutPlaceholder`), whose guide says so instead. The widget adds the tags
+ * itself either way.
  */
-const AGENT_GUIDES = { dir: AGENT_PARTIALS_DIR, placeholder: TAGS_PLACEHOLDER, required: false, file: "agent-guide.json", index: "agent-guides.json" };
+const AGENT_GUIDES = {
+  dir: AGENT_PARTIALS_DIR,
+  placeholder: TAGS_PLACEHOLDER,
+  required: true,
+  withoutPlaceholder: ["godaddy"],
+  file: "agent-guide.json",
+  index: "agent-guides.json",
+};
 
 const PLACEHOLDERS = [SNIPPET_PLACEHOLDER, TAGS_PLACEHOLDER];
 
@@ -70,9 +78,10 @@ function validateGuide(platform, markdown, kind = WIDGET_GUIDES) {
   const { placeholder } = kind;
   const placeholders = markdown.split(placeholder).length - 1;
   const fenced = new RegExp("```html\\n[ \\t]*" + escapeRegExp(placeholder) + "\\n[ \\t]*```").test(markdown);
-  if (kind.required && (placeholders !== 1 || !fenced)) {
+  const required = kind.required && !(kind.withoutPlaceholder || []).includes(platform);
+  if (required && (placeholders !== 1 || !fenced)) {
     problems.push(`needs exactly one ${placeholder}, alone in an \`\`\`html block`);
-  } else if (!kind.required && (placeholders > 1 || (placeholders === 1 && !fenced))) {
+  } else if (!required && (placeholders > 1 || (placeholders === 1 && !fenced))) {
     problems.push(`may have at most one ${placeholder}, alone in an \`\`\`html block`);
   }
   for (const other of PLACEHOLDERS.filter((p) => p !== placeholder)) {

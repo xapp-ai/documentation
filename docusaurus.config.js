@@ -1,6 +1,7 @@
 const remarkSnippet = require("./plugins/install-guides/remark-snippet");
 
 // What the agent install guides' {{tags}} block shows on our help pages; ?appId= fills in YOUR_APP_ID.
+// The same three tags as chat-widget-core's mcpDiscovery and stentor-api's agentTags: change all three together.
 const XAPP_TAGS = `<link rel="mcp-server" href="https://agentic.xapp.ai/YOUR_APP_ID/mcp">
 <link rel="mcp-manifest" href="https://agentic.xapp.ai/YOUR_APP_ID/.well-known/mcp/manifest.json">
 <link rel="mcp-server-card" href="https://agentic.xapp.ai/YOUR_APP_ID/mcp/server-card">`;
