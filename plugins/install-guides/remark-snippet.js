@@ -1,4 +1,6 @@
-const { SNIPPET_PLACEHOLDER, TAGS_PLACEHOLDER } = require("./guides");
+const path = require("node:path");
+
+const { AGENT_PARTIALS_DIR, SNIPPET_PLACEHOLDER, TAGS_PLACEHOLDER } = require("./guides");
 
 /**
  * Fills the install guides' {{snippet}} code block with our own script tags, so a help page that
@@ -19,7 +21,7 @@ module.exports = function remarkSnippet(options = {}) {
   };
   return (tree, file) => {
     visit(tree);
-    if (file && /[\\/]_agent-partials[\\/]/.test(String(file.path || ""))) {
+    if (file && file.path && path.resolve(String(file.path)).startsWith(AGENT_PARTIALS_DIR + path.sep)) {
       demote(tree);
     }
   };

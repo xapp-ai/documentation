@@ -215,14 +215,14 @@ describe("agent guides", () => {
     assert.throws(() => checkAgentCoverage([g("drupal")], [g("drupal"), g("zyro")]), /agent guide for zyro has no widget guide/);
   });
 
-  test("share their intro, check and troubleshooting word for word, apart from GoDaddy's", () => {
+  test("share their intro, check and troubleshooting word for word, apart from a platform with no header code", () => {
     // The intro is everything between the title and the first section; the tail, from the check on.
     const sections = (markdown) => {
       const intro = markdown.slice(markdown.indexOf("\n") + 1, markdown.indexOf("\n## ")).trim();
       const tail = markdown.slice(markdown.indexOf("## Check it worked"));
       return { intro, tail };
     };
-    const guides = loadGuides(AGENT_GUIDES.dir, AGENT_GUIDES).filter((g) => g.platform !== "godaddy");
+    const guides = loadGuides(AGENT_GUIDES.dir, AGENT_GUIDES).filter((g) => !AGENT_GUIDES.withoutPlaceholder.includes(g.platform));
     const first = sections(guides[0].markdown);
     for (const guide of guides) {
       assert.deepEqual(sections(guide.markdown), first, `${guide.platform} differs`);
@@ -292,11 +292,11 @@ describe("remarkSnippet", () => {
         { type: "heading", depth: 2, children: [] },
       ],
     };
-    remarkSnippet({ snippet: "s", tags: "t" })(tree, { path: "/site/help/install/_agent-partials/wix.md" });
+    remarkSnippet({ snippet: "s", tags: "t" })(tree, { path: path.join(AGENT_GUIDES.dir, "wix.md") });
     assert.deepEqual(tree.children.map((h) => h.depth), [2, 3]);
 
     const widget = { type: "root", children: [{ type: "heading", depth: 1, children: [] }] };
-    remarkSnippet({ snippet: "s", tags: "t" })(widget, { path: "/site/help/install/_partials/wix.md" });
+    remarkSnippet({ snippet: "s", tags: "t" })(widget, { path: path.join(PARTIALS_DIR, "wix.md") });
     assert.equal(widget.children[0].depth, 1);
   });
 
