@@ -49,8 +49,11 @@ sequenceDiagram
     opt The business has a Google Business Profile
         X->>G: Submit Book Online (Reserve with Google)
     end
+    opt A webhook is registered
+        X->>P: POST webhook: business.setup_completed, business.status_changed (or business.setup_failed)
+    end
 
-    loop About every 30 seconds while status is provisioning
+    loop Without a webhook: about every 30 seconds while status is provisioning
         P->>API: GET /partner/v1/businesses/{businessId}
         API-->>P: status provisioning
     end
@@ -63,10 +66,16 @@ sequenceDiagram
 
     P->>Owner: Install steps (widget.instructions.markdown) and the booking link
     Owner->>Owner: Adds the snippet to every page of the website
-    X->>X: Quality review moves the business to live
+    X->>X: Quality review passes: live, or google_pending while Google reviews Book Online
+    opt A webhook is registered
+        X->>P: POST webhook: business.live or business.status_changed (google_pending)
+    end
     opt Book Online submitted
-        Note over X,G: status google_pending until Google approves
-        G-->>X: Book button live on the Google profile
+        Note over X,G: status google_pending until Google sends Book Online its first traffic
+        G-->>X: First booking traffic from Reserve with Google
+        opt A webhook is registered
+            X->>P: POST webhook: business.book_online.live, business.live, business.status_changed
+        end
     end
 
     H->>X: Chat, form or booking on the website, Google or the booking link
@@ -176,14 +185,16 @@ To retry, wait longer between each attempt, for example 1, 2, 4 and then 8 secon
 
 ### 2. Follow its status
 
-Read the business with `GET /partner/v1/businesses/{businessId}`. You can read it as soon as the setup event is accepted: until it is built, it has `status: provisioning` and no `widget`, `bookOnline` or `bookingLink`, and `integrations` is empty. Poll it, for example every 30 seconds; setup usually takes under a minute. Its `status` moves through:
+Read the business with `GET /partner/v1/businesses/{businessId}`. You can read it as soon as the setup event is accepted: until it is built, it has `status: provisioning` and no `widget`, `bookOnline` or `bookingLink`, and `integrations` is empty.
+
+With a [webhook](#webhooks) registered, we tell you every change as it happens. Without one, poll the business, for example every 30 seconds while it is `provisioning`; setup usually takes under a minute. Its `status` moves through:
 
 | Status | Meaning |
 |---|---|
 | `provisioning` | Being built, or waiting to retry a step that may pass |
 | `in_review` | Built, and in XAPP AI's quality review |
-| `google_pending` | Reviewed; Book Online is waiting on Google |
-| `live` | Ready |
+| `google_pending` | Reviewed; Book Online is waiting on Google. It moves to `live` when Google sends Book Online its first booking traffic. |
+| `live` | Ready. A business without a Google Business Profile goes straight here from review. |
 | `stopped` | Turned off. Version 1 of the API has no event to stop a business; ask your account manager. |
 | `failed` | Setup stopped. `failureReason`, a sentence for a person to read, says why: a problem with the request or your setup, or a failure on XAPP AI's side that kept recurring. Fix the cause if there is one, then send the setup event again with a **new** `id`. The business is then worked again. |
 
@@ -222,7 +233,11 @@ Platforms with their own steps (the [API reference](https://api.xapp.ai/partner/
 
 Without `platform` you get the generic steps. `widget.instructions.availablePlatforms` lists every platform there are steps for.
 
-The response also has `bookingLink`, `bookOnline` when the business has a Google Business Profile, and `agent`: the business's MCP server for AI agents (`mcpUrl`, `manifestUrl`, `serverCardUrl`), which the snippet advertises on the business's website. See [AI Agent Discovery](/docs/ai-agents/ai-agent-discovery).
+The response also has:
+
+* `bookingLink`.
+* `bookOnline` when the business has a Google Business Profile. Its `status` is `pending_google` until Google sends Book Online its first booking traffic, then `live`, with `liveSince`.
+* `agent`: the business's MCP server for AI agents (`mcpUrl`, `manifestUrl`, `serverCardUrl`), which the snippet advertises on the business's website. `agent.tags` are the three discovery tags, and `agent.instructions` are white-label steps for adding them to the platform's page header, for the same `?platform=` as the widget's. See [AI Agent Discovery](/docs/ai-agents/ai-agent-discovery).
 
 ## Listing businesses
 
@@ -330,6 +345,79 @@ curl -X POST https://api.xapp.ai/partner/graphql \
 * `partner.business(businessId:)` is `null` for a business that does not exist or is another partner's.
 * Bad input, such as an unknown platform, an invalid date range or an unknown cursor, returns an error with `extensions.code` set to `BAD_USER_INPUT`.
 * GraphQL only reads. A mutation or subscription returns an error with `extensions.code` set to `GRAPHQL_VALIDATION_FAILED`. To make a change, send an event.
+
+## Webhooks
+
+Register a webhook and we send your system an event whenever one of your businesses changes, so you don't have to poll.
+
+### Register it
+
+On your organization's **Developer Tools** page in Studio (owners and admins):
+
+1. Enter an `https` URL on your servers and click **Save**. It must use a public host name, not an IP address or a local name.
+2. Copy the **signing secret**. It is shown this once. Studio keeps only its last four characters.
+3. Click **Send a test event** to check your endpoint. Studio shows how it answered.
+
+An organization has one webhook. Changing its URL keeps the secret. **Rotate secret** makes a new one and the old one stops signing at once, so switch your system over straight away. **Delete webhook** stops the events. The page also shows how the last delivery went.
+
+### What we send
+
+Each event is a `POST` with a JSON body in the same envelope as the events you send us:
+
+```json
+{
+  "id": "evt_5f0c2a9e7d1b4c3a8e6f0d2b9a7c1e4f",
+  "type": "business.live",
+  "version": "1",
+  "occurredAt": "2026-11-13T15:20:00.000Z",
+  "businessId": "biz-48213",
+  "data": { "business": { "businessId": "biz-48213", "status": "live", "…": "…" } }
+}
+```
+
+| Header | Value |
+|---|---|
+| `Content-Type` | `application/json` |
+| `X-XAPP-Event` | The event `type` |
+| `X-XAPP-Event-Id` | The event `id` |
+| `X-XAPP-Signature` | `t=<unix seconds>,v1=<hex HMAC-SHA256 of "t.body">`, signed with your secret |
+
+| Event | Sent when | `data` |
+|---|---|---|
+| `business.setup_completed` | A business is built | `business` |
+| `business.setup_failed` | Setup stopped | `failureReason` |
+| `business.live` | A business is ready | `business` |
+| `business.book_online.live` | Google sent Book Online its first booking traffic | `googlePlaceId`, `liveSince` |
+| `business.stopped` | A business is turned off | `business` |
+| `business.status_changed` | Every status change, after the events above | `previousStatus`, `status`, `business` |
+| `webhook.test` | You click **Send a test event** | `message` |
+
+`business` is the business as `GET /partner/v1/businesses` returns it, without the install steps; read the business for those. `business.status_changed` is the one event to handle if you only want status: every change sends it.
+
+### Check the signature
+
+Compute the HMAC-SHA256 of `"<t>.<raw body>"` with your secret, compare it to `v1` in constant time, and reject a `t` more than 5 minutes old:
+
+```js
+const crypto = require("crypto");
+
+function verify(rawBody, header, secret) {
+  const parts = Object.fromEntries(header.split(",").map((part) => part.split("=")));
+  const expected = crypto.createHmac("sha256", secret).update(`${parts.t}.${rawBody}`).digest("hex");
+  const fresh = Math.abs(Date.now() / 1000 - Number(parts.t)) < 300;
+  return fresh && expected.length === parts.v1.length &&
+    crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(parts.v1));
+}
+```
+
+Use the body exactly as received, before any JSON parsing.
+
+### Answering and retries
+
+* Answer `2xx` within **10 seconds**, then do the work. Anything else, a redirect or no answer is a failed delivery.
+* A failed delivery is tried again after 1 minute, 5 minutes, 30 minutes and 2 hours, then every 6 hours: about a day in all. After that we are alerted and stop.
+* One business's events arrive in order, and a failing event holds back only that business's later ones. Still sort by `occurredAt`, and ignore a status older than one you have.
+* An event can arrive more than once. De-duplicate on `id`.
 
 ## Errors
 
