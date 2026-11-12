@@ -1,6 +1,6 @@
 const { execSync } = require("node:child_process");
 
-const { loadGuides, writeGuideFiles } = require("./guides");
+const { AGENT_GUIDES, loadGuides, writeGuideFiles } = require("./guides");
 
 function currentCommit() {
   if (process.env.GITHUB_SHA) {
@@ -21,10 +21,12 @@ module.exports = async function installGuidesPlugin() {
   return {
     name: "install-guides",
     async loadContent() {
-      return loadGuides();
+      return { widget: loadGuides(), agent: loadGuides(AGENT_GUIDES.dir, AGENT_GUIDES) };
     },
     async postBuild({ content, outDir }) {
-      writeGuideFiles(outDir, content, currentCommit());
+      const commit = currentCommit();
+      writeGuideFiles(outDir, content.widget, commit);
+      writeGuideFiles(outDir, content.agent, commit, AGENT_GUIDES);
     },
   };
 };

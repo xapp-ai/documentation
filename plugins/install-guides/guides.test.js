@@ -5,8 +5,10 @@ const os = require("node:os");
 const path = require("node:path");
 
 const {
+  AGENT_GUIDES,
   PARTIALS_DIR,
   SNIPPET_PLACEHOLDER,
+  TAGS_PLACEHOLDER,
   loadGuides,
   parseGuide,
   toPartnerMarkdown,
@@ -154,7 +156,67 @@ describe("loadGuides", () => {
   });
 });
 
+const AGENT_GOOD = `---
+title: Drupal
+---
+
+# Help AI assistants find your business on Drupal
+
+The website widget already adds these tags when it loads.
+
+## Steps
+
+1. Paste the code below before \`</head>\`:
+
+   \`\`\`html
+   {{tags}}
+   \`\`\`
+
+## Check it worked
+
+View the page source.
+`;
+
+describe("agent guides", () => {
+  const markdown = toPartnerMarkdown(parseGuide(AGENT_GOOD).body);
+
+  test("pass with one {{tags}} block", () => {
+    assert.deepEqual(validateGuide("drupal", markdown, AGENT_GUIDES), []);
+  });
+
+  test("pass with no placeholder, for a platform with nowhere to put head code", () => {
+    assert.deepEqual(validateGuide("godaddy", markdown.replace(/```html\n\s*\{\{tags\}\}\n\s*```/, "Nothing to add."), AGENT_GUIDES), []);
+  });
+
+  test("reject two placeholders, or the widget's placeholder", () => {
+    assert.match(validateGuide("drupal", `${markdown}\n\n${TAGS_PLACEHOLDER}`, AGENT_GUIDES).join("\n"), /at most one \{\{tags\}\}/);
+    assert.match(validateGuide("drupal", `${markdown}\n\n${SNIPPET_PLACEHOLDER}`, AGENT_GUIDES).join("\n"), /\{\{snippet\}\}/);
+  });
+
+  test("follow the same white-label rules", () => {
+    assert.match(validateGuide("drupal", `${markdown}\n\nAsk XAPP.`, AGENT_GUIDES).join("\n"), /brand/);
+    assert.match(validateGuide("drupal", `${markdown}\n\nSee [x](/y).`, AGENT_GUIDES).join("\n"), /link/);
+  });
+
+  test("every agent guide in the repo follows the rules, one for each widget guide's platform", () => {
+    const agent = loadGuides(AGENT_GUIDES.dir, AGENT_GUIDES).map((g) => g.platform);
+    const widget = loadGuides(PARTIALS_DIR).map((g) => g.platform);
+    assert.deepEqual(agent, widget);
+  });
+});
+
 describe("writeGuideFiles", () => {
+  test("writes agent guides beside the widget guides, under their own names", () => {
+    const outDir = tempDir();
+    writeGuideFiles(outDir, [{ platform: "drupal", title: "Drupal", markdown: "{{tags}}" }], "abc123", AGENT_GUIDES);
+
+    const guide = JSON.parse(fs.readFileSync(path.join(outDir, "help/install/drupal/agent-guide.json"), "utf8"));
+    assert.deepEqual(guide, { platform: "drupal", title: "Drupal", markdown: "{{tags}}", commit: "abc123" });
+    const index = JSON.parse(fs.readFileSync(path.join(outDir, "help/install/agent-guides.json"), "utf8"));
+    assert.deepEqual(index.guides, [{ platform: "drupal", title: "Drupal", path: "/help/install/drupal/agent-guide.json" }]);
+    assert.ok(!fs.existsSync(path.join(outDir, "help/install/guides.json")));
+  });
+
   test("writes one guide.json per platform and an index with the commit", () => {
     const outDir = tempDir();
     const guides = [{ platform: "drupal", title: "Drupal", markdown: "# Hi\n\n{{snippet}}" }];
@@ -183,6 +245,12 @@ describe("remarkSnippet", () => {
     remarkSnippet({ snippet: "<script></script>" })(tree);
     assert.equal(tree.children[0].children[0].value, "<script></script>");
     assert.equal(tree.children[1].value, "console.log(1)");
+  });
+
+  test("fills the agent guides' {{tags}} block with the tags it is given", () => {
+    const tree = { type: "root", children: [{ type: "code", lang: "html", value: TAGS_PLACEHOLDER }] };
+    remarkSnippet({ snippet: "<script></script>", tags: "<link rel=\"mcp-server\">" })(tree);
+    assert.equal(tree.children[0].value, "<link rel=\"mcp-server\">");
   });
 
   test("throws without a snippet, so a misconfigured site fails to build", () => {

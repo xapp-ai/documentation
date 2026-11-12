@@ -1,5 +1,10 @@
 const remarkSnippet = require("./plugins/install-guides/remark-snippet");
 
+// What the agent install guides' {{tags}} block shows on our help pages; ?appId= fills in YOUR_APP_ID.
+const XAPP_TAGS = `<link rel="mcp-server" href="https://agentic.xapp.ai/YOUR_APP_ID/mcp">
+<link rel="mcp-manifest" href="https://agentic.xapp.ai/YOUR_APP_ID/.well-known/mcp/manifest.json">
+<link rel="mcp-server-card" href="https://agentic.xapp.ai/YOUR_APP_ID/mcp/server-card">`;
+
 // What the install guides' {{snippet}} block shows on our help pages.
 const XAPP_SNIPPET = `<!-- Chat -->
 <script
@@ -143,7 +148,7 @@ module.exports = {
           path: "help",
           routeBasePath: "help",
           sidebarPath: require.resolve("./sidebars-help.js"),
-          remarkPlugins: [[remarkSnippet, { snippet: XAPP_SNIPPET }]],
+          remarkPlugins: [[remarkSnippet, { snippet: XAPP_SNIPPET, tags: XAPP_TAGS }]],
           // Please change this to your repo.
           editUrl: "https://github.com/xapp-ai/documentation/edit/main/",
         },

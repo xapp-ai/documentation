@@ -1,4 +1,4 @@
-const { SNIPPET_PLACEHOLDER } = require("./guides");
+const { SNIPPET_PLACEHOLDER, TAGS_PLACEHOLDER } = require("./guides");
 
 /**
  * Fills the install guides' {{snippet}} code block with our own script tags, so a help page that
@@ -11,6 +11,8 @@ module.exports = function remarkSnippet(options = {}) {
   const visit = (node) => {
     if (node.type === "code" && node.value.trim() === SNIPPET_PLACEHOLDER) {
       node.value = options.snippet;
+    } else if (node.type === "code" && options.tags && node.value.trim() === TAGS_PLACEHOLDER) {
+      node.value = options.tags;
     }
     (node.children || []).forEach(visit);
   };
