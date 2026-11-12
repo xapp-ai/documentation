@@ -2,5 +2,5 @@
   "platform": "framer",
   "title": "Framer",
   "markdown": "# Add the website widget to Framer\n\n## Before you start\n\n- You need access to your Framer project.\n\n## Steps\n\n1. Open your project in the Framer editor.\n\n2. Open the project's Site Settings.\n\n3. Scroll down to the `Custom Code` section.\n\n4. Paste the code below into the \"End of `<body>` tag\" box:\n\n   ```html\n   {{snippet}}\n   ```\n\n5. Save, then publish your site so the change goes live.\n\n## Check it worked\n\nVisit your live site. The widget button should appear on the page. It can take a few minutes to show up; if you don't see it, clear your browser cache or open the site in a private window.\n\n## Troubleshooting\n\n- **Widget not appearing**: make sure the code is in the end-of-body box (not the head) and that you published the site.\n- **Still nothing**: open your browser's developer console and look for script errors on the page.",
-  "commit": "01a8cfc24430a547aa8ba57adbcf3fdba9445281"
+  "commit": "254cc0535bd31361884a8e035bbf0c8b43e43b2b"
 }

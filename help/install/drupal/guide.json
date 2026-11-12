@@ -2,5 +2,5 @@
   "platform": "drupal",
   "title": "Drupal",
   "markdown": "# Add the website widget to Drupal\n\n## Before you start\n\n- You need administrator access to your Drupal site.\n\n## Steps\n\n1. Log in to your Drupal admin panel.\n\n2. Go to `Appearance` and click `Settings` for your active theme.\n\n3. Find the theme's option for adding custom JavaScript or HTML.\n\n4. Paste the code below:\n\n   ```html\n   {{snippet}}\n   ```\n\n5. Save your changes.\n\n6. Clear your site's cache from `Configuration` > `Performance`.\n\n## Check it worked\n\nVisit your website. The widget button should appear on the page. It can take a few minutes to show up; if you don't see it, clear your browser cache or open the site in a private window.\n\n## Troubleshooting\n\n- **Widget not appearing**: make sure the code was saved and that you cleared the cache under `Configuration` > `Performance`.\n- **Script conflicts**: other modules can interfere with new scripts. Check your browser's developer console for script errors.",
-  "commit": "01a8cfc24430a547aa8ba57adbcf3fdba9445281"
+  "commit": "254cc0535bd31361884a8e035bbf0c8b43e43b2b"
 }
