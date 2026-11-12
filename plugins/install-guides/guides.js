@@ -5,10 +5,38 @@ const path = require("node:path");
  * The white-label install guides: one Markdown partial per website platform in
  * help/install/_partials. The help pages import them, and the build writes each one to
  * /help/install/<platform>/guide.json for the partner API to embed. See the README there.
+ *
+ * The agent guides in help/install/_agent-partials work the same way for the MCP discovery tags:
+ * where each platform takes code for the page's <head>, written to agent-guide.json.
  */
 const PARTIALS_DIR = path.join(__dirname, "../../help/install/_partials");
+const AGENT_PARTIALS_DIR = path.join(__dirname, "../../help/install/_agent-partials");
 
 const SNIPPET_PLACEHOLDER = "{{snippet}}";
+const TAGS_PLACEHOLDER = "{{tags}}";
+
+/** The website widget's guides: exactly one {{snippet}} each. */
+const WIDGET_GUIDES = { dir: PARTIALS_DIR, placeholder: SNIPPET_PLACEHOLDER, required: true, file: "guide.json", index: "guides.json" };
+
+/**
+ * The MCP discovery tags' guides: exactly one {{tags}} each, except on a platform with nowhere to
+ * put head code (`withoutPlaceholder`), whose guide says so instead. The widget adds the tags
+ * itself either way.
+ */
+const AGENT_GUIDES = {
+  dir: AGENT_PARTIALS_DIR,
+  placeholder: TAGS_PLACEHOLDER,
+  required: true,
+  withoutPlaceholder: ["godaddy"],
+  file: "agent-guide.json",
+  index: "agent-guides.json",
+};
+
+const PLACEHOLDERS = [SNIPPET_PLACEHOLDER, TAGS_PLACEHOLDER];
+
+function escapeRegExp(text) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
 
 /** Our names, which must never reach a partner's customer. */
 const BRAND = /xapp|studio|stentor/i;
@@ -16,7 +44,9 @@ const BRAND = /xapp|studio|stentor/i;
 /** A screenshot on a line of its own: shown on the help page, dropped from guide.json. */
 const IMAGE_LINE = /^[ \t]*!\[[^\]]*\]\([^)]*\)[ \t]*$/gm;
 
-function parseGuide(source) {
+function parseGuide(raw) {
+  // A partial saved with Windows line endings would otherwise fail the placeholder check.
+  const source = raw.replace(/\r\n/g, "\n");
   const match = /^---\n([\s\S]*?)\n---\n/.exec(source);
   if (!match) {
     throw new Error("no front matter");
@@ -40,15 +70,24 @@ function withoutCode(markdown) {
 }
 
 /** Every way the guide would break white-label or read badly in an email. Empty when fine. */
-function validateGuide(platform, markdown) {
+function validateGuide(platform, markdown, kind = WIDGET_GUIDES) {
   const problems = [];
   if (!/^[a-z0-9-]+$/.test(platform)) {
     problems.push(`platform slug "${platform}" must be lowercase letters, digits and dashes`);
   }
-  const placeholders = markdown.split(SNIPPET_PLACEHOLDER).length - 1;
-  const fenced = /```html\n[ \t]*\{\{snippet\}\}\n[ \t]*```/.test(markdown);
-  if (placeholders !== 1 || !fenced) {
-    problems.push("needs exactly one {{snippet}}, alone in an ```html block");
+  const { placeholder } = kind;
+  const placeholders = markdown.split(placeholder).length - 1;
+  const fenced = new RegExp("```html\\n[ \\t]*" + escapeRegExp(placeholder) + "\\n[ \\t]*```").test(markdown);
+  const required = kind.required && !(kind.withoutPlaceholder || []).includes(platform);
+  if (required && (placeholders !== 1 || !fenced)) {
+    problems.push(`needs exactly one ${placeholder}, alone in an \`\`\`html block`);
+  } else if (!required && (placeholders > 1 || (placeholders === 1 && !fenced))) {
+    problems.push(`may have at most one ${placeholder}, alone in an \`\`\`html block`);
+  }
+  for (const other of PLACEHOLDERS.filter((p) => p !== placeholder)) {
+    if (markdown.includes(other)) {
+      problems.push(`has ${other}, which only the other kind of guide fills`);
+    }
   }
   if (BRAND.test(markdown)) {
     problems.push(`mentions a brand name (${BRAND.exec(markdown)[0]})`);
@@ -68,7 +107,7 @@ function validateGuide(platform, markdown) {
   return problems;
 }
 
-function loadGuides(dir = PARTIALS_DIR) {
+function loadGuides(dir = PARTIALS_DIR, kind = WIDGET_GUIDES) {
   const files = fs
     .readdirSync(dir)
     .filter((file) => file.endsWith(".md") && file !== "README.md")
@@ -80,7 +119,7 @@ function loadGuides(dir = PARTIALS_DIR) {
     try {
       const { title, body } = parseGuide(fs.readFileSync(path.join(dir, file), "utf8"));
       const markdown = toPartnerMarkdown(body);
-      problems.push(...validateGuide(platform, markdown).map((problem) => `${file}: ${problem}`));
+      problems.push(...validateGuide(platform, markdown, kind).map((problem) => `${file}: ${problem}`));
       guides.push({ platform, title, markdown });
     } catch (error) {
       problems.push(`${file}: ${error.message}`);
@@ -92,26 +131,47 @@ function loadGuides(dir = PARTIALS_DIR) {
   return guides;
 }
 
-function writeGuideFiles(outDir, guides, commit) {
+/**
+ * Every widget guide's platform has an agent guide, and no agent guide is for a platform with no
+ * widget guide: the partner API offers the same platforms for both.
+ */
+function checkAgentCoverage(widgetGuides, agentGuides) {
+  const widget = new Set(widgetGuides.map((g) => g.platform));
+  const agent = new Set(agentGuides.map((g) => g.platform));
+  const problems = [
+    ...[...widget].filter((p) => !agent.has(p)).map((p) => `no agent guide for ${p}`),
+    ...[...agent].filter((p) => !widget.has(p)).map((p) => `the agent guide for ${p} has no widget guide`),
+  ];
+  if (problems.length) {
+    throw new Error(`Install guides don't match:\n  ${problems.join("\n  ")}`);
+  }
+}
+
+function writeGuideFiles(outDir, guides, commit, kind = WIDGET_GUIDES) {
   const installDir = path.join(outDir, "help/install");
   const index = { commit, guides: [] };
   for (const guide of guides) {
     const dir = path.join(installDir, guide.platform);
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, "guide.json"), `${JSON.stringify({ ...guide, commit }, null, 2)}\n`);
+    fs.writeFileSync(path.join(dir, kind.file), `${JSON.stringify({ ...guide, commit }, null, 2)}\n`);
     index.guides.push({
       platform: guide.platform,
       title: guide.title,
-      path: `/help/install/${guide.platform}/guide.json`,
+      path: `/help/install/${guide.platform}/${kind.file}`,
     });
   }
   fs.mkdirSync(installDir, { recursive: true });
-  fs.writeFileSync(path.join(installDir, "guides.json"), `${JSON.stringify(index, null, 2)}\n`);
+  fs.writeFileSync(path.join(installDir, kind.index), `${JSON.stringify(index, null, 2)}\n`);
 }
 
 module.exports = {
+  AGENT_GUIDES,
+  AGENT_PARTIALS_DIR,
+  checkAgentCoverage,
   PARTIALS_DIR,
   SNIPPET_PLACEHOLDER,
+  TAGS_PLACEHOLDER,
+  WIDGET_GUIDES,
   loadGuides,
   parseGuide,
   toPartnerMarkdown,

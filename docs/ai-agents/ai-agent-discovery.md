@@ -82,7 +82,7 @@ Your app ID is in [XAPP AI Studio](https://studio.xapp.ai). The link to this pag
 <link rel="mcp-server-card" href="https://agentic.xapp.ai/YOUR_APP_ID/mcp/server-card">
 ```
 
-Most site builders have a place for code in the header; the [installation guides](/help/install) show where it is on each one. The tags don't conflict with the widget: when a page already has them, the widget leaves them as they are and adds none of its own.
+Each platform's [installation guide](/help/install) shows where its header code goes: [WordPress](/help/install/wordpress), [Wix](/help/install/wix), [Squarespace](/help/install/squarespace), [Shopify](/help/install/shopify), [Duda](/help/install/duda), [Framer](/help/install/framer), [Hostinger](/help/install/zyro), [Drupal](/help/install/drupal) and [Joomla](/help/install/joomla). GoDaddy Website Builder has nowhere to put header code, so there the widget's own tags do the job. The tags don't conflict with the widget: when a page already has them, the widget leaves them as they are and adds none of its own.
 
 ## Options for each business
 

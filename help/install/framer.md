@@ -6,12 +6,15 @@ hide_title: true
 
 
 import Guide from "./_partials/framer.md";
+import AgentGuide from "./_agent-partials/framer.md";
 import Keys from "./_keys.mdx";
 import Search from "./_search.mdx";
 
-{/* The steps are the partner install guide in _partials; edit them there. */}
+{/* The steps are the partner install guides in _partials and _agent-partials; edit them there. */}
 
 <Guide />
+
+<AgentGuide />
 
 <Keys />
 
