@@ -17,9 +17,9 @@ This API is used by the application's runtime environment to query content and a
 
 It also has a more limited version of the GraphQL API that allows you to CRUD entities, intents, handlers for a specific  It is meant for machine to machine communication and leverages a long-lived access token, which you can generate in Studio.  
 
-__[Read More](/docs/development/api/cms)__
-
-**Reference:** [api.xapp.ai/cms/docs](https://api.xapp.ai/cms/docs) lists every CMS endpoint; the spec is at [api.xapp.ai/cms/openapi.json](https://api.xapp.ai/cms/openapi.json).
+- **Guide:** [CMS](/docs/development/api/cms)
+- **Reference:** [api.xapp.ai/cms/docs](https://api.xapp.ai/cms/docs)
+- **OpenAPI spec:** [api.xapp.ai/cms/openapi.json](https://api.xapp.ai/cms/openapi.json)
 
 ## Partner
 

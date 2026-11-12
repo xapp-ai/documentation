@@ -4,21 +4,21 @@ title: GoDaddy Website Builder
 
 # Help AI assistants find your business on GoDaddy Website Builder
 
-AI assistants such as ChatGPT, Claude and Gemini can ask your business questions and send you leads directly, through a connection made for AI agents. When the website widget loads, it adds tags to your page that tell assistants where that connection is. Some assistants read a page without running its scripts, so they never see those tags. Adding the same tags to your site's page header reaches them too. Having the tags in both places does no harm: when the page already has them, the widget leaves them as they are.
+AI assistants such as ChatGPT, Claude and Gemini can ask your business questions and send you leads directly, through a connection made for AI agents. When the website widget loads, it adds tags to your page that tell assistants where that connection is.
 
-## Steps
+On other platforms you can also add these tags to the page header, for assistants that read a page without running its scripts. GoDaddy Website Builder doesn't allow code in the page header: custom code only goes in a section on a page. So there is nothing to add here. The website widget's own tags do the job.
 
-There is nothing to add on GoDaddy Website Builder. It only takes custom code in a section on a page, not in the page header, so the tags can't go there.
+## What to do
 
-The website widget adds the tags for you when it loads, so assistants that run your page's scripts still find your business.
+Make sure the website widget is installed and showing on your site. That is all GoDaddy Website Builder needs.
 
 ## Check it worked
 
-1. Open your website in a browser.
-2. View the page source (`Ctrl+U` on Windows, `Option+Cmd+U` on a Mac).
-3. Search for `mcp-server`. You should find it near the top of the page, in the header.
+1. Open your website in a browser and wait for the website widget to appear.
+2. Open the browser's developer tools (`F12` on Windows, `Option+Cmd+I` on a Mac) and look at the `Elements` tab.
+3. Search for `mcp-server`. You should find it inside the page's `<head>`, added by the widget.
 
 ## Troubleshooting
 
-- **The tags don't appear:** make sure you published or saved the change, then clear your browser cache and reload.
-- **The tags are in the page body, not the header:** move them into the header setting, not a section or block on the page.
+- **No `mcp-server` tag:** check that the website widget appears on your site. The tags come with it, so if the widget isn't loading, they aren't there either.
+- **You searched the page source instead:** the page source shows the page before its scripts run, so it won't have the widget's tags. Use the developer tools as above.

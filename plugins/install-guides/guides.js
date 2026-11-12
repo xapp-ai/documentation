@@ -36,7 +36,9 @@ const BRAND = /xapp|studio|stentor/i;
 /** A screenshot on a line of its own: shown on the help page, dropped from guide.json. */
 const IMAGE_LINE = /^[ \t]*!\[[^\]]*\]\([^)]*\)[ \t]*$/gm;
 
-function parseGuide(source) {
+function parseGuide(raw) {
+  // A partial saved with Windows line endings would otherwise fail the placeholder check.
+  const source = raw.replace(/\r\n/g, "\n");
   const match = /^---\n([\s\S]*?)\n---\n/.exec(source);
   if (!match) {
     throw new Error("no front matter");
@@ -120,6 +122,22 @@ function loadGuides(dir = PARTIALS_DIR, kind = WIDGET_GUIDES) {
   return guides;
 }
 
+/**
+ * Every widget guide's platform has an agent guide, and no agent guide is for a platform with no
+ * widget guide: the partner API offers the same platforms for both.
+ */
+function checkAgentCoverage(widgetGuides, agentGuides) {
+  const widget = new Set(widgetGuides.map((g) => g.platform));
+  const agent = new Set(agentGuides.map((g) => g.platform));
+  const problems = [
+    ...[...widget].filter((p) => !agent.has(p)).map((p) => `no agent guide for ${p}`),
+    ...[...agent].filter((p) => !widget.has(p)).map((p) => `the agent guide for ${p} has no widget guide`),
+  ];
+  if (problems.length) {
+    throw new Error(`Install guides don't match:\n  ${problems.join("\n  ")}`);
+  }
+}
+
 function writeGuideFiles(outDir, guides, commit, kind = WIDGET_GUIDES) {
   const installDir = path.join(outDir, "help/install");
   const index = { commit, guides: [] };
@@ -140,6 +158,7 @@ function writeGuideFiles(outDir, guides, commit, kind = WIDGET_GUIDES) {
 module.exports = {
   AGENT_GUIDES,
   AGENT_PARTIALS_DIR,
+  checkAgentCoverage,
   PARTIALS_DIR,
   SNIPPET_PLACEHOLDER,
   TAGS_PLACEHOLDER,

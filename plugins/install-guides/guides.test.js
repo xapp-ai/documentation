@@ -6,6 +6,7 @@ const path = require("node:path");
 
 const {
   AGENT_GUIDES,
+  checkAgentCoverage,
   PARTIALS_DIR,
   SNIPPET_PLACEHOLDER,
   TAGS_PLACEHOLDER,
@@ -54,6 +55,13 @@ describe("parseGuide", () => {
 
   test("throws without front matter", () => {
     assert.throws(() => parseGuide("# No front matter"), /no front matter/);
+  });
+
+  test("reads a file saved with Windows line endings the same as one without", () => {
+    const guide = parseGuide(GOOD.replace(/\n/g, "\r\n"));
+    assert.equal(guide.title, "Drupal");
+    assert.ok(!guide.body.includes("\r"));
+    assert.deepEqual(validateGuide("drupal", toPartnerMarkdown(guide.body)), []);
   });
 
   test("throws without a title", () => {
@@ -198,6 +206,26 @@ describe("agent guides", () => {
     assert.match(validateGuide("drupal", `${markdown}\n\nSee [x](/y).`, AGENT_GUIDES).join("\n"), /link/);
   });
 
+  test("the build refuses a widget platform without an agent guide, and an agent guide for no widget", () => {
+    const g = (platform) => ({ platform, title: platform, markdown: "" });
+    assert.doesNotThrow(() => checkAgentCoverage([g("drupal"), g("wix")], [g("drupal"), g("wix")]));
+    assert.throws(() => checkAgentCoverage([g("drupal"), g("wix")], [g("drupal")]), /no agent guide for wix/);
+    assert.throws(() => checkAgentCoverage([g("drupal")], [g("drupal"), g("zyro")]), /agent guide for zyro has no widget guide/);
+  });
+
+  test("share their intro, check and troubleshooting word for word, apart from GoDaddy's", () => {
+    const sections = (markdown) => {
+      const intro = markdown.split("\n\n")[1];
+      const tail = markdown.slice(markdown.indexOf("## Check it worked"));
+      return { intro, tail };
+    };
+    const guides = loadGuides(AGENT_GUIDES.dir, AGENT_GUIDES).filter((g) => g.platform !== "godaddy");
+    const first = sections(guides[0].markdown);
+    for (const guide of guides) {
+      assert.deepEqual(sections(guide.markdown), first, `${guide.platform} differs`);
+    }
+  });
+
   test("every agent guide in the repo follows the rules, one for each widget guide's platform", () => {
     const agent = loadGuides(AGENT_GUIDES.dir, AGENT_GUIDES).map((g) => g.platform);
     const widget = loadGuides(PARTIALS_DIR).map((g) => g.platform);
@@ -251,6 +279,11 @@ describe("remarkSnippet", () => {
     const tree = { type: "root", children: [{ type: "code", lang: "html", value: TAGS_PLACEHOLDER }] };
     remarkSnippet({ snippet: "<script></script>", tags: "<link rel=\"mcp-server\">" })(tree);
     assert.equal(tree.children[0].value, "<link rel=\"mcp-server\">");
+  });
+
+  test("throws on a {{tags}} block when it was given no tags, rather than show the placeholder", () => {
+    const tree = { type: "root", children: [{ type: "code", lang: "html", value: TAGS_PLACEHOLDER }] };
+    assert.throws(() => remarkSnippet({ snippet: "<script></script>" })(tree), /tags/);
   });
 
   test("throws without a snippet, so a misconfigured site fails to build", () => {
