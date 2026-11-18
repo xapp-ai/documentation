@@ -33,6 +33,10 @@ A few things to know:
 - **Only invoiced revenue counts.** A quoted value shows in Quoted Pipeline, but it doesn't count toward Revenue or ROI until you record an invoiced value.
 - **Your XAPP subscription is included in Lead Costs** when a subscription cost is set for your account. It's calculated per lead: your last 30 days of subscription divided by the leads you received in those 30 days. If no subscription cost is set, it's left out rather than guessed.
 
+### Before you track revenue
+
+Until a lead in the selected period has a quoted or invoiced value, the four cards show a dash (—) instead of numbers, with a short note pointing you here. Once you record a value on any lead, the cards fill in.
+
 ### Why you may see N/A
 
 The ROI card shows **N/A** when:
