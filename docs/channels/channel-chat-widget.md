@@ -33,7 +33,7 @@ There are three primary ways to install the widget on a website; WordPress plugi
 
 ### WordPress Plugin
 
-We provide a WordPress plugin that makes it easy to install the chat widget and intelligent search bar.  If you have a WordPress site, this is our recommended approach.
+We provide a WordPress plugin that makes it easy to install the widget, including the AI Chat Agent and the Book Online button.  If you have a WordPress site, this is our recommended approach.
 
 #### Read More
 

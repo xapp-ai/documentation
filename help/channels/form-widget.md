@@ -7,7 +7,7 @@ The form widget allows you to quickly add an AI powered contact and scheduling (
 
 ## Installation
 
-- **WordPress**: [Install Form Widget on WordPress](/help/install/wordpress)
+- **WordPress**: the [WordPress plugin](/help/install/wordpress) loads the form through your chat widget's Widget Key, so you don't need a separate form key
 - **Drupal**: [Install Form Widget on Drupal](/help/install/drupal)
 - **Shopify**: [Install Form Widget on Shopify](/help/install/shopify)
 - **Wix**: [Install Form Widget on Wix](/help/install/wix)

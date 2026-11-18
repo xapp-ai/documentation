@@ -2,53 +2,17 @@
 title: WordPress Plugin
 ---
 
-You can use our OC Studio Integration WordPress plugin to quickly install a chat widget and intelligent search widget to your WordPress site.
+Our WordPress plugin, AI for Home Services (`oc-studio-integration` on wordpress.org), installs the XAPP AI widget on every page of a WordPress site. The widget loads the AI Chat Agent and the Book Online button. Both are configured in XAPP AI Studio, so the plugin only needs the Widget Key.
 
-## Installation
+For step-by-step installation and setup, see [Installation on WordPress](/help/install/wordpress).
 
-There are two primary methods of installation; through the plugin directory or direct upload.
+## What the Plugin Does
 
-### Preferred - Installation through Plugin Directory
+- **Loads the widget** from `https://widget.xapp.ai/xapp-chat-widget.js?key=<Widget Key>` on every page. The key is set under Settings -> XAPP AI.
+- **Per-page widgets (version 1.4 and later)** let you load a different widget on part of a site. For example, you can have one widget per location and a support widget on your support pages, with the default widget everywhere else. A page uses the rule with the longest path its URL starts with. See [Different Widgets on Different Pages](/help/install/wordpress#different-widgets-on-different-pages-multiple-locations).
+- **AI Agent Discovery (version 1.2 and later)** publishes the business's assistant at `/.well-known/mcp/server-card.json` and the related `/.well-known` paths, so AI agents can find it. It's on by default and can be turned off in the plugin's settings. See [AI Agent Discovery](/docs/ai-agents/ai-agent-discovery).
 
-You can install the plugin from the WordPress Plugin Directory, our listing is [here](https://wordpress.org/plugins/oc-studio-integration/)
+## Deprecated Settings
 
-1. Within the plugins section of your WordPress admin console, navigate to "Plugins"
-1. Click "Add New" at the top left corner next to Plugins
-1. In the search bar near the top right corner, search for "OC Studio Integration"
-1. In the results, you will see OC Studio Integration by XAPP AI, click "Install" then "Activate"
-
-### Installation through Plugin Upload
-
-Alternatively, you can upload the plugin directly to your WordPress administrative panel.
-
-1.  Download the plugin here: https://assets.xapp.ai/plugins/oc-studio-integration.zip 
-1.  Within your WP Admin panel, navigate to "Plugins"
-1. Click "Add New" at the top left corner next to Plugins
-1.  Click "Upload Plugin" at the top
-1.  Select Choose File and select the zip you downloaded in the first step.
-
-## Configuration
-
-Once the plugin is installed, you will notice a new menu item under the Tools menu: "OC Studio Integration".
-
-This menu will allow you to copy and paste either your chat widget or search bar's key. 
-
-<div className="centered-image-container">
-<img src="/img/channel/wordpress/wordpress-configuration.png" alt="OC Studio Integration"/>
-</div>
-
-You can find the key to copy-paste to the WordPress configuration on the channel's settings page for both chat and intelligent search.
-
-<div className="centered-image-container">
-<img src="/img/channel/wordpress/wordpress-configuration.png" alt="Find Widget Key"/>
-</div>
-
-### Search
-
-Search integration requires you to setup one (or many) buttons that will enable the search modal when clicked.  The plugin will look for the class `xapp-search-button` and then attach click listeners to the element with the class so that the modal opens when clicked.
-
-
-
-## Different Widgets on Different Pages
-
-Version 1.4 and later can load a different widget on different parts of your site. For example, you can have one widget per location and a support widget on your support pages, with your default widget everywhere else. See [Different Widgets on Different Pages](/help/install/wordpress#different-widgets-on-different-pages-multiple-locations).
+- **Scheduling Widget Key** loaded the standalone form widget from `https://form.xapp.ai`. The widget now loads the scheduling form itself, and it skips its own form when the page already has the form script. While a site still has this key saved, it loads only on pages with no per-page rule. Turn on the scheduling form for the widget in Studio, then clear the key.
+- **Intelligent Search** and its `xapp-search-button` class were removed in version 1.2.
