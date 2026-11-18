@@ -79,7 +79,7 @@ const sidebars = {
     {
       type: "category",
       label: "Leads",
-      items: ["leads/lead-capture"],
+      items: ["leads/lead-capture", "leads/revenue-and-roi"],
     },
     "live-chat/overview",
     /*
