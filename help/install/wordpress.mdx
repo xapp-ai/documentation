@@ -5,14 +5,14 @@ sidebar_label: Wordpress
 
 import AgentGuide from "./_agent-partials/wordpress.md";
 
-If you have a website hosted on WordPress, you can be up and running in minutes leveraging our WordPress plugin.
+If your website runs on WordPress, our free plugin, AI for Home Services, puts the XAPP AI widget on every page of your site. The widget includes your AI Chat Agent and your Book Online button. All you need is your Widget Key.
 
 ## Prerequisites
 
 Before proceeding, ensure that you have:
 
 - Administrative access to your WordPress website.
-- WordPress version 4.6 or higher installed.
+- WordPress version 4.7 or higher, and PHP 7.2 or higher.
 
 ## Installation
 
@@ -35,98 +35,95 @@ Before proceeding, ensure that you have:
 
 5. **Activate the Plugin**: After installation, click on `Activate` to enable the plugin on your WordPress site.
 
-6. **Configure the Plugin**: Navigate to AI for Home Services settings from the WordPress admin side by: "Tools" --> "XAPP AI Settings"
+### Method 2: Uploading the Plugin
 
-7. **Paste in your Keys**: For each key, you will need to copy paste your keys from each channel.
+1. **Download the Plugin**: Visit the [AI for Home Services plugin page](https://wordpress.org/plugins/oc-studio-integration/) and click `Download`.
+
+2. **Upload It**: In your WordPress admin dashboard, go to `Plugins > Add New`, click `Upload Plugin`, choose the `.zip` file you downloaded, and click `Install Now`. You can also unzip it and upload the folder to `/wp-content/plugins/` over FTP.
+
+3. **Activate the Plugin**: Go to `Plugins`, find `AI for Home Services` in the list, and click `Activate`.
+
+## Configure the Plugin
+
+1. In your WordPress admin dashboard, go to `Settings > XAPP AI`.
+
+2. Paste your **Widget Key** into the Widget Key field. If you came here from XAPP AI Studio, your key is shown below.
 
    <KeyDisplay />
 
-   - [How to Find the Chat Widget Key](/help/channels/chat-widget#finding-code-snippet--key)
-   - [How to Find the Intelligent Search Key](/help/channels/intelligent-search#finding-code-snippet--key)
-   - [How to Find the Form/Scheduling Widget Key](/help/channels/form-widget#finding-code-snippet--key)
+   Otherwise, see [How to Find the Widget Key](/help/channels/chat-widget#finding-code-snippet--key).
 
-8. **Save Changes**: After saving your changes, your configured widgets should appear.
+3. Click `Save Changes`. Your widget will appear in the lower right corner of every page on your site. If you use a caching plugin, clear its cache, then reload the page in a private window.
 
-   <div className="centered-image-container">
-     <img
-       src="/img/channel/wordpress/wordpress-settings-updated.png"
-       alt="Widget Key"
-     />
-   </div>
+You configure what the widget shows, such as the AI Chat Agent's greeting, colors and position, and your Book Online button, in XAPP AI Studio. You don't need to change anything in WordPress.
 
-### Method 2: Manual Installation via FTP
+:::note
+Older versions of the plugin had separate keys for a Scheduling Widget and for Intelligent Search. Intelligent Search was removed in version 1.2. The Scheduling Widget Key is deprecated, because the widget now loads your scheduling form. If you still have one saved, see the note at the end of the next section.
+:::
 
-1. **Download the Plugin**: Visit [AI for Home Services Plugin Page](https://wordpress.org/plugins/oc-studio-integration/) and download the latest version of the plugin.
+## Different Widgets on Different Pages (Multiple Locations)
 
-2. **Unzip the Plugin**: Extract the downloaded `.zip` file to a folder on your computer.
+With version 1.4 and later, the plugin can load a different widget on different parts of your site. For example:
 
-3. **Upload via FTP**: Using an FTP client, upload the extracted plugin folder to the `/wp-content/plugins/` directory on your WordPress server.
+- one widget per location, on each location's pages
+- a support widget on your support pages
+- your default widget everywhere else, such as your home and service pages
 
-4. **Activate the Plugin**: Log in to your WordPress admin dashboard, navigate to `Plugins`, and find `OC Studio Integration` in the list. Click `Activate`.
+Leads from a location's pages then go to that location. You set this up in the **Per-page widgets (advanced)** section of the plugin's settings page. The **Widget Key** at the top of that page stays your site-wide default.
 
-## Configure the WordPress Plugin
+### How Pages Are Matched
 
-We will need to configure the plugin with the special keys for your chat and search (optional) widgets.
+Each rule has a **Path**, a **Widget Key**, and an optional **Label**. The label is a note for you, so you can tell your rules apart. It only shows on the settings page.
 
-Within the WordPress Admin panel, navigate to the new OC Studio Settings page found under the Tools settings. The same settings page can be found under Settings -> XAPP AI.
+- A rule covers its path and every page under it. A rule for `/north-side/` covers `/north-side/pest-control/` too.
+- Paths match whole segments only. `/north/` does not cover `/north-side/`.
+- When more than one rule fits a page, the longest path wins. This means a rule for one neighborhood page can sit inside a broader rule for its area.
+- Capital letters, query strings such as `?utm_source=google`, and a missing trailing slash are all ignored. You can also paste a full URL, and the plugin keeps only its path.
+- Pages that no rule covers load the default Widget Key.
 
-Find the keys within studio, and paste them into your plugin configuration page.
+### Adding Rules
 
-- [How to Find the Chat Widget Key](/help/channels/chat-widget#finding-code-snippet--key)
-- [How to Find the Intelligent Search Key](/help/channels/intelligent-search#finding-code-snippet--key)
-- [How to Find the Form/Scheduling Widget Key](/help/channels/form-widget#finding-code-snippet--key)
+1. In the WordPress Admin panel, go to Settings -> XAPP AI and scroll to **Per-page widgets (advanced)**.
+2. Click **Add rule**. Fill in the Path and that page's Widget Key, and optionally a Label. See [How to Find the Widget Key](/help/channels/chat-widget#finding-code-snippet--key).
+3. Repeat for each rule, then click **Save Changes**.
 
-A completed plugin configuration will look like the follow:
+To delete a rule, click **Remove** on its row, then click **Save Changes**.
 
-<div className="centered-image-container">
-  <img
-    src="/img/channel/wordpress/wordpress-settings-updated.png"
-    alt="Widget Key"
-  />
-</div>
+### Quick Import
 
-The chat widget will not appear, by default, in the lower right hand corner of every page on your website.
+If you have many rules, you can paste them all at once instead of adding them one by one. Put one rule per line in the **Quick import** box, in this order: path, widget key, label.
 
-## Setting Up a Search Button
+```text
+# path, widget key, label
+/north-side/, NORTH_SIDE_WIDGET_KEY, North Side office
+/south-side/, SOUTH_SIDE_WIDGET_KEY, South Side office
+/support/, SUPPORT_WIDGET_KEY, Support
+```
 
-In order for the search widget to be trigger, you will need to setup at least one button with the `xapp-search-button` class setting.
+- You can separate the fields with commas or with tabs. Tabs mean you can copy the rows straight out of a spreadsheet.
+- Blank lines and lines starting with `#` are ignored.
+- If two lines have the same path, only the first one is used.
 
-### Menu Item
+Click **Preview** to check the lines, then choose one of these:
 
-The most straight forward way to add a search bar button is by a menu item.
+- **Replace all rules** swaps your current rules for the imported ones.
+- **Merge (same path overwrites)** adds the imported rules to the ones you already have. An imported line replaces any existing rule with the same path.
 
-1.  In your WordPress Admin panel, go to Appearance, then Menus.
-2.  Select the menu you want to edit
-3.  Under "Add menu items, expand "Custom Links"
+Click **Save Changes** to keep the imported rules.
 
-    <div className="centered-image-container">
-      <img
-        src="/img/channel/wordpress/wordpress-adding-custom-link-to-menu.png"
-        alt="Custom Link"
-      />
-    </div>
+### Remembering the Visitor's Location
 
-4.  The URL does not matter as it will not be followed but is required, for the Link Text you can put "Search" or "🔍".
-5.  Click "Add to Menu" and you will see it at the bottom of the menu you are editing.
-6.  Scroll to the top of the page and click "Screen Options", then within that menu select "CSS Classes"
+Turn on **Remember the visitor's location for their visit** if your location pages link to shared pages such as `/contact/` or `/get-a-quote/`. With it on, a visitor who opened a page with a rule, such as a location page, keeps that rule's widget on pages that no rule covers. This lasts until they close the browser tab.
 
-    <div className="centered-image-container">
-      <img
-        src="/img/channel/wordpress/wordpress-turn-on-css.png"
-        alt="Turn on CSS"
-      />
-    </div>
+Pages that a rule covers always use that rule. The setting is stored in the visitor's browser, so it keeps working with page caching plugins.
 
-7.  Scroll back down to your newly added menu item and expand menu to edit. In the field "CSS Classes (optional)" add "xapp-search-button". This is how the search code will find the button. Note: You can also remove the URL at this point if you want. It was only required to add the menu item.
+### Testing a Page
 
-    <div className="centered-image-container">
-      <img
-        src="/img/channel/wordpress/wordpress-search-button-config.png"
-        alt="Search Menu Item Config"
-      />
-    </div>
+To check which widget will load on a page, enter its URL in **Test a URL** and click **Which widget loads here?** The test uses the rules on the settings page as they are now, including changes you haven't saved. Once you save, open a few of the pages in a private window to confirm the right widget appears. If you use a caching plugin, clear its cache first.
 
-8.  Save and then verify by clicking on the new menu button on your home page. A search widget will appear when you click.
+:::note
+The separate **Scheduling Widget Key** is deprecated, because your widget now loads your scheduling form. If you still have one saved, it appears on the settings page marked as deprecated. While it's set, it loads on pages without a rule. To stop using it, turn on the scheduling form for your widget in XAPP AI Studio, then clear the key and save.
+:::
 
 <AgentGuide />
 
