@@ -48,3 +48,7 @@ You can find the key to copy-paste to the WordPress configuration on the channel
 Search integration requires you to setup one (or many) buttons that will enable the search modal when clicked.  The plugin will look for the class `xapp-search-button` and then attach click listeners to the element with the class so that the modal opens when clicked.
 
 
+
+## Different Widgets on Different Pages
+
+For a website with several locations, version 1.3 and later can load a different chat and scheduling widget on each location's pages, with a default for the rest of the site. See [Different Widgets on Different Pages](/help/install/wordpress#different-widgets-on-different-pages-multiple-locations).
