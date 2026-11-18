@@ -130,40 +130,41 @@ The most straight forward way to add a search bar button is by a menu item.
 
 ## Different Widgets on Different Pages (Multiple Locations)
 
-If your business has several locations on one website, the plugin (version 1.3 and later) can load each location's chat and scheduling widgets on that location's pages. Leads from those pages then go to the right location, and the rest of your site keeps using your default widgets.
+With version 1.4 and later, the plugin can load a different widget on different parts of your site. For example:
 
-You set this up in the **Per-page widgets (advanced)** section of the plugin's settings page. The keys at the top of that page stay your site-wide defaults.
+- one widget per location, on each location's pages
+- a support widget on your support pages
+- your default widget everywhere else, such as your home and service pages
+
+Leads from a location's pages then go to that location. You set this up in the **Per-page widgets (advanced)** section of the plugin's settings page. The **Widget Key** at the top of that page stays your site-wide default.
 
 ### How Pages Are Matched
 
-Each rule has a **Path**, a **Chat Widget Key**, a **Scheduling Widget Key**, and an optional **Label** so you can tell the rules apart.
+Each rule has a **Path**, a **Widget Key**, and an optional **Label**. The label is a note for you, so you can tell your rules apart. It only shows on the settings page.
 
-- A rule covers its path and every page under it. A rule for `/locations/texas/dallas/` covers `/locations/texas/dallas/pest-control/` too.
-- Paths match whole segments only. `/locations/texas/dallas/` does not cover `/locations/texas/dallas-fort-worth/`.
-- When more than one rule fits a page, the longest path wins. This means a rule for a single city page can sit inside a broader rule for its state.
+- A rule covers its path and every page under it. A rule for `/north-side/` covers `/north-side/pest-control/` too.
+- Paths match whole segments only. `/north/` does not cover `/north-side/`.
+- When more than one rule fits a page, the longest path wins. This means a rule for one neighborhood page can sit inside a broader rule for its area.
 - Capital letters, query strings such as `?utm_source=google`, and a missing trailing slash are all ignored. You can also paste a full URL, and the plugin keeps only its path.
-- Pages that no rule covers load the default keys.
-- If you leave a key blank in a rule, that widget doesn't load on the rule's pages. For example, a blank Scheduling Widget Key shows only the chat on those pages.
+- Pages that no rule covers load the default Widget Key.
 
 ### Adding Rules
 
 1. In the WordPress Admin panel, go to Settings -> XAPP AI and scroll to **Per-page widgets (advanced)**.
-2. Click **Add rule** and fill in the Path, the location's keys, and a Label.
-   - [How to Find the Chat Widget Key](/help/channels/chat-widget#finding-code-snippet--key)
-   - [How to Find the Form/Scheduling Widget Key](/help/channels/form-widget#finding-code-snippet--key)
-3. Repeat for each location, then click **Save Changes**.
+2. Click **Add rule**. Fill in the Path and that page's Widget Key, and optionally a Label. See [How to Find the Widget Key](/help/channels/chat-widget#finding-code-snippet--key).
+3. Repeat for each rule, then click **Save Changes**.
 
 To delete a rule, click **Remove** on its row, then click **Save Changes**.
 
 ### Quick Import
 
-If you have many locations, you can paste all of them at once instead of adding rules one by one. Put one rule per line in the **Quick import** box, in this order: path, chat widget key, scheduling widget key, label.
+If you have many rules, you can paste them all at once instead of adding them one by one. Put one rule per line in the **Quick import** box, in this order: path, widget key, label.
 
 ```text
-# path, chat widget key, scheduling widget key, label
-/locations/texas/dallas/, CHAT_KEY_DALLAS, FORM_KEY_DALLAS, Dallas
-/locations/texas/houston/, CHAT_KEY_HOUSTON, FORM_KEY_HOUSTON, Houston
-/locations/oklahoma/tulsa/, CHAT_KEY_TULSA, , Tulsa (chat only)
+# path, widget key, label
+/north-side/, NORTH_SIDE_WIDGET_KEY, North Side office
+/south-side/, SOUTH_SIDE_WIDGET_KEY, South Side office
+/support/, SUPPORT_WIDGET_KEY, Support
 ```
 
 - You can separate the fields with commas or with tabs. Tabs mean you can copy the rows straight out of a spreadsheet.
@@ -179,13 +180,17 @@ Click **Save Changes** to keep the imported rules.
 
 ### Remembering the Visitor's Location
 
-Turn on **Remember the visitor's location for their visit** if your location pages link to shared pages such as `/contact/` or `/get-a-quote/`. With it on, a visitor who opened a location's page keeps that location's widgets on pages that no rule covers. This lasts until they close the browser tab.
+Turn on **Remember the visitor's location for their visit** if your location pages link to shared pages such as `/contact/` or `/get-a-quote/`. With it on, a visitor who opened a page with a rule, such as a location page, keeps that rule's widget on pages that no rule covers. This lasts until they close the browser tab.
 
 Pages that a rule covers always use that rule. The setting is stored in the visitor's browser, so it keeps working with page caching plugins.
 
 ### Testing a Page
 
-To check which widgets will load on a page, enter its URL in **Test a URL** and click **Which widgets load here?** The test uses the rules on the settings page as they are now, including changes you haven't saved. Once you save, open a few location pages in a private window to confirm the right widgets appear. If you use a caching plugin, clear its cache first.
+To check which widget will load on a page, enter its URL in **Test a URL** and click **Which widget loads here?** The test uses the rules on the settings page as they are now, including changes you haven't saved. Once you save, open a few of the pages in a private window to confirm the right widget appears. If you use a caching plugin, clear its cache first.
+
+:::note
+The separate **Scheduling Widget Key** is deprecated, because your widget now loads your scheduling form. If you still have one saved, it appears on the settings page marked as deprecated. While it's set, it loads on pages without a rule. To stop using it, turn on the scheduling form for your widget in XAPP AI Studio, then clear the key and save.
+:::
 
 <AgentGuide />
 

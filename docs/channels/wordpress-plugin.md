@@ -51,4 +51,4 @@ Search integration requires you to setup one (or many) buttons that will enable 
 
 ## Different Widgets on Different Pages
 
-For a website with several locations, version 1.3 and later can load a different chat and scheduling widget on each location's pages, with a default for the rest of the site. See [Different Widgets on Different Pages](/help/install/wordpress#different-widgets-on-different-pages-multiple-locations).
+Version 1.4 and later can load a different widget on different parts of your site. For example, you can have one widget per location and a support widget on your support pages, with your default widget everywhere else. See [Different Widgets on Different Pages](/help/install/wordpress#different-widgets-on-different-pages-multiple-locations).
