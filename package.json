@@ -12,11 +12,11 @@
     "test": "node --test \"plugins/**/*.test.js\""
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.1",
-    "@docusaurus/module-type-aliases": "3.9.1",
-    "@docusaurus/plugin-content-docs": "3.9.1",
-    "@docusaurus/preset-classic": "3.9.1",
-    "@docusaurus/theme-mermaid": "3.9.1",
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/plugin-content-docs": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@docusaurus/theme-mermaid": "3.10.2",
     "@mdx-js/react": "^3.1.1",
     "@tsconfig/docusaurus": "2.0.4",
     "@types/react": "19.2.2",
