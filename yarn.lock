@@ -1496,7 +1496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.25.9, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.25.9, @babel/runtime@npm:^7.8.4":
   version: 7.26.0
   resolution: "@babel/runtime@npm:7.26.0"
   dependencies:
@@ -4385,26 +4385,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xapp/chat-widget-core@npm:1.97.0":
-  version: 1.97.0
-  resolution: "@xapp/chat-widget-core@npm:1.97.0"
+"@xapp/chat-widget-core@npm:1.106.1":
+  version: 1.106.1
+  resolution: "@xapp/chat-widget-core@npm:1.106.1"
   peerDependencies:
     react: ^18.0.0 || ^19.0.0
     react-dom: ^18.0.0 || ^19.0.0
-  checksum: 10c0/b21ce4fc6bcda080d622fdb5b72aeb10257b2a40c26f7c3b7af30b860a115c0e1f53315bdd6f5e9ae0efc8bfdf36d71709d1da6d9d945dcb2d2b74413834a059
+  checksum: 10c0/be668ab705ae7f4232bdaabc5ccb5af47902ff6b92f3b0788741bb1728a64e711e588a10c42e96ef49e3a8c0c8221d1d85876ef3f2f821b20efc372d5edeb74f
   languageName: node
   linkType: hard
 
-"@xapp/chat-widget@npm:1.104.0":
-  version: 1.104.0
-  resolution: "@xapp/chat-widget@npm:1.104.0"
+"@xapp/chat-widget@npm:1.115.1":
+  version: 1.115.1
+  resolution: "@xapp/chat-widget@npm:1.115.1"
   dependencies:
     "@microsoft/fetch-event-source": "npm:^2.0.1"
     "@rollup/plugin-replace": "npm:5.0.7"
-    "@xapp/chat-widget-core": "npm:1.97.0"
-    "@xapp/stentor-chat-widget": "npm:1.101.0"
-    date-fns: "npm:2.30.0"
-    socket.io-client: "npm:4.8.3"
+    "@xapp/chat-widget-core": "npm:1.106.1"
+    "@xapp/stentor-chat-widget": "npm:1.108.0"
+    socket.io-client: "npm:4.8.4"
     store: "npm:2.0.12"
     tslib: "npm:2.8.1"
   peerDependencies:
@@ -4412,7 +4411,7 @@ __metadata:
     react-dom: ^18.0.0 || ^19.0.0
     react-redux: ^9.0.0
     stentor-models: ^1.0.0
-  checksum: 10c0/35f27cf282b78685530302a481a6bcc74670e1ff59e625c05a4fbdb5de5b6c5e979a3768cd513f1180bfdc99cb48901c63841433ffc49e6ade1810d8c658cbcc
+  checksum: 10c0/dd9b6a442fe8672acf3fc32a9ea5b4615d8319855b018f42e255c293d48bce15c1d14e6916fa3ddedd666adb7d918581d0c5ce8b680996f08470d476dfdd6399
   languageName: node
   linkType: hard
 
@@ -4423,15 +4422,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xapp/stentor-chat-widget@npm:1.101.0":
-  version: 1.101.0
-  resolution: "@xapp/stentor-chat-widget@npm:1.101.0"
+"@xapp/stentor-chat-widget@npm:1.108.0":
+  version: 1.108.0
+  resolution: "@xapp/stentor-chat-widget@npm:1.108.0"
   dependencies:
-    stentor-guards: "npm:1.74.5"
+    stentor-guards: "npm:1.74.11"
   peerDependencies:
     react: ^18.0.0 || ^19.0.0
     stentor-models: ^1.0.0
-  checksum: 10c0/957375caa477757c1ed1e10c460e624ad1d74cd219d221707ec4804d8403bbfc0655f02717405e0e17265cb91343b52b5e09d6d9fa21435d7857262442b3ea19
+  checksum: 10c0/4fab008ee15600025a34a058590a094621c46fd82576385d479ac161ae72ba089de5243d733827a73d1cb02b0ae3e9efa57f6f4f2d0f1abfe1361c2c4b48237a
   languageName: node
   linkType: hard
 
@@ -6310,15 +6309,6 @@ __metadata:
     d3: "npm:^7.9.0"
     lodash-es: "npm:^4.17.21"
   checksum: 10c0/0dc91fc79300eb0a4eab5a48a76c2baf3ce439c389d19e2f015729bb57dafd75e1e9a4c2880daf016e81ee45caca7b21745c13b23b6cd2a786ce84767e88323e
-  languageName: node
-  linkType: hard
-
-"date-fns@npm:2.30.0":
-  version: 2.30.0
-  resolution: "date-fns@npm:2.30.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.21.0"
-  checksum: 10c0/e4b521fbf22bc8c3db332bbfb7b094fd3e7627de0259a9d17c7551e2d2702608a7307a449206065916538e384f37b181565447ce2637ae09828427aed9cb5581
   languageName: node
   linkType: hard
 
@@ -10302,7 +10292,7 @@ __metadata:
     "@types/react": "npm:19.2.2"
     "@types/react-helmet": "npm:6.1.11"
     "@types/react-router-dom": "npm:5.3.3"
-    "@xapp/chat-widget": "npm:1.104.0"
+    "@xapp/chat-widget": "npm:1.115.1"
     "@xapp/chat-widget-components": "npm:1.11.2-alpha.0"
     clsx: "npm:2.1.1"
     react: "npm:19.2.0"
@@ -12714,15 +12704,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"socket.io-client@npm:4.8.3":
-  version: 4.8.3
-  resolution: "socket.io-client@npm:4.8.3"
+"socket.io-client@npm:4.8.4":
+  version: 4.8.4
+  resolution: "socket.io-client@npm:4.8.4"
   dependencies:
     "@socket.io/component-emitter": "npm:~3.1.0"
     debug: "npm:~4.4.1"
     engine.io-client: "npm:~6.6.1"
     socket.io-parser: "npm:~4.2.4"
-  checksum: 10c0/76c0d86de0b636d0bf5011cf3425212c900f43dac632db6eb493816920cd035af7ddd92fea9a106b45eb347405953c0414eb3a5d465b180215e46fc8b61420b3
+  checksum: 10c0/53f6266d85e375902f1ca417fb2c9ad523463fcd9c4b7aa66fb31792809c4b0d7b81cb760e9fac1b7cbb7bc4283feb39b37867e8ef2a5dcad99302f71ca2346f
   languageName: node
   linkType: hard
 
@@ -12893,12 +12883,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stentor-constants@npm:1.74.5":
-  version: 1.74.5
-  resolution: "stentor-constants@npm:1.74.5"
+"stentor-constants@npm:1.74.11":
+  version: 1.74.11
+  resolution: "stentor-constants@npm:1.74.11"
   peerDependencies:
     stentor-models: 1.x
-  checksum: 10c0/132979db5932a6969586feb8411fbcb2374e78de159a3944deae74b5d8b81c53ea0faa086d1bf28556439f09ccb7ed6382dae0523185a76e3fb3e9c02b89cc4a
+  checksum: 10c0/2ac98d3bfe22dd567984bb0a11593aca689b73bf0cbc6dfe12c079c60854f7dbb0f8b349b1f921470f569d0b317debd64f0c0405c883723d8218a2fccb301269
   languageName: node
   linkType: hard
 
@@ -12913,14 +12903,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stentor-guards@npm:1.74.5":
-  version: 1.74.5
-  resolution: "stentor-guards@npm:1.74.5"
+"stentor-guards@npm:1.74.11":
+  version: 1.74.11
+  resolution: "stentor-guards@npm:1.74.11"
   dependencies:
-    stentor-constants: "npm:1.74.5"
+    stentor-constants: "npm:1.74.11"
   peerDependencies:
     stentor-models: 1.x
-  checksum: 10c0/379f08b5d7b611a92727cc021e0988eb8131f73a78f2d1241fa471c695eddb857387b1c13eddfdace2a547a30108605598e6dd323b1b52d7fe311280ea0a81ff
+  checksum: 10c0/ad3c7f7293aa8b9c500d966cc9c46b83d9c9b216a16e549aae74df0d2289f68afcbbb865dab381d027a9adb4e83b46fcde964628ab372b40009b4f86983ea507
   languageName: node
   linkType: hard
 
